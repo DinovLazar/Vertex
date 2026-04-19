@@ -378,7 +378,7 @@ export default function Navbar() {
             className="fixed inset-0 z-40 md:hidden"
             style={{ backgroundColor: 'var(--division-bg)' }}
           >
-            <div className="flex flex-col items-center justify-center h-full gap-6 px-6">
+            <div className="flex flex-col items-center gap-5 h-full overflow-y-auto pt-24 pb-10 px-6">
               {mainNavItems.map((item, index) => (
                 <motion.div
                   key={item.href}

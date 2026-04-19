@@ -32,6 +32,19 @@ export function generatePageMetadata({
   })
   languages['x-default'] = `${siteConfig.url}/en${path}`
 
+  // The file-convention image at `src/app/opengraph-image.tsx` is auto-injected
+  // for routes whose `openGraph` block isn't overridden. Since this helper sets
+  // its own `openGraph` block (per-page title/url/locale), Next.js treats the
+  // child object as a full replacement and drops the framework-added images.
+  // We have to repeat the image reference here so every page using this helper
+  // still surfaces a preview card. URLs are resolved against `metadataBase`.
+  const ogImage = {
+    url: '/opengraph-image',
+    width: 1200,
+    height: 630,
+    alt: 'Vertex Consulting — We help businesses grow smarter.',
+  }
+
   return {
     title,
     description,
@@ -46,11 +59,13 @@ export function generatePageMetadata({
       siteName: siteConfig.name,
       type: 'website',
       locale: locale === 'mk' ? 'mk_MK' : 'en_US',
+      images: [ogImage],
     },
     twitter: {
       card: 'summary_large_image',
       title: `${title} | ${siteConfig.name}`,
       description,
+      images: [{ url: '/twitter-image', alt: ogImage.alt }],
     },
     robots: noIndex
       ? { index: false, follow: false }

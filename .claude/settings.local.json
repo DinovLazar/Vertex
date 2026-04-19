@@ -6,7 +6,10 @@
       "Bash(node .claude/skills/impeccable/scripts/cleanup-deprecated.mjs)",
       "mcp__Claude_Preview__preview_start",
       "Bash(xargs wc *)",
-      "Bash(curl -sI -o /dev/null -w \"%{http_code} %{redirect_url}\\\\n\" http://localhost:3000/en)"
+      "Bash(curl -sI -o /dev/null -w \"%{http_code} %{redirect_url}\\\\n\" http://localhost:3000/en)",
+      "Bash(cat)",
+      "Read(//tmp/**)",
+      "Bash(xargs -I {} sh -c 'echo \"=== {} ===\" && grep -n \"text-gray\\\\|bg-gray\\\\|text-white\\\\|bg-white\\\\|text-black\\\\|bg-black\" {}')"
     ]
   }
 }

@@ -271,7 +271,7 @@ export default function Footer() {
         viewport={{ once: true, amount: 0.2 }}
         className="max-w-7xl mx-auto px-6 py-16"
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-8">
           {/* Column 1: Logo, tagline, contact info */}
           <motion.div
             variants={columnVariants}
@@ -282,15 +282,15 @@ export default function Footer() {
               className="inline-block focus-ring"
               aria-label={`${siteConfig.name} ${tCommon('logoAriaSuffix')}`}
             >
-              <span className="font-heading text-h3 font-bold text-[var(--division-text-primary)]">
+              <span className="font-heading text-2xl sm:text-h3 font-bold tracking-tight text-[var(--division-text-primary)]">
                 VERTEX
               </span>
             </Link>
-            <p className="mt-3 text-small text-[var(--division-text-secondary)]">
+            <p className="mt-2 text-small text-[var(--division-text-secondary)] max-w-xs">
               {tCommon('tagline')}
             </p>
 
-            <div className="mt-6 space-y-3">
+            <div className="mt-6 mb-4 sm:mb-0 space-y-3">
               <a
                 href={`https://maps.google.com/?q=${encodeURIComponent(fullAddress)}`}
                 target="_blank"
