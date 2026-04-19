@@ -17,14 +17,14 @@ import {
 // Both ship full Cyrillic + Cyrillic-ext on Google Fonts, so Macedonian
 // (/mk) content renders in brand type instead of the OS fallback.
 const archivo = Archivo({
-  subsets: ['latin', 'latin-ext', 'cyrillic', 'cyrillic-ext'],
+  subsets: ['latin', 'latin-ext'],
   variable: '--font-heading',
   display: 'swap',
   weight: ['400', '500', '600', '700', '800'],
 })
 
 const sourceSerif = Source_Serif_4({
-  subsets: ['latin', 'latin-ext', 'cyrillic', 'cyrillic-ext'],
+  subsets: ['latin', 'latin-ext'],
   variable: '--font-body',
   display: 'swap',
   weight: ['400', '500', '600', '700'],
