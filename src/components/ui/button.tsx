@@ -25,6 +25,12 @@ const buttonVariants = cva(
         xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
         sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
         lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        // Landing-page CTA — larger, font-heading, used by CTABanner / submit
+        // buttons / Hero. Adopted in Session C so site CTAs share the primitive.
+        cta: "h-12 gap-2 px-6 text-sm rounded-[var(--radius-button)] font-heading font-semibold",
+        // Filter / category pill — rounded-full, 44px tall to meet touch-target
+        // floor on mobile. Used by the blog filter row.
+        pill: "h-11 gap-1.5 px-4 rounded-full text-sm font-medium",
         icon: "size-8",
         "icon-xs":
           "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",

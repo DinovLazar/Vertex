@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(grep -oP '\"text\":\\\\s*\"[^\"]+\"' \"C:\\\\\\\\Users\\\\\\\\user\\\\\\\\.claude\\\\\\\\projects\\\\\\\\C--Users-user-Desktop-Vertex-V3\\\\\\\\c0deb20c-bade-4514-900f-c0ab9e175848\\\\\\\\tool-results\\\\\\\\mcp-Claude_Preview-preview_console_logs-1776467392627.txt\")",
+      "Bash(node .claude/skills/impeccable/scripts/cleanup-deprecated.mjs)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(xargs wc *)",
+      "Bash(curl -sI -o /dev/null -w \"%{http_code} %{redirect_url}\\\\n\" http://localhost:3000/en)"
+    ]
+  }
+}

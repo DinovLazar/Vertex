@@ -1,0 +1,84 @@
+# Phase 15E — Shared Pages Translations (About, Contact, Privacy, Thank-you, Blog chrome)
+
+## What was built
+Every shared page that isn't a division — About, Contact, Privacy, Thank-you, Blog listing, and the Blog post template's chrome — now reads through `getTranslations` (server) or `useTranslations` (client). `/mk/about`, `/mk/contact`, `/mk/privacy`, `/mk/thank-you`, `/mk/blog`, and `/mk/blog/[slug]` chrome render fully in Macedonian. Blog post bodies (title, excerpt, content) stay English — that's Phase 15F.
+
+The contact form is fully internationalized — every label, placeholder, select option, validation error, submit button state, success card, privacy notice, and error banner translates. Form validation errors trigger in Macedonian on `/mk/contact`. The Thank-you page got a new "back to home" CTA (new in 15E — previously had no navigation out). The blog post template's inline-Markdown renderer was rebuilt to use locale-aware `Link` so `[some text](/consulting/workflow-restructuring)` inside a post body navigates to `/mk/consulting/workflow-restructuring` when the reader is on `/mk`. Post dates now use next-intl's `useFormatter` for hydration-safe locale formatting.
+
+`TeamGrid.tsx` got the same prop-driven refactor `TeamShowcase.tsx` got in 15D — members come in as a prop from `about.team.members.*`, names stay as proper nouns.
+
+## Files created
+| File | Purpose |
+|------|---------|
+| `src/_project-state/16_phase-15e-shared-pages.md` | This file. |
+
+## Files modified
+| File | What changed |
+|------|-------------|
+| `messages/en.json` | Added 5 new namespaces: `about.*` (meta, hero.overline/headline/paragraphs, values.overline+sectionTitle, team.overline+sectionTitle+sectionSubtitle+4 members, timeline.overline+sectionTitle, ctaBanner); `contact.*` (meta, hero, form with every label/placeholder/error/state/success/notice, info panel with all labels + hoursValue, map.iframeTitle); `privacy.*` (meta + pendingTranslationNotice only — see Key decisions); `thankYou.*` (meta, headline, subtitle, cta — added a CTA that the page previously lacked); `blog.*` (meta, listing.hero + filters × 4 + empty state, post.backLink + readTimeLong + relatedHeading). |
+| `messages/mk.json` | Translated every new key. ~800 additional words of Macedonian prose for 15E. |
+| `src/components/sections/TeamGrid.tsx` | Refactored to prop-driven, mirroring 15D's `TeamShowcase` change. `members: { name, role, bio, division, initials }[]` required. Hardcoded in-component array removed. Division chip label still resolves via `sections.team.{consulting,marketing}Badge`. |
+| `src/app/[locale]/(site)/about/page.tsx` | Converted to async server component. `generateMetadata` awaits `params`, uses `getTranslations({ namespace: 'about.meta' })`, passes `locale` through to `generatePageMetadata`. Default export awaits params, calls `setRequestLocale`, renders client. |
+| `src/app/[locale]/(site)/about/AboutPageClient.tsx` | Full rewrite. Reads `about.*` via `useTranslations`. Story paragraphs pulled via `t.raw('hero.paragraphs')` as `string[]`. Team members built from a `TEAM_KEYS` map of 4 `{ key, division }` pairs; translated name/role/bio/initials come from `about.team.members.*`. Values grid + Company timeline reuse the 15B-translated `sections.values.*` / `sections.timeline.*` inside — the About page only translates the section *chrome* (overline + sectionTitle) around them. |
+| `src/app/[locale]/(site)/contact/page.tsx` | Async server component with `getTranslations({ namespace: 'contact.meta' })` and `setRequestLocale`. |
+| `src/app/[locale]/(site)/contact/ContactPageClient.tsx` | Uses `useTranslations('contact')` for hero, form section title, info panel labels, division-contact overline + labels, and the Google Maps iframe title. Contact VALUES (address, phone, emails, hours VALUE in `info.hoursValue`) still stay from a mix of `siteConfig` (language-neutral) and translations. |
+| `src/components/sections/ContactForm.tsx` | Every string migrated to `useTranslations('contact.form')`. That includes: 5 field labels, 4 placeholders, 4 select options (unsure / consulting / marketing / both), 4 validation error keys (`nameError` / `emailErrorRequired` / `emailErrorInvalid` / `messageError`), submit + submitting button states, generic error fallback, success card (title + message), privacy notice, and the honeypot label. The `validate()` function returns `t(...)` strings instead of hardcoded English. Verified via browser: filling in `name=Test`, `email=test@example.com`, `message=short` (<10 chars) then submitting on `/mk/contact` triggers error banner with "Ве молиме напишете порака (најмалку 10 карактери)". |
+| `src/app/[locale]/(site)/privacy/page.tsx` | Converted to async server component. `generateMetadata` localizes via `privacy.meta`. Default export renders the existing 13-section English policy body untouched, but prepends a **MK-only notice banner** (conditional on `locale === 'mk'`) explaining the translated policy is pending. See Key decisions. |
+| `src/app/[locale]/(site)/thank-you/page.tsx` | Converted to async server component. `generateMetadata` localizes via `thankYou.meta`. Renders translated headline + subtitle + **new CTA button** ("Back to home" / "Назад на почетната") using `Link` from `@/i18n/navigation` so it lands on the right locale's `/`. |
+| `src/app/[locale]/(site)/blog/page.tsx` | Async server component with `blog.meta` translations. |
+| `src/app/[locale]/(site)/blog/BlogListingClient.tsx` | Uses `useTranslations('blog.listing')` for hero + 4 filter pill labels + empty-state card. Filter state machine unchanged. Locale-neutral `FILTERS` array of 4 keys maps to translated labels. |
+| `src/app/[locale]/(site)/blog/[slug]/page.tsx` | `params` now include `locale`. `generateMetadata` awaits both `slug` + `locale`, passes `locale` to `generatePageMetadata` for proper hreflang emission. Default export calls `setRequestLocale(locale)` before render. |
+| `src/app/[locale]/(site)/blog/[slug]/BlogPostClient.tsx` | **Two significant changes.** (1) Chrome strings pulled from `blog.post.*` (backLink, readTimeLong, relatedHeading) and `sections.blog.divisionLabels.*` (15B). (2) **Inline-Markdown renderer rebuilt** to emit proper React elements using locale-aware `Link` for internal hrefs — replaces the previous `dangerouslySetInnerHTML` approach that emitted raw `<a>` tags. Now an inline `[Workflow Restructuring service](/consulting/workflow-restructuring)` in a post body on `/mk/blog/[slug]` navigates to `/mk/consulting/workflow-restructuring` client-side, preserving locale. External URLs (non-`/` prefixed) still render as `<a target="_blank" rel="noopener noreferrer">`. Date formatting uses `useFormatter().dateTime()` instead of the raw `Date.prototype.toLocaleDateString` — keeps server and client agreed (hydration-safe) and falls back to English format on MK due to Node ICU limits (flagged in 15B). `inLanguage` also added to the BlogPosting JSON-LD. |
+
+## Files NOT modified
+| File | Why |
+|------|-----|
+| `ValuesGrid.tsx`, `CompanyTimeline.tsx` | Already translated in Phase 15B. About page reuses them unchanged — only the *overline + section title* around each translates (via `about.values.*` / `about.timeline.*`), not the card/milestone content inside. |
+| `CTABanner.tsx` | Defaults + override props already in place since 15B. About, Contact, Thank-you pages pass per-page props; Blog listing / post use defaults from `sections.ctaBanner.*`. |
+| `src/lib/blog.ts` | Mock blog data — titles, excerpts, bodies stay English. 15F translates. |
+| `src/config/site.ts` | Address, phone, email, hours are language-neutral by design. The hours *label* translates (`contact.info.hoursValue`) while `siteConfig.hours` stays as-is. |
+
+## Key technical decisions
+
+- **Privacy policy body NOT translated.** The plan prompt said "it's a placeholder per Phase 11 docs" — that was stale. Session A (2026-04-17) populated `src/app/[locale]/(site)/privacy/page.tsx` with a full 13-section, ~5,000-word GDPR/MK privacy policy. Translating 5,000 words of legal copy without lawyer review would be irresponsible — legal-weight translations need counsel. Compromise: translate the `<title>` + meta description + add a conditional MK-only notice at the top of `/mk/privacy` explaining that the Macedonian policy is pending. The 13-section body renders identically on `/en/privacy` and `/mk/privacy`. Flagged in `TRANSLATION_NOTES.md` #24.
+- **Thank-you page gained a CTA.** The existing Thank-you page had zero navigation out of it — after posting a form, users had to use the browser back button or the navbar. 15E adds a "Back to home" / "Назад на почетната" link button that uses `Link` from `@/i18n/navigation` so it stays on the current locale. Small UX improvement, zero risk.
+- **Blog post inline-Markdown renderer swap.** The old `renderContent` used `String.replace()` to convert `**bold**` and `[link](href)` into raw HTML and rendered it via `dangerouslySetInnerHTML`. Problem: raw `<a href="/consulting/...">` does a hard browser navigation through the middleware redirect — fine for SEO but breaks client-side routing and doesn't guarantee locale preservation. 15E rewrites the renderer to parse each paragraph into tokens (text / bold / link) and emit real React elements: `<strong>` for bold, locale-aware `<Link>` for internal `/…` hrefs, external `<a target="_blank">` for absolute URLs. Verified with curl + DOM inspection: `[Workflow Restructuring service](/consulting/workflow-restructuring)` in a post body on `/mk/blog/[slug]` renders as `<a href="/mk/consulting/workflow-restructuring">Workflow Restructuring service</a>`.
+- **BlogCard/BlogPostClient date formatting via `useFormatter`.** Same approach as 15B's BlogCard fix. Dates on `/mk` currently fall back to English format ("March 14, 2026") because Node's Intl data for `mk-MK` on this Windows runtime is limited. Hydration-safe (server and client agree), accepted trade-off. Phase 15F can revisit when blog post bodies are translated.
+- **`locale` now threaded through blog-post metadata.** Previously `generateMetadata` on `/blog/[slug]` didn't pass `locale` to `generatePageMetadata`, so the canonical URL always pointed at `/en/blog/…` regardless of locale. Now it correctly emits the locale-matching canonical and paired hreflang.
+- **`TeamGrid` pattern matches `TeamShowcase` from 15D.** Same prop shape (`{ name, role, bio, division, initials }[]`), same division-badge translation lookup. Two separate components because About shows 4 members (1 consulting + 3 marketing) in a 4-up grid, while `/marketing` shows 3 members (marketing-only) in a 3-up grid with different avatars. Shared pattern, distinct layouts.
+- **`about.hero.paragraphs` is an array.** Three paragraphs of story copy, pulled via `t.raw('hero.paragraphs')` as `string[]` and mapped. Same approach as service-page `sections[]` arrays from 15C/15D.
+
+## Translation notes — flagged for Goran
+
+See `TRANSLATION_NOTES.md` for the full Phase 15E entry. Highlights:
+
+- **#24: Privacy policy body stays English on both locales.** The MK-only notice banner at the top of `/mk/privacy` explains this. Review with counsel before translating.
+- **#25: Form validation error register.** Used polite Macedonian ("Ве молиме…") throughout form errors. This matches the English "Please enter…" tone. Could go more imperative ("Внесете име") if Goran wants shorter — but the polite form feels closer to the brand voice.
+- **#26: Hours format on /mk/contact.** Rendered as "Понеделник – петок, 09:00 – 17:00". EM dash used between days (not a hyphen) to match the English source. Alternative: use the Macedonian-style "од … до …" phrasing ("од понеделник до петок") — flagged as a style call.
+- **#27: "Vertex Блог"** as the overline on the blog listing. Mixed-script (brand name Latin + noun Cyrillic) — acceptable because "Vertex" is a brand, but Goran may prefer all-Cyrillic "Vertex Blog" (with Latin "Blog") or pure MK "Блогот на Vertex". Flagged.
+- **#28: Back link on blog post pages.** Translated as "Назад до сите објави" (full phrase) on both locales. The EN text is "Back to all posts". Short alternatives like "Назад" would fit better on mobile if layout becomes cramped.
+
+## Verification
+
+- `npm run build` — compiled successfully in 15.7s; TypeScript OK; **45 static pages prerendered**. No route count changes.
+- **`/mk/about`**: `<title>` "За нас | Vertex Consulting"; h1 "Македонски консалтинг изграден на практични резултати."; 3-paragraph story in MK; values + timeline reuse 15B's translations; team grid shows Goran (GD, consulting chip) + Lazar/Petar/Andrej (L/P/A, marketing chips) with MK roles + bios; Latin names preserved; CTA banner "Контактирајте нѐ".
+- **`/mk/contact`**: hero, form section title ("Испратете порака"), every form label + placeholder + option + submit state in MK. Validation test: typed valid `name` + `email` + `message="short"` → submit → error banner "Ве молиме напишете порака (најмалку 10 карактери)". Info panel labels ("Канцеларија", "Телефон", "Е-мејл", "Работно време") all MK. Hours: "Понеделник – петок, 09:00 – 17:00". Google Maps iframe title: "Локација на канцеларијата на Vertex Consulting".
+- **`/mk/privacy`**: `<title>` "Политика за приватност | Vertex Consulting"; meta description MK; MK-only notice banner renders before the body; 13-section policy body stays EN. Confirmed `/en/privacy` does NOT show the notice.
+- **`/mk/thank-you`**: h1 "Благодариме!"; subtitle MK; new CTA button "Назад на почетната" with `href="/mk"`.
+- **`/mk/blog`**: overline "Vertex Блог"; h1 "Увиди од теренот."; all 4 filter pills in MK (Сите објави / Консалтинг / Маркетинг / Општо).
+- **`/mk/blog/five-signs-your-business-needs-a-workflow-overhaul`**: back link "Назад до сите објави" with `href="/mk/blog"`; division chip "Консалтинг"; read time "6 мин читање"; inline body link `<a href="/mk/consulting/workflow-restructuring">Workflow Restructuring service</a>` — **confirmed locale prefix preserved**. Post title + excerpt + body content stay English (expected — 15F). Date "March 14, 2026" (English fallback, expected).
+- **`/en/*`** on every equivalent URL unchanged. No regressions.
+- **hreflang** emitted on every page in both locales (en / mk / x-default).
+- **FAQPage JSON-LD** (service pages from 15C/15D) still emits MK questions on `/mk/*` pages.
+- **BlogPosting JSON-LD** on `/mk/blog/[slug]` now includes `inLanguage: 'mk'` + locale-matching canonical URL.
+- No console errors on any shared page in either locale.
+
+## What the next phase (15F) should know
+
+- **Blog post content is the remaining translation surface.** Three posts in `src/lib/blog.ts` with titles, excerpts, content (~1000 words each), authorRole values. 15F needs a data-layer refactor — either extract the 3 posts into `messages/*.json` under `blog.posts.*`, or split into per-locale arrays (`mockPostsEn` / `mockPostsMk`), or wait for Sanity CMS in Phase 13 and punt. The `getPostBySlug` / `getAllPosts` / `getPostsByDivision` / `getRelatedPosts` signatures are fixed — whatever 15F does, keep those intact.
+- **Related posts on `/mk/blog/[slug]`** currently match on division — `getRelatedPosts(slug, 2)` filters by same division. Mock data has one post per division, so the related-posts section never renders today. When 15F adds more posts (or Sanity lands), the related-posts section starts appearing and will need translated titles via whatever data layer 15F chooses.
+- **Node ICU date fallback.** `/mk/blog` and `/mk/blog/[slug]` dates render in English format. If 15F wants real MK dates ("14 март 2026"), options are: ship with `full-icu` npm package in the runtime, or write a small MK date formatter helper using translation strings for the 12 month names.
+- **Contact form privacy notice** links to "our Privacy Policy" but doesn't yet point to an anchor — 15F / final polish should turn this into a real `<Link href="/privacy">` so it navigates correctly in both locales.
+- **About page hero story paragraphs** currently describe the company in broad strokes. If Goran updates the story before launch, update `about.hero.paragraphs` in both `en.json` and `mk.json` — array indexes must match.
+- **Cyrillic font STILL unresolved.** 15E added another ~800 words of MK prose to the About/Contact/Blog chrome. Total MK content across the site is now ~7,300 words, all rendering in OS fallback sans. **This needs to land before public launch** — the font swap is the single biggest remaining visual polish item.
+- **Architecture is stable across 6 phases of translation work.** The pattern — `t.raw()` for structured arrays, namespace-less `useTranslations()` for dynamic keys, `getTranslations` + `setRequestLocale` in async server components, prop-driven components for anything reusable — should carry into Sanity migration (Phase 13) without major rework.

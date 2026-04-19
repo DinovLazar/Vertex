@@ -1,0 +1,37 @@
+[
+  {
+    "route": "/en",
+    "jsKB": "892.8",
+    "cssKB": "72.5",
+    "jsCount": 11,
+    "cssCount": 3
+  },
+  {
+    "route": "/en/consulting",
+    "jsKB": "892.8",
+    "cssKB": "72.5",
+    "jsCount": 11,
+    "cssCount": 3
+  },
+  {
+    "route": "/en/marketing",
+    "jsKB": "892.8",
+    "cssKB": "72.5",
+    "jsCount": 11,
+    "cssCount": 3
+  },
+  {
+    "route": "/en/about",
+    "jsKB": "887.0",
+    "cssKB": "72.5",
+    "jsCount": 11,
+    "cssCount": 3
+  },
+  {
+    "route": "/en/contact",
+    "jsKB": "895.8",
+    "cssKB": "72.5",
+    "jsCount": 11,
+    "cssCount": 3
+  }
+]

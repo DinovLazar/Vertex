@@ -4,25 +4,171 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* =========================================================
+   Vertex Consulting — Arctic & Amethyst design tokens
+   Tailwind v4: tokens live in @theme; generated utilities
+   expose them as bg-*, text-*, border-*, font-*, etc.
+   ========================================================= */
+
+/* Fonts — Archivo (neogrotesque sans, headings) + Source Serif 4 (humanist
+   serif, body). next/font sets `--font-heading` and `--font-body` on <html>
+   via className injection. `@theme inline` tells Tailwind v4 to skip the
+   `:root` emission (which would otherwise self-reference the next/font vars
+   and drop the system-ui/sans-serif tail) and instead generate
+   `.font-heading { font-family: var(--font-heading), ... }` directly, so the
+   system fallback is preserved in the utility itself. The body fallback
+   chain prefers a serif system font (Georgia, etc.) so the brief flash
+   before Source Serif 4 loads doesn't jump from serif to sans. */
+@theme inline {
+  --font-heading: var(--font-heading), system-ui, sans-serif;
+  --font-body: var(--font-body), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-heading), system-ui, sans-serif;
+}
+
+@theme {
+  /* Neutral grayscale core (Phase 1 — unified palette) */
+  --color-ink: #0E0E0E;
+  --color-surface: #121212;
+  --color-elevated: #1C1C1C;
+  --color-border: #262626;
+  --color-muted: #A3A3A3;
+  --color-bright: #F5F5F5;
+
+  /* Consulting grays (monochrome) */
+  --color-consulting-bg: #141414;
+  --color-consulting-surface: #1C1C1C;
+  --color-consulting-card: #262626;
+  --color-consulting-elevated: #333333;
+  --color-consulting-border: #404040;
+  --color-consulting-600: #525252;
+  --color-consulting-500: #737373;
+  --color-consulting-400: #A3A3A3;
+  --color-consulting-300: #D4D4D4;
+  --color-consulting-200: #E5E5E5;
+  --color-consulting-100: #F5F5F5;
+  --color-consulting-50: #FAFAFA;
+
+  /* Marketing — unified to grayscale (identical footprint to consulting scale) */
+  --color-marketing-bg: #121212;
+  --color-marketing-surface: #1C1C1C;
+  --color-marketing-card: #1C1C1C;
+  --color-marketing-elevated: #262626;
+  --color-marketing-border: #404040;
+  --color-marketing-900: #1C1C1C;
+  --color-marketing-700: #3D3D3D;
+  --color-marketing-500: #A3A3A3;
+  --color-marketing-400: #C9C9C9;
+  --color-marketing-200: #E5E7EB;
+  --color-marketing-50: #F5F5F5;
+
+  /* Shared brand — now grayscale (primary action = bright white) */
+  --color-brand-900: #0E0E0E;
+  --color-brand-800: #1C1C1C;
+  --color-brand-600: #F5F5F5;
+  --color-brand-400: #A3A3A3;
+  --color-brand-200: #C9C9C9;
+  --color-brand-50: #F5F5F5;
+
+  /* Accent */
+  --color-accent-gold: #D4A017;
+  --color-accent-terracotta: #E2725B;
+  --color-accent-success: #10B981;
+  --color-accent-error: #EF4444;
+
+  /* Typography scale — display/H1/H2 are fluid (clamp) so they shrink
+     gracefully on narrow viewports without clipping at ~375px. Min values
+     target 375px mobile; max values match the desktop sizes. Letter-
+     spacing tightens as size grows (large type closes up, small type
+     opens up) and body sizes carry slightly looser leading because the
+     site is light-on-dark — light text reads as lighter weight and needs
+     more breathing room. The h3 weight bumped from 500 → 600 to read as
+     visibly different from body 400; we no longer need the `font-semibold`
+     overrides components were using inline. */
+  --text-display-lg: clamp(42px, 26.25px + 4.2vw, 80px);
+  --text-display-lg--line-height: 1.04;
+  --text-display-lg--letter-spacing: -0.025em;
+  --text-display-lg--font-weight: 700;
+
+  --text-display: clamp(36px, 24.4px + 3.1vw, 64px);
+  --text-display--line-height: 1.06;
+  --text-display--letter-spacing: -0.022em;
+  --text-display--font-weight: 700;
+
+  --text-h1: clamp(32px, 25.4px + 1.77vw, 48px);
+  --text-h1--line-height: 1.14;
+  --text-h1--letter-spacing: -0.018em;
+  --text-h1--font-weight: 700;
+
+  --text-h2: clamp(28px, 24.7px + 0.88vw, 36px);
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: -0.012em;
+  --text-h2--font-weight: 600;
+
+  --text-h3: 22px;
+  --text-h3--line-height: 1.28;
+  --text-h3--letter-spacing: -0.008em;
+  --text-h3--font-weight: 600;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.65;
+  --text-body-lg--font-weight: 400;
+
+  --text-body: 16px;
+  --text-body--line-height: 1.65;
+  --text-body--font-weight: 400;
+
+  --text-small: 14px;
+  --text-small--line-height: 1.55;
+  --text-small--font-weight: 400;
+
+  --text-micro: 12px;
+  --text-micro--line-height: 1.4;
+  --text-micro--font-weight: 500;
+
+  /* Overline — short uppercase labels sitting above section headlines. The
+     pattern is hand-rolled across the codebase as
+     `text-xs font-medium uppercase tracking-wider`; the `.overline` utility
+     below bundles the lot so consumers don't have to remember the recipe. */
+  --text-overline: 11px;
+  --text-overline--line-height: 1.4;
+  --text-overline--letter-spacing: 0.14em;
+  --text-overline--font-weight: 600;
+
+  /* Custom radius */
+  --radius-card: 12px;
+  --radius-button: 8px;
+  --radius-pill: 9999px;
+
+  /* Animation tokens (Tailwind v4 reads `--animate-*` into animate-* utilities) */
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+}
+
+/* =========================================================
+   Keyframes (needed alongside --animate-* tokens)
+   ========================================================= */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 0.7; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   shadcn base tokens (overridden per-division below)
+   ========================================================= */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -48,83 +194,363 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-:root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-}
-
 @layer base {
+  :root {
+    /* Default (shared / homepage) theme — unified grayscale (canonical = consulting) */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 96%;
+    --muted: 0 0% 11%;
+    --muted-foreground: 0 0% 45%;
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 96%;
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 0 0% 96%;
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 8%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 90%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 96%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --radius: 0.5rem;
+
+    /* Division-specific tokens (unified grayscale) */
+    --division-bg: #141414;
+    --division-surface: #1C1C1C;
+    --division-card: #262626;
+    --division-border: #404040;
+    --division-accent: #F5F5F5;
+    --division-accent-muted: #333333;
+    --division-glow: rgba(245, 245, 245, 0.05);
+    --division-text-primary: #F5F5F5;
+    --division-text-secondary: #A3A3A3;
+    --division-text-muted: #737373;
+  }
+
+  /* Consulting theme — monochrome */
+  [data-division="consulting"] {
+    --division-bg: #141414;
+    --division-surface: #1C1C1C;
+    --division-card: #262626;
+    --division-border: #404040;
+    --division-accent: #F5F5F5;
+    --division-accent-muted: #333333;
+    --division-glow: rgba(245, 245, 245, 0.05);
+    --division-text-primary: #F5F5F5;
+    --division-text-secondary: #A3A3A3;
+    --division-text-muted: #737373;
+
+    --background: 0 0% 8%;
+    --foreground: 0 0% 96%;
+    --muted: 0 0% 11%;
+    --muted-foreground: 0 0% 45%;
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 96%;
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 0 0% 96%;
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 8%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 90%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 96%;
+  }
+
+  /* Marketing theme — unified grayscale (identical to consulting) */
+  [data-division="marketing"] {
+    --division-bg: #141414;
+    --division-surface: #1C1C1C;
+    --division-card: #262626;
+    --division-border: #404040;
+    --division-accent: #F5F5F5;
+    --division-accent-muted: #333333;
+    --division-glow: rgba(245, 245, 245, 0.05);
+    --division-text-primary: #F5F5F5;
+    --division-text-secondary: #A3A3A3;
+    --division-text-muted: #737373;
+
+    --background: 0 0% 8%;
+    --foreground: 0 0% 96%;
+    --muted: 0 0% 11%;
+    --muted-foreground: 0 0% 45%;
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 96%;
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 0 0% 96%;
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 8%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 90%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 96%;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    background-color: var(--division-bg);
+    color: var(--division-text-primary);
+    -webkit-font-smoothing: antialiased;
+    font-kerning: normal;
+    /* Source Serif 4 OpenType features: standard ligatures + contextual
+       alternates for clean body text, plus proportional oldstyle figures
+       disabled in favour of lining figures so numbers sit flush on the
+       baseline. Tabular figures are opt-in via the `.tabular-nums` utility
+       (Tailwind provides it — use on anything that should align vertically
+       like timelines, stat grids, price tables). */
+    font-feature-settings: "kern", "liga", "calt";
   }
-  html {
-    @apply font-sans;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    /* Safety net: prevents headings from overflowing their container on
+       narrow viewports even if a single word exceeds the width (e.g.
+       "restructuring" at ~375px with a fluid font-size at its minimum). */
+    overflow-wrap: anywhere;
+    /* Archivo looks better with kerning + small-cap alternates + stylistic
+       alternates when available. calt is the cheap win; ss01 opens up the
+       one-storey g which reads a touch friendlier at display sizes. */
+    font-feature-settings: "kern", "liga", "calt", "ss01";
+  }
+}
+
+/* =========================================================
+   Utility layer
+   ========================================================= */
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-division="consulting"] .glass {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-division="marketing"] .glass {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Navbar-specific backdrop — darker and more opaque than `.glass` so
+   body content never reads through the scrolled header. The blur itself
+   is applied via Tailwind's `backdrop-blur-md` utility on the navbar
+   (Lightning CSS strips raw `backdrop-filter` from this layer). */
+.glass-nav {
+  background: rgba(14, 14, 14, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Noise texture overlay */
+.noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Glow hover — very subtle neutral (replaces lavender glow; will be
+   superseded by BorderGlow in Phase 4). */
+[data-division="marketing"] .glow-hover:hover {
+  box-shadow:
+    0 0 24px rgba(255, 255, 255, 0.04),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* Metallic silver panel — used by the consulting hero GridMotion background
+   in `variant="panels"` mode. Layered: brushed vertical striation on top,
+   radial silver spotlight gradient below. Phase 6 dialed brightness to a
+   middle ground — clearly metallic, visibly highlighted, but still sits
+   behind the hero scrim so the headline stays legible. */
+.metallic-panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  background-color: #14171C;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.06) 0 1px,
+      transparent 1px 3px,
+      rgba(0, 0, 0, 0.14) 3px 4px,
+      transparent 4px 6px
+    ),
+    radial-gradient(
+      circle at center,
+      #A8ACB4 0%,
+      #4A4E56 50%,
+      #14171C 100%
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================================
+   Prose — long-form body copy for service pages, blog posts,
+   and the privacy policy. `.prose-consulting`, `.prose-marketing`,
+   and `.prose-blog` share one rule block (they were three copies of
+   the same thing post-grayscale-unification); `.prose-blog` layers a
+   slightly larger body size and looser leading on top for long-form
+   reading. Reading width is capped via `max-w-3xl` on the consumer.
+   ========================================================= */
+.prose-consulting,
+.prose-marketing,
+.prose-blog {
+  color: var(--division-text-secondary);
+  line-height: 1.7;
+  max-width: 68ch;
+}
+.prose-consulting h2,
+.prose-marketing h2,
+.prose-blog h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: var(--text-h3--font-weight);
+  line-height: var(--text-h3--line-height);
+  letter-spacing: var(--text-h3--letter-spacing);
+  color: var(--division-text-primary);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+.prose-consulting h3,
+.prose-marketing h3,
+.prose-blog h3 {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--division-text-primary);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose-consulting p,
+.prose-marketing p,
+.prose-blog p {
+  margin-bottom: 1.25rem;
+}
+.prose-consulting ul,
+.prose-marketing ul,
+.prose-blog ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.prose-consulting ul li,
+.prose-marketing ul li,
+.prose-blog ul li {
+  margin-bottom: 0.5rem;
+}
+.prose-consulting strong,
+.prose-marketing strong,
+.prose-blog strong {
+  color: var(--division-text-primary);
+  font-weight: 600;
+}
+.prose-consulting a,
+.prose-marketing a,
+.prose-blog a {
+  color: var(--division-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-thickness 0.2s ease;
+}
+.prose-consulting a:hover,
+.prose-marketing a:hover,
+.prose-blog a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Blog-only tweaks — longer reading sessions benefit from a slightly
+   larger body and more generous leading. Privacy policy uses this class
+   too (it's long-form read-once content with the same shape needs). */
+.prose-blog {
+  line-height: 1.8;
+  font-size: 1.0625rem;
+}
+.prose-blog p,
+.prose-blog ul {
+  margin-bottom: 1.5rem;
+}
+.prose-blog ul {
+  padding-left: 1.5rem;
+}
+.prose-blog ul li {
+  margin-bottom: 0.625rem;
+}
+
+/* =========================================================
+   Accessibility utilities (Session C)
+   ========================================================= */
+@layer utilities {
+  /* Keyboard focus ring for <Link>s and interactive non-button elements.
+     Only triggers on :focus-visible (keyboard focus), so mouse clicks
+     don't show the ring. Outline color resolves to var(--division-accent)
+     which is bright #F5F5F5 across all divisions. */
+  .focus-ring {
+    @apply outline-none;
+  }
+  .focus-ring:focus-visible {
+    @apply outline outline-2 outline-offset-2 rounded-sm;
+    outline-color: var(--division-accent);
+  }
+
+  /* Focus treatment for form inputs — replaces bare `focus:outline-none`
+     with a strong outline ring that meets WCAG 1.4.11 (Non-text Contrast
+     3:1 against the dark form surface). */
+  .form-input-focus {
+    @apply outline-none transition-colors;
+  }
+  .form-input-focus:focus-visible {
+    @apply outline outline-2 outline-offset-2;
+    outline-color: var(--division-accent);
+    border-color: var(--division-accent);
+  }
+
+  /* Overline — the short uppercase label that sits above section headings.
+     Bundles all four pieces (size / weight / tracking / case) into one
+     class so consumers don't have to remember the recipe and so a future
+     adjustment flows everywhere at once. Renders in the heading face
+     because overlines are structural labels, not prose. */
+  .overline {
+    font-family: var(--font-heading);
+    font-size: var(--text-overline);
+    line-height: var(--text-overline--line-height);
+    font-weight: var(--text-overline--font-weight);
+    letter-spacing: var(--text-overline--letter-spacing);
+    text-transform: uppercase;
+  }
+
+  /* Tabular figures — use on any element where numbers should column-align
+     (timelines with year columns, stat grids, price tables). Source Serif 4
+     ships proportional figures by default; this flips to the tabular set. */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
