@@ -18,8 +18,11 @@ export interface ChatMessage {
 
 const AI_PROVIDER = (process.env.AI_PROVIDER || 'claude') as AiProvider
 
-// Claude config
-const CLAUDE_MODEL = 'claude-sonnet-4-6'
+// Claude config — Haiku is the right production choice for a chat widget
+// (fast, cheap, and 3–4 sentence replies are well within its capability).
+// Sonnet/Opus would be overkill here — this is a short-turn Q&A bot, not a
+// reasoning task.
+const CLAUDE_MODEL = 'claude-haiku-4-5'
 const CLAUDE_MAX_TOKENS = 400
 
 // Ollama config (used only when AI_PROVIDER === 'ollama')
@@ -48,7 +51,16 @@ async function* streamClaude(
   systemPrompt: string,
 ): AsyncGenerator<string, void, unknown> {
   const { default: Anthropic } = await import('@anthropic-ai/sdk')
-  const client = new Anthropic()
+
+  // The SDK auto-reads ANTHROPIC_API_KEY → apiKey OR ANTHROPIC_AUTH_TOKEN → authToken
+  // from the environment. When the auth path is an OAuth token (as is the case when
+  // ANTHROPIC_AUTH_TOKEN is set — e.g. a Claude Code OAuth token used for local dev),
+  // Anthropic requires the `oauth-2025-04-20` beta header. For a real `sk-ant-api03-...`
+  // API key (ANTHROPIC_API_KEY), no beta header is needed.
+  const usingOAuth = !process.env.ANTHROPIC_API_KEY && !!process.env.ANTHROPIC_AUTH_TOKEN
+  const client = new Anthropic(
+    usingOAuth ? { defaultHeaders: { 'anthropic-beta': 'oauth-2025-04-20' } } : {},
+  )
 
   const stream = client.messages.stream({
     model: CLAUDE_MODEL,
