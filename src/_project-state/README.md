@@ -37,7 +37,7 @@ This folder is the project's persistent memory. It exists so that every new Clau
 - [x] Phase 9 — Consulting Pages  *(landing rebuilt; 4 service pages use shared `ConsultingServicePage` template with FAQPage JSON-LD)*
 - [x] Phase 10 — Marketing Pages  *(landing rebuilt with Plasma hero/services grid/team showcase; 4 service pages use shared `MarketingServicePage` template with FAQPage JSON-LD and `.prose-marketing` body)*
 - [x] Phase 11 — Shared Pages (About, Contact, Blog)  *(all 4 stub routes replaced with production pages; 5 new sections + mock blog data layer + `.prose-blog` styles + BlogPosting JSON-LD)*
-- [ ] Phase 12 — AI Chat Widget  *(lib stubs exist, widget not built)*
+- [x] Phase 12 — AI Chat Widget (core)  *(lead capture deferred to Phase 12B — intent detection, name+email form, `/api/chat/lead`, Telegram, per-IP rate limit)*
 - [ ] Phase 13 — Sanity CMS  *(client + queries are empty stubs)*
 - [ ] Phase 14 — SEO & Structured Data
 - [x] Phase 15A — i18n Infrastructure  *(`next-intl` wired end-to-end; `/en` + `/mk` prefixed routes; language toggle functional; 45 static pages prerendered)*

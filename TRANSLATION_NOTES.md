@@ -240,6 +240,20 @@ Used in four places on the marketing pages:
 - Description: "Страницата што ја барате не постои — или е преместена." / "The page you're looking for doesn't exist — or has moved."
 - CTA: "Назад на почетната" / "Back to home" — same phrasing as Thank-you page CTA for consistency.
 
+## Phase 12 additions (AI chat widget)
+
+### 12-A. `chat.*` namespace — full LLM-drafted MK translations
+The entire `chat.*` namespace (~40 keys: trigger / panel / 5 context-specific greetings / input / status / errors / footer) was drafted by Claude Code during Phase 12 using the same pattern-match approach as earlier phases. Highlights that want a native eye:
+
+- **Greetings** are the highest-visibility strings — the visitor sees one every time they open the widget. Five variants (shared / consulting / marketing / blog / contact), each opens with "Здраво!" and ends with a soft prompt ("Што ве интересира?" / "На што работите?" / "Прашајте слободно.").
+- **"Vertex асистент"** (lowercase "асистент") for `chat.panel.title`. Mixed-script — Latin brand + Cyrillic common noun. Consistent with the `/mk/blog` overline convention ("Vertex Блог", #27 above).
+- **"Прашајте не било што"** for `chat.panel.subtitle`. Literal "Ask us anything". Alternative: "Прашајте не што сакате" slightly more natural.
+- **"интеграција со ИИ"** — chose Cyrillic "ИИ" for "AI" in the consulting greeting because it's embedded in running prose; the rest of the site uses Latin "AI" in service-name labels (per convention #19). Running-prose vs label is a defensible split, but could be unified to Latin "AI" everywhere.
+- **"контактирајте не"** in footer — same imperative form as the nav CTA "Контактирајте нѐ" but without the object pronoun "нѐ" for tighter flow. Could be made consistent either way.
+- **"Шефт + Enter"** — left as "Shift + Enter" (Latin) in `chat.input.newLine`. Key names are a de-facto Latin convention in MK software UI.
+
+Add this namespace to the top-20 native-speaker review list when Goran's review pass happens. Estimated review time for the chat block: 5–10 minutes.
+
 ## Conventions locked during this phase
 
 - "Струмица" (not "Strumica") when written in Macedonian body copy. Site address in footer (from `siteConfig`) still reads "Strumica" because `siteConfig` is single-source — decide later whether to split `siteConfig.address` per locale.

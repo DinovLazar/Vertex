@@ -9,6 +9,7 @@ import {
   ScrollProgress,
   BackToTop,
 } from '@/components/global'
+import { ChatWidget } from '@/components/chat'
 
 // Archivo (neogrotesque sans for headings) + Source Serif 4 (humanist serif
 // for body). The pairing is intentional: a sturdy industrial sans against a
@@ -60,6 +61,7 @@ export default async function LocaleLayout({
               <ScrollProgress />
               {children}
               <BackToTop />
+              <ChatWidget />
             </DivisionProvider>
           </MotionWrapper>
         </NextIntlClientProvider>

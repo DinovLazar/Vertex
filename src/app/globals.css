@@ -544,6 +544,74 @@
   .tabular-nums {
     font-variant-numeric: tabular-nums;
   }
+
+  /* =========================================================
+     Chat widget (Phase 12)
+     ========================================================= */
+
+  /* 3-dot typing indicator — staggered pulse while waiting for the first
+     streamed token from Claude. Dots use var(--color-muted) so they sit
+     softly against the elevated bubble bg. */
+  .typing-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background-color: var(--color-muted);
+    animation: typing-dot-pulse 1.2s ease-in-out infinite;
+  }
+
+  /* Idle pulse on the chat trigger — soft outward ring every 4s to draw
+     the eye without being annoying. Suppressed on hover (prevents the
+     fight between the pulse and the :hover color swap) and under reduced
+     motion. */
+  .chat-trigger {
+    animation: chat-trigger-pulse 4s ease-in-out infinite;
+  }
+
+  .chat-trigger:hover {
+    animation: none;
+  }
+}
+
+/* Keyframes for the chat widget — must live outside @layer utilities so
+   Tailwind v4 / Lightning CSS doesn't strip them. */
+@keyframes typing-dot-pulse {
+  0%, 60%, 100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes chat-trigger-pulse {
+  0%, 100% {
+    box-shadow:
+      0 8px 24px -6px rgba(0, 0, 0, 0.5),
+      0 0 0 0 rgba(241, 243, 247, 0.25);
+  }
+  50% {
+    box-shadow:
+      0 8px 24px -6px rgba(0, 0, 0, 0.5),
+      0 0 0 8px rgba(241, 243, 247, 0);
+  }
+}
+
+/* Reduced-motion carve-outs for the chat widget. The global
+   prefers-reduced-motion block below already clamps all animation
+   durations to 0.01ms, but we also kill the pulse outright so there's
+   no residual flicker on the trigger or the dots. */
+@media (prefers-reduced-motion: reduce) {
+  .typing-dot {
+    animation: none;
+    opacity: 0.6;
+  }
+  .chat-trigger {
+    animation: none;
+  }
 }
 
 /* Reduced motion */

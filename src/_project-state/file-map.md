@@ -1,6 +1,6 @@
 # File Map — Vertex Consulting
 
-Last updated: 2026-04-19 (Session H — Performance Hardening + Session I — Responsive Adapt + Session J — Polish + Session K — Open Graph Preview Image)
+Last updated: 2026-04-20 (Phase 12 — AI Chat Widget Core)
 
 ## Root
 | File | Description |
@@ -18,8 +18,9 @@ Last updated: 2026-04-19 (Session H — Performance Hardening + Session I — Re
 | `README.md` | Default Next.js bootstrap README |
 | `D-15_Website_Design_Document.md` | Full product/design spec for the Vertex site |
 | `.env.example` | Placeholders for the 4 Resend env vars (no real values). Session B — 2026-04-17. |
-| `.env.local` | **Gitignored.** Local dev values for the 4 Resend env vars. Written by Session B so `next dev` can read them. Never commit. |
-| `TRANSLATION_NOTES.md` | Phase 15B — working decisions on MK phrasing, plus font / date-format follow-ups. Review before locking translations for 15C–F. |
+| `.env.local` | **Gitignored.** Local dev values for the Resend env vars (Session B) + the Phase 12 chat vars (`ANTHROPIC_API_KEY`, `AI_PROVIDER`, `OLLAMA_*`, `NEXT_PUBLIC_CHAT_ENABLED`). Never commit. |
+| `.env.local.example` | **Phase 12 (2026-04-20).** Documents the 5 chat-widget env vars. `.gitignore` exempts this filename (`!.env.local.example`) so it's committable alongside `.env.example`. |
+| `TRANSLATION_NOTES.md` | Phase 15B — working decisions on MK phrasing, plus font / date-format follow-ups. **Phase 12 (2026-04-20) added §12-A**: the `chat.*` namespace was LLM-drafted and wants a native-speaker pass (5–10 min review — five context-specific greetings, "Vertex асистент" mixed-script title, "интеграција со ИИ" Cyrillic AI). |
 
 ## messages/ (Phases 15A–15E — 2026-04-17)
 | File | Description |
@@ -105,8 +106,8 @@ Last updated: 2026-04-19 (Session H — Performance Hardening + Session I — Re
 ## src/app/api/
 | File | Description |
 |------|-------------|
-| `chat/route.ts` | **Stub** POST → `{ok:true, route:"chat"}`. Reserved for Claude chat |
-| `chat/lead/route.ts` | **Stub** POST → `{ok:true, route:"chat/lead"}`. Reserved for lead capture |
+| `chat/route.ts` | **Phase 12 (2026-04-20).** Node runtime (`export const runtime = 'nodejs'`), `dynamic = 'force-dynamic'`. POST accepts `{messages, pageUrl, locale}`, validates (≤40 messages, ≤2000 chars per message, valid role, valid locale), builds the system prompt via `buildSystemPrompt()` and pipes `streamAIResponse()` through a `ReadableStream` of raw UTF-8 text chunks. Headers: `text/plain; charset=utf-8`, `no-cache`, `X-Accel-Buffering: no` (prevents Vercel proxy from buffering the stream). Kill switch via `NEXT_PUBLIC_CHAT_ENABLED=false` → 503. |
+| `chat/lead/route.ts` | **Stub** POST → `{ok:true, route:"chat/lead"}`. Reserved for Phase 12B lead capture |
 | `contact/route.ts` | POST — honeypot-checks, validates name/email/message, renders HTML+text email, sends via Resend to `CONTACT_TO_EMAIL` with `replyTo` set to the sender's email. 400 on validation failure, 500 on Resend error. Session B — 2026-04-17. |
 | `newsletter/route.ts` | POST — honeypot-checks, validates email, adds to Resend Audience `RESEND_AUDIENCE_ID` via `resend.contacts.create`, sends a welcome email to the subscriber. Duplicate adds return success without leaking list membership. Session B — 2026-04-17. |
 
@@ -159,6 +160,16 @@ Last updated: 2026-04-19 (Session H — Performance Hardening + Session I — Re
 | `ValuesGrid.tsx` | 2×2 grid of 4 values with lucide `Handshake` / `Target` / `Zap` / `Shield` in accent-muted rounded-lg icon containers. **Server component (Session H Part 3 — 2026-04-19)** — async with `await getTranslations('sections.values')`; composes `<StaggerContainer amount={0.1}>` + `<StaggerItem>`. |
 | `BlogCard.tsx` | Client component. Takes `post: BlogPost`. `motion.article` with `whileHover={{ y: -4 }}`. Division indicator dot (gray/purple/blue), locale-formatted date, read-time with `Clock`, title, 3-line-clamp excerpt, author, `ArrowRight` on hover. Marketing posts get purple hover glow |
 
+## src/components/chat/ (Phase 12 — 2026-04-20)
+| File | Description |
+|------|-------------|
+| `index.ts` | Barrel — exports `ChatWidget` |
+| `BotIcon.tsx` | Inline SVG icon set — `BotIcon` / `CloseIcon` / `SendIcon`. All accept `SVGProps<SVGSVGElement>`. Inlined because `lucide-react@1.8.0` ships no useful icons (same reason as Footer's brand-icon SVGs) |
+| `TypingIndicator.tsx` | 3-dot staggered pulse shown while waiting for Claude's first streamed token. `role="status"` + translated `aria-label` from `chat.status.generating`. Dots use `.typing-dot` + `@keyframes typing-dot-pulse` from `globals.css`; reduced-motion-safe |
+| `ChatMessage.tsx` | Single-bubble renderer. Props: `message: ChatMessage`, `isStreaming?`. User = bright pill right-aligned with `rounded-br-md`; assistant = elevated-surface bubble left-aligned with `rounded-bl-md` and optional 2px pulsing streaming cursor at the tail. Spring fade-in entrance |
+| `ChatPanel.tsx` | The open chat dialog. Props: `messages`, `onSend`, `onClose`, `isStreaming`, `error`, `userMessageCount`. Header (bot avatar + title + subtitle + close × button) → scrollable message list (`aria-live="polite"`) with typing indicator while waiting for first token → auto-resizing textarea (1–4 rows, 96px cap) + send button + footer disclaimer. Client-side 20-message cap enforced via `userMessageCount`. Positioning uses explicit per-side classes (`top-0 right-0 bottom-0 left-0` on mobile; `sm:top-auto sm:left-auto sm:bottom-24 sm:right-6` desktop) to survive `twMerge` — `sm:inset-auto` alongside `sm:bottom-24 sm:right-6` collapses as a conflict |
+| `ChatWidget.tsx` | State-owning root. Owns `messages` / `isStreaming` / `error` / `open`. Renders the 56×56 `chat-trigger` fixed bottom-right `motion.button` (fades to opacity 0 / scale 0.8 when panel is open) + `<AnimatePresence>`-wrapped `<ChatPanel>`. Seeds conversation with the context-appropriate greeting the first time `open` flips to true (5 variants matched on pathname stripped of locale prefix). Mounts Escape-to-close and mobile body-scroll-lock effects. POSTs history to `/api/chat`, reads the response body with `getReader()` + `TextDecoder`, appends chunks to the last assistant message. Abort controller cancels in-flight stream on unmount. Kill switch via `process.env.NEXT_PUBLIC_CHAT_ENABLED === 'false'` returns null |
+
 ## src/components/ui/
 | File | Description |
 |------|-------------|
@@ -181,8 +192,8 @@ Last updated: 2026-04-19 (Session H — Performance Hardening + Session I — Re
 | `divisions.ts` | `Division` type, `getDivisionFromPath()`, `divisionConfig` mapping |
 | `metadata.ts` | `generatePageMetadata`, `consultingMetadata`, `marketingMetadata` — canonical URL, OG, Twitter, robots. **Session K (2026-04-19): added explicit `images` field to the `openGraph` and `twitter` blocks** referencing `/opengraph-image` and `/twitter-image` (relative URLs, resolved against `metadataBase`). When a page exports its own `openGraph` (as this helper does for per-page title/url/locale), Next.js treats the child block as a full replacement and drops the framework-auto-injected file-convention image — so without this explicit `images` field, every page using this helper (every consulting / marketing / about / contact / blog page) had no OG image. |
 | `blog.ts` | **Locale-aware (Phase 15F).** `BlogPost` interface; `mockPostsBySlug` keyed by slug, each entry is `Record<Locale, BlogPost>` with EN + MK variants (title, excerpt, body, authorRole, tags all translated; publishedAt + readTime invariant). Helpers: `getAllSlugs()` (locale-neutral), `getAllPosts(locale)`, `getPostBySlug(slug, locale)`, `getPostsByDivision(division, locale)`, `getRelatedPosts(slug, locale, limit=2)`. Data source swaps to Sanity in Phase 13 — the per-locale shape maps cleanly. |
-| `ai.ts` | **Stub** — `export type AiProvider = "claude" \| "ollama"` |
-| `chatWidget.ts` | **Stub** — `buildSystemPrompt()` returns `""` |
+| `ai.ts` | **Phase 12 (2026-04-20).** Provider abstraction. Exports `AiProvider` / `ChatRole` / `ChatMessage` types + `streamAIResponse(messages, systemPrompt)` — an `AsyncGenerator<string>` that dispatches to Claude (via dynamic `@anthropic-ai/sdk` import) or Ollama (line-delimited JSON from `/api/chat`). Module-level constants: `CLAUDE_MODEL='claude-sonnet-4-6'`, `CLAUDE_MAX_TOKENS=400`, `OLLAMA_BASE_URL`, `OLLAMA_MODEL`. Provider selection via `AI_PROVIDER` env. Dynamic SDK import keeps the Anthropic bundle out of any future edge-migrated routes. |
+| `chatWidget.ts` | **Phase 12 (2026-04-20).** Context-aware system-prompt builder. `buildSystemPrompt({pageUrl, locale})` composes a static base (from `siteConfig`: name, legal name, owner, contact, hours, pricing rule) + a `CURRENT PAGE CONTEXT` persona block (5 variants: contact, blog, consulting, marketing, shared) + a `LANGUAGE` block (EN or MK). Path detection reuses `getDivisionFromPath()` after stripping the `^/(en\|mk)` prefix. Exports `ChatLocale` type. |
 | `sanity/client.ts` | **Stub** — empty `export {}` |
 | `sanity/queries.ts` | **Stub** — empty `export {}` |
 
@@ -219,6 +230,7 @@ Last updated: 2026-04-19 (Session H — Performance Hardening + Session I — Re
 | `15_phase-15d-marketing-translations.md` | Phase 15D write-up — marketing namespace, MarketingServicePage/Grid/TeamShowcase refactors, inline `**bold**` support via `renderInlineMarkdown`, ~3,000-word MK prose block |
 | `16_phase-15e-shared-pages.md` | Phase 15E write-up — shared page namespaces, ContactForm + TeamGrid refactors, blog post inline-Markdown renderer rebuild to use locale-aware Link, privacy body stays EN with MK notice, Thank-you CTA added |
 | `17_phase-15f-blog-seo-final.md` | Phase 15F write-up — locale-aware blog data layer, 3 MK post translations, inLanguage on JSON-LD, sitemap + robots + not-found, Phase 15 closure |
+| `12_phase-12-chat-widget.md` | Phase 12 write-up — AI chat widget (core). `@anthropic-ai/sdk` wired behind `src/lib/ai.ts`, Node-runtime streaming route at `/api/chat`, 5-component `src/components/chat/` tree, `chat.*` translation namespace (EN + MK), grayscale bot trigger + 380×560 panel, context-aware greetings + system prompt per URL/locale. Lead capture + Telegram deferred to Phase 12B |
 | `session-a_social-privacy.md` | Session A write-up — social URLs wired from `siteConfig.social` + full 13-section privacy policy (EN) |
 | `session-b_contact-newsletter.md` | Session B write-up — contact form + newsletter backend via Resend, honeypot spam protection, `.env.local` handling |
 | `session-c_accessibility.md` | Session C write-up — `.focus-ring` + `.form-input-focus` utilities, shadcn Button primitive sitewide adoption, 44×44 mobile touch targets, Footer logo aria-label unified via `common.logoAriaSuffix` |

@@ -1075,5 +1075,44 @@
       "readTimeLong": "min read",
       "relatedHeading": "Related posts"
     }
+  },
+  "chat": {
+    "trigger": {
+      "ariaLabel": "Open chat with Vertex Assistant",
+      "tooltip": "Ask Vertex"
+    },
+    "panel": {
+      "ariaLabel": "Vertex Assistant chat",
+      "title": "Vertex Assistant",
+      "subtitle": "Ask us anything",
+      "close": "Close chat"
+    },
+    "greetings": {
+      "shared": "Hi! I'm the Vertex Assistant. I can help you learn about our consulting and marketing services, or point you in the right direction. What brings you here today?",
+      "consulting": "Hello! I can tell you about our consulting services — business strategy, workflow restructuring, IT systems, or AI integration. What would you like to know?",
+      "marketing": "Hey! I can walk you through our marketing services — web design, social media, IT infrastructure, or AI-assisted development. What are you working on?",
+      "blog": "Hi there! Happy to answer questions about this topic or anything else Vertex-related. What's on your mind?",
+      "contact": "Hi! Thanks for stopping by. Got a quick question before filling out the form? Ask away."
+    },
+    "input": {
+      "placeholder": "Ask a question about Vertex…",
+      "send": "Send message",
+      "newLine": "Shift + Enter for a new line"
+    },
+    "status": {
+      "generating": "Generating response",
+      "typing": "Typing"
+    },
+    "errors": {
+      "generic": "Something went wrong. Please try again in a moment.",
+      "network": "Couldn't reach the assistant. Check your connection and try again.",
+      "messageLimit": "You've reached the message limit for this session. For more, get in touch via our contact page.",
+      "empty": "Type a question to get started."
+    },
+    "footer": {
+      "poweredBy": "Answers may be imperfect. For anything important, ",
+      "contactLink": "contact us directly",
+      "period": "."
+    }
   }
 }
