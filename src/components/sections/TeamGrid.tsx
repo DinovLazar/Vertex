@@ -32,9 +32,6 @@ export default async function TeamGrid({ members }: TeamGridProps) {
           <StaggerItem key={member.name} className="h-full">
             <BorderGlow
               className="h-full"
-              colors={['#F5F5F5', '#C9C9C9', '#A3A3A3']}
-              glowColor="0 0 85"
-              backgroundColor="#1C1C1C"
               borderRadius={12}
               glowRadius={40}
               glowIntensity={0.8}

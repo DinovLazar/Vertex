@@ -168,11 +168,12 @@ export default function Footer() {
       className="relative mt-auto"
       style={{ backgroundColor: 'var(--division-surface)' }}
     >
-      {/* Hairline separator at the very top — solid neutral, no gradient */}
+      {/* Hairline separator at the very top — uses the division-border token
+          so it inverts cleanly in light mode. */}
       <div
         aria-hidden="true"
         className="h-px w-full"
-        style={{ backgroundColor: '#262626' }}
+        style={{ backgroundColor: 'var(--division-border)' }}
       />
 
       {/* Newsletter / CTA strip */}
@@ -392,7 +393,7 @@ export default function Footer() {
                   target={isMailto ? undefined : '_blank'}
                   rel={isMailto ? undefined : 'noopener noreferrer'}
                   aria-label={label}
-                  className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] p-3 rounded-full text-[var(--division-text-muted)] hover:text-[var(--division-accent)] hover:bg-white/5 transition-colors focus-ring"
+                  className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] p-3 rounded-full text-[var(--division-text-muted)] hover:text-[var(--division-accent)] hover:bg-[var(--nav-hover-bg)] transition-colors focus-ring"
                 >
                   <Icon size={18} aria-hidden="true" />
                 </a>

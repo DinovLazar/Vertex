@@ -33,9 +33,6 @@ export default function MarketingServicesGrid({ services }: MarketingServicesGri
           <StaggerItem key={service.href} className="h-full">
             <BorderGlow
               className="h-full"
-              colors={['#F5F5F5', '#C9C9C9', '#A3A3A3']}
-              glowColor="0 0 85"
-              backgroundColor="#1C1C1C"
               borderRadius={12}
               glowRadius={40}
               glowIntensity={0.8}
@@ -48,9 +45,9 @@ export default function MarketingServicesGrid({ services }: MarketingServicesGri
               >
                 <div className="relative z-10">
                   <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center mb-5 group-hover:bg-white/10 transition-colors duration-300">
-                    <Icon size={20} className="text-[var(--division-text-secondary)] group-hover:text-white transition-colors" />
+                    <Icon size={20} className="text-[var(--division-text-secondary)] group-hover:text-[var(--division-text-primary)] transition-colors" />
                   </div>
-                  <h3 className="text-h3 text-[var(--division-text-primary)] group-hover:text-white transition-colors">
+                  <h3 className="text-h3 text-[var(--division-text-primary)]">
                     {service.title}
                   </h3>
                   <p className="mt-2 text-small text-[var(--division-text-muted)]">

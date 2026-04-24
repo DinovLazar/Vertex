@@ -19,6 +19,10 @@
     "closeMenu": "Затвори мени",
     "primaryAria": "Главна",
     "submenuToggleAria": "Отвори/затвори подмени за {label}",
+    "themeToggle": {
+      "toLight": "Премини на светла тема",
+      "toDark": "Премини на темна тема"
+    },
     "dropdown": {
       "businessConsulting": "Бизнис консалтинг",
       "workflowRestructuring": "Преструктуирање на процеси",

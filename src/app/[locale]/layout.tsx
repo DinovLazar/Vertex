@@ -8,8 +8,34 @@ import {
   DivisionProvider,
   ScrollProgress,
   BackToTop,
+  ThemeProvider,
 } from '@/components/global'
 import { ChatWidget } from '@/components/chat'
+
+// Phase L1 — pre-hydration theme init. Runs synchronously in <head>
+// BEFORE React hydrates. Reads localStorage + system preference and
+// writes `data-theme` on <html> so the correct theme is painted on
+// the very first frame (no flash-of-wrong-theme on conflicting OS
+// vs stored preference).
+const themeInitScript = `
+(function() {
+  try {
+    var stored = null;
+    try { stored = localStorage.getItem('vertex-theme'); } catch (e) {}
+    var theme;
+    if (stored === 'light' || stored === 'dark') {
+      theme = stored;
+    } else {
+      theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch (e) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+})();
+`.trim()
 
 // Archivo (neogrotesque sans for headings) + Source Serif 4 (humanist serif
 // for body). The pairing is intentional: a sturdy industrial sans against a
@@ -54,17 +80,22 @@ export default async function LocaleLayout({
       className={`${archivo.variable} ${sourceSerif.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="min-h-screen font-body antialiased overflow-x-hidden">
-        <NextIntlClientProvider messages={messages} locale={locale}>
-          <MotionWrapper>
-            <DivisionProvider>
-              <ScrollProgress />
-              {children}
-              <BackToTop />
-              <ChatWidget />
-            </DivisionProvider>
-          </MotionWrapper>
-        </NextIntlClientProvider>
+        <ThemeProvider>
+          <NextIntlClientProvider messages={messages} locale={locale}>
+            <MotionWrapper>
+              <DivisionProvider>
+                <ScrollProgress />
+                {children}
+                <BackToTop />
+                <ChatWidget />
+              </DivisionProvider>
+            </MotionWrapper>
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

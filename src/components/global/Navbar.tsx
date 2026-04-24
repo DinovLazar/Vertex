@@ -14,6 +14,7 @@ import { mainNavItems } from '@/config/navigation'
 import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import ThemeToggle from './ThemeToggle'
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -293,7 +294,7 @@ export default function Navbar() {
                               href={child.href}
                               onClick={() => setActiveDropdown(null)}
                               className={cn(
-                                'block px-4 py-2 text-sm transition-colors hover:bg-white/5 focus-ring',
+                                'block px-4 py-2 text-sm transition-colors hover:bg-[var(--nav-hover-bg)] focus-ring',
                                 isActive(child.href)
                                   ? ''
                                   : 'hover:text-[var(--division-text-primary)]'
@@ -315,14 +316,17 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* Right: lang + CTA + hamburger */}
+            {/* Right: theme + lang + CTA + hamburger */}
             <div className="flex items-center gap-2">
+              {/* Theme toggle (desktop) — sibling of language toggle */}
+              <ThemeToggle className="hidden md:inline-flex" />
+
               {/* Language toggle (desktop) */}
               <Button
                 type="button"
                 variant="ghost"
                 onClick={toggleLocale}
-                className="hidden md:inline-flex items-center min-h-[44px] gap-1.5 h-auto px-3 py-1.5 rounded-full text-sm font-medium hover:bg-white/5"
+                className="hidden md:inline-flex items-center min-h-[44px] gap-1.5 h-auto px-3 py-1.5 rounded-full text-sm font-medium hover:bg-[var(--nav-hover-bg)]"
                 style={{ color: 'var(--division-text-secondary)' }}
                 aria-label={t('languageToggleAria')}
               >
@@ -349,7 +353,7 @@ export default function Navbar() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="md:hidden h-11 w-11 relative z-50 hover:bg-white/5"
+                className="md:hidden h-11 w-11 relative z-50 hover:bg-[var(--nav-hover-bg)]"
                 style={{ color: 'var(--division-text-primary)' }}
                 aria-label={mobileOpen ? t('closeMenu') : t('openMenu')}
                 aria-expanded={mobileOpen}
@@ -378,6 +382,33 @@ export default function Navbar() {
             className="fixed inset-0 z-40 md:hidden"
             style={{ backgroundColor: 'var(--division-bg)' }}
           >
+            {/* Top-right cluster — theme toggle + language toggle. Sits
+                just below the fixed header (h-14 = 56px on mobile) so it
+                does not overlap the X close button in the navbar. */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+              className="absolute top-[72px] right-4 flex items-center gap-2"
+            >
+              <ThemeToggle />
+              <Button
+                type="button"
+                variant="ghost"
+                onClick={() => {
+                  setMobileOpen(false)
+                  toggleLocale()
+                }}
+                className="inline-flex items-center min-h-[44px] gap-1.5 h-auto px-3 py-2 text-sm hover:bg-[var(--nav-hover-bg)]"
+                style={{ color: 'var(--division-text-muted)' }}
+                aria-label={t('languageToggleAria')}
+              >
+                <Globe size={14} aria-hidden="true" />
+                <span className="uppercase">{otherLocale}</span>
+              </Button>
+            </motion.div>
+
             <div className="flex flex-col items-center gap-5 h-full overflow-y-auto pt-24 pb-10 px-6">
               {mainNavItems.map((item, index) => (
                 <motion.div
@@ -444,29 +475,6 @@ export default function Navbar() {
                 >
                   {t('cta')}
                 </Link>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ delay: (mainNavItems.length + 1) * 0.08 }}
-                className="mt-2"
-              >
-                <Button
-                  type="button"
-                  variant="ghost"
-                  onClick={() => {
-                    setMobileOpen(false)
-                    toggleLocale()
-                  }}
-                  className="inline-flex items-center min-h-[44px] gap-1.5 h-auto px-3 py-2 text-sm hover:bg-white/5"
-                  style={{ color: 'var(--division-text-muted)' }}
-                  aria-label={t('languageToggleAria')}
-                >
-                  <Globe size={14} aria-hidden="true" />
-                  <span className="uppercase">{otherLocale}</span>
-                </Button>
               </motion.div>
             </div>
           </motion.div>

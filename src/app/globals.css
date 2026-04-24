@@ -5,6 +5,19 @@
 @custom-variant dark (&:is(.dark *));
 
 /* =========================================================
+   color-scheme — tells the UA to render native form controls,
+   scrollbars, and text-selection highlights in the matching
+   theme. Paired with the `[data-theme]` attribute the pre-
+   hydration inline script in `[locale]/layout.tsx` sets.
+   ========================================================= */
+html {
+  color-scheme: dark;
+}
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* =========================================================
    Vertex Consulting — Arctic & Amethyst design tokens
    Tailwind v4: tokens live in @theme; generated utilities
    expose them as bg-*, text-*, border-*, font-*, etc.
@@ -143,6 +156,163 @@
   --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
   --animate-fade-in: fade-in 0.5s ease-out;
   --animate-slide-up: slide-up 0.5s ease-out;
+}
+
+/* =========================================================
+   BorderGlow tokens (Phase L4). Space-separated RGB triplets
+   for the outer glow color (dark-mode pale, light-mode near-
+   black) and a surface color that chains through the
+   already-theme-aware --division-surface. The BorderGlow
+   component's `glowColor` prop is parsed in JS (HSL triplet
+   expected), so it cannot consume the RGB token directly —
+   instead the component flips the HSL string via `useTheme()`.
+   --borderglow-glow is kept for CSS-consumer parity (rgba-
+   compose in any future utility) and for documentation
+   symmetry with the other L4 token pairs.
+   ========================================================= */
+:root {
+  --borderglow-glow: 241 243 247;
+  --borderglow-bg: var(--division-surface);
+}
+html[data-theme="light"] {
+  --borderglow-glow: 10 11 18;
+}
+
+/* =========================================================
+   Glass surface tokens (Phase L4). Consumed by:
+   - `.glass`     — dropdown menus, BackToTop FAB, generic.
+   - `.glass-nav` — scrolled navbar backdrop (distinct pair
+                    because it needs a higher alpha and a
+                    solid-ish tint, not a subtle overlay).
+   The `-strong` variants are reserved for future use (modal
+   surfaces, floating sheets); not consumed yet.
+   ========================================================= */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg-strong: rgba(255, 255, 255, 0.05);
+  --glass-border-strong: rgba(255, 255, 255, 0.12);
+  --glass-nav-bg: rgba(14, 14, 14, 0.85);
+  --glass-nav-border: rgba(255, 255, 255, 0.06);
+}
+html[data-theme="light"] {
+  --glass-bg: rgba(10, 11, 18, 0.04);
+  --glass-border: rgba(10, 11, 18, 0.08);
+  --glass-bg-strong: rgba(10, 11, 18, 0.06);
+  --glass-border-strong: rgba(10, 11, 18, 0.12);
+  --glass-nav-bg: rgba(255, 255, 255, 0.85);
+  --glass-nav-border: rgba(10, 11, 18, 0.08);
+}
+
+/* =========================================================
+   Nav / chrome hover overlay (Phase L4). Replaces the
+   dark-only `hover:bg-white/5` Tailwind shorthand across
+   Navbar, Footer, ThemeToggle, BackToTop. Consume via
+   `hover:bg-[var(--nav-hover-bg)]`.
+   ========================================================= */
+:root {
+  --nav-hover-bg: rgba(255, 255, 255, 0.05);
+}
+html[data-theme="light"] {
+  --nav-hover-bg: rgba(10, 11, 18, 0.05);
+}
+
+/* =========================================================
+   Hero background tokens (Phase L3). Consumed by:
+   - `.metallic-panel` (consulting hero GridMotion cells) — all
+     radial-gradient stops, striation alpha overlays, rim
+     border, and inset depth shadow flip with the theme.
+   - `GridMotion.tsx` outer `<section>` bg via inline style.
+   - Consulting hero scrim in `ConsultingLandingClient.tsx` via
+     inline style — darkens the center ellipse for headline
+     legibility; light-mode flips to a light scrim for the
+     same purpose on the inverted palette.
+
+   Dark values = live pre-L3 state (preserved for regression).
+   Light values = dark-titanium-on-light-surface metallic
+   palette (center DARKER than edge, opposite of dark mode)
+   so panels read as "metal emerging from light" instead of
+   flipping to dark-blob-on-white.
+   ========================================================= */
+:root {
+  --hero-grid-bg: #0E0E0E;
+  --hero-panel-stop-1: #A8ACB4;
+  --hero-panel-stop-2: #4A4E56;
+  --hero-panel-stop-3: #14171C;
+  --hero-panel-stripe-bright: rgba(255, 255, 255, 0.06);
+  --hero-panel-stripe-shadow: rgba(0, 0, 0, 0.14);
+  --hero-panel-border: transparent;
+  --metallic-panel-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+  --hero-scrim-center: rgba(14, 14, 14, 0.75);
+  --hero-scrim-mid: rgba(14, 14, 14, 0.4);
+}
+html[data-theme="light"] {
+  --hero-grid-bg: #F1F3F5;
+  --hero-panel-stop-1: #3A3D42;
+  --hero-panel-stop-2: #8A8E94;
+  --hero-panel-stop-3: #D4D7DC;
+  --hero-panel-stripe-bright: rgba(255, 255, 255, 0.10);
+  --hero-panel-stripe-shadow: rgba(0, 0, 0, 0.12);
+  --hero-panel-border: rgba(10, 11, 18, 0.10);
+  --metallic-panel-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.50),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+  --hero-scrim-center: rgba(241, 243, 245, 0.40);
+  --hero-scrim-mid: rgba(241, 243, 245, 0.20);
+}
+
+/* =========================================================
+   Silk canvas opacity (Phase L6). Consumed by BackgroundSilk's
+   outer wrapper as `style={{ opacity: 'var(--silk-opacity, 1)' }}`.
+   Full strength in dark (byte-identical to pre-L6). Damped in
+   light so the shader's high-contrast pattern output (native
+   math: uColor × pattern 0.2–1.0 + noise) reads as a subtle
+   flowing texture rather than a dominant feature competing with
+   the hero headline. See phase-l6-polish-and-fixes.md.
+   ========================================================= */
+:root {
+  --silk-opacity: 1;
+}
+html[data-theme="light"] {
+  --silk-opacity: 0.3;
+}
+
+/* =========================================================
+   DivisionSplit hover border (Phase L6). Consumed by the
+   hoverable division cards on the homepage. Pre-L6 this was
+   a hardcoded rgba(245,245,245,0.19) — invisible on a light
+   card surface. Tokenized so the hover-more-visible-than-
+   resting-border affordance works in both themes.
+   Dark value preserves pre-L6 byte-identical.
+   ========================================================= */
+:root {
+  --division-border-hover: rgba(245, 245, 245, 0.19);
+}
+html[data-theme="light"] {
+  --division-border-hover: rgba(10, 11, 18, 0.19);
+}
+
+/* =========================================================
+   Light-mode overrides for the @theme grayscale core tokens
+   (Phase L1). Tailwind v4 emits the @theme tokens as custom
+   properties on :root; `html[data-theme="light"]` has higher
+   specificity (0,0,1,1 vs :root's 0,0,1,0) so these win when
+   the inline theme init script flips the attribute.
+
+   Dark values are left untouched — post-Finishing-Touches v2
+   they settled on #141414/#F5F5F5/#A3A3A3 etc., which diverges
+   from the plan's nominal dark column. Only light values are
+   added here (Option 1 — Crisp White).
+   ========================================================= */
+html[data-theme="light"] {
+  --color-ink: #FFFFFF;
+  --color-surface: #F8F9FA;
+  --color-elevated: #F1F3F5;
+  --color-border: #E5E7EB;
+  --color-muted: #9AA0AD;
+  --color-bright: #0A0B12;
 }
 
 /* =========================================================
@@ -291,6 +461,62 @@
     --accent-foreground: 0 0% 96%;
   }
 
+  /* ===============================================
+     LIGHT MODE OVERRIDES (Phase L1)
+     Applied when <html data-theme="light">.
+
+     Covers four selectors with identical values:
+     - `html[data-theme="light"]` overrides the :root
+       defaults (needed because <body> lives outside
+       the [data-division] wrapper and reads
+       --division-* from the :root cascade).
+     - The three [data-division="..."] selectors
+       override the division-specific blocks above.
+
+     All three divisions share one light palette
+     (mirroring the collapsed dark palette from
+     Finishing Touches v2). If divisions diverge
+     again, split this block by selector.
+     =============================================== */
+  html[data-theme="light"],
+  html[data-theme="light"] [data-division="consulting"],
+  html[data-theme="light"] [data-division="marketing"] {
+    --division-bg: #FFFFFF;
+    --division-surface: #F8F9FA;
+    --division-card: #F1F3F5;
+    --division-border: #E5E7EB;
+    --division-accent: #0A0B12;
+    --division-accent-muted: #E5E7EB;
+    --division-glow: rgba(10, 11, 18, 0.06);
+    --division-text-primary: #0A0B12;
+    --division-text-secondary: #4B5563;
+    /* #9AA0AD was ~2.5:1 on --division-surface (#F8F9FA) — fails WCAG AA
+       for body text. #5F6670 gives ~5.5:1 and preserves the muted-vs-
+       secondary visual hierarchy (secondary #4B5563 still reads heavier).
+       Dark-mode value unchanged. */
+    --division-text-muted: #5F6670;
+    /* shadcn HSL tokens — light mode */
+    --background: 0 0% 100%;
+    --foreground: 232 29% 7%;
+    --muted: 216 14% 95%;
+    --muted-foreground: 220 9% 64%;
+    --card: 0 0% 100%;
+    --card-foreground: 232 29% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 232 29% 7%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 232 29% 7%;
+    --primary: 232 29% 7%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 216 14% 95%;
+    --secondary-foreground: 215 14% 34%;
+    --accent: 216 14% 95%;
+    --accent-foreground: 232 29% 7%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
@@ -327,31 +553,25 @@
    Utility layer
    ========================================================= */
 
-/* Glassmorphism */
+/* Glassmorphism — theme-aware via CSS variables (Phase L4).
+   The per-division variants ([data-division="consulting"] / "marketing")
+   were deleted — post-Finishing-Touches v2 they held identical values
+   to the base and served no purpose. */
 .glass {
-  background: rgba(255, 255, 255, 0.03);
+  background-color: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-border);
 }
 
-[data-division="consulting"] .glass {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.06);
-}
-
-[data-division="marketing"] .glass {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.06);
-}
-
-/* Navbar-specific backdrop — darker and more opaque than `.glass` so
-   body content never reads through the scrolled header. The blur itself
-   is applied via Tailwind's `backdrop-blur-md` utility on the navbar
-   (Lightning CSS strips raw `backdrop-filter` from this layer). */
+/* Navbar-specific backdrop — consumes its own token pair because it
+   needs a higher alpha and a solid-ish tint, not a subtle overlay.
+   Blur itself is applied via Tailwind's `backdrop-blur-md` utility on
+   the navbar (Lightning CSS strips raw `backdrop-filter` from this
+   utility-layer context). */
 .glass-nav {
-  background: rgba(14, 14, 14, 0.85);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background-color: var(--glass-nav-bg);
+  border-bottom: 1px solid var(--glass-nav-border);
 }
 
 /* Noise texture overlay */
@@ -365,42 +585,36 @@
   z-index: 1;
 }
 
-/* Glow hover — very subtle neutral (replaces lavender glow; will be
-   superseded by BorderGlow in Phase 4). */
-[data-division="marketing"] .glow-hover:hover {
-  box-shadow:
-    0 0 24px rgba(255, 255, 255, 0.04),
-    0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-
 /* Metallic silver panel — used by the consulting hero GridMotion background
    in `variant="panels"` mode. Layered: brushed vertical striation on top,
    radial silver spotlight gradient below. Phase 6 dialed brightness to a
    middle ground — clearly metallic, visibly highlighted, but still sits
-   behind the hero scrim so the headline stays legible. */
+   behind the hero scrim so the headline stays legible. Phase L3 tokenized
+   all color stops, striation alphas, rim border, and inset depth shadow
+   so the panels invert cleanly under light mode (dark-titanium center on
+   light silver edge → blends into the light page bg). */
 .metallic-panel {
   position: relative;
   width: 100%;
   height: 100%;
   border-radius: 14px;
-  background-color: #14171C;
+  border: 1px solid var(--hero-panel-border);
+  background-color: var(--hero-panel-stop-3);
   background-image:
     repeating-linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.06) 0 1px,
+      var(--hero-panel-stripe-bright) 0 1px,
       transparent 1px 3px,
-      rgba(0, 0, 0, 0.14) 3px 4px,
+      var(--hero-panel-stripe-shadow) 3px 4px,
       transparent 4px 6px
     ),
     radial-gradient(
       circle at center,
-      #A8ACB4 0%,
-      #4A4E56 50%,
-      #14171C 100%
+      var(--hero-panel-stop-1) 0%,
+      var(--hero-panel-stop-2) 50%,
+      var(--hero-panel-stop-3) 100%
     );
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--metallic-panel-shadow);
 }
 
 /* =========================================================
@@ -587,16 +801,20 @@
   }
 }
 
+/* Pulse ring uses --borderglow-glow (RGB triplet) so the bright-on-dark
+   pulse in dark mode inverts to dark-on-light in light mode. The drop
+   shadow stays dark in both themes — a soft shadow from a dark color
+   reads fine on either background. */
 @keyframes chat-trigger-pulse {
   0%, 100% {
     box-shadow:
       0 8px 24px -6px rgba(0, 0, 0, 0.5),
-      0 0 0 0 rgba(241, 243, 247, 0.25);
+      0 0 0 0 rgba(var(--borderglow-glow) / 0.25);
   }
   50% {
     box-shadow:
       0 8px 24px -6px rgba(0, 0, 0, 0.5),
-      0 0 0 8px rgba(241, 243, 247, 0);
+      0 0 0 8px rgba(var(--borderglow-glow) / 0);
   }
 }
 

@@ -33,9 +33,6 @@ export default function BlogCard({ post }: BlogCardProps) {
     <motion.article whileHover={{ y: -4 }} transition={{ duration: 0.3 }} className="h-full">
       <BorderGlow
         className="h-full"
-        colors={['#F5F5F5', '#C9C9C9', '#A3A3A3']}
-        glowColor="0 0 85"
-        backgroundColor="#1C1C1C"
         borderRadius={12}
         glowRadius={40}
         glowIntensity={0.8}
@@ -68,7 +65,7 @@ export default function BlogCard({ post }: BlogCardProps) {
           </div>
 
           {/* Title */}
-          <h3 className="text-h3 text-[var(--division-text-primary)] group-hover:text-white transition-colors">
+          <h3 className="text-h3 text-[var(--division-text-primary)]">
             {post.title}
           </h3>
 

@@ -11,7 +11,8 @@
       "Read(//tmp/**)",
       "Bash(xargs -I {} sh -c 'echo \"=== {} ===\" && grep -n \"text-gray\\\\|bg-gray\\\\|text-white\\\\|bg-white\\\\|text-black\\\\|bg-black\" {}')",
       "Skill(claude-api)",
-      "Skill(claude-api:*)"
+      "Skill(claude-api:*)",
+      "Read(//c/Users/user/.claude/**)"
     ]
   }
 }

@@ -45,12 +45,12 @@ export default function BackgroundGrid({
   return (
     <div
       className={`absolute inset-0 z-0 overflow-hidden ${className}`}
-      style={{ backgroundColor: '#121212' }}
+      style={{ backgroundColor: 'var(--division-bg)' }}
     >
       {shouldAnimate ? (
         <GridMotion items={items} gradientColor={gradientColor} variant={variant} />
       ) : (
-        <div className="w-full h-full" style={{ backgroundColor: '#121212' }} />
+        <div className="w-full h-full" style={{ backgroundColor: 'var(--division-bg)' }} />
       )}
     </div>
   )

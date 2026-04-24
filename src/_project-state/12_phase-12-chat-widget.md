@@ -21,7 +21,7 @@ A full streaming chat widget mounted globally on every locale-prefixed page. `@a
 ## Files modified
 | File | What changed |
 |------|-------------|
-| `src/lib/ai.ts` | Stub replaced. Now exports `streamAIResponse(messages, systemPrompt)` — an `AsyncGenerator<string>` that dispatches to either Claude (via dynamic `@anthropic-ai/sdk` import) or Ollama (line-delimited JSON from `/api/chat`). Model: `claude-sonnet-4-6`, max_tokens: 400. Also exports `ChatMessage` / `ChatRole` / `AiProvider` types |
+| `src/lib/ai.ts` | Stub replaced. Now exports `streamAIResponse(messages, systemPrompt)` — an `AsyncGenerator<string>` that dispatches to either Claude (via dynamic `@anthropic-ai/sdk` import) or Ollama (line-delimited JSON from `/api/chat`). Model: `claude-haiku-4-5` (switched from `claude-sonnet-4-6` during first-send verification — Haiku is a better production fit for a 3–4 sentence chat widget: ~5× cheaper, faster, and on most Claude API tiers has a separate quota pool that avoided the 429s we hit on Sonnet). `max_tokens: 400`. When `ANTHROPIC_API_KEY` is NOT set but `ANTHROPIC_AUTH_TOKEN` IS (local-dev OAuth path), the SDK client is instantiated with `defaultHeaders: { 'anthropic-beta': 'oauth-2025-04-20' }` so Claude's OAuth flow accepts the token; with a real API key, no beta header is added. Also exports `ChatMessage` / `ChatRole` / `AiProvider` types |
 | `src/lib/chatWidget.ts` | Stub replaced. `buildSystemPrompt({pageUrl, locale})` returns a dynamic prompt using `siteConfig` + `getDivisionFromPath()` + locale. Five personas: homepage/shared, consulting, marketing, blog, contact. Exports `ChatLocale` type |
 | `src/app/api/chat/route.ts` | Stub replaced. Node runtime (`export const runtime = 'nodejs'`), `dynamic = 'force-dynamic'`, validates body (message count ≤40, content ≤2000 chars, valid roles, valid locale), returns a `ReadableStream` of UTF-8 text chunks with `X-Accel-Buffering: no` to prevent Vercel proxy buffering |
 | `src/app/[locale]/layout.tsx` | `<ChatWidget />` mounted adjacent to `<BackToTop />` inside the `DivisionProvider`. Widget state lives at the locale-layout level so conversation survives client-side navigation within a locale |
@@ -84,8 +84,9 @@ Preexisting `z-index is currently not supported` warnings from Lightning CSS are
 
 ## Owner action required
 
-- **Add `ANTHROPIC_API_KEY` to `.env.local` locally** (for dev testing) and **to the Vercel project environment variables** (for production). The widget renders without the key but surfaces the translated generic error on every message send.
-- If cost at scale becomes a concern, swap `CLAUDE_MODEL` in `src/lib/ai.ts` from `claude-sonnet-4-6` to `claude-haiku-4-5`. No other files reference the model string.
+- **Add `ANTHROPIC_API_KEY=sk-ant-api03-…` to `.env.local` locally** (for dev) and **to the Vercel project environment variables** (for production). The widget currently runs against `ANTHROPIC_AUTH_TOKEN=sk-ant-oat01-…` — the developer's Claude Code OAuth token — which was used as a smoke-test credential and **rotates roughly every few days**, causing silent 401s when it expires. A permanent `sk-ant-api03-…` API key from console.anthropic.com doesn't rotate and runs on API-tier quotas (not the developer's Claude subscription).
+- Once a real key is in place, remove the `ANTHROPIC_AUTH_TOKEN=…` line from `.env.local`. The OAuth beta-header branch in `src/lib/ai.ts` checks `!ANTHROPIC_API_KEY && !!ANTHROPIC_AUTH_TOKEN` and will turn itself off automatically once the API key is set.
+- Model is already `claude-haiku-4-5` (the right production choice). Swap to `claude-sonnet-4-6` only if response quality ever falls short.
 
 ## What the next phase should know
 

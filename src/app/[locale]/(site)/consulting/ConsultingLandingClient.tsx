@@ -42,15 +42,16 @@ export default async function ConsultingLandingClient() {
         ]}
       >
         <BackgroundGrid />
-        {/* Radial scrim — darkens the center ellipse behind hero text so
-            panels never compete with the headline/subtitle readability.
-            Sits between BackgroundGrid (z-0) and hero content (z-10). */}
+        {/* Radial scrim — improves hero text contrast over the animated bg.
+            Dark mode: darkens the center ellipse. Light mode: lightens it
+            (tokens flip in globals.css). Sits between BackgroundGrid (z-0)
+            and hero content (z-10). */}
         <div
           aria-hidden="true"
           className="absolute inset-0 z-[1] pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse 50% 40% at 50% 50%, rgba(14,14,14,0.75) 0%, rgba(14,14,14,0.4) 40%, transparent 80%)',
+              'radial-gradient(ellipse 50% 40% at 50% 50%, var(--hero-scrim-center) 0%, var(--hero-scrim-mid) 40%, transparent 80%)',
           }}
         />
       </HeroSection>

@@ -125,10 +125,11 @@ export default function GridMotion({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          // Panels mode uses a solid deep-black so the gaps between cells read
-          // as sharp black; text mode now also uses a solid `gradientColor`
-          // (the old vignette was removed in the grayscale refactor).
-          backgroundColor: variant === 'panels' ? '#0E0E0E' : gradientColor,
+          // Panels mode consumes `--hero-grid-bg` (Phase L3) so the
+          // consulting-hero container flips with the theme. Text mode keeps
+          // the legacy `gradientColor` prop path for callers that still use
+          // `variant="text"` with a custom vignette color.
+          backgroundColor: variant === 'panels' ? 'var(--hero-grid-bg)' : gradientColor,
         }}
       >
         <div

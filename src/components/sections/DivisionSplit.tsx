@@ -56,7 +56,7 @@ export default function DivisionSplit() {
                 borderStyle: 'solid',
                 borderColor:
                   hoveredDivision === division.id
-                    ? 'rgba(245, 245, 245, 0.19)'
+                    ? 'var(--division-border-hover)'
                     : 'var(--division-border)',
               }}
             >
@@ -64,7 +64,7 @@ export default function DivisionSplit() {
               <div
                 className="relative z-10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 transition-colors duration-300"
                 style={{
-                  backgroundColor: 'rgba(245, 245, 245, 0.08)',
+                  backgroundColor: 'var(--division-glow)',
                 }}
               >
                 <Icon size={24} style={{ color: 'var(--division-accent)' }} />
@@ -72,7 +72,7 @@ export default function DivisionSplit() {
 
               {/* Content */}
               <div className="relative z-10">
-                <h3 className="text-h3 text-[var(--division-text-primary)] group-hover:text-white transition-colors">
+                <h3 className="text-h3 text-[var(--division-text-primary)]">
                   {t(`${division.id}.title`)}
                 </h3>
                 <p
@@ -92,8 +92,8 @@ export default function DivisionSplit() {
                       key={service}
                       className="px-3 py-1 rounded-full text-micro font-medium transition-colors duration-300"
                       style={{
-                        backgroundColor: 'rgba(245, 245, 245, 0.06)',
-                        color: 'rgba(245, 245, 245, 0.8)',
+                        backgroundColor: 'var(--division-glow)',
+                        color: 'var(--division-text-secondary)',
                       }}
                     >
                       {service}
@@ -102,7 +102,7 @@ export default function DivisionSplit() {
                 </div>
 
                 {/* Arrow CTA */}
-                <div className="mt-8 flex items-center gap-2 text-small font-medium text-[var(--division-text-muted)] group-hover:text-white transition-colors">
+                <div className="mt-8 flex items-center gap-2 text-small font-medium text-[var(--division-text-muted)] group-hover:text-[var(--division-text-primary)] transition-colors">
                   <span>{t(`${division.id}.cta`)}</span>
                   <ArrowRight
                     size={16}

@@ -8,6 +8,7 @@ import {
   type PointerEvent,
   type ReactNode,
 } from 'react'
+import { useTheme } from '@/components/global'
 import './BorderGlow.css'
 
 // =============================================================================
@@ -149,16 +150,41 @@ export default function BorderGlow({
   children,
   className = '',
   edgeSensitivity = 30,
-  glowColor = '40 80 80',
-  backgroundColor = '#120F17',
+  // `glowColor` is parsed by JS (`parseHSL` → HSL triplet), so it can't be
+  // a CSS variable — the parser would see the literal string "var(...)" and
+  // fail. We key off the resolved theme instead: pale near-white in dark,
+  // near-black navy in light. Callers can still pass an explicit HSL triplet
+  // to override (e.g. a "featured" card with a custom glow).
+  glowColor,
+  // `backgroundColor` is passed directly into inline `style` + the CSS
+  // `var(--card-bg, …)` chain, so a CSS variable works here without any JS
+  // parsing concerns. Default `transparent` lets the card sit on whatever
+  // surface color the section sets.
+  backgroundColor = 'var(--borderglow-bg)',
   borderRadius = 28,
   glowRadius = 40,
   glowIntensity = 1.0,
   coneSpread = 25,
   animated = false,
-  colors = ['#F5F5F5', '#C9C9C9', '#A3A3A3'],
+  // Grayscale palette — both end-points of the scale look correct on
+  // either theme (dark-ish on a dark card, lighter on a light card —
+  // the mesh ends up looking like a subtle metallic sheen in both).
+  colors,
   fillOpacity = 0.5,
 }: BorderGlowProps) {
+  const { theme } = useTheme()
+  // Default glow color picked by theme. `0 0 85` = HSL(0, 0%, 85%) — the
+  // neutral pale that every pre-L4 call site was passing explicitly.
+  // `232 30 7` ≈ #0A0B12 (the L1 light-mode accent / text-primary token).
+  const resolvedGlowColor = glowColor ?? (theme === 'light' ? '232 30 7' : '0 0 85')
+  // Default mesh palette also picked by theme. In dark mode the existing
+  // grayscale whites produce a subtle bright-on-dark sheen; in light mode we
+  // flip to dark grays so the mesh remains visible on white surfaces.
+  const resolvedColors =
+    colors ??
+    (theme === 'light'
+      ? ['#0A0B12', '#4B5563', '#9AA0AD']
+      : ['#F5F5F5', '#C9C9C9', '#A3A3A3'])
   const cardRef = useRef<HTMLDivElement>(null)
 
   const getCenterOfElement = useCallback(
@@ -289,7 +315,12 @@ export default function BorderGlow({
     })
   }, [animated])
 
-  const glowVars = buildGlowVars(glowColor, glowIntensity)
+  // Perceptual asymmetry boost (Phase L6). A dark glow on a light card
+  // radiates less visibly than a bright glow on a dark card — same alpha
+  // math but different subjective weight. Bump the intensity 1.4× in light
+  // mode so the hover affordance reads similarly strong in both themes.
+  const effectiveIntensity = glowIntensity * (theme === 'light' ? 1.4 : 1.0)
+  const glowVars = buildGlowVars(resolvedGlowColor, effectiveIntensity)
 
   // Custom CSS properties aren't part of React.CSSProperties, so we assemble
   // the style object as a plain record and cast once at the JSX site.
@@ -301,7 +332,7 @@ export default function BorderGlow({
     '--cone-spread': coneSpread,
     '--fill-opacity': fillOpacity,
     ...glowVars,
-    ...buildGradientVars(colors),
+    ...buildGradientVars(resolvedColors),
   } as CSSProperties
 
   return (

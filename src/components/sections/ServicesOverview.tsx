@@ -46,9 +46,6 @@ export default async function ServicesOverview() {
           <StaggerItem key={service.href} className="h-full">
             <BorderGlow
               className="h-full"
-              colors={['#F5F5F5', '#C9C9C9', '#A3A3A3']}
-              glowColor="0 0 85"
-              backgroundColor="#1C1C1C"
               borderRadius={12}
               glowRadius={40}
               glowIntensity={0.8}
@@ -74,12 +71,12 @@ export default async function ServicesOverview() {
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 transition-colors duration-300 bg-white/5 group-hover:bg-white/10">
                   <Icon
                     size={20}
-                    className="transition-colors duration-300 text-gray-400 group-hover:text-white"
+                    className="transition-colors duration-300 text-[var(--division-text-secondary)] group-hover:text-[var(--division-text-primary)]"
                   />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-h3 text-[var(--division-text-primary)] group-hover:text-white transition-colors">
+                <h3 className="text-h3 text-[var(--division-text-primary)]">
                   {t(`services.${service.key}.title`)}
                 </h3>
                 <p className="mt-2 text-small text-[var(--division-text-muted)]">

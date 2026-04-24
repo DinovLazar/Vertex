@@ -50,7 +50,6 @@ export default async function MarketingLandingClient() {
         ]}
       >
         <BackgroundPlasma
-          color="#F5F5F5"
           speed={0.5}
           direction="forward"
           scale={1.3}
