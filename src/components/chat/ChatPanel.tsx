@@ -13,6 +13,8 @@ import type { ChatMessage as ChatMessageType } from '@/lib/ai'
 const MAX_USER_MESSAGES = 20
 
 interface ChatPanelProps {
+  /** DOM id consumed by the trigger's `aria-controls`. */
+  id: string
   messages: ChatMessageType[]
   onSend: (text: string) => void
   onClose: () => void
@@ -22,6 +24,7 @@ interface ChatPanelProps {
 }
 
 export function ChatPanel({
+  id,
   messages,
   onSend,
   onClose,
@@ -84,6 +87,7 @@ export function ChatPanel({
 
   return (
     <motion.div
+      id={id}
       role="dialog"
       aria-modal="false"
       aria-label={t('panel.ariaLabel')}
@@ -135,7 +139,7 @@ export function ChatPanel({
           onClick={onClose}
           aria-label={t('panel.close')}
           className={cn(
-            'flex h-9 w-9 items-center justify-center rounded-full',
+            'flex h-11 w-11 items-center justify-center rounded-full',
             'text-[var(--color-muted)] hover:text-[var(--color-bright)]',
             'hover:bg-[var(--color-border)] transition-colors',
             'focus-ring',
@@ -223,7 +227,7 @@ export function ChatPanel({
             disabled={!input.trim() || isStreaming || limitReached}
             aria-label={t('input.send')}
             className={cn(
-              'flex h-9 w-9 shrink-0 items-center justify-center rounded-full',
+              'flex h-11 w-11 shrink-0 items-center justify-center rounded-full',
               'bg-[var(--color-bright)] text-[var(--color-ink)]',
               'hover:opacity-90 transition-opacity',
               'disabled:opacity-40 disabled:cursor-not-allowed',

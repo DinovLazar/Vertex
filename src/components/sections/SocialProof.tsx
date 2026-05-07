@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { motion } from 'motion/react'
+import { motion, useReducedMotion } from 'motion/react'
 import { staggerContainer, staggerItem } from '@/lib/animations'
 
 const STAT_KEYS = ['yearsExperience', 'projectsDelivered', 'expertDivisions', 'clientFirst'] as const
@@ -11,6 +11,10 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
   const [count, setCount] = useState(0)
   const [hasStarted, setHasStarted] = useState(false)
   const ref = useRef<HTMLSpanElement>(null)
+  // Returns null on SSR/first paint, then the actual user preference. We
+  // skip the animation effect entirely when truthy and render `target` from
+  // the JSX — no setState-in-effect for the jump path.
+  const shouldReduceMotion = useReducedMotion()
 
   // Detect when the span enters the viewport using a raw IntersectionObserver.
   // Motion's useInView was unreliable here with React 19 + Next 16, so we use
@@ -35,30 +39,35 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
     return () => observer.disconnect()
   }, [hasStarted])
 
-  // Run the count-up animation once hasStarted flips true.
+  // RAF-driven count-up with easeOutCubic so the number decelerates into its
+  // final value instead of running at a constant rate. Replaces a 16ms
+  // setInterval that drifted on slow frames. Skipped under reduced-motion —
+  // the JSX renders `target` directly in that branch.
   useEffect(() => {
-    if (!hasStarted) return
+    if (!hasStarted || shouldReduceMotion) return
 
-    let start = 0
-    const duration = 2000 // 2 seconds
-    const increment = target / (duration / 16) // ~60fps
+    const duration = 2000
+    const startTime = performance.now()
+    let frameId = 0
 
-    const timer = setInterval(() => {
-      start += increment
-      if (start >= target) {
+    const tick = (now: number) => {
+      const t = Math.min((now - startTime) / duration, 1)
+      const eased = 1 - Math.pow(1 - t, 3)
+      if (t >= 1) {
         setCount(target)
-        clearInterval(timer)
-      } else {
-        setCount(Math.floor(start))
+        return
       }
-    }, 16)
+      setCount(Math.floor(target * eased))
+      frameId = requestAnimationFrame(tick)
+    }
 
-    return () => clearInterval(timer)
-  }, [hasStarted, target])
+    frameId = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(frameId)
+  }, [hasStarted, target, shouldReduceMotion])
 
   return (
     <span ref={ref} className="tabular-nums">
-      {count}
+      {shouldReduceMotion ? target : count}
       {suffix}
     </span>
   )
@@ -84,30 +93,32 @@ export default function SocialProof() {
           return (
             <motion.div key={key} variants={staggerItem} className="text-center">
               <div
-                className="font-heading text-display tabular-nums"
+                className="font-heading text-h1 tabular-nums"
                 style={{ color: 'var(--division-text-primary)' }}
               >
                 <AnimatedCounter target={value} suffix={suffix} />
               </div>
-              <p className="mt-2 text-small text-[var(--division-text-muted)]">{label}</p>
+              <p className="mt-2 overline text-[var(--division-text-muted)]">{label}</p>
             </motion.div>
           )
         })}
       </motion.div>
 
-      {/* Value proposition statement */}
+      {/* Value proposition statement. The hairline above separates the
+          metric grid from the editorial pull-quote so the section reads as
+          two beats instead of one undifferentiated wall of text. */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="mt-16 max-w-3xl mx-auto text-center"
+        className="mt-16 pt-12 border-t border-[var(--division-border)] max-w-3xl mx-auto text-center"
       >
         <blockquote className="text-h2 font-heading font-medium text-[var(--division-text-primary)]">
           &ldquo;{t('quote.text')}&rdquo;
         </blockquote>
         <p className="mt-4 text-small text-[var(--division-text-muted)]">
-          {t('quote.attribution')}
+          — {t('quote.attribution')}
         </p>
       </motion.div>
     </div>

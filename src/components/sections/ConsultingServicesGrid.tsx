@@ -44,7 +44,7 @@ export default function ConsultingServicesGrid({ services }: ConsultingServicesG
                 className="group relative block h-full p-7 focus-ring"
               >
                 <div className="flex items-start justify-between gap-4">
-                  <div className="w-11 h-11 rounded-lg flex items-center justify-center bg-white/5 border border-[var(--division-border)] transition-colors duration-300 group-hover:bg-white/10">
+                  <div className="w-11 h-11 rounded-lg flex items-center justify-center bg-[var(--division-glow)] border border-[var(--division-border)] transition-colors duration-300 group-hover:bg-[var(--nav-hover-bg-strong)]">
                     <Icon
                       size={20}
                       className="text-[var(--division-text-secondary)] transition-colors duration-300 group-hover:text-[var(--division-text-primary)]"

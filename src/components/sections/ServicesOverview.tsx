@@ -68,7 +68,7 @@ export default async function ServicesOverview() {
                 </div>
 
                 {/* Icon */}
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 transition-colors duration-300 bg-white/5 group-hover:bg-white/10">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 transition-colors duration-300 bg-[var(--division-glow)] group-hover:bg-[var(--nav-hover-bg-strong)]">
                   <Icon
                     size={20}
                     className="transition-colors duration-300 text-[var(--division-text-secondary)] group-hover:text-[var(--division-text-primary)]"

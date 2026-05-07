@@ -68,10 +68,10 @@ export default function HeroSection({
                 key={btn.href}
                 href={btn.href}
                 className={cn(
-                  'px-7 py-3.5 rounded-button font-heading text-small font-medium transition-all',
+                  'inline-flex items-center justify-center min-h-[44px] px-7 py-3.5 rounded-button font-heading text-small font-medium transition-all',
                   btn.variant === 'primary'
                     ? 'bg-[var(--division-accent)] text-[var(--division-bg)] hover:brightness-110'
-                    : 'border border-[var(--division-border)] text-[var(--division-text-primary)] hover:bg-white/5'
+                    : 'border border-[var(--division-border)] text-[var(--division-text-primary)] hover:bg-[var(--nav-hover-bg)]'
                 )}
               >
                 {btn.label}

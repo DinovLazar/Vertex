@@ -138,7 +138,7 @@ export default function ContactPageClient() {
               src={`https://www.google.com/maps?q=${encodeURIComponent(addressString)}&output=embed`}
               width="100%"
               height="400"
-              style={{ border: 0, filter: 'grayscale(30%) invert(92%) contrast(83%) hue-rotate(180deg)' }}
+              style={{ border: 0, filter: 'var(--map-filter)' }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

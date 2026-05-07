@@ -34,7 +34,7 @@ export default function BackToTop() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           transition={springPop}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ y: -3 }}
           whileTap={{ scale: 0.9 }}
           // z-40 sits above body content (z-auto) but below the navbar (z-50).
           // Bottom offset: generous on mobile (content crowded near bottom),

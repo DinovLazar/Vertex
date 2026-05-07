@@ -205,16 +205,39 @@ html[data-theme="light"] {
 }
 
 /* =========================================================
-   Nav / chrome hover overlay (Phase L4). Replaces the
-   dark-only `hover:bg-white/5` Tailwind shorthand across
-   Navbar, Footer, ThemeToggle, BackToTop. Consume via
-   `hover:bg-[var(--nav-hover-bg)]`.
+   Nav / chrome hover overlay (Phase L4, extended L7).
+   `--nav-hover-bg` replaces the dark-only `hover:bg-white/5`
+   shorthand. `--nav-hover-bg-strong` (10% alpha) is the L7
+   sibling for the `bg-white/5 group-hover:bg-white/10`
+   resting-plus-hover pattern used by the services-grid
+   icon plates — preserves the brightness lift when the
+   resting layer is already at --division-glow's 5%.
    ========================================================= */
 :root {
   --nav-hover-bg: rgba(255, 255, 255, 0.05);
+  --nav-hover-bg-strong: rgba(255, 255, 255, 0.10);
 }
 html[data-theme="light"] {
   --nav-hover-bg: rgba(10, 11, 18, 0.05);
+  --nav-hover-bg-strong: rgba(10, 11, 18, 0.10);
+}
+
+/* =========================================================
+   Google Maps iframe filter (Phase L7). The contact-page
+   embed used a hardcoded
+   `grayscale(30%) invert(92%) contrast(83%) hue-rotate(180deg)`
+   recolor that mutes Google's bright default into a dark
+   blue-grey for dark mode. In light mode the map sits on
+   --division-bg #FFFFFF; the inversion would now flip the
+   light Google tiles to dark (an inverted island on a white
+   page). Light flips to a soft grayscale instead — keeps the
+   map visually quiet without inverting it.
+   ========================================================= */
+:root {
+  --map-filter: grayscale(30%) invert(92%) contrast(83%) hue-rotate(180deg);
+}
+html[data-theme="light"] {
+  --map-filter: grayscale(20%) contrast(95%);
 }
 
 /* =========================================================
@@ -264,19 +287,28 @@ html[data-theme="light"] {
 }
 
 /* =========================================================
-   Silk canvas opacity (Phase L6). Consumed by BackgroundSilk's
-   outer wrapper as `style={{ opacity: 'var(--silk-opacity, 1)' }}`.
-   Full strength in dark (byte-identical to pre-L6). Damped in
-   light so the shader's high-contrast pattern output (native
-   math: uColor × pattern 0.2–1.0 + noise) reads as a subtle
-   flowing texture rather than a dominant feature competing with
-   the hero headline. See phase-l6-polish-and-fixes.md.
+   Silk canvas opacity (Phase L6, retuned in Session — Silk
+   Visibility + Scroll-Resume Fix).
+   Consumed by BackgroundSilk's outer wrapper as
+   `style={{ opacity: 'var(--silk-opacity, 1)' }}`.
+   Full strength in dark (byte-identical to pre-L6). Damped
+   in light so the shader's high-contrast pattern output
+   (native math: uColor × pattern 0.2–1.0 + noise) reads as a
+   subtle flowing texture rather than a dominant feature
+   competing with the hero headline.
+
+   Retune: 0.3 → 0.55. Phase L6's 0.3 + a near-white SILK_COLOR_LIGHT
+   pushed visibility past "subtle" into "barely there" on most
+   displays. 0.55 (paired with a slightly darker SILK_COLOR_LIGHT
+   in BackgroundSilk.tsx — see that file) keeps the headline
+   dominant but makes the flow texture legible. See
+   phase-l6-polish-and-fixes.md for the original tuning history.
    ========================================================= */
 :root {
   --silk-opacity: 1;
 }
 html[data-theme="light"] {
-  --silk-opacity: 0.3;
+  --silk-opacity: 0.55;
 }
 
 /* =========================================================

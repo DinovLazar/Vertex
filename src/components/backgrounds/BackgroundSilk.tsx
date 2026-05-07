@@ -17,13 +17,22 @@ interface BackgroundSilkProps {
 }
 
 // Theme-aware default colors. Dark matches the pre-L3 live value. Light
-// retuned in L6 from #CDD1D7 → #D8DCE2 so the dampened shader output (see
-// --silk-opacity below) still reads as visible flow texture instead of
-// near-invisible pale. The shader multiplies uColor by a pattern ~0.2–1.0,
-// so the wrapper's opacity: var(--silk-opacity) is what actually mutes the
-// canvas in light mode — the color tuning is a complementary nudge.
+// has been retuned twice:
+//   L6:       #CDD1D7 → #D8DCE2  (paired with --silk-opacity: 0.3)
+//   Session — Silk Visibility + Scroll-Resume Fix:
+//             #D8DCE2 → #C5CBD3  (paired with --silk-opacity: 0.55)
+// The shader multiplies uColor by a pattern ~0.2–1.0, so the wrapper's
+// opacity: var(--silk-opacity) and the colour work together. L6 erred on
+// the invisible side; this retune brings the pattern back into "visible
+// but atmospheric" without letting it compete with the hero headline.
 const SILK_COLOR_DARK = '#2A2D33'
-const SILK_COLOR_LIGHT = '#D8DCE2'
+// Retuned alongside --silk-opacity bump (0.3 → 0.55) in Session — Silk
+// Visibility + Scroll-Resume Fix. At the old 0.3 opacity a near-white
+// colour was used to stay subtle; at 0.55 we can afford a slightly
+// darker base so the wave pattern's troughs have visible structure
+// against the white page background. Still well within "atmospheric"
+// territory — headline remains the dominant element.
+const SILK_COLOR_LIGHT = '#C5CBD3'
 
 export default function BackgroundSilk({
   color,

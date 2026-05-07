@@ -28,11 +28,12 @@ function buildUrl(locale: string, path: string): string {
   return `${siteConfig.url}/${locale}${path === '/' ? '' : path}`
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = []
+  const slugs = await getAllSlugs()
   const allPaths = [
     ...STATIC_PATHS,
-    ...getAllSlugs().map((slug) => `/blog/${slug}`),
+    ...slugs.map((slug) => `/blog/${slug}`),
   ]
   const lastModified = new Date()
 

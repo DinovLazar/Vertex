@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { usePathname } from '@/i18n/navigation'
 import { useLocale, useTranslations } from 'next-intl'
@@ -21,6 +21,7 @@ export function ChatWidget() {
   const [isStreaming, setIsStreaming] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const abortRef = useRef<AbortController | null>(null)
+  const panelId = useId()
 
   const userMessageCount = useMemo(
     () => messages.filter((m) => m.role === 'user').length,
@@ -160,6 +161,8 @@ export function ChatWidget() {
         onClick={() => setOpen(true)}
         aria-label={t('trigger.ariaLabel')}
         aria-expanded={open}
+        aria-haspopup="dialog"
+        aria-controls={panelId}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{
           opacity: open ? 0 : 1,
@@ -186,6 +189,7 @@ export function ChatWidget() {
       <AnimatePresence>
         {open && (
           <ChatPanel
+            id={panelId}
             messages={messages}
             onSend={handleSend}
             onClose={() => setOpen(false)}

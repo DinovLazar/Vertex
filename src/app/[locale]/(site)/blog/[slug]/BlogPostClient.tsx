@@ -1,26 +1,44 @@
 'use client'
 
-import React from 'react'
 import { useFormatter, useLocale, useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
+import { PortableText, type PortableTextComponents } from '@portabletext/react'
 import { Section, AnimateIn } from '@/components/global'
 import { BlogCard, CTABanner } from '@/components/sections'
-import { getRelatedPosts, type BlogPost } from '@/lib/blog'
+import type { BlogPost } from '@/lib/blog'
 import { ArrowLeft, Clock } from 'lucide-react'
 import { siteConfig } from '@/config/site'
 import type { Locale } from '@/i18n/routing'
 
-interface BlogPostClientProps {
-  post: BlogPost
+// Portable Text → React mapping. Inline links are split: internal paths
+// (`/...`) go through the locale-aware <Link> so the prefix is preserved;
+// everything else opens in a new tab with safe rel attributes.
+const portableTextComponents: PortableTextComponents = {
+  marks: {
+    link: ({ value, children }) => {
+      const href: string = value?.href ?? '#'
+      if (href.startsWith('/')) {
+        return <Link href={href}>{children}</Link>
+      }
+      return (
+        <a href={href} target="_blank" rel="noopener noreferrer">
+          {children}
+        </a>
+      )
+    },
+  },
 }
 
-export default function BlogPostClient({ post }: BlogPostClientProps) {
+interface BlogPostClientProps {
+  post: BlogPost
+  related: BlogPost[]
+}
+
+export default function BlogPostClient({ post, related }: BlogPostClientProps) {
   const tPost = useTranslations('blog.post')
   const tBlogChrome = useTranslations('sections.blog')
   const locale = useLocale() as Locale
   const format = useFormatter()
-
-  const related = getRelatedPosts(post.slug, locale, 2)
 
   const formattedDate = format.dateTime(new Date(post.publishedAt), {
     year: 'numeric',
@@ -39,8 +57,8 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
     description: post.excerpt,
     author: {
       '@type': 'Person',
-      name: post.author,
-      jobTitle: post.authorRole,
+      name: post.author.name,
+      jobTitle: post.author.role,
     },
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,
@@ -100,17 +118,14 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
             <div className="mt-6 pt-6 border-t border-[var(--division-border)] flex items-center gap-3">
               <div className="w-10 h-10 rounded-full border-2 border-[var(--division-border)] bg-[var(--division-card)] flex items-center justify-center">
                 <span className="font-heading text-small font-bold text-[var(--division-text-muted)]">
-                  {post.author
-                    .split(' ')
-                    .map((n) => n[0])
-                    .join('')}
+                  {post.author.initials}
                 </span>
               </div>
               <div>
                 <p className="font-heading text-small font-semibold text-[var(--division-text-primary)]">
-                  {post.author}
+                  {post.author.name}
                 </p>
-                <p className="text-micro text-[var(--division-text-muted)]">{post.authorRole}</p>
+                <p className="text-micro text-[var(--division-text-muted)]">{post.author.role}</p>
               </div>
             </div>
           </div>
@@ -121,7 +136,9 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
           continuously from the header above. */}
       <Section className="pt-0 md:pt-0">
         <AnimateIn>
-          <div className="prose-blog max-w-3xl">{renderContent(post.content)}</div>
+          <div className="prose-blog max-w-3xl">
+            <PortableText value={post.body} components={portableTextComponents} />
+          </div>
         </AnimateIn>
       </Section>
 
@@ -144,71 +161,5 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
       {/* CTA */}
       <CTABanner />
     </>
-  )
-}
-
-/**
- * Parses a post body string into React elements:
- *   `## heading` → <h2>
- *   `**bold**` → <strong>
- *   `[label](href)` → <Link> (internal, locale-aware) or <a> (external).
- */
-function renderContent(content: string) {
-  const blocks = content.split('\n\n')
-  return blocks.map((block, i) => {
-    const trimmed = block.trim()
-    if (trimmed.startsWith('## ')) {
-      return <h2 key={i}>{trimmed.slice(3)}</h2>
-    }
-    if (trimmed.startsWith('# ')) {
-      return <h2 key={i}>{trimmed.slice(2)}</h2>
-    }
-    return <p key={i}>{renderInline(trimmed)}</p>
-  })
-}
-
-function renderInline(text: string): React.ReactNode {
-  const nodes: React.ReactNode[] = []
-  const pattern = /\*\*(.+?)\*\*|\[([^\]]+)\]\(([^)]+)\)/g
-  let lastIndex = 0
-  let match: RegExpExecArray | null
-
-  while ((match = pattern.exec(text)) !== null) {
-    if (match.index > lastIndex) {
-      nodes.push(text.slice(lastIndex, match.index))
-    }
-    if (match[1]) {
-      nodes.push(<strong key={`s-${match.index}`}>{match[1]}</strong>)
-    } else if (match[2] && match[3]) {
-      const label = match[2]
-      const href = match[3]
-      if (href.startsWith('/')) {
-        nodes.push(
-          <Link key={`l-${match.index}`} href={href}>
-            {label}
-          </Link>
-        )
-      } else {
-        nodes.push(
-          <a
-            key={`l-${match.index}`}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {label}
-          </a>
-        )
-      }
-    }
-    lastIndex = match.index + match[0].length
-  }
-
-  if (lastIndex < text.length) {
-    nodes.push(text.slice(lastIndex))
-  }
-
-  return nodes.map((node, i) =>
-    typeof node === 'string' ? <React.Fragment key={`t-${i}`}>{node}</React.Fragment> : node
   )
 }

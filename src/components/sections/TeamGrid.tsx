@@ -51,7 +51,7 @@ export default async function TeamGrid({ members }: TeamGridProps) {
                 </div>
 
                 {/* Avatar */}
-                <div className="w-16 h-16 rounded-full mb-4 flex items-center justify-center border-2 border-white/10 bg-white/5">
+                <div className="w-16 h-16 rounded-full mb-4 flex items-center justify-center border-2 border-[var(--division-border)] bg-[var(--division-glow)]">
                   <span className="font-heading text-body-lg font-bold text-[var(--division-text-primary)]">
                     {member.initials}
                   </span>

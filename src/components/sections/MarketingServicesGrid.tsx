@@ -44,7 +44,7 @@ export default function MarketingServicesGrid({ services }: MarketingServicesGri
                 className="group block relative p-7 h-full focus-ring"
               >
                 <div className="relative z-10">
-                  <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center mb-5 group-hover:bg-white/10 transition-colors duration-300">
+                  <div className="w-10 h-10 rounded-lg bg-[var(--division-glow)] flex items-center justify-center mb-5 group-hover:bg-[var(--nav-hover-bg-strong)] transition-colors duration-300">
                     <Icon size={20} className="text-[var(--division-text-secondary)] group-hover:text-[var(--division-text-primary)] transition-colors" />
                   </div>
                   <h3 className="text-h3 text-[var(--division-text-primary)]">

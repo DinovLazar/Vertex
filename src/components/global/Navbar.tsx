@@ -122,11 +122,11 @@ export default function Navbar() {
         )}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-14 md:h-16 items-center justify-between">
+          <div className="grid grid-cols-[1fr_auto_1fr] h-14 md:h-16 items-center">
             {/* Logo */}
             <Link
               href="/"
-              className="font-heading font-bold text-body-lg tracking-tight focus-ring"
+              className="font-heading font-bold text-body-lg tracking-tight focus-ring justify-self-start"
               style={{ color: 'var(--division-text-primary)' }}
               aria-label={`${siteConfig.name} ${tCommon('logoAriaSuffix')}`}
             >
@@ -147,6 +147,7 @@ export default function Navbar() {
                     <Link
                       key={item.href}
                       href={item.href}
+                      aria-current={active ? 'page' : undefined}
                       className={cn(
                         'relative inline-flex items-center min-h-[44px] md:min-h-0 md:py-2 px-3 text-sm font-medium transition-colors focus-ring',
                         active
@@ -217,6 +218,7 @@ export default function Navbar() {
                     <div className="relative flex items-center">
                       <Link
                         href={item.href}
+                        aria-current={active ? 'page' : undefined}
                         className={cn(
                           'inline-flex items-center min-h-[44px] md:min-h-0 md:py-2 pl-3 pr-1 text-sm font-medium transition-colors focus-ring',
                           active
@@ -288,26 +290,30 @@ export default function Navbar() {
                           transition={{ duration: 0.2, ease: 'easeOut' }}
                           className="absolute top-full left-0 mt-2 w-56 py-2 rounded-lg glass"
                         >
-                          {item.children.map((child) => (
-                            <Link
-                              key={child.href}
-                              href={child.href}
-                              onClick={() => setActiveDropdown(null)}
-                              className={cn(
-                                'block px-4 py-2 text-sm transition-colors hover:bg-[var(--nav-hover-bg)] focus-ring',
-                                isActive(child.href)
-                                  ? ''
-                                  : 'hover:text-[var(--division-text-primary)]'
-                              )}
-                              style={{
-                                color: isActive(child.href)
-                                  ? 'var(--division-accent)'
-                                  : 'var(--division-text-secondary)',
-                              }}
-                            >
-                              {tAll(child.labelKey)}
-                            </Link>
-                          ))}
+                          {item.children.map((child) => {
+                            const childActive = isActive(child.href)
+                            return (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                onClick={() => setActiveDropdown(null)}
+                                aria-current={childActive ? 'page' : undefined}
+                                className={cn(
+                                  'block px-4 py-2 text-sm transition-colors hover:bg-[var(--nav-hover-bg)] focus-ring',
+                                  childActive
+                                    ? ''
+                                    : 'hover:text-[var(--division-text-primary)]'
+                                )}
+                                style={{
+                                  color: childActive
+                                    ? 'var(--division-accent)'
+                                    : 'var(--division-text-secondary)',
+                                }}
+                              >
+                                {tAll(child.labelKey)}
+                              </Link>
+                            )
+                          })}
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -317,7 +323,7 @@ export default function Navbar() {
             </nav>
 
             {/* Right: theme + lang + CTA + hamburger */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 col-start-3 justify-self-end">
               {/* Theme toggle (desktop) — sibling of language toggle */}
               <ThemeToggle className="hidden md:inline-flex" />
 
@@ -422,6 +428,7 @@ export default function Navbar() {
                   <Link
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
+                    aria-current={isActive(item.href) ? 'page' : undefined}
                     className={cn(
                       'inline-flex items-center min-h-[44px] px-2 font-heading text-2xl font-semibold transition-colors focus-ring'
                     )}
@@ -435,21 +442,25 @@ export default function Navbar() {
                   </Link>
                   {item.children && (
                     <div className="mt-3 flex flex-col items-center gap-2">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          onClick={() => setMobileOpen(false)}
-                          className="inline-flex items-center min-h-[44px] px-2 text-sm transition-colors focus-ring"
-                          style={{
-                            color: isActive(child.href)
-                              ? 'var(--division-accent)'
-                              : 'var(--division-text-secondary)',
-                          }}
-                        >
-                          {tAll(child.labelKey)}
-                        </Link>
-                      ))}
+                      {item.children.map((child) => {
+                        const childActive = isActive(child.href)
+                        return (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            onClick={() => setMobileOpen(false)}
+                            aria-current={childActive ? 'page' : undefined}
+                            className="inline-flex items-center min-h-[44px] px-2 text-sm transition-colors focus-ring"
+                            style={{
+                              color: childActive
+                                ? 'var(--division-accent)'
+                                : 'var(--division-text-secondary)',
+                            }}
+                          >
+                            {tAll(child.labelKey)}
+                          </Link>
+                        )
+                      })}
                     </div>
                   )}
                 </motion.div>

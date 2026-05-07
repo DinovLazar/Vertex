@@ -80,7 +80,19 @@ const SilkPlane = forwardRef<THREE.Mesh, SilkPlaneProps>(function SilkPlane({ un
   useFrame((_, delta) => {
     if (meshRef.current) {
       const material = meshRef.current.material as THREE.ShaderMaterial
-      material.uniforms.uTime.value += 0.1 * delta
+      // Clamp delta so uTime can't leap forward when the render loop
+      // resumes after an IntersectionObserver / visibilitychange pause
+      // (wrapper toggles Canvas `frameloop` "never" ↔ "always" based on
+      // whether the hero is on-screen and the tab is visible). While
+      // paused, R3F's internal clock keeps ticking in wall-clock time,
+      // so the first post-resume delta equals the whole pause duration.
+      // Without this clamp, a 3s pause → +0.3 to uTime in one tick,
+      // which visibly snaps the silk pattern to a new state when
+      // scrolling back up to the hero. Capping at ~33ms (30fps) absorbs
+      // the resume tick and leaves normal 60fps frames untouched.
+      const MAX_DELTA = 1 / 30
+      const dt = delta > MAX_DELTA ? MAX_DELTA : delta
+      material.uniforms.uTime.value += 0.1 * dt
     }
   })
 

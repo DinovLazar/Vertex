@@ -71,7 +71,7 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
                 onClick={() => setOpenIndex(isOpen ? null : index)}
                 aria-expanded={isOpen}
                 aria-controls={panelId}
-                className="w-full h-auto justify-between whitespace-normal gap-4 px-6 py-5 rounded-none font-heading text-body font-semibold text-left text-[var(--division-text-primary)] hover:bg-white/5 [&>span]:flex-1 [&_svg]:size-[18px]"
+                className="w-full h-auto justify-between whitespace-normal gap-4 px-6 py-5 rounded-none font-heading text-body font-semibold text-left text-[var(--division-text-primary)] hover:bg-[var(--nav-hover-bg)] [&>span]:flex-1 [&_svg]:size-[18px]"
               >
                 <span>{item.question}</span>
                 <motion.span

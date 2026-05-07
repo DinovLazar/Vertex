@@ -27,6 +27,6 @@ export default async function BlogPage({
 }) {
   const { locale } = await params
   setRequestLocale(locale)
-  const posts = getAllPosts(locale)
+  const posts = await getAllPosts(locale)
   return <BlogListingClient posts={posts} />
 }

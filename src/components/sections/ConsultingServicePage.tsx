@@ -144,7 +144,7 @@ export default function ConsultingServicePage({
               <Link
                 key={service.href}
                 href={service.href}
-                className="inline-flex items-center min-h-[44px] px-5 py-2.5 rounded-button border border-[var(--division-border)] font-heading text-small font-medium text-[var(--division-text-secondary)] hover:text-[var(--division-text-primary)] hover:bg-white/5 transition-colors focus-ring"
+                className="inline-flex items-center min-h-[44px] px-5 py-2.5 rounded-button border border-[var(--division-border)] font-heading text-small font-medium text-[var(--division-text-secondary)] hover:text-[var(--division-text-primary)] hover:bg-[var(--nav-hover-bg)] transition-colors focus-ring"
               >
                 {service.title}
               </Link>

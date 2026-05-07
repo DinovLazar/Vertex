@@ -52,10 +52,11 @@ export default function BlogListingClient({ posts }: BlogListingClientProps) {
                   size="pill"
                   variant={isActive ? 'default' : 'outline'}
                   onClick={() => setFilter(value)}
+                  aria-pressed={isActive}
                   className={cn(
                     isActive
                       ? 'bg-[var(--division-accent)] text-[var(--division-bg)] hover:bg-[var(--division-accent)]'
-                      : 'border-[var(--division-border)] bg-transparent text-[var(--division-text-secondary)] hover:bg-transparent hover:text-[var(--division-text-primary)] hover:border-white/20'
+                      : 'border-[var(--division-border)] bg-transparent text-[var(--division-text-secondary)] hover:bg-transparent hover:text-[var(--division-text-primary)] hover:border-[var(--division-border-hover)]'
                   )}
                 >
                   {t(`filters.${value}`)}
@@ -87,9 +88,9 @@ export default function BlogListingClient({ posts }: BlogListingClientProps) {
             animate="visible"
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
           >
-            {filteredPosts.map((post) => (
+            {filteredPosts.map((post, index) => (
               <motion.div key={post.slug} variants={staggerItem}>
-                <BlogCard post={post} />
+                <BlogCard post={post} eager={index === 0} />
               </motion.div>
             ))}
           </motion.div>

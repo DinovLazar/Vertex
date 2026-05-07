@@ -38,7 +38,7 @@ export default function TeamShowcase({ members }: TeamShowcaseProps) {
           >
             <div className="p-6 h-full text-center">
               {/* Avatar placeholder */}
-              <div className="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center border-2 border-white/20 bg-[rgba(255,255,255,0.08)]">
+              <div className="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center border-2 border-[var(--division-border)] bg-[var(--division-glow)]">
                 <span className="font-heading text-h3 font-bold text-[var(--division-text-primary)]">
                   {member.initials}
                 </span>

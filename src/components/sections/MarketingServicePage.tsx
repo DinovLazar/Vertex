@@ -146,7 +146,7 @@ export default function MarketingServicePage({
               <Link
                 key={service.href}
                 href={service.href}
-                className="inline-flex items-center min-h-[44px] px-5 py-2.5 rounded-button border border-[var(--division-border)] font-heading text-small font-medium text-[var(--division-text-secondary)] hover:text-[var(--division-text-primary)] hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)] transition-all duration-300 focus-ring"
+                className="inline-flex items-center min-h-[44px] px-5 py-2.5 rounded-button border border-[var(--division-border)] font-heading text-small font-medium text-[var(--division-text-secondary)] hover:text-[var(--division-text-primary)] hover:bg-[var(--nav-hover-bg)] hover:border-[var(--division-border-hover)] transition-all duration-300 focus-ring"
               >
                 {service.title}
               </Link>
