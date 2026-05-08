@@ -186,7 +186,9 @@
     },
     "team": {
       "consultingBadge": "Консалтинг",
-      "marketingBadge": "Маркетинг"
+      "marketingBadge": "Маркетинг",
+      "portfolioLabel": "Портфолио",
+      "portfolioAriaSuffix": "лично портфолио (се отвора во нов таб)"
     },
     "leader": {
       "overline": "Запознајте го тимот"

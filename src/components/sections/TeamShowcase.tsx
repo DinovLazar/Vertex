@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server'
 import { StaggerContainer, StaggerItem } from '@/components/global'
 import { staggerContainerFast } from '@/lib/animations'
 import BorderGlow from '@/components/ui/BorderGlow'
@@ -7,6 +8,8 @@ export interface TeamMember {
   role: string
   bio: string
   initials: string
+  /** Optional external link to the member's personal portfolio. Renders a small "Portfolio ↗" link below the bio. */
+  portfolioUrl?: string
 }
 
 interface TeamShowcaseProps {
@@ -18,8 +21,12 @@ interface TeamShowcaseProps {
  * Fully prop-driven — names stay as proper nouns in the caller, roles and
  * bios resolve through translations. Placeholder avatars until real photos
  * are provided.
+ *
+ * Members may optionally provide a `portfolioUrl` to render a small external
+ * link below the bio (label resolves from `sections.team.portfolioLabel`).
  */
-export default function TeamShowcase({ members }: TeamShowcaseProps) {
+export default async function TeamShowcase({ members }: TeamShowcaseProps) {
+  const t = await getTranslations('sections.team')
   return (
     <StaggerContainer
       variants={staggerContainerFast}
@@ -53,6 +60,31 @@ export default function TeamShowcase({ members }: TeamShowcaseProps) {
               <p className="mt-3 text-small text-[var(--division-text-muted)]">
                 {member.bio}
               </p>
+              {member.portfolioUrl && (
+                <a
+                  href={member.portfolioUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${member.name} — ${t('portfolioAriaSuffix')}`}
+                  className="focus-ring mt-4 inline-flex items-center gap-1.5 rounded text-small font-medium text-[var(--division-text-secondary)] transition-colors hover:text-[var(--division-text-primary)]"
+                >
+                  {t('portfolioLabel')}
+                  <svg
+                    aria-hidden="true"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M7 17L17 7" />
+                    <path d="M7 7h10v10" />
+                  </svg>
+                </a>
+              )}
             </div>
           </BorderGlow>
         </StaggerItem>

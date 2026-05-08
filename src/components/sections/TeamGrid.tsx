@@ -8,6 +8,8 @@ export interface TeamGridMember {
   bio: string
   division: 'consulting' | 'marketing'
   initials: string
+  /** Optional external link to the member's personal portfolio. Renders a small "Portfolio ↗" link below the bio. */
+  portfolioUrl?: string
 }
 
 interface TeamGridProps {
@@ -66,6 +68,31 @@ export default async function TeamGrid({ members }: TeamGridProps) {
                 <p className="mt-3 text-small text-[var(--division-text-muted)]">
                   {member.bio}
                 </p>
+                {member.portfolioUrl && (
+                  <a
+                    href={member.portfolioUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${member.name} — ${t('portfolioAriaSuffix')}`}
+                    className="focus-ring mt-4 inline-flex items-center gap-1.5 rounded text-small font-medium text-[var(--division-text-secondary)] transition-colors hover:text-[var(--division-text-primary)]"
+                  >
+                    {t('portfolioLabel')}
+                    <svg
+                      aria-hidden="true"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M7 17L17 7" />
+                      <path d="M7 7h10v10" />
+                    </svg>
+                  </a>
+                )}
               </div>
             </BorderGlow>
           </StaggerItem>

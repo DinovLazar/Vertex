@@ -186,7 +186,9 @@
     },
     "team": {
       "consultingBadge": "Consulting",
-      "marketingBadge": "Marketing"
+      "marketingBadge": "Marketing",
+      "portfolioLabel": "Portfolio",
+      "portfolioAriaSuffix": "personal portfolio (opens in a new tab)"
     },
     "leader": {
       "overline": "Meet the team"

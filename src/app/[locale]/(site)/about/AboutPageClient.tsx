@@ -19,6 +19,8 @@ export default async function AboutPageClient() {
     bio: t(`team.members.${m.key}.bio`),
     division: m.division,
     initials: t(`team.members.${m.key}.initials`),
+    portfolioUrl:
+      m.key === 'lazar' ? 'https://portfolio.vertexconsulting.mk/' : undefined,
   }))
 
   const storyParagraphs = t.raw('hero.paragraphs') as string[]

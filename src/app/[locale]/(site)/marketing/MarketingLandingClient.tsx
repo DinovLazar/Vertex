@@ -36,6 +36,8 @@ export default async function MarketingLandingClient() {
     role: t(`team.members.${key}.role`),
     bio: t(`team.members.${key}.bio`),
     initials: t(`team.members.${key}.initials`),
+    portfolioUrl:
+      key === 'lazar' ? 'https://portfolio.vertexconsulting.mk/' : undefined,
   }))
 
   return (
