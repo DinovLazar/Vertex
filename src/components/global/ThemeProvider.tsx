@@ -67,23 +67,10 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }, [theme, setTheme])
 
-  // Track OS preference changes — only apply when the user has not set
-  // an explicit preference (localStorage is empty or invalid).
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    const mq = window.matchMedia('(prefers-color-scheme: dark)')
-    const handleChange = (e: MediaQueryListEvent) => {
-      let stored: string | null = null
-      try {
-        stored = localStorage.getItem(STORAGE_KEY)
-      } catch {}
-      if (stored !== 'light' && stored !== 'dark') {
-        applyTheme(e.matches ? 'dark' : 'light')
-      }
-    }
-    mq.addEventListener('change', handleChange)
-    return () => mq.removeEventListener('change', handleChange)
-  }, [applyTheme])
+  // Dark is the unconditional default. We intentionally do NOT track OS
+  // `prefers-color-scheme` changes: a visitor who hasn't explicitly chosen
+  // light stays in dark regardless of their system setting. Only the theme
+  // toggle (persisted to localStorage) moves a user off the dark default.
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>

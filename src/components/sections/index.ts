@@ -1,6 +1,7 @@
 export { default as HeroSection } from './HeroSection'
 export { default as DivisionSplit } from './DivisionSplit'
 export { default as ServicesOverview } from './ServicesOverview'
+export { default as ProjectsShowcase } from './ProjectsShowcase'
 export { default as SocialProof } from './SocialProof'
 export { default as CTABanner } from './CTABanner'
 export { default as ProcessSteps } from './ProcessSteps'

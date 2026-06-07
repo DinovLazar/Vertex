@@ -146,6 +146,18 @@
         }
       }
     },
+    "projects": {
+      "overline": "Нашата работа",
+      "heading": "Неодамнешни проекти",
+      "subheading": "Веб-страници што ги дизајниравме, изградивме и продолжуваме да ги развиваме преку SEO.",
+      "divisionLabel": "Маркетинг",
+      "serviceLabel": "Веб-страница и SEO менаџмент",
+      "viewProject": "Погледни го проектот",
+      "viewProjectAria": "Отвори {name} — се отвора во нов прозорец",
+      "comingSoon": "Наскоро",
+      "placeholder": "Сликата е во подготовка",
+      "imageAlt": "Слика од проектот {name}"
+    },
     "socialProof": {
       "stats": {
         "yearsExperience": { "value": 8, "suffix": "+", "label": "Години искуство" },

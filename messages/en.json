@@ -146,6 +146,18 @@
         }
       }
     },
+    "projects": {
+      "overline": "Our Work",
+      "heading": "Recent client projects",
+      "subheading": "Websites we designed, built, and continue to grow through SEO.",
+      "divisionLabel": "Marketing",
+      "serviceLabel": "Website & SEO management",
+      "viewProject": "View project",
+      "viewProjectAria": "Open {name} — opens in a new tab",
+      "comingSoon": "Coming soon",
+      "placeholder": "Screenshot coming soon",
+      "imageAlt": "{name} project screenshot"
+    },
     "socialProof": {
       "stats": {
         "yearsExperience": { "value": 8, "suffix": "+", "label": "Years of Experience" },

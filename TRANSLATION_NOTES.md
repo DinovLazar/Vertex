@@ -261,3 +261,18 @@ Add this namespace to the top-20 native-speaker review list when Goran's review 
 - Proper names "Goran Dinov" / "Lazar" / "Petar" / "Andrej" stay in Latin (in /mk/about TeamGrid they currently render in Latin; team bios will be translated in Phase 15E, names stay Latin).
 - Numbers stay as Arabic numerals (8+, 50+, 100%, 2018-2026). No Cyrillic numerals anywhere.
 - Service product names (translation keys under `nav.dropdown.*`): "Бизнис консалтинг" / "Преструктуирање на процеси" / "IT и системи" / "AI консалтинг" / "Веб дизајн" / "Социјални медиуми" / "IT инфраструктура" / "AI развој". The "IT" and "AI" prefixes stay Latin per Macedonian tech-writing convention. **Phase 15C must use these exact strings in consulting-page titles so the nav dropdown, homepage services grid, and service-page hero all match word-for-word.**
+
+## "Our Work" section additions (ProjectsShowcase — homepage)
+
+Added 2026-06-02 alongside the homepage `ProjectsShowcase` ("Our Work") section. The `home.projects.*` namespace (10 keys) was LLM-drafted in the same proficient-but-not-native style as earlier phases. A quick native-speaker pass is wanted before launch — three strings where a defensible alternative exists:
+
+### P-A. `home.projects.heading` → "Неодамнешни проекти"
+- Literal: "Recent projects". The EN is "Recent client projects"; "client/клиентски" was dropped for a cleaner headline. Alternatives: "Неодамнешни клиентски проекти" (keeps "client") or "Проекти на клиенти". Style call.
+
+### P-B. `home.projects.serviceLabel` → "Веб-страница и SEO менаџмент"
+- "SEO" stays Latin (convention #19) paired with the Cyrillic "менаџмент". Alternatives: "управување со SEO" (native verb-noun instead of the loanword "менаџмент"), or the fuller "Изработка и SEO одржување на веб-страница". Appears on every card, so worth locking.
+
+### P-C. `home.projects.placeholder` → "Сликата е во подготовка"
+- Literal: "The image is in preparation". Shown on the grayscale placeholder until a real screenshot is dropped in. Alternatives: "Слика наскоро" (mirrors `comingSoon` → "Наскоро" for tighter consistency) or "Скриншот наскоро".
+
+The other seven keys (`overline` "Нашата работа", `subheading`, `divisionLabel` "Маркетинг", `viewProject`, `viewProjectAria`, `comingSoon` "Наскоро", `imageAlt`) are low-risk transliterations/standard phrasing. Estimated review time: ~3 minutes.

@@ -5,6 +5,7 @@ import {
   HeroSection,
   DivisionSplit,
   ServicesOverview,
+  ProjectsShowcase,
   SocialProof,
   CTABanner,
 } from '@/components/sections'
@@ -59,12 +60,15 @@ export default async function HomePage() {
         <ServicesOverview />
       </Section>
 
-      {/* ===== SECTION 4: SOCIAL PROOF ===== */}
+      {/* ===== SECTION 4: OUR WORK ===== */}
+      <ProjectsShowcase />
+
+      {/* ===== SECTION 5: SOCIAL PROOF ===== */}
       <Section id="proof">
         <SocialProof />
       </Section>
 
-      {/* ===== SECTION 5: CTA BANNER ===== */}
+      {/* ===== SECTION 6: CTA BANNER ===== */}
       <CTABanner
         headline={t('ctaBanner.headline')}
         subtext={t('ctaBanner.subtext')}

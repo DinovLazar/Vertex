@@ -13,23 +13,18 @@ import {
 import { ChatWidget } from '@/components/chat'
 
 // Phase L1 — pre-hydration theme init. Runs synchronously in <head>
-// BEFORE React hydrates. Reads localStorage + system preference and
-// writes `data-theme` on <html> so the correct theme is painted on
-// the very first frame (no flash-of-wrong-theme on conflicting OS
-// vs stored preference).
+// BEFORE React hydrates. Dark is the unconditional default: the only
+// thing that can select light is an explicit `light` the user saved via
+// the theme toggle. OS `prefers-color-scheme` is intentionally NOT
+// consulted, so a first-time visitor always lands in dark. Writing
+// `data-theme` on <html> here paints the correct theme on the very
+// first frame (no flash-of-wrong-theme).
 const themeInitScript = `
 (function() {
   try {
     var stored = null;
     try { stored = localStorage.getItem('vertex-theme'); } catch (e) {}
-    var theme;
-    if (stored === 'light' || stored === 'dark') {
-      theme = stored;
-    } else {
-      theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light';
-    }
+    var theme = stored === 'light' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', theme);
   } catch (e) {
     document.documentElement.setAttribute('data-theme', 'dark');
