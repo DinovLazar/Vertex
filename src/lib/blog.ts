@@ -1,4 +1,4 @@
-import { sanityClient } from './sanity/client'
+import { sanityClient, isSanityConfigured } from './sanity/client'
 import {
   allPublishedPostsQuery,
   postBySlugQuery,
@@ -105,6 +105,26 @@ function collapse(raw: BlogPostRaw, locale: Locale): BlogPost {
   }
 }
 
+// ---------- Configuration guard --------------------------------------------
+
+// When Sanity isn't configured (e.g. a preview/CI build without CMS secrets),
+// every fetch below short-circuits to an empty result instead of hitting the
+// network. This keeps the build green and the marketing site fully functional;
+// only the blog renders empty. Warn once so the cause is obvious in build logs.
+let warnedUnconfigured = false
+function blogUnavailable(): boolean {
+  if (isSanityConfigured) return false
+  if (!warnedUnconfigured) {
+    warnedUnconfigured = true
+    console.warn(
+      '[blog] Sanity is not configured — missing NEXT_PUBLIC_SANITY_PROJECT_ID / ' +
+        'NEXT_PUBLIC_SANITY_DATASET. Serving empty blog content. Set these env vars ' +
+        '(for every Vercel environment, including Preview) to enable the CMS.',
+    )
+  }
+  return true
+}
+
 // ---------- Public API -----------------------------------------------------
 
 /**
@@ -112,6 +132,7 @@ function collapse(raw: BlogPostRaw, locale: Locale): BlogPost {
  * ISR: 60-second revalidate + tag `blog` for on-demand invalidation.
  */
 export async function getAllPosts(locale: Locale): Promise<BlogPost[]> {
+  if (blogUnavailable()) return []
   const raws = await sanityClient.fetch<BlogPostRaw[]>(
     allPublishedPostsQuery,
     {},
@@ -121,6 +142,7 @@ export async function getAllPosts(locale: Locale): Promise<BlogPost[]> {
 }
 
 export async function getPostBySlug(slug: string, locale: Locale): Promise<BlogPost | null> {
+  if (blogUnavailable()) return null
   const raw = await sanityClient.fetch<BlogPostRaw | null>(
     postBySlugQuery,
     { slug },
@@ -133,6 +155,7 @@ export async function getPostsByDivision(
   division: Division,
   locale: Locale
 ): Promise<BlogPost[]> {
+  if (blogUnavailable()) return []
   const raws = await sanityClient.fetch<BlogPostRaw[]>(
     postsByDivisionQuery,
     { division },
@@ -146,6 +169,7 @@ export async function getRelatedPosts(
   locale: Locale,
   limit: number = 2
 ): Promise<BlogPost[]> {
+  if (blogUnavailable()) return []
   const current = await getPostBySlug(slug, locale)
   if (!current) return []
   const raws = await sanityClient.fetch<BlogPostRaw[]>(
@@ -158,6 +182,7 @@ export async function getRelatedPosts(
 
 /** Locale-neutral — slugs are shared across EN/MK. */
 export async function getAllSlugs(): Promise<string[]> {
+  if (blogUnavailable()) return []
   return sanityClient.fetch<string[]>(
     allSlugsQuery,
     {},
