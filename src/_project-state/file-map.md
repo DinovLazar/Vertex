@@ -1,6 +1,6 @@
 # File Map — Vertex Consulting
 
-Last updated: 2026-06-02 (Session — Homepage "Our Work" / ProjectsShowcase)
+Last updated: 2026-06-20 (Session — "Our Work" screenshots + live links)
 
 ## Root
 | File | Description |
@@ -40,6 +40,9 @@ Last updated: 2026-06-02 (Session — Homepage "Our Work" / ProjectsShowcase)
 |------|-------------|
 | `file.svg`, `globe.svg`, `next.svg`, `vercel.svg`, `window.svg` | Default Next.js starter icons — not used anywhere yet |
 | `projects/.gitkeep` | **Session — 2026-06-02.** Empty tracked file keeping `public/projects/` in git. Goran drops client-project screenshots here (e.g. `public/projects/northgate-dental.jpg`) and references them from `src/config/projects.ts` as `image: '/projects/northgate-dental.jpg'`. |
+| `projects/northgate.png` | **Session — 2026-06-20.** Screenshot of the Northgate Dental site (`northgate.optimind000.com`), 2560×1440 16:9. Wired into the "Our Work" card via `src/config/projects.ts`. Captured headless from the live site. |
+| `projects/sunset.png` | **Session — 2026-06-20.** Screenshot of the Sunset Services site (`sunsetservices.vercel.app`), 2560×1440 16:9. Wired into the "Our Work" card. Captured headless from the live site. |
+| `projects/daliborac.png` | **Session — 2026-06-20.** Screenshot of the Dalibor Plečić author site (`daliborac.vertexconsulting.mk`), 2560×1440 16:9. Wired into the "Our Work" card (the former "Optimind" entry). Captured headless; **site is still mid-build (`[PLACEHOLDER]` content) — re-capture when its real content ships.** |
 
 ## src/app/
 | File | Description |
@@ -216,7 +219,7 @@ Last updated: 2026-06-02 (Session — Homepage "Our Work" / ProjectsShowcase)
 |------|-------------|
 | `site.ts` | `siteConfig` — name, legal name, domain, url, owner, founded, address, contact, hours, `social` (linkedin/instagram/facebook — added Session A 2026-04-17), two `divisions` objects with manager + team + description |
 | `navigation.ts` | `NavItem` type, `mainNavItems` (with dropdown children for Consulting + Marketing), `footerNavItems` (grouped consulting/marketing/company) |
-| `projects.ts` | **Session — 2026-06-02.** Client-projects data for the homepage "Our Work" section. Exports `Project` interface + `projects: Project[]`. Per-project `name` / `division` / `image` / `href`; `image` + `href` default to `null` (placeholder). Goran edits this one file to publish screenshots + links (drop image into `public/projects/`, set `image: '/projects/...'` + `href: 'https://...'`). Consumed by `ProjectsShowcase.tsx`. Self-documenting header comment explains the publish workflow. Local `/public` images need no `next.config.ts` change; external image hosts would (only `cdn.sanity.io` is whitelisted today). |
+| `projects.ts` | **Session — 2026-06-02.** Client-projects data for the homepage "Our Work" section. Exports `Project` interface + `projects: Project[]`. Per-project `name` / `division` / `image` / `href`; `image` + `href` default to `null` (placeholder). Goran edits this one file to publish screenshots + links (drop image into `public/projects/`, set `image: '/projects/...'` + `href: 'https://...'`). Consumed by `ProjectsShowcase.tsx`. Self-documenting header comment explains the publish workflow. Local `/public` images need no `next.config.ts` change; external image hosts would (only `cdn.sanity.io` is whitelisted today). **Update (2026-06-20):** all three entries now carry real `image`/`href` (no `null` left) — Northgate Dental, Sunset Services, and "Dalibor Plečić — Author" (renamed from "Optimind"), pointing at `public/projects/{northgate,sunset,daliborac}.png` + their live URLs. |
 
 ## src/lib/
 | File | Description |
