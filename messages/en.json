@@ -611,10 +611,10 @@
         "sectionSubtext": "The Vertex Marketing team brings creative energy and technical chops. We build fast, learn constantly, and deliver work that stands out.",
         "members": {
           "lazar": {
-            "name": "Lazar",
-            "role": "Web Development & AI",
-            "bio": "Full-stack developer with a passion for AI-assisted development. Builds fast, modern web applications using the latest technologies.",
-            "initials": "L"
+            "name": "Lazar Dinov",
+            "role": "Head of Marketing Division",
+            "bio": "Leads the Vertex Marketing division, setting strategy and direction across web development, design, and infrastructure. A full-stack developer at heart, he pairs hands-on AI-assisted engineering with a clear vision for where the team is headed.",
+            "initials": "LD"
           },
           "petar": {
             "name": "Petar",
@@ -960,10 +960,10 @@
           "initials": "GD"
         },
         "lazar": {
-          "name": "Lazar",
-          "role": "Web Development & AI — Vertex Marketing",
-          "bio": "Full-stack developer specializing in AI-assisted development. Builds modern web applications using Next.js, React, and the latest AI technologies.",
-          "initials": "L"
+          "name": "Lazar Dinov",
+          "role": "Head of Marketing — Vertex Marketing",
+          "bio": "Heads the Vertex Marketing division, driving strategy and execution across web development, design, and IT. A full-stack developer specializing in AI-assisted development, he builds modern web applications with Next.js, React, and the latest AI technologies while steering the team's direction.",
+          "initials": "LD"
         },
         "petar": {
           "name": "Petar",
