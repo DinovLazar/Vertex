@@ -4,10 +4,10 @@ import { TeamGrid, ValuesGrid, CompanyTimeline, CTABanner } from '@/components/s
 import type { TeamGridMember } from '@/components/sections/TeamGrid'
 
 const TEAM_KEYS = [
-  { key: 'goran', division: 'consulting' as const },
-  { key: 'lazar', division: 'marketing' as const },
-  { key: 'petar', division: 'marketing' as const },
-  { key: 'andrej', division: 'marketing' as const },
+  { key: 'goran', division: 'consulting' as const, href: undefined },
+  { key: 'lazar', division: 'marketing' as const, href: '/lazar' },
+  { key: 'petar', division: 'marketing' as const, href: undefined },
+  { key: 'andrej', division: 'marketing' as const, href: undefined },
 ] as const
 
 export default async function AboutPageClient() {
@@ -19,6 +19,8 @@ export default async function AboutPageClient() {
     bio: t(`team.members.${m.key}.bio`),
     division: m.division,
     initials: t(`team.members.${m.key}.initials`),
+    href: m.href,
+    image: m.key === 'lazar' ? '/lazar-bw.png' : undefined,
   }))
 
   const storyParagraphs = t.raw('hero.paragraphs') as string[]

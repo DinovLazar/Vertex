@@ -10,6 +10,7 @@ import { getAllSlugs } from '@/lib/blog'
 const STATIC_PATHS = [
   '/',
   '/about',
+  '/lazar',
   '/contact',
   '/blog',
   '/consulting',

@@ -276,3 +276,21 @@ Added 2026-06-02 alongside the homepage `ProjectsShowcase` ("Our Work") section.
 - Literal: "The image is in preparation". Shown on the grayscale placeholder until a real screenshot is dropped in. Alternatives: "Слика наскоро" (mirrors `comingSoon` → "Наскоро" for tighter consistency) or "Скриншот наскоро".
 
 The other seven keys (`overline` "Нашата работа", `subheading`, `divisionLabel` "Маркетинг", `viewProject`, `viewProjectAria`, `comingSoon` "Наскоро", `imageAlt`) are low-risk transliterations/standard phrasing. Estimated review time: ~3 minutes.
+
+## Lazar portfolio page additions (`lazar.*` namespace — `/lazar`)
+
+Added 2026-06-24 alongside the new `/lazar` personal portfolio page. The entire `lazar.*` MK namespace (`meta`, `hero`, `about`, `skills`, `work`, `contact`) was LLM-drafted in the same proficient-but-not-native register as earlier phases and **wants a native-speaker pass by Lazar before launch**. Conventions held: the name "Lazar Dinov" stays Latin, and "Vertex" + "SEO" stay Latin (conventions #19/#30). Specific strings worth Lazar's eye:
+
+### L-A. `lazar.hero.role` → "Раководител за маркетинг во Vertex"
+- "Head of Marketing at Vertex". Deliberately aligned to the site's current title for Lazar (the `about`/`marketing` team cards say "Head of Marketing Division" / "Head of Marketing — Vertex Marketing"); the original build prompt's "Marketing & Web Lead at Vertex" predated the role-rename and was not used. If the canonical MK title settles on a single phrasing, mirror it here for consistency.
+
+### L-B. `lazar.hero.tagline` + `lazar.about.paragraphs` (first-person voice)
+- These are first-person ("Создавам…", "Го водам…", "Повеќе сакам…"). The register is conversational on purpose (personal portfolio, not corporate). Worth a read for natural flow — e.g. "што носат вистински резултати", "таа навика да работам со рацете остана", and the em-dash asides.
+
+### L-C. `lazar.skills.items[*].title/desc` (6 service cards)
+- "Маркетинг со помош на вештачка интелигенција" (AI-Assisted Marketing) is the long literal of "вештачка интелигенција"; a tighter card title like "Маркетинг со помош на ВИ" or keeping "AI" Latin ("AI-поддржан маркетинг") is a defensible alternative. "Веб-инфраструктура", "Брендирање и визуелен идентитет" are standard.
+
+### L-D. `lazar.work.projects.{0,1,2}.label/desc` + `lazar.contact.*`
+- Project labels reuse "Веб-страница и SEO" / "Веб-страница". The contact heading "Да изградиме нешто што функционира." and subtext are conversational; confirm tone. Social aria-labels ("GitHub профил на Lazar", etc.) are screen-reader-only.
+
+Estimated review time: ~6–8 minutes.

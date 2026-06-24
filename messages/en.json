@@ -1130,5 +1130,66 @@
       "contactLink": "contact us directly",
       "period": "."
     }
+  },
+  "lazar": {
+    "meta": {
+      "title": "Lazar Dinov — Portfolio",
+      "description": "Lazar Dinov, Head of Marketing at Vertex — websites, branding, social media, and SEO for businesses in Macedonia and beyond."
+    },
+    "hero": {
+      "overline": "Portfolio",
+      "name": "Lazar Dinov",
+      "role": "Head of Marketing at Vertex",
+      "tagline": "I design websites and run digital marketing that actually move the needle — turning visitors into customers for the businesses I work with.",
+      "ctaPrimary": "View my work",
+      "ctaSecondary": "Get in touch"
+    },
+    "about": {
+      "overline": "About",
+      "heading": "A bit about me",
+      "paragraphs": [
+        "I lead the marketing side of Vertex — the websites, the branding, the content, and the technical pieces that hold it all together. I started out building sites and learning what actually makes them work, and that hands-on habit never left. I'd rather ship something real and watch how people use it than hand over a deck and walk away.",
+        "What I care about is results you can see: a site that loads fast and converts, a brand that looks like it belongs, content that the right people actually find. I work with a small, sharp team at Vertex, and we treat every project like it's our own — because the businesses behind them are real, and so is what's riding on them."
+      ],
+      "chips": ["Web design", "Brand", "Social", "SEO"]
+    },
+    "skills": {
+      "overline": "What I do",
+      "heading": "Skills & services",
+      "items": [
+        { "title": "Web Design & Development", "desc": "Modern, fast websites built to turn visitors into customers." },
+        { "title": "Social Media", "desc": "Content and a consistent presence that grows an audience over time." },
+        { "title": "Branding & Visual Identity", "desc": "A clear, consistent look and voice that builds trust at a glance." },
+        { "title": "SEO & Content", "desc": "Getting found by the right people, with content that actually ranks." },
+        { "title": "AI-Assisted Marketing", "desc": "Using AI to produce more, faster — without losing the human touch." },
+        { "title": "Web Infrastructure", "desc": "Hosting, domains, and the technical backbone that keeps everything running." }
+      ]
+    },
+    "work": {
+      "overline": "Selected work",
+      "heading": "Projects I've shipped",
+      "subheading": "A few of the websites and brands I've built for clients.",
+      "viewProject": "View project",
+      "viewProjectAria": "View the {name} project",
+      "imageAlt": "Screenshot of the {name} website",
+      "moreTitle": "& more",
+      "moreSubtitle": "More projects on the way.",
+      "projects": {
+        "0": { "label": "Website & SEO", "desc": "A clean, trustworthy website for a dental practice, built to bring in new patients and rank locally." },
+        "1": { "label": "Website & SEO", "desc": "A sharp marketing site for a hardscaping and services company, focused on turning visits into quote requests." },
+        "2": { "label": "Website", "desc": "A personal author website with a calm, editorial feel that puts the writing front and centre." }
+      }
+    },
+    "contact": {
+      "overline": "Let's talk",
+      "heading": "Let's build something that works.",
+      "subtext": "Have a project in mind, or just want to talk through an idea? I'd be glad to hear from you.",
+      "cta": "Get in touch",
+      "social": {
+        "github": "Lazar's GitHub profile",
+        "linkedin": "Lazar's LinkedIn profile",
+        "instagram": "Lazar's Instagram profile"
+      }
+    }
   }
 }
