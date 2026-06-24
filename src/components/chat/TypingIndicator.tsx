@@ -10,9 +10,11 @@ export function TypingIndicator() {
       aria-label={t('generating')}
       role="status"
     >
+      {/* Delays live in CSS (.typing-dot:nth-child) so the wave staggers
+          left→right; no inline animationDelay (it would override them). */}
       <span className="typing-dot" />
-      <span className="typing-dot" style={{ animationDelay: '0.15s' }} />
-      <span className="typing-dot" style={{ animationDelay: '0.3s' }} />
+      <span className="typing-dot" />
+      <span className="typing-dot" />
       <span className="sr-only">{t('generating')}</span>
     </div>
   )

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
-import { motion } from 'motion/react'
+import { AnimatePresence, motion, type Variants } from 'motion/react'
 import { useTranslations } from 'next-intl'
 import { cn } from '@/lib/utils'
 import { BotIcon, CloseIcon, SendIcon } from './BotIcon'
@@ -11,6 +11,31 @@ import type { ChatMessage as ChatMessageType } from '@/lib/ai'
 
 // Client-side cap. Well under the server's 40-message bound.
 const MAX_USER_MESSAGES = 20
+
+// Paper-plane send animation: snappy launch up-and-right, then a fresh plane
+// drops in softly from the lower-left. The send button must NOT be
+// overflow:hidden so the plane visibly clears the circle. `times` splits the
+// out path into a curved arc (rise → drift → fade).
+const planeVariants: Variants = {
+  enter: {
+    x: 0,
+    y: 0,
+    rotate: 0,
+    opacity: 1,
+    transition: { duration: 0.266, ease: [0.22, 1, 0.36, 1] },
+  },
+  exit: {
+    x: [0, 46, 92],
+    y: [0, -28, -51],
+    rotate: [0, 20, 34],
+    opacity: [1, 1, 0],
+    transition: {
+      duration: 0.38,
+      ease: [0.36, 0, 0.66, -0.2],
+      times: [0, 0.5, 1],
+    },
+  },
+}
 
 interface ChatPanelProps {
   /** DOM id consumed by the trigger's `aria-controls`. */
@@ -34,6 +59,8 @@ export function ChatPanel({
 }: ChatPanelProps) {
   const t = useTranslations('chat')
   const [input, setInput] = useState('')
+  // Bumped on each send to retrigger the paper-plane fly-out via AnimatePresence.
+  const [launchKey, setLaunchKey] = useState(0)
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
   const limitReached = userMessageCount >= MAX_USER_MESSAGES
@@ -62,6 +89,7 @@ export function ChatPanel({
     const text = input.trim()
     if (!text || isStreaming || limitReached) return
     onSend(text)
+    setLaunchKey((k) => k + 1)
     setInput('')
   }
 
@@ -168,18 +196,27 @@ export function ChatPanel({
             />
           )
         })}
-        {showTypingIndicator && (
-          <div className="flex justify-start">
-            <div
-              className={cn(
-                'rounded-2xl rounded-bl-md border border-[var(--color-border)]',
-                'bg-[var(--color-elevated)]',
-              )}
+        <AnimatePresence initial={false}>
+          {showTypingIndicator && (
+            <motion.div
+              key="typing"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22, ease: 'easeInOut' }}
+              className="flex justify-start"
             >
-              <TypingIndicator />
-            </div>
-          </div>
-        )}
+              <div
+                className={cn(
+                  'rounded-2xl rounded-bl-md border border-[var(--color-border)]',
+                  'bg-[var(--color-elevated)]',
+                )}
+              >
+                <TypingIndicator />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
         {error && (
           <div
             role="alert"
@@ -227,6 +264,8 @@ export function ChatPanel({
             disabled={!input.trim() || isStreaming || limitReached}
             aria-label={t('input.send')}
             className={cn(
+              // No overflow-hidden here on purpose — the plane fly-out has to
+              // visibly clear the circle.
               'flex h-11 w-11 shrink-0 items-center justify-center rounded-full',
               'bg-[var(--color-bright)] text-[var(--color-ink)]',
               'hover:opacity-90 transition-opacity',
@@ -234,7 +273,22 @@ export function ChatPanel({
               'focus-ring',
             )}
           >
-            <SendIcon className="h-4 w-4" />
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={launchKey}
+                initial={
+                  launchKey === 0
+                    ? false
+                    : { x: -14, y: 14, rotate: -18, opacity: 0 }
+                }
+                animate="enter"
+                exit="exit"
+                variants={planeVariants}
+                className="inline-flex"
+              >
+                <SendIcon className="h-4 w-4" />
+              </motion.span>
+            </AnimatePresence>
           </button>
         </div>
         <div className="mt-2 text-[11px] text-[var(--color-muted)] text-center">

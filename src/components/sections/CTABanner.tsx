@@ -5,6 +5,7 @@ import { Link } from '@/i18n/navigation'
 import { motion } from 'motion/react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import MagneticButton from '@/components/ui/MagneticButton'
 
 interface CTABannerProps {
   /** Override heading; falls back to `sections.ctaBanner.defaultHeadline`. */
@@ -62,19 +63,21 @@ export default function CTABanner({
           transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="mt-8"
         >
-          <Link
-            href={buttonHref}
-            className={cn(
-              buttonVariants({ size: 'cta' }),
-              'text-base hover:brightness-110 hover:scale-[1.02] focus-ring'
-            )}
-            style={{
-              backgroundColor: 'var(--division-accent)',
-              color: 'var(--division-bg)',
-            }}
-          >
-            {resolvedButtonText}
-          </Link>
+          <MagneticButton>
+            <Link
+              href={buttonHref}
+              className={cn(
+                buttonVariants({ size: 'cta' }),
+                'cta-sheen text-base hover:brightness-110 hover:scale-[1.02] focus-ring'
+              )}
+              style={{
+                backgroundColor: 'var(--division-accent)',
+                color: 'var(--division-bg)',
+              }}
+            >
+              {resolvedButtonText}
+            </Link>
+          </MagneticButton>
         </motion.div>
       </div>
     </section>

@@ -57,7 +57,9 @@ export default function ThemeToggle({
     <Button
       type="button"
       variant="ghost"
-      onClick={mounted ? toggleTheme : undefined}
+      onClick={
+        mounted ? (e) => toggleTheme({ x: e.clientX, y: e.clientY }) : undefined
+      }
       aria-label={mounted ? label : undefined}
       aria-hidden={mounted ? undefined : true}
       tabIndex={mounted ? 0 : -1}

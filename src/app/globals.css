@@ -159,6 +159,41 @@ html[data-theme="light"] {
 }
 
 /* =========================================================
+   Micro-interaction tuning tokens (Session — Cursor &
+   Micro-Interactions). Mirrored by JS constants:
+   ThemeProvider's VT_DURATION (520) and MagneticButton's
+   PULL (0.30) / MAX_SHIFT (12px) / SQUISH (0.94). Recorded
+   here as the single documented source and for any future
+   CSS-side tuning parity. Grayscale-only motion polish.
+   ========================================================= */
+:root {
+  --vt-theme-duration: 520ms;
+  --magnetic-pull: 0.30;
+  --magnetic-max: 12px;
+  --magnetic-squish: 0.94;
+}
+
+/* =========================================================
+   Theme View Transition (Session — Cursor & Micro-Interactions).
+   ThemeProvider drives a circular clip-path reveal on
+   ::view-transition-new(root) via the Web Animations API. The
+   default UA cross-fade is disabled here so the JS animation
+   alone owns the wipe. The reduced-motion block repeats the
+   disable so there is no residual fade when the JS path falls
+   back to an instant swap.
+   ========================================================= */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
+/* =========================================================
    BorderGlow tokens (Phase L4). Space-separated RGB triplets
    for the outer glow color (dark-mode pale, light-mode near-
    black) and a surface color that chains through the
@@ -795,58 +830,69 @@ html[data-theme="light"] {
      Chat widget (Phase 12)
      ========================================================= */
 
-  /* 3-dot typing indicator — staggered pulse while waiting for the first
-     streamed token from Claude. Dots use var(--color-muted) so they sit
-     softly against the elevated bubble bg. */
+  /* 3-dot typing indicator — a soft wave that travels left→right while
+     waiting for the first streamed token from Claude. 7px dots, rest opacity
+     0.35, crest 1.0 with a ~2.5px upward lift; the per-dot animation delays
+     stagger the crest so it ripples across. Uses the muted-text token so the
+     dots sit softly against the elevated bubble bg. */
   .typing-dot {
-    display: inline-block;
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
     border-radius: 9999px;
-    background-color: var(--color-muted);
-    animation: typing-dot-pulse 1.2s ease-in-out infinite;
+    background-color: var(--division-text-muted);
+    opacity: 0.35;
+    animation: typing-dot-wave 1.4s ease-in-out infinite;
+  }
+  .typing-dot:nth-child(2) {
+    animation-delay: 0.095s;
+  }
+  .typing-dot:nth-child(3) {
+    animation-delay: 0.19s;
   }
 
-  /* Idle pulse on the chat trigger — soft outward ring every 4s to draw
-     the eye without being annoying. Suppressed on hover (prevents the
-     fight between the pulse and the :hover color swap) and under reduced
-     motion. */
-  .chat-trigger {
-    animation: chat-trigger-pulse 4s ease-in-out infinite;
-  }
-
-  .chat-trigger:hover {
-    animation: none;
+  /* Idle halo on the chat trigger — a single 1.5px ring that scales out from
+     the 56px button and fades, looping every 2.4s (Session — Cursor &
+     Micro-Interactions; aligned from the old box-shadow pulse rather than
+     adding a second ring). Lives on a ::before so it sits behind the button
+     face (z-index:-1 within the trigger's own stacking context) and rides
+     the trigger's opacity — so it fades out for free when the panel opens.
+     Ring color is --division-text-primary so it inverts with the theme. */
+  .chat-trigger::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    border: 1.5px solid var(--division-text-primary);
+    z-index: -1;
+    pointer-events: none;
+    animation: chat-trigger-pulse 2.4s linear infinite;
   }
 }
 
 /* Keyframes for the chat widget — must live outside @layer utilities so
    Tailwind v4 / Lightning CSS doesn't strip them. */
-@keyframes typing-dot-pulse {
-  0%, 60%, 100% {
-    opacity: 0.3;
+@keyframes typing-dot-wave {
+  0%, 70%, 100% {
+    opacity: 0.35;
     transform: translateY(0);
   }
-  30% {
+  35% {
     opacity: 1;
-    transform: translateY(-2px);
+    transform: translateY(-2.5px);
   }
 }
 
-/* Pulse ring uses --borderglow-glow (RGB triplet) so the bright-on-dark
-   pulse in dark mode inverts to dark-on-light in light mode. The drop
-   shadow stays dark in both themes — a soft shadow from a dark color
-   reads fine on either background. */
+/* Chat-trigger halo — the ::before ring scales 1 → 1.6 and fades 0.5 → 0
+   over a 2.4s linear loop, reading as one slow outward halo behind the
+   56px button. Theme-aware via the ring's --division-text-primary border. */
 @keyframes chat-trigger-pulse {
-  0%, 100% {
-    box-shadow:
-      0 8px 24px -6px rgba(0, 0, 0, 0.5),
-      0 0 0 0 rgba(var(--borderglow-glow) / 0.25);
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
   }
-  50% {
-    box-shadow:
-      0 8px 24px -6px rgba(0, 0, 0, 0.5),
-      0 0 0 8px rgba(var(--borderglow-glow) / 0);
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
   }
 }
 
@@ -857,9 +903,119 @@ html[data-theme="light"] {
 @media (prefers-reduced-motion: reduce) {
   .typing-dot {
     animation: none;
-    opacity: 0.6;
+    opacity: 0.7;
+    transform: none;
   }
-  .chat-trigger {
+  .chat-trigger::before {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   Link & CTA micro-interactions (Session — Cursor &
+   Micro-Interactions). Unlayered on purpose: .footer-link and
+   .nav-link own the resting/hover color of the links they sit
+   on, so they must win over Tailwind's layered color
+   utilities. Grayscale only — the underline/sheen draw with
+   currentColor or a neutral gray band, no hue.
+   ========================================================= */
+
+/* Footer column links — a hairline underline draws in from the left on
+   hover and the label brightens text2 → text. 1.5px, 3px below baseline. */
+.footer-link {
+  position: relative;
+  color: var(--division-text-secondary);
+  transition: color 0.2s ease;
+}
+.footer-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1.5px;
+  width: 100%;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer-link:hover,
+.footer-link:focus-visible {
+  color: var(--division-text-primary);
+}
+.footer-link:hover::after,
+.footer-link:focus-visible::after {
+  transform: scaleX(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-link::after {
+    transition: none;
+  }
+}
+
+/* Top-nav links — same language as the footer underline, drawn with a
+   background-image gradient so it composes cleanly alongside the active
+   item's layoutId underline (the active item omits .nav-link to avoid
+   doubling). 1.5px, grows from the left over 280ms; text2 → text. */
+.nav-link {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1.5px;
+  color: var(--division-text-secondary);
+  transition: background-size 0.28s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
+}
+.nav-link:hover,
+.nav-link:focus-visible {
+  background-size: 100% 1.5px;
+  color: var(--division-text-primary);
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-link {
+    transition: color 0.2s ease;
+  }
+  .nav-link:hover,
+  .nav-link:focus-visible {
+    background-size: 100% 1.5px;
+  }
+}
+
+/* Solid-CTA sheen — a soft neutral light band sweeps once on hover,
+   left→right, clipped to the button. 40% width, skewX(-18deg), 620ms.
+   isolation creates a local stacking context so the ::after at z-index:-1
+   sits over the button fill but under its label. Neutral gray gradient
+   only — no hue. */
+.cta-sheen {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.cta-sheen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40%;
+  transform: translateX(-160%) skewX(-18deg);
+  background: linear-gradient(100deg, transparent, rgba(120, 120, 120, 0.35), transparent);
+  pointer-events: none;
+  z-index: -1;
+}
+.cta-sheen:hover::after {
+  animation: cta-sheen-sweep 0.62s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes cta-sheen-sweep {
+  from {
+    transform: translateX(-160%) skewX(-18deg);
+  }
+  to {
+    transform: translateX(360%) skewX(-18deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-sheen:hover::after {
     animation: none;
   }
 }

@@ -3,6 +3,7 @@
 import { motion } from 'motion/react'
 import { heroHeadline, heroSubtitle, heroCTA } from '@/lib/animations'
 import { cn } from '@/lib/utils'
+import MagneticButton from '@/components/ui/MagneticButton'
 
 interface HeroButton {
   label: string
@@ -64,18 +65,19 @@ export default function HeroSection({
             className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             {buttons.map((btn) => (
-              <a
-                key={btn.href}
-                href={btn.href}
-                className={cn(
-                  'inline-flex items-center justify-center min-h-[44px] px-7 py-3.5 rounded-button font-heading text-small font-medium transition-all',
-                  btn.variant === 'primary'
-                    ? 'bg-[var(--division-accent)] text-[var(--division-bg)] hover:brightness-110'
-                    : 'border border-[var(--division-border)] text-[var(--division-text-primary)] hover:bg-[var(--nav-hover-bg)]'
-                )}
-              >
-                {btn.label}
-              </a>
+              <MagneticButton key={btn.href}>
+                <a
+                  href={btn.href}
+                  className={cn(
+                    'inline-flex items-center justify-center min-h-[44px] px-7 py-3.5 rounded-button font-heading text-small font-medium transition-all',
+                    btn.variant === 'primary'
+                      ? 'bg-[var(--division-accent)] text-[var(--division-bg)] hover:brightness-110 cta-sheen'
+                      : 'border border-[var(--division-border)] text-[var(--division-text-primary)] hover:bg-[var(--nav-hover-bg)]'
+                  )}
+                >
+                  {btn.label}
+                </a>
+              </MagneticButton>
             ))}
           </motion.div>
         )}

@@ -13,6 +13,7 @@ import { Menu, X, ChevronDown, Globe } from 'lucide-react'
 import { mainNavItems } from '@/config/navigation'
 import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
+import MagneticButton from '@/components/ui/MagneticButton'
 import { cn } from '@/lib/utils'
 import ThemeToggle from './ThemeToggle'
 
@@ -149,16 +150,13 @@ export default function Navbar() {
                       href={item.href}
                       aria-current={active ? 'page' : undefined}
                       className={cn(
-                        'relative inline-flex items-center min-h-[44px] md:min-h-0 md:py-2 px-3 text-sm font-medium transition-colors focus-ring',
-                        active
-                          ? ''
-                          : 'hover:text-[var(--division-text-primary)]'
+                        'relative inline-flex items-center min-h-[44px] md:min-h-0 md:py-2 px-3 text-sm font-medium focus-ring',
+                        // Active item keeps the accent color + layoutId
+                        // underline; non-active uses .nav-link (owns color +
+                        // the draw-from-left underline), so no inline color.
+                        active ? '' : 'nav-link'
                       )}
-                      style={{
-                        color: active
-                          ? 'var(--division-accent)'
-                          : 'var(--division-text-secondary)',
-                      }}
+                      style={active ? { color: 'var(--division-accent)' } : undefined}
                     >
                       {tAll(item.labelKey)}
                       {active && (
@@ -220,16 +218,12 @@ export default function Navbar() {
                         href={item.href}
                         aria-current={active ? 'page' : undefined}
                         className={cn(
-                          'inline-flex items-center min-h-[44px] md:min-h-0 md:py-2 pl-3 pr-1 text-sm font-medium transition-colors focus-ring',
-                          active
-                            ? ''
-                            : 'hover:text-[var(--division-text-primary)]'
+                          'inline-flex items-center min-h-[44px] md:min-h-0 md:py-2 pl-3 pr-1 text-sm font-medium focus-ring',
+                          // See childless branch: nav-link owns non-active
+                          // color + underline; active keeps accent + layoutId.
+                          active ? '' : 'nav-link'
                         )}
-                        style={{
-                          color: active
-                            ? 'var(--division-accent)'
-                            : 'var(--division-text-secondary)',
-                        }}
+                        style={active ? { color: 'var(--division-accent)' } : undefined}
                       >
                         {label}
                       </Link>
@@ -340,17 +334,22 @@ export default function Navbar() {
                 <span className="uppercase">{otherLocale}</span>
               </Button>
 
-              {/* CTA (desktop) */}
-              <Link
-                href="/contact"
-                className="hidden md:inline-flex items-center px-4 py-2 min-h-[44px] rounded-button text-sm font-heading font-medium transition-[filter,transform] hover:brightness-110 active:scale-[0.98] focus-ring"
-                style={{
-                  backgroundColor: 'var(--division-accent)',
-                  color: 'var(--division-bg)',
-                }}
-              >
-                {t('cta')}
-              </Link>
+              {/* CTA (desktop) — magnetic + sheen. Responsive visibility
+                  lives on the MagneticButton wrapper (its forced inline-flex
+                  would otherwise beat a `hidden` on the inner Link and leave a
+                  phantom flex gap on mobile). */}
+              <MagneticButton className="hidden md:inline-flex">
+                <Link
+                  href="/contact"
+                  className="cta-sheen inline-flex items-center px-4 py-2 min-h-[44px] rounded-button text-sm font-heading font-medium transition-[filter,transform] hover:brightness-110 active:scale-[0.98] focus-ring"
+                  style={{
+                    backgroundColor: 'var(--division-accent)',
+                    color: 'var(--division-bg)',
+                  }}
+                >
+                  {t('cta')}
+                </Link>
+              </MagneticButton>
 
               {/* Hamburger (mobile) */}
               <Button

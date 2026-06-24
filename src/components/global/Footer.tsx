@@ -8,6 +8,8 @@ import { Mail, ArrowUp, MapPin, Phone } from 'lucide-react'
 import { footerNavItems } from '@/config/navigation'
 import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
+import MagneticButton from '@/components/ui/MagneticButton'
+import Confetti from '@/components/ui/Confetti'
 
 // Brand icons — inline SVG because lucide-react 1.8.0 does not ship brand
 // marks. Written to match the lucide API (size prop, currentColor) so they
@@ -190,8 +192,13 @@ export default function Footer() {
           <form
             onSubmit={handleNewsletterSubmit}
             aria-label={t('newsletter.ariaLabel')}
-            className="flex w-full md:w-auto flex-col gap-2"
+            className="relative flex w-full md:w-auto flex-col gap-2"
           >
+            {/* Grayscale confetti bursts from the form center on success. The
+                anchor is the form (not the button) because the existing
+                success UI swaps the button out — the burst still fans up over
+                the subscribe region. Pure pointer-events-none overlay. */}
+            {newsletterStatus === 'success' && <Confetti />}
             {newsletterStatus === 'success' ? (
               <p className="text-small text-[var(--division-accent)] font-medium md:w-64">
                 {t('newsletter.success')}
@@ -236,18 +243,20 @@ export default function Footer() {
                     className="flex-1 md:w-64 px-4 py-2.5 rounded-button text-small bg-[var(--division-bg)] border border-[var(--division-border)] text-[var(--division-text-primary)] placeholder:text-[var(--division-text-muted)] form-input-focus disabled:opacity-60"
                     aria-label={t('newsletter.emailAriaLabel')}
                   />
-                  <Button
-                    type="submit"
-                    disabled={newsletterStatus === 'submitting'}
-                    aria-busy={newsletterStatus === 'submitting'}
-                    className="h-auto px-5 py-2.5 rounded-button text-small font-heading font-medium hover:brightness-110"
-                    style={{
-                      backgroundColor: 'var(--division-accent)',
-                      color: 'var(--division-bg)',
-                    }}
-                  >
-                    {newsletterStatus === 'submitting' ? t('newsletter.submitting') : t('newsletter.submit')}
-                  </Button>
+                  <MagneticButton>
+                    <Button
+                      type="submit"
+                      disabled={newsletterStatus === 'submitting'}
+                      aria-busy={newsletterStatus === 'submitting'}
+                      className="cta-sheen h-auto px-5 py-2.5 rounded-button text-small font-heading font-medium hover:brightness-110"
+                      style={{
+                        backgroundColor: 'var(--division-accent)',
+                        color: 'var(--division-bg)',
+                      }}
+                    >
+                      {newsletterStatus === 'submitting' ? t('newsletter.submitting') : t('newsletter.submit')}
+                    </Button>
+                  </MagneticButton>
                 </div>
                 {newsletterStatus === 'error' && newsletterError && (
                   <p
@@ -328,7 +337,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="inline-flex items-center min-h-[44px] md:min-h-0 text-small text-[var(--division-text-muted)] hover:text-[var(--division-accent)] transition-colors focus-ring"
+                    className="footer-link inline-flex items-center min-h-[44px] md:min-h-0 text-small focus-ring"
                   >
                     {tAll(item.labelKey)}
                   </Link>
@@ -347,7 +356,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="inline-flex items-center min-h-[44px] md:min-h-0 text-small text-[var(--division-text-muted)] hover:text-[var(--division-accent)] transition-colors focus-ring"
+                    className="footer-link inline-flex items-center min-h-[44px] md:min-h-0 text-small focus-ring"
                   >
                     {tAll(item.labelKey)}
                   </Link>
@@ -366,7 +375,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="inline-flex items-center min-h-[44px] md:min-h-0 text-small text-[var(--division-text-muted)] hover:text-[var(--division-accent)] transition-colors focus-ring"
+                    className="footer-link inline-flex items-center min-h-[44px] md:min-h-0 text-small focus-ring"
                   >
                     {tAll(item.labelKey)}
                   </Link>
