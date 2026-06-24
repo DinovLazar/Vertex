@@ -13,9 +13,11 @@ import MagneticButton from '@/components/ui/MagneticButton'
  * text first for screen-reader / SEO order. Animate-on-mount, so this is the
  * page's one client component.
  *
- * The avatar is a placeholder "L" initials tile until a real photo is supplied.
- * To swap it: drop an image into /public and replace the <span>L</span> block
- * with a next/image fill inside the same rounded container.
+ * The avatar is a background-removed portrait (/public/lazar.png) composited onto
+ * the gradient tile via next/image fill + object-cover object-top. Swap the file
+ * to update; keep the head near the top of the frame so the square crop keeps it.
+ * Note: after replacing lazar.png in dev, clear .next/dev/cache/images or the
+ * optimizer may keep serving the old crop.
  */
 export default function LazarHero() {
   const t = useTranslations('lazar.hero')
