@@ -29,6 +29,15 @@ function InstagramIcon() {
   )
 }
 
+/**
+ * Contact — brutalist re-skin. The band INVERTS the page: background takes
+ * `--division-text-primary` and content takes `--division-bg`, so in dark mode
+ * it reads as a stark white block with black type (matching the approved Stitch
+ * design) and in light mode as the clean inverse — a black block with white
+ * type. Full-bleed (it breaks out of the bordered document frame above it) and
+ * centered: numbered label, oversized headline, square CTA → /contact, the
+ * marketing-email mailto, and the three personal socials. Server component.
+ */
 export default async function LazarContact() {
   const t = await getTranslations('lazar.contact')
   const email = siteConfig.contact.emailMarketing
@@ -40,22 +49,32 @@ export default async function LazarContact() {
   ]
 
   return (
-    <section id="contact" className="bg-[var(--color-ink)]">
+    <section id="contact" className="w-full bg-[var(--division-text-primary)] text-[var(--division-bg)]">
       <div className="mx-auto max-w-7xl px-6 py-24 text-center md:py-32">
         <AnimateIn>
-          <p className="overline text-[var(--division-text-muted)] mb-5">{t('overline')}</p>
-          <h2 className="mx-auto max-w-3xl text-h1 text-[var(--division-text-primary)]">{t('heading')}</h2>
-          <p className="mx-auto mt-5 max-w-xl text-body-lg text-[var(--division-text-secondary)]">{t('subtext')}</p>
-          <div className="mt-9 flex flex-col items-center gap-6">
+          <span className="mb-10 inline-flex items-center gap-2 border-2 border-[var(--division-bg)] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--division-bg)]">
+            <span aria-hidden="true" className="opacity-60">04 //</span>
+            {t('overline')}
+          </span>
+          <h2 className="mx-auto max-w-4xl font-heading text-display-lg font-extrabold uppercase leading-[0.9] tracking-[-0.02em] text-[var(--division-bg)]">
+            {t('heading')}
+          </h2>
+          <p className="mx-auto mt-8 max-w-xl text-body-lg text-[var(--division-bg)] opacity-80">
+            {t('subtext')}
+          </p>
+          <div className="mt-10 flex flex-col items-center gap-7">
             <MagneticButton>
               <Link
                 href="/contact"
-                className="focus-ring cta-sheen inline-flex min-h-[44px] items-center justify-center rounded-button bg-[var(--division-accent)] px-9 py-4 font-heading text-body font-medium text-[var(--division-bg)] transition-all hover:brightness-110"
+                className="focus-ring cta-sheen inline-flex min-h-[44px] items-center justify-center rounded-none border-2 border-[var(--division-bg)] bg-[var(--division-bg)] px-10 py-4 font-mono text-[12px] font-medium uppercase tracking-[0.18em] text-[var(--division-text-primary)] transition-colors hover:bg-transparent hover:text-[var(--division-bg)]"
               >
                 {t('cta')}
               </Link>
             </MagneticButton>
-            <a href={`mailto:${email}`} className="footer-link text-small text-[var(--division-text-muted)]">
+            <a
+              href={`mailto:${email}`}
+              className="footer-link font-mono text-small uppercase tracking-[0.12em] text-[var(--division-bg)] opacity-80 transition-opacity hover:opacity-100"
+            >
               {email}
             </a>
             <div className="flex items-center gap-3">
@@ -66,7 +85,7 @@ export default async function LazarContact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="focus-ring flex h-11 w-11 items-center justify-center rounded-full border border-[var(--division-border)] text-[var(--division-text-muted)] transition-colors hover:bg-[var(--nav-hover-bg)] hover:text-[var(--division-text-primary)]"
+                  className="focus-ring flex h-11 w-11 items-center justify-center rounded-none border-2 border-[var(--division-bg)] text-[var(--division-bg)] transition-colors hover:bg-[var(--division-bg)] hover:text-[var(--division-text-primary)]"
                 >
                   {s.icon}
                 </a>
