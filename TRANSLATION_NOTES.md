@@ -294,3 +294,7 @@ Added 2026-06-24 alongside the new `/lazar` personal portfolio page. The entire 
 - Project labels reuse "Веб-страница и SEO" / "Веб-страница". The contact heading "Да изградиме нешто што функционира." and subtext are conversational; confirm tone. Social aria-labels ("GitHub профил на Lazar", etc.) are screen-reader-only.
 
 Estimated review time: ~6–8 minutes.
+
+## Nav "Client Portal" button (`nav.clientPortal` — Navbar)
+
+Added 2026-07-12 alongside the new "Client Portal" button in the navbar (links out to `https://portal.vertexconsulting.mk/login`). MK: **"Клиентски портал"** (literal "Client portal"). "Portal/портал" is an established loanword in Macedonian, so it is written in Cyrillic (unlike brand names / "SEO", which stay Latin per conventions #19/#30). Low-risk; a defensible alternative is the fuller "Кориснички портал" ("user portal") if the client prefers that framing. Appears on the desktop bar (`lg`+) beside the "Get in Touch" CTA and at the bottom of the mobile menu.

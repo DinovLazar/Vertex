@@ -123,20 +123,25 @@ export default function Navbar() {
         )}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-[1fr_auto_1fr] h-14 md:h-16 items-center">
+          <div className="flex h-14 md:h-16 items-center gap-6 lg:gap-8">
             {/* Logo */}
             <Link
               href="/"
-              className="font-heading font-bold text-body-lg tracking-tight focus-ring justify-self-start"
+              className="font-heading font-bold text-body-lg tracking-tight focus-ring shrink-0"
               style={{ color: 'var(--division-text-primary)' }}
               aria-label={`${siteConfig.name} ${tCommon('logoAriaSuffix')}`}
             >
               VERTEX
             </Link>
 
-            {/* Desktop nav */}
+            {/* Desktop nav — sits directly beside the logo (left-grouped) so
+                the right-hand action cluster doesn't leave the bar looking
+                lopsided. Revealed at `lg`: below that the 5-link nav + the
+                two-button action cluster can't share the bar without crowding
+                (iPad-portrait 768px would overflow), so we fall back to the
+                hamburger menu, which carries every page plus both buttons. */}
             <nav
-              className="hidden md:flex items-center gap-1"
+              className="hidden lg:flex items-center gap-1"
               aria-label={t('primaryAria')}
             >
               {mainNavItems.map((item) => {
@@ -316,17 +321,19 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* Right: theme + lang + CTA + hamburger */}
-            <div className="flex items-center gap-2 col-start-3 justify-self-end">
+            {/* Right: theme + lang + CTA + hamburger. `ml-auto` pins the
+                cluster to the far right while the logo + nav stay grouped on
+                the left. */}
+            <div className="flex items-center gap-2 ml-auto shrink-0">
               {/* Theme toggle (desktop) — sibling of language toggle */}
-              <ThemeToggle className="hidden md:inline-flex" />
+              <ThemeToggle className="hidden lg:inline-flex" />
 
               {/* Language toggle (desktop) */}
               <Button
                 type="button"
                 variant="ghost"
                 onClick={toggleLocale}
-                className="hidden md:inline-flex items-center min-h-[44px] gap-1.5 h-auto px-3 py-1.5 rounded-full text-sm font-medium hover:bg-[var(--nav-hover-bg)]"
+                className="hidden lg:inline-flex items-center min-h-[44px] gap-1.5 h-auto px-3 py-1.5 rounded-full text-sm font-medium hover:bg-[var(--nav-hover-bg)]"
                 style={{ color: 'var(--division-text-secondary)' }}
                 aria-label={t('languageToggleAria')}
               >
@@ -334,11 +341,27 @@ export default function Navbar() {
                 <span className="uppercase">{otherLocale}</span>
               </Button>
 
+              {/* Client Portal (desktop) — secondary/outline button that
+                  links out to the external portal app. Uses a plain <a> (not
+                  the i18n Link) because the destination is another origin.
+                  Shares the nav's `lg` breakpoint so it appears right beside
+                  the primary CTA; below `lg` it lives in the mobile menu. */}
+              <a
+                href={siteConfig.portalUrl}
+                className="hidden lg:inline-flex items-center px-4 py-2 min-h-[44px] rounded-button text-sm font-heading font-medium border transition-colors hover:bg-[var(--nav-hover-bg)] hover:text-[var(--division-text-primary)] focus-ring whitespace-nowrap"
+                style={{
+                  borderColor: 'var(--division-border)',
+                  color: 'var(--division-text-secondary)',
+                }}
+              >
+                {t('clientPortal')}
+              </a>
+
               {/* CTA (desktop) — magnetic + sheen. Responsive visibility
                   lives on the MagneticButton wrapper (its forced inline-flex
                   would otherwise beat a `hidden` on the inner Link and leave a
                   phantom flex gap on mobile). */}
-              <MagneticButton className="hidden md:inline-flex">
+              <MagneticButton className="hidden lg:inline-flex">
                 <Link
                   href="/contact"
                   className="cta-sheen inline-flex items-center px-4 py-2 min-h-[44px] rounded-button text-sm font-heading font-medium transition-[filter,transform] hover:brightness-110 active:scale-[0.98] focus-ring"
@@ -358,7 +381,7 @@ export default function Navbar() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="md:hidden h-11 w-11 relative z-50 hover:bg-[var(--nav-hover-bg)]"
+                className="lg:hidden h-11 w-11 relative z-50 hover:bg-[var(--nav-hover-bg)]"
                 style={{ color: 'var(--division-text-primary)' }}
                 aria-label={mobileOpen ? t('closeMenu') : t('openMenu')}
                 aria-expanded={mobileOpen}
@@ -384,7 +407,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 md:hidden"
+            className="fixed inset-0 z-40 lg:hidden"
             style={{ backgroundColor: 'var(--division-bg)' }}
           >
             {/* Top-right cluster — theme toggle + language toggle. Sits
@@ -473,11 +496,23 @@ export default function Navbar() {
                   delay: mainNavItems.length * 0.08,
                   duration: 0.3,
                 }}
+                className="mt-4 flex flex-col items-center gap-3"
               >
+                <a
+                  href={siteConfig.portalUrl}
+                  onClick={() => setMobileOpen(false)}
+                  className="inline-flex items-center min-h-[44px] px-6 py-3 rounded-button border font-heading font-medium text-base transition-colors focus-ring whitespace-nowrap"
+                  style={{
+                    borderColor: 'var(--division-border)',
+                    color: 'var(--division-text-primary)',
+                  }}
+                >
+                  {t('clientPortal')}
+                </a>
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="mt-4 inline-flex items-center min-h-[44px] px-6 py-3 rounded-button font-heading font-medium text-base transition-colors focus-ring"
+                  className="inline-flex items-center min-h-[44px] px-6 py-3 rounded-button font-heading font-medium text-base transition-colors focus-ring"
                   style={{
                     backgroundColor: 'var(--division-accent)',
                     color: 'var(--division-bg)',

@@ -4,6 +4,8 @@ export const siteConfig = {
   tagline: "We help businesses grow smarter.",
   domain: "vertexconsulting.mk",
   url: "https://vertexconsulting.mk",
+  // External client-portal login (separate app on its own subdomain).
+  portalUrl: "https://portal.vertexconsulting.mk/login",
   owner: "Goran Dinov",
   founded: 2018,
   address: {
