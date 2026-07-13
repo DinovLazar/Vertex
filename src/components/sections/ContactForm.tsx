@@ -17,6 +17,20 @@ interface FormData {
 
 type FieldErrors = Partial<Record<'name' | 'email' | 'message', string>>
 
+// Formspree AJAX endpoint (e.g. https://formspree.io/f/xxxxxxx). Set in Vercel /
+// .env.local. NEXT_PUBLIC_ is required so the client bundle can read it. The
+// endpoint isn't a secret — it lives in the submitted HTML by design.
+const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_VERTEX_FORMSPREE_ENDPOINT
+
+// Human-readable labels for the notification email — sent to the site owner,
+// so they stay English regardless of the visitor's locale.
+const DIVISION_LABELS: Record<string, string> = {
+  consulting: 'Consulting',
+  marketing: 'Marketing',
+  both: 'Both divisions',
+  '': 'Not specified',
+}
+
 export default function ContactForm() {
   const t = useTranslations('contact.form')
   const uniqueId = useId()
@@ -78,21 +92,60 @@ export default function ContactForm() {
       return
     }
 
+    if (!FORMSPREE_ENDPOINT) {
+      console.error(
+        '[contact] NEXT_PUBLIC_VERTEX_FORMSPREE_ENDPOINT is not set — cannot submit the form.'
+      )
+      setStatus('error')
+      setError(t('genericError'))
+      return
+    }
+
     setFieldErrors({})
     setStatus('submitting')
     setError('')
 
+    // Payload for Formspree. `_gotcha` is Formspree's built-in honeypot: a
+    // filled value makes Formspree silently discard the submission. `_subject`
+    // sets the notification email subject. `email` doubles as the reply-to.
+    const payload: Record<string, string> = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      'Interested in': DIVISION_LABELS[formData.division] ?? DIVISION_LABELS[''],
+      message: formData.message.trim(),
+      _subject: `New contact form submission — ${formData.name.trim()}`,
+      _gotcha: formData.website,
+    }
+    if (formData.phone.trim()) payload.phone = formData.phone.trim()
+
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
       })
-      const data = await res.json()
-      if (!res.ok) {
-        throw new Error(data?.error || t('genericError'))
+
+      if (res.ok) {
+        setStatus('success')
+        return
       }
-      setStatus('success')
+
+      // Formspree errors: { errors: [{ field, message }] } or { error: string }.
+      let message = t('genericError')
+      try {
+        const data = await res.json()
+        if (Array.isArray(data?.errors) && data.errors.length > 0) {
+          message = data.errors.map((e: { message?: string }) => e.message).filter(Boolean).join(', ') || message
+        } else if (typeof data?.error === 'string') {
+          message = data.error
+        }
+      } catch {
+        // Non-JSON error body — fall back to the generic message.
+      }
+      throw new Error(message)
     } catch (err) {
       setStatus('error')
       setError(err instanceof Error ? err.message : t('genericError'))
