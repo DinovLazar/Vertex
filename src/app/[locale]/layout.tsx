@@ -11,6 +11,7 @@ import {
   ThemeProvider,
 } from '@/components/global'
 import { ChatWidget } from '@/components/chat'
+import { Analytics } from '@vercel/analytics/next'
 
 // Phase L1 — pre-hydration theme init. Runs synchronously in <head>
 // BEFORE React hydrates. Dark is the unconditional default: the only
@@ -91,6 +92,7 @@ export default async function LocaleLayout({
             </MotionWrapper>
           </NextIntlClientProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
