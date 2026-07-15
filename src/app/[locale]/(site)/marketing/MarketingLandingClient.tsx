@@ -20,6 +20,13 @@ const SERVICES = [
 
 const TEAM_KEYS = ['lazar', 'petar', 'andrej'] as const
 
+// Grayscale head-and-shoulders portraits under /public, keyed by member.
+const TEAM_IMAGES: Record<string, string> = {
+  lazar: '/lazar-bw.png',
+  petar: '/petar-bw.png',
+  andrej: '/andrej-bw.png',
+}
+
 export default async function MarketingLandingClient() {
   const t = await getTranslations('marketing.landing')
   const tNav = await getTranslations('nav.dropdown')
@@ -37,7 +44,7 @@ export default async function MarketingLandingClient() {
     bio: t(`team.members.${key}.bio`),
     initials: t(`team.members.${key}.initials`),
     href: key === 'lazar' ? '/lazar' : undefined,
-    image: key === 'lazar' ? '/lazar-bw.png' : undefined,
+    image: TEAM_IMAGES[key],
   }))
 
   return (

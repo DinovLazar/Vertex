@@ -146,7 +146,7 @@ Same list for marketing (locked 15B, reusable in 15D):
 ## Phase 15D additions (marketing pages)
 
 ### 18. Team member names stay in Latin on both locales
-- Lazar / Petar / Andrej rendered in Latin characters on both `/en/marketing` and `/mk/marketing`. Personal names; direct transliteration ("Лазар" / "Петар" / "Андреј") reads fine but fragments the personal identity — Goran's call, easy to change by editing `marketing.landing.team.members.*.name` in `messages/mk.json` if he prefers Cyrillic.
+- Lazar Dinov / Petar Jakimov / Andrej Jakimov rendered in Latin characters on both `/en/marketing` and `/mk/marketing` (and likewise on `/about`). Personal names; direct transliteration ("Лазар Динов" / "Петар Јакимов" / "Андреј Јакимов") reads fine but fragments the personal identity — Goran's call, easy to change by editing `*.team.members.*.name` under both the `marketing.landing` and `about` blocks in `messages/mk.json` if he prefers Cyrillic. (Surnames "Jakimov" added 2026-07-15 for Petar & Andrej, matching the existing "Goran Dinov" / "Lazar Dinov" Latin convention.)
 - Team roles ARE translated ("Веб развој и AI" / "Дизајн и социјални медиуми" / "IT инфраструктура") — those are job descriptions, not proper nouns.
 
 ### 19. Tech brand / product names stay in Latin in MK prose

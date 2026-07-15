@@ -618,16 +618,16 @@
             "initials": "LD"
           },
           "petar": {
-            "name": "Petar",
+            "name": "Petar Jakimov",
             "role": "Design & Social Media",
             "bio": "Creative eye with a strategic mind. Designs visual identities and manages social media presence that actually grows businesses.",
-            "initials": "P"
+            "initials": "PJ"
           },
           "andrej": {
-            "name": "Andrej",
+            "name": "Andrej Jakimov",
             "role": "IT Infrastructure",
             "bio": "Systems architect who keeps everything running. From servers to email to security — the technical backbone behind the scenes.",
-            "initials": "A"
+            "initials": "AJ"
           }
         }
       },
@@ -967,16 +967,16 @@
           "initials": "LD"
         },
         "petar": {
-          "name": "Petar",
+          "name": "Petar Jakimov",
           "role": "Design & Social Media — Vertex Marketing",
           "bio": "Visual designer and social media strategist. Combines creative direction with data-driven insights to build brand presence that actually converts.",
-          "initials": "P"
+          "initials": "PJ"
         },
         "andrej": {
-          "name": "Andrej",
+          "name": "Andrej Jakimov",
           "role": "IT Infrastructure — Vertex Marketing",
           "bio": "Systems architect and infrastructure specialist. Handles servers, security, hosting, and all the technical foundations that keep client projects running.",
-          "initials": "A"
+          "initials": "AJ"
         }
       }
     },

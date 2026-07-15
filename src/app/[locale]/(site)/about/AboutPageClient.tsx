@@ -10,6 +10,14 @@ const TEAM_KEYS = [
   { key: 'andrej', division: 'marketing' as const, href: undefined },
 ] as const
 
+// Grayscale head-and-shoulders portraits under /public, keyed by member.
+const TEAM_IMAGES: Record<string, string> = {
+  goran: '/goran-bw.png',
+  lazar: '/lazar-bw.png',
+  petar: '/petar-bw.png',
+  andrej: '/andrej-bw.png',
+}
+
 export default async function AboutPageClient() {
   const t = await getTranslations('about')
 
@@ -20,7 +28,7 @@ export default async function AboutPageClient() {
     division: m.division,
     initials: t(`team.members.${m.key}.initials`),
     href: m.href,
-    image: m.key === 'lazar' ? '/lazar-bw.png' : undefined,
+    image: TEAM_IMAGES[m.key],
   }))
 
   const storyParagraphs = t.raw('hero.paragraphs') as string[]
