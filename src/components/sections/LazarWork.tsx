@@ -37,8 +37,10 @@ export default async function LazarWork() {
           {lazarProjects.map((project, i) => {
             const label = t(`projects.${i}.label`)
             const desc = t(`projects.${i}.desc`)
-            // Zig-zag the second column down, brutalist-masonry style.
-            const offset = i === 1 ? 'md:mt-20' : ''
+            // Zig-zag the right column down, brutalist-masonry style — every
+            // odd-index card (the second column) drops, so the pattern holds
+            // no matter how many projects the list grows to.
+            const offset = i % 2 === 1 ? 'md:mt-20' : ''
 
             const cardInner = (
               <>
@@ -106,25 +108,6 @@ export default async function LazarWork() {
               </StaggerItem>
             )
           })}
-
-          {/* "& more" card — hatch field, easy to grow */}
-          <StaggerItem className="h-full md:mt-20">
-            <div className="relative flex h-full min-h-[260px] items-center justify-center overflow-hidden border-2 border-[var(--division-text-primary)] bg-[var(--division-surface)] p-8">
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 opacity-60"
-                style={{ backgroundImage: 'repeating-linear-gradient(45deg, var(--division-border) 0, var(--division-border) 1px, transparent 1px, transparent 11px)' }}
-              />
-              <div className="relative border-2 border-[var(--division-text-primary)] bg-[var(--division-bg)] px-8 py-7 text-center">
-                <div className="mb-2 font-heading text-3xl font-extrabold uppercase tracking-tight text-[var(--division-text-primary)]">
-                  {t('moreTitle')}
-                </div>
-                <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--division-text-muted)]">
-                  {t('moreSubtitle')}
-                </div>
-              </div>
-            </div>
-          </StaggerItem>
         </StaggerContainer>
       </div>
     </section>

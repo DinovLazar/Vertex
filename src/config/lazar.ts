@@ -26,4 +26,5 @@ export const lazarProjects: LazarProject[] = [
   { name: "Northgate Dental", image: "/projects/northgate.png", href: "https://northgate.optimind000.com/en" },
   { name: "Sunset Services", image: "/projects/sunset.png", href: "https://sunsetservices.vercel.app/" },
   { name: "Dalibor Plečić — Author", image: "/projects/daliborac.png", href: "https://daliborac.vertexconsulting.mk/mk" },
+  { name: "IQ UP!", image: "/projects/iqup.png", href: "https://iqup.vertexconsulting.mk/" },
 ]

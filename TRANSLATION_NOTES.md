@@ -298,3 +298,15 @@ Estimated review time: ~6–8 minutes.
 ## Nav "Client Portal" button (`nav.clientPortal` — Navbar)
 
 Added 2026-07-12 alongside the new "Client Portal" button in the navbar (links out to `https://portal.vertexconsulting.mk/login`). MK: **"Клиентски портал"** (literal "Client portal"). "Portal/портал" is an established loanword in Macedonian, so it is written in Cyrillic (unlike brand names / "SEO", which stay Latin per conventions #19/#30). Low-risk; a defensible alternative is the fuller "Кориснички портал" ("user portal") if the client prefers that framing. Appears on the desktop bar (`lg`+) beside the "Get in Touch" CTA and at the bottom of the mobile menu.
+
+## IQ UP! project card on `/lazar` (`lazar.work.projects.3` — LazarWork)
+
+Added 2026-07-15 when the **IQ UP!** client (a free game-based cognitive-assessment tool for children ages 5–13, [iqup.vertexconsulting.mk](https://iqup.vertexconsulting.mk/)) became the homepage's first "Our Work" card (replacing Northgate Dental there) and a 4th "Selected work" card on `/lazar` (Northgate stays on `/lazar`). Same LLM-drafted register as the rest of `lazar.*`; **wants Lazar's native-speaker pass**. The brand "IQ UP!" stays Latin (convention #19) and lives in `src/config/lazar.ts`, not the translations.
+
+### L-E. `lazar.work.projects.3.label` → "Веб-страница и бренд"
+- "Website & Brand". Chosen over the existing "Веб-страница и SEO" / "Веб-страница" labels to signal the distinct visual identity (logo + palette) delivered here. "бренд" is an accepted MK loanword; a native alternative is "Веб-страница и визуелен идентитет" ("… & visual identity") if a fuller, less anglicised phrasing is preferred.
+
+### L-F. `lazar.work.projects.3.desc`
+- MK: "Ведра, разиграна двојазична веб-страница за алатка за когнитивна проценка кај деца, направена да ги води родителите од љубопитност до започнување на проценката со неколку допири." — mirrors the EN "A bright, playful bilingual site for a children's cognitive-assessment tool, built to take parents from curious to starting the assessment in a couple of taps." Points to confirm: "когнитивна проценка" ("cognitive assessment") — the live IQ UP! site frames it softly as "проценка на силните страни" ("strengths assessment"); Lazar may prefer that gentler framing over the more clinical "когнитивна". "со неколку допири" = "in a couple of taps".
+
+**Removed** at the same time: the `/lazar` "& more" placeholder card and its keys `lazar.work.moreTitle` ("и повеќе") + `lazar.work.moreSubtitle` ("Уште проекти се на пат.") — the IQ UP! card took that slot, so both keys were deleted from `messages/{en,mk}.json`.

@@ -1,5 +1,6 @@
 /**
- * Captures the three "Our Work" client screenshots.
+ * Captures the client screenshots used by the "Our Work" (homepage) and
+ * "Selected work" (/lazar) cards.
  *
  * Spec (matches the 2026-06-20 originals — do not change):
  *   - Viewport 1280×720, deviceScaleFactor 2 → 2560×1440 output (16:9)
@@ -10,8 +11,8 @@
  * to (see src/config/projects.ts + src/config/lazar.ts), so each screenshot
  * matches what a visitor sees when they click "View project".
  *
- * Filenames are fixed (northgate / sunset / daliborac) so no config change is
- * ever needed — re-run whenever a client site is redesigned:
+ * Filenames are fixed (northgate / sunset / daliborac / iqup) so no config
+ * change is ever needed — re-run whenever a client site is redesigned:
  *
  *   node scripts/capture-projects.mjs
  *
@@ -23,9 +24,12 @@ import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 
 const TARGETS = [
+  // northgate is now only used on /lazar (the homepage card is iqup); keep it
+  // captured so the /lazar "Selected work" grid stays fresh.
   { slug: 'northgate', url: 'https://northgate.optimind000.com/en' },
   { slug: 'sunset', url: 'https://sunsetservices.vercel.app/' },
   { slug: 'daliborac', url: 'https://daliborac.vertexconsulting.mk/mk' },
+  { slug: 'iqup', url: 'https://iqup.vertexconsulting.mk/' },
 ];
 
 const OUT_DIR = path.join(process.cwd(), 'public', 'projects');
@@ -62,7 +66,9 @@ async function main() {
       await page.waitForTimeout(3000);
 
       // Dismiss a cookie banner if one is in the way (best-effort, non-fatal).
-      for (const label of [/accept/i, /agree/i, /прифати/i, /се согласувам/i]) {
+      // Prefer the privacy-preserving "essential only" choice (e.g. IQ UP!'s
+      // "Само основни") over "accept all" when a banner offers both.
+      for (const label of [/само основни/i, /only essential/i, /essential only/i, /reject/i, /accept/i, /agree/i, /прифати/i, /се согласувам/i]) {
         const btn = page.getByRole('button', { name: label }).first();
         if (await btn.isVisible().catch(() => false)) {
           await btn.click().catch(() => {});

@@ -1173,12 +1173,11 @@
       "viewProject": "View project",
       "viewProjectAria": "View the {name} project",
       "imageAlt": "Screenshot of the {name} website",
-      "moreTitle": "& more",
-      "moreSubtitle": "More projects on the way.",
       "projects": {
         "0": { "label": "Website & SEO", "desc": "A clean, trustworthy website for a dental practice, built to bring in new patients and rank locally." },
         "1": { "label": "Website & SEO", "desc": "A sharp marketing site for a hardscaping and services company, focused on turning visits into quote requests." },
-        "2": { "label": "Website", "desc": "A personal author website with a calm, editorial feel that puts the writing front and centre." }
+        "2": { "label": "Website", "desc": "A personal author website with a calm, editorial feel that puts the writing front and centre." },
+        "3": { "label": "Website & Brand", "desc": "A bright, playful bilingual site for a children's cognitive-assessment tool, built to take parents from curious to starting the assessment in a couple of taps." }
       }
     },
     "contact": {

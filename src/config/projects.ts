@@ -32,7 +32,7 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  { name: "Northgate Dental", division: "marketing", image: "/projects/northgate.png", href: "https://northgate.optimind000.com/en" },
+  { name: "IQ UP!", division: "marketing", image: "/projects/iqup.png", href: "https://iqup.vertexconsulting.mk/" },
   { name: "Sunset Services", division: "marketing", image: "/projects/sunset.png", href: "https://sunsetservices.vercel.app/" },
   { name: "Dalibor Plečić — Author", division: "marketing", image: "/projects/daliborac.png", href: "https://daliborac.vertexconsulting.mk/mk" },
 ];
