@@ -48,6 +48,8 @@ export default async function BusinessConsultingPage({
 
   return (
     <ConsultingServicePage
+      slug={SLUG}
+      metaDescription={t('meta.description')}
       overline={tCommon('overline')}
       title={t('hero.title')}
       subtitle={t('hero.subtitle')}

@@ -12,10 +12,15 @@ import './globals.css'
 export const metadata: Metadata = {
   title: {
     default: 'Vertex Consulting — We help businesses grow smarter',
-    template: '%s | Vertex Consulting',
+    // Deliberately '| Vertex', not '| Vertex Consulting'. Google truncates a
+    // result title around 60 characters, and the longer suffix ate the room
+    // page titles need for the location keywords that win local searches
+    // ("Business Consulting in Strumica, Macedonia"). Change this one line
+    // back if the full brand name matters more than the keywords.
+    template: '%s | Vertex',
   },
   description:
-    'Business consulting, workflow restructuring, IT systems, AI consulting, web design, and digital marketing services in Strumica, Macedonia. Founded 2018.',
+    'Business consulting, workflow restructuring, IT systems, AI consulting, web design and digital marketing in Strumica, Macedonia. Founded 2018.',
   metadataBase: new URL(siteConfig.url),
   keywords: [
     'business consulting Macedonia',
@@ -47,6 +52,19 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  // Search-engine ownership verification. Set these in Vercel's environment
+  // variables and the correct <meta> tag appears automatically — no code
+  // change and no file upload needed.
+  //   GOOGLE_SITE_VERIFICATION  → Search Console › HTML tag method
+  //   BING_SITE_VERIFICATION    → Bing Webmaster Tools › Option 2 (meta tag)
+  //   YANDEX_SITE_VERIFICATION  → optional
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+    yandex: process.env.YANDEX_SITE_VERIFICATION,
+    other: process.env.BING_SITE_VERIFICATION
+      ? { 'msvalidate.01': process.env.BING_SITE_VERIFICATION }
+      : undefined,
   },
 }
 

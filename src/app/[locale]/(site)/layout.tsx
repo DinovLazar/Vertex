@@ -1,5 +1,7 @@
-import { getTranslations } from 'next-intl/server'
-import { Navbar, Footer } from '@/components/global'
+import { getTranslations, getLocale } from 'next-intl/server'
+import { Navbar, Footer, JsonLd } from '@/components/global'
+import { buildSiteGraph } from '@/lib/schema'
+import type { Locale } from '@/i18n/routing'
 
 export default async function SiteLayout({
   children,
@@ -7,9 +9,14 @@ export default async function SiteLayout({
   children: React.ReactNode
 }) {
   const tCommon = await getTranslations('common')
+  const locale = (await getLocale()) as Locale
 
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Site-wide entity graph — Organization, ProfessionalService (local
+          business), WebSite and founder Person, linked by @id. Lives in the
+          (site) layout so /studio and /admin stay out of the knowledge graph. */}
+      <JsonLd data={buildSiteGraph(locale)} />
       {/* Skip-to-content link — first tab-stop on every page. Hidden above
           the viewport at rest, slides in on keyboard focus (WCAG 2.4.1). */}
       <a

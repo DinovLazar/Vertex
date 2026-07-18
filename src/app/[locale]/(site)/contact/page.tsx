@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { generatePageMetadata } from '@/lib/metadata'
+import { PageSchema } from '@/components/global'
 import type { Locale } from '@/i18n/routing'
 import ContactPageClient from './ContactPageClient'
 
@@ -26,5 +27,19 @@ export default async function ContactPage({
 }) {
   const { locale } = await params
   setRequestLocale(locale)
-  return <ContactPageClient />
+  const tMeta = await getTranslations({ locale, namespace: 'contact.meta' })
+  const tNav = await getTranslations({ locale, namespace: 'nav' })
+
+  return (
+    <>
+      <PageSchema
+        path="/contact"
+        type="ContactPage"
+        name={tMeta('title')}
+        description={tMeta('description')}
+        breadcrumbLabel={tNav('contact')}
+      />
+      <ContactPageClient />
+    </>
+  )
 }

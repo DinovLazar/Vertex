@@ -1,6 +1,9 @@
+import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
+import { generatePageMetadata } from '@/lib/metadata'
 import { BackgroundSilk } from '@/components/backgrounds'
-import { Section, AnimateIn } from '@/components/global'
+import { Section, AnimateIn, PageSchema } from '@/components/global'
+import type { Locale } from '@/i18n/routing'
 import {
   HeroSection,
   DivisionSplit,
@@ -10,11 +13,42 @@ import {
   CTABanner,
 } from '@/components/sections'
 
+/**
+ * The homepage previously shipped no `generateMetadata` at all, so it fell
+ * back to the root layout's metadata — which carries no canonical URL and no
+ * hreflang alternates. That left the site's single most important page unable
+ * to tell Google that `/en` and `/mk` are translations of each other rather
+ * than duplicate content.
+ */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'home.meta' })
+  return generatePageMetadata({
+    title: t('title'),
+    description: t('description'),
+    path: '',
+    locale,
+  })
+}
+
 export default async function HomePage() {
   const t = await getTranslations('home')
+  const tMeta = await getTranslations('home.meta')
 
   return (
     <>
+      {/* No breadcrumb label — a one-item trail on the homepage is noise. */}
+      <PageSchema
+        path="/"
+        type="WebPage"
+        name={tMeta('title')}
+        description={tMeta('description')}
+      />
+
       {/* ===== SECTION 1: HERO ===== */}
       <HeroSection
         headline={t('hero.headline')}

@@ -50,21 +50,38 @@ export default function BlogPostClient({ post, related }: BlogPostClientProps) {
 
   // BlogPosting structured data. URL stays locale-aware so canonical reflects
   // the locale the visitor is on. `inLanguage` tags the post for bilingual SEO.
+  //
+  // `publisher` and `mainEntityOfPage` are what let Google connect the article
+  // to the Organization entity declared in the site layout — without them the
+  // post reads as authorless content from nowhere in particular. `image` is
+  // required for Google Discover eligibility and article rich results.
+  const postUrl = `${siteConfig.url}/${locale}/blog/${post.slug}`
+  const articleImage =
+    post.featuredImage?.url ?? `${siteConfig.url}/opengraph-image`
+
   const blogSchema = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    headline: post.title,
+    '@id': `${postUrl}#article`,
+    headline: post.title.slice(0, 110), // Google ignores headlines over 110 chars
     description: post.excerpt,
+    image: [articleImage],
     author: {
       '@type': 'Person',
       name: post.author.name,
       jobTitle: post.author.role,
+      worksFor: { '@id': `${siteConfig.url}/#organization` },
     },
+    publisher: { '@id': `${siteConfig.url}/#organization` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+    isPartOf: { '@id': `${siteConfig.url}/#website` },
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,
-    url: `${siteConfig.url}/${locale}/blog/${post.slug}`,
+    url: postUrl,
     inLanguage: locale === 'mk' ? 'mk-MK' : 'en-US',
     keywords: post.tags.join(', '),
+    articleSection: post.division,
+    timeRequired: `PT${post.readTime}M`,
   }
 
   return (

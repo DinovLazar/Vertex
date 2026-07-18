@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { generatePageMetadata } from '@/lib/metadata'
+import { PageSchema } from '@/components/global'
 import type { Locale } from '@/i18n/routing'
 import MarketingLandingClient from './MarketingLandingClient'
 
@@ -26,5 +27,19 @@ export default async function MarketingPage({
 }) {
   const { locale } = await params
   setRequestLocale(locale)
-  return <MarketingLandingClient />
+  const tMeta = await getTranslations({ locale, namespace: 'marketing.meta' })
+  const tNav = await getTranslations({ locale, namespace: 'nav' })
+
+  return (
+    <>
+      <PageSchema
+        path="/marketing"
+        type="WebPage"
+        name={tMeta('title')}
+        description={tMeta('description')}
+        breadcrumbLabel={tNav('marketing')}
+      />
+      <MarketingLandingClient />
+    </>
+  )
 }

@@ -1,7 +1,10 @@
+import { getTranslations, getLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
-import { Section, AnimateIn } from '@/components/global'
+import { Section, AnimateIn, JsonLd } from '@/components/global'
 import { ProcessSteps, FAQAccordion, CTABanner } from '@/components/sections'
 import { renderInlineMarkdown } from '@/lib/renderInlineMarkdown'
+import { buildServiceSchema, buildBreadcrumbSchema } from '@/lib/schema'
+import type { Locale } from '@/i18n/routing'
 import type {
   ContentSection,
   ProcessStep,
@@ -10,6 +13,10 @@ import type {
 } from '@/types'
 
 interface MarketingServicePageProps {
+  /** URL slug, e.g. 'web-design'. Drives the Service JSON-LD node. */
+  slug: string
+  /** Meta description for this page — reused verbatim as the schema description. */
+  metaDescription: string
   /** Small overline above the h1 — defaults to "Vertex Marketing" per locale. */
   overline: string
   title: string
@@ -40,7 +47,9 @@ interface MarketingServicePageProps {
  * inline-markdown support so translation strings can emphasize terms
  * via `**Next.js**` / `**vibe coding**` without JSX in JSON.
  */
-export default function MarketingServicePage({
+export default async function MarketingServicePage({
+  slug,
+  metaDescription,
   overline,
   title,
   subtitle,
@@ -58,8 +67,32 @@ export default function MarketingServicePage({
   ctaBannerCta,
   ctaBannerHref = '/contact',
 }: MarketingServicePageProps) {
+  const locale = (await getLocale()) as Locale
+  const tNav = await getTranslations('nav')
+
   return (
     <>
+      {/* Service node — provider points at the site-wide local-business @id,
+          so location/hours/contact are inherited rather than duplicated. */}
+      <JsonLd
+        data={buildServiceSchema({
+          slug,
+          locale,
+          name: title,
+          description: metaDescription,
+        })}
+      />
+      <JsonLd
+        data={buildBreadcrumbSchema({
+          locale,
+          homeLabel: tNav('home'),
+          trail: [
+            { name: tNav('marketing'), path: '/marketing' },
+            { name: title, path: `/marketing/${slug}` },
+          ],
+        })}
+      />
+
       {/* Hero area */}
       <Section className="pt-12 md:pt-20 pb-12 md:pb-16">
         <AnimateIn>

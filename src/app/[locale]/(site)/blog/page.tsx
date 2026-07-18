@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { generatePageMetadata } from '@/lib/metadata'
 import { getAllPosts } from '@/lib/blog'
+import { PageSchema } from '@/components/global'
 import type { Locale } from '@/i18n/routing'
 import BlogListingClient from './BlogListingClient'
 
@@ -28,5 +29,19 @@ export default async function BlogPage({
   const { locale } = await params
   setRequestLocale(locale)
   const posts = await getAllPosts(locale)
-  return <BlogListingClient posts={posts} />
+  const tMeta = await getTranslations({ locale, namespace: 'blog.meta' })
+  const tNav = await getTranslations({ locale, namespace: 'nav' })
+
+  return (
+    <>
+      <PageSchema
+        path="/blog"
+        type="CollectionPage"
+        name={tMeta('title')}
+        description={tMeta('description')}
+        breadcrumbLabel={tNav('blog')}
+      />
+      <BlogListingClient posts={posts} />
+    </>
+  )
 }

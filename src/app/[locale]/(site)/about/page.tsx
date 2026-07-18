@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { generatePageMetadata } from '@/lib/metadata'
+import { PageSchema } from '@/components/global'
 import type { Locale } from '@/i18n/routing'
 import AboutPageClient from './AboutPageClient'
 
@@ -26,5 +27,19 @@ export default async function AboutPage({
 }) {
   const { locale } = await params
   setRequestLocale(locale)
-  return <AboutPageClient />
+  const tMeta = await getTranslations({ locale, namespace: 'about.meta' })
+  const tNav = await getTranslations({ locale, namespace: 'nav' })
+
+  return (
+    <>
+      <PageSchema
+        path="/about"
+        type="AboutPage"
+        name={tMeta('title')}
+        description={tMeta('description')}
+        breadcrumbLabel={tNav('about')}
+      />
+      <AboutPageClient />
+    </>
+  )
 }

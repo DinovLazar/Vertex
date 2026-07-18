@@ -1,6 +1,9 @@
+import { getTranslations, getLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
-import { Section, AnimateIn } from '@/components/global'
+import { Section, AnimateIn, JsonLd } from '@/components/global'
 import { ProcessSteps, FAQAccordion, CTABanner } from '@/components/sections'
+import { buildServiceSchema, buildBreadcrumbSchema } from '@/lib/schema'
+import type { Locale } from '@/i18n/routing'
 import type {
   ContentSection,
   ProcessStep,
@@ -9,6 +12,10 @@ import type {
 } from '@/types'
 
 interface ConsultingServicePageProps {
+  /** URL slug, e.g. 'business-consulting'. Drives the Service JSON-LD node. */
+  slug: string
+  /** Meta description for this page — reused verbatim as the schema description. */
+  metaDescription: string
   /** Small overline above the h1 — defaults to "Vertex Consulting" per locale. */
   overline: string
   title: string
@@ -38,7 +45,9 @@ interface ConsultingServicePageProps {
  * page tree — hero, long-form body, process, FAQ, related, and CTA — from
  * translation-driven props.
  */
-export default function ConsultingServicePage({
+export default async function ConsultingServicePage({
+  slug,
+  metaDescription,
   overline,
   title,
   subtitle,
@@ -56,8 +65,31 @@ export default function ConsultingServicePage({
   ctaBannerCta,
   ctaBannerHref = '/contact',
 }: ConsultingServicePageProps) {
+  const locale = (await getLocale()) as Locale
+  const tNav = await getTranslations('nav')
+
   return (
     <>
+      {/* Service node — provider points at the site-wide local-business @id,
+          so location/hours/contact are inherited rather than duplicated. */}
+      <JsonLd
+        data={buildServiceSchema({
+          slug,
+          locale,
+          name: title,
+          description: metaDescription,
+        })}
+      />
+      <JsonLd
+        data={buildBreadcrumbSchema({
+          locale,
+          homeLabel: tNav('home'),
+          trail: [
+            { name: tNav('consulting'), path: '/consulting' },
+            { name: title, path: `/consulting/${slug}` },
+          ],
+        })}
+      />
       {/* Hero area */}
       <Section className="pt-12 md:pt-20 pb-12 md:pb-16">
         <AnimateIn>

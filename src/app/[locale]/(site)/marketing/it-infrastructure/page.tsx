@@ -48,6 +48,8 @@ export default async function ITInfrastructurePage({
 
   return (
     <MarketingServicePage
+      slug={SLUG}
+      metaDescription={t('meta.description')}
       overline={tCommon('overline')}
       title={t('hero.title')}
       subtitle={t('hero.subtitle')}
