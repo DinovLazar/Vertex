@@ -63,7 +63,10 @@ Last updated: 2026-04-15
 - Next plugin enabled
 
 ### `next.config.ts`
-Empty config scaffold — no custom settings yet.
+`NextConfig` wired through `withNextIntl(createNextIntlPlugin('./src/i18n/request.ts'))`. Carries:
+- `experimental.optimizePackageImports: ['motion', 'lucide-react', 'gsap']` (Session H, 2026-04-19 — zero-risk future-proofing).
+- `images.remotePatterns: [{ protocol: 'https', hostname: 'cdn.sanity.io' }]` (Phase 13A, 2026-04-24 — lets `next/image` render Sanity CDN blog images).
+- **`async redirects()` (Phase 17, 2026-07-18)** — four entries that 308-redirect the legacy OptiMind URLs `/demo` and `/terms` (locale-prefixed `en|mk` via a constrained `:locale(en|mk)` param, and unprefixed) to the corresponding locale homepage. **This is the canonical place for any future legacy-URL → live-route mapping.** Redirects declared here run *before* the next-intl proxy (`src/proxy.ts`), so they resolve regardless of locale routing. They are baked in at build time, **not read at runtime — a config change requires `npm run build` to take effect.** Do NOT add a catch-all (`/:path*`) source: it would swallow the localized 404 and every future route. Use explicit, constrained sources only.
 
 ### `components.json` (shadcn)
 - Style: `base-nova`
