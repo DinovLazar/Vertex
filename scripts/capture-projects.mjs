@@ -27,8 +27,10 @@ const TARGETS = [
   // northgate is now only used on /lazar (the homepage card is iqup); keep it
   // captured so the /lazar "Selected work" grid stays fresh.
   { slug: 'northgate', url: 'https://northgate.optimind000.com/en' },
-  { slug: 'sunset', url: 'https://sunsetservices.vercel.app/' },
-  { slug: 'daliborac', url: 'https://daliborac.vertexconsulting.mk/mk' },
+  // Sunset moved off Vercel to its own domain; the old *.vercel.app now 404s.
+  { slug: 'sunset', url: 'https://sunsetservices.us' },
+  // Dalibor moved off the vertexconsulting.mk subdomain to its own domain.
+  { slug: 'daliborac', url: 'https://daliborplecic.com' },
   { slug: 'iqup', url: 'https://iqup.vertexconsulting.mk/' },
 ];
 
