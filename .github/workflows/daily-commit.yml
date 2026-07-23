@@ -1,0 +1,33 @@
+name: Daily Commit
+
+# Pushes one empty commit to main every day so the contribution graph
+# stays green. Uses a Personal Access Token (secret PAT_TOKEN) so the commit
+# is attributed to you — commits pushed with the default GITHUB_TOKEN are
+# credited to a bot and do NOT count toward your contributions.
+#
+# The commit message includes [skip ci] so Vercel does not redeploy the site
+# on these commits (GitHub still counts them toward the contribution graph).
+
+on:
+  schedule:
+    # 04:17 UTC daily (~06:17 CEST). Avoids the top of the hour, which is the
+    # most congested slot for GitHub's scheduler and most prone to delay.
+    - cron: '17 4 * * *'
+  workflow_dispatch: {} # allows manual runs from the Actions tab
+
+jobs:
+  daily-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          fetch-depth: 1
+
+      - name: Create and push empty commit
+        run: |
+          git config user.name "DinovLazar"
+          git config user.email "dinovlazar2011@gmail.com"
+          git commit --allow-empty -m "chore: daily commit $(date -u +'%Y-%m-%d') [skip ci]"
+          git push
