@@ -35,6 +35,10 @@
       "aiDevelopment": "AI Development"
     }
   },
+  "breadcrumbs": {
+    "ariaLabel": "Breadcrumb",
+    "home": "Home"
+  },
   "footer": {
     "newsletter": {
       "headline": "Stay in the loop",

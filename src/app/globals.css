@@ -1028,3 +1028,19 @@ html[data-theme="light"] {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* =========================================================
+   Utilities
+   ========================================================= */
+
+/* Hide the scrollbar while keeping the element scrollable. Used by the
+   breadcrumb trail, which scrolls horizontally on narrow screens rather than
+   wrapping to three lines and pushing the page header down. Keyboard and
+   touch scrolling are unaffected. */
+.scrollbar-none {
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* legacy Edge */
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;                  /* WebKit / Blink */
+}

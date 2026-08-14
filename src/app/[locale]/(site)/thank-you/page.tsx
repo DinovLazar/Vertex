@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
+import { Breadcrumbs } from '@/components/global'
 import { generatePageMetadata } from '@/lib/metadata'
 import type { Locale } from '@/i18n/routing'
 
@@ -30,7 +31,13 @@ export default async function ThankYouPage({
   const t = await getTranslations({ locale, namespace: 'thankYou' })
 
   return (
-    <div className="min-h-[60vh] flex items-center justify-center px-4">
+    <>
+      {/* Sits above the centred confirmation block rather than inside it, so
+          the page keeps its vertically-centred layout. */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        <Breadcrumbs items={[{ label: t('meta.title') }]} />
+      </div>
+      <div className="min-h-[60vh] flex items-center justify-center px-4">
       <div className="text-center">
         <h1 className="text-h1 text-[var(--division-text-primary)]">
           {t('headline')}
@@ -49,6 +56,7 @@ export default async function ThankYouPage({
           {t('cta')}
         </Link>
       </div>
-    </div>
+      </div>
+    </>
   )
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { generatePageMetadata } from '@/lib/metadata'
-import { PageSchema } from '@/components/global'
+import { PageSchema, Breadcrumbs } from '@/components/global'
 import type { Locale } from '@/i18n/routing'
 import ContactPageClient from './ContactPageClient'
 
@@ -37,9 +37,10 @@ export default async function ContactPage({
         type="ContactPage"
         name={tMeta('title')}
         description={tMeta('description')}
-        breadcrumbLabel={tNav('contact')}
       />
-      <ContactPageClient />
+      <ContactPageClient
+        breadcrumbs={<Breadcrumbs items={[{ label: tNav('contact') }]} />}
+      />
     </>
   )
 }

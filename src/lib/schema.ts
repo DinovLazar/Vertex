@@ -380,9 +380,15 @@ export function buildFaqSchema(args: {
 export function buildBreadcrumbSchema(args: {
   locale: Locale
   homeLabel: string
-  trail: Array<{ name: string; path: string }>
+  /**
+   * Ordered ancestor-first, excluding Home. `path` may be omitted on the
+   * final entry — the current page is not a link in the visible trail, and
+   * schema.org treats `item` as optional on the last ListItem. Omitting it is
+   * correct; inventing a URL to fill the slot is not.
+   */
+  trail: Array<{ name: string; path?: string }>
 }) {
-  const items = [
+  const items: Array<{ name: string; path?: string }> = [
     { name: args.homeLabel, path: '/' },
     ...args.trail,
   ]
@@ -394,7 +400,7 @@ export function buildBreadcrumbSchema(args: {
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      item: abs(args.locale, item.path),
+      ...(item.path ? { item: abs(args.locale, item.path) } : {}),
     })),
   }
 }

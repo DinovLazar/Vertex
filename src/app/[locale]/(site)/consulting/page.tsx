@@ -28,7 +28,6 @@ export default async function ConsultingPage({
   const { locale } = await params
   setRequestLocale(locale)
   const tMeta = await getTranslations({ locale, namespace: 'consulting.meta' })
-  const tNav = await getTranslations({ locale, namespace: 'nav' })
 
   return (
     <>
@@ -37,7 +36,6 @@ export default async function ConsultingPage({
         type="WebPage"
         name={tMeta('title')}
         description={tMeta('description')}
-        breadcrumbLabel={tNav('consulting')}
       />
       <ConsultingLandingClient />
     </>

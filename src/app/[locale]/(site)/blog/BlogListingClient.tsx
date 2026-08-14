@@ -16,9 +16,17 @@ const FILTERS: Filter[] = ['all', 'consulting', 'marketing', 'shared']
 
 interface BlogListingClientProps {
   posts: BlogPost[]
+  /**
+   * Server-rendered <Breadcrumbs>. Passed as a slot because this is a client
+   * component and Breadcrumbs is an async server component.
+   */
+  breadcrumbs?: React.ReactNode
 }
 
-export default function BlogListingClient({ posts }: BlogListingClientProps) {
+export default function BlogListingClient({
+  posts,
+  breadcrumbs,
+}: BlogListingClientProps) {
   const t = useTranslations('blog.listing')
   const [filter, setFilter] = useState<Filter>('all')
   const filteredPosts = filter === 'all' ? posts : posts.filter((p) => p.division === filter)
@@ -27,6 +35,7 @@ export default function BlogListingClient({ posts }: BlogListingClientProps) {
     <>
       {/* Header. `md:pb-8` actually zeroes desktop bottom padding override. */}
       <Section className="pt-16 md:pt-24 pb-8 md:pb-8">
+        {breadcrumbs && <div className="mb-6">{breadcrumbs}</div>}
         <AnimateIn>
           <p className="overline text-[var(--division-accent)] mb-4">
             {t('hero.overline')}

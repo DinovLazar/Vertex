@@ -1,9 +1,10 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { generatePageMetadata } from '@/lib/metadata'
 import { getAllSlugs, getPostBySlug, getRelatedPosts } from '@/lib/blog'
 import { routing, type Locale } from '@/i18n/routing'
+import { Breadcrumbs } from '@/components/global'
 import BlogPostClient from './BlogPostClient'
 
 export async function generateStaticParams() {
@@ -47,5 +48,19 @@ export default async function BlogPostPage({
   const post = await getPostBySlug(slug, locale)
   if (!post) notFound()
   const related = await getRelatedPosts(slug, locale, 2)
-  return <BlogPostClient post={post} related={related} />
+  const tNav = await getTranslations({ locale, namespace: 'nav' })
+  return (
+    <BlogPostClient
+      post={post}
+      related={related}
+      breadcrumbs={
+        <Breadcrumbs
+          items={[
+            { label: tNav('blog'), href: '/blog' },
+            { label: post.title },
+          ]}
+        />
+      }
+    />
+  )
 }

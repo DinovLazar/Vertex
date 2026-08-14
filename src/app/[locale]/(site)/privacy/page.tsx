@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { generatePageMetadata } from '@/lib/metadata'
+import { Breadcrumbs } from '@/components/global'
 import type { Locale } from '@/i18n/routing'
 
 export async function generateMetadata({
@@ -29,7 +30,15 @@ export default async function PrivacyPage({
   const t = await getTranslations({ locale, namespace: 'privacy' })
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-20 prose-blog">
+    <>
+      {/* Breadcrumbs live outside the `prose-blog` wrapper below — that class
+          restyles every descendant link, which would override the trail's own
+          colours and focus treatment. */}
+      <div className="max-w-3xl mx-auto px-6 pt-20 pb-8">
+        <Breadcrumbs items={[{ label: t('meta.title') }]} />
+      </div>
+
+    <div className="max-w-3xl mx-auto px-6 pb-20 prose-blog">
       {/* MK-only notice — the full policy body below is still in English.
           A Macedonian translation, reviewed by counsel, lands before launch. */}
       {locale === 'mk' && (
@@ -492,5 +501,6 @@ export default async function PrivacyPage({
         having a lawyer review before publication.
       </p>
     </div>
+    </>
   )
 }

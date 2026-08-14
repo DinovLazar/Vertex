@@ -35,6 +35,10 @@
       "aiDevelopment": "AI развој"
     }
   },
+  "breadcrumbs": {
+    "ariaLabel": "Патека на навигација",
+    "home": "Почетна"
+  },
   "footer": {
     "newsletter": {
       "headline": "Останете во тек",

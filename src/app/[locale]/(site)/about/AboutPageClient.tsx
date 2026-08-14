@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server'
-import { Section, AnimateIn } from '@/components/global'
+import { Section, AnimateIn, Breadcrumbs } from '@/components/global'
 import { TeamGrid, ValuesGrid, CompanyTimeline, CTABanner } from '@/components/sections'
 import type { TeamGridMember } from '@/components/sections/TeamGrid'
 
@@ -20,6 +20,7 @@ const TEAM_IMAGES: Record<string, string> = {
 
 export default async function AboutPageClient() {
   const t = await getTranslations('about')
+  const tNav = await getTranslations('nav')
 
   const members: TeamGridMember[] = TEAM_KEYS.map((m) => ({
     name: t(`team.members.${m.key}.name`),
@@ -37,6 +38,7 @@ export default async function AboutPageClient() {
     <>
       {/* Hero / Story */}
       <Section className="pt-16 md:pt-24">
+        <Breadcrumbs className="mb-6" items={[{ label: tNav('about') }]} />
         <AnimateIn>
           <p className="overline text-[var(--division-accent)] mb-4">
             {t('hero.overline')}

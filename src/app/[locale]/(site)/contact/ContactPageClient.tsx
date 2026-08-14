@@ -6,7 +6,13 @@ import { ContactForm } from '@/components/sections'
 import { siteConfig } from '@/config/site'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 
-export default function ContactPageClient() {
+export default function ContactPageClient({
+  breadcrumbs,
+}: {
+  /** Server-rendered <Breadcrumbs>. Passed as a slot because this is a
+   *  client component and Breadcrumbs is an async server component. */
+  breadcrumbs?: React.ReactNode
+}) {
   const t = useTranslations('contact')
 
   // Flatten the address object into a single string
@@ -19,6 +25,7 @@ export default function ContactPageClient() {
       {/* Header. `md:pb-0` actually zeroes desktop bottom so the form
           section below flows with normal spacing instead of a ~100px gap. */}
       <Section className="pt-16 md:pt-24 pb-0 md:pb-0">
+        {breadcrumbs && <div className="mb-6">{breadcrumbs}</div>}
         <AnimateIn>
           <p className="overline text-[var(--division-accent)] mb-4">
             {t('hero.overline')}

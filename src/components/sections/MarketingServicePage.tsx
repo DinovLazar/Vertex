@@ -1,9 +1,9 @@
 import { getTranslations, getLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
-import { Section, AnimateIn, JsonLd } from '@/components/global'
+import { Section, AnimateIn, JsonLd, Breadcrumbs } from '@/components/global'
 import { ProcessSteps, FAQAccordion, CTABanner } from '@/components/sections'
 import { renderInlineMarkdown } from '@/lib/renderInlineMarkdown'
-import { buildServiceSchema, buildBreadcrumbSchema, buildFaqSchema } from '@/lib/schema'
+import { buildServiceSchema, buildFaqSchema } from '@/lib/schema'
 import type { Locale } from '@/i18n/routing'
 import type {
   ContentSection,
@@ -82,16 +82,6 @@ export default async function MarketingServicePage({
           description: metaDescription,
         })}
       />
-      <JsonLd
-        data={buildBreadcrumbSchema({
-          locale,
-          homeLabel: tNav('home'),
-          trail: [
-            { name: tNav('marketing'), path: '/marketing' },
-            { name: title, path: `/marketing/${slug}` },
-          ],
-        })}
-      />
       {/* FAQPage node — see the matching note in ConsultingServicePage. */}
       {faqItems.length > 0 && (
         <JsonLd
@@ -105,6 +95,13 @@ export default async function MarketingServicePage({
 
       {/* Hero area */}
       <Section className="pt-12 md:pt-20 pb-12 md:pb-16">
+        <Breadcrumbs
+          className="mb-6"
+          items={[
+            { label: tNav('marketing'), href: '/marketing' },
+            { label: title },
+          ]}
+        />
         <AnimateIn>
           <p className="overline text-[var(--division-text-muted)] mb-4">
             {overline}

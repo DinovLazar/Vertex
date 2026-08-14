@@ -32,9 +32,18 @@ const portableTextComponents: PortableTextComponents = {
 interface BlogPostClientProps {
   post: BlogPost
   related: BlogPost[]
+  /**
+   * Server-rendered <Breadcrumbs>. Passed as a slot because this is a client
+   * component and Breadcrumbs is an async server component.
+   */
+  breadcrumbs?: React.ReactNode
 }
 
-export default function BlogPostClient({ post, related }: BlogPostClientProps) {
+export default function BlogPostClient({
+  post,
+  related,
+  breadcrumbs,
+}: BlogPostClientProps) {
   const tPost = useTranslations('blog.post')
   const tBlogChrome = useTranslations('sections.blog')
   const locale = useLocale() as Locale
@@ -97,6 +106,7 @@ export default function BlogPostClient({ post, related }: BlogPostClientProps) {
           much over the navbar). `md:pb-0` actually zeroes desktop bottom
           padding, letting the header flow immediately underneath. */}
       <Section className="pt-10 md:pt-16 pb-0 md:pb-0">
+        {breadcrumbs && <div className="mb-6">{breadcrumbs}</div>}
         <AnimateIn>
           <Link
             href="/blog"

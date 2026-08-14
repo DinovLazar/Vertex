@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 import { Globe, Share2, Server, Cpu } from 'lucide-react'
 import { BackgroundPlasma } from '@/components/backgrounds'
-import { Section, AnimateIn } from '@/components/global'
+import { Section, AnimateIn, Breadcrumbs } from '@/components/global'
 import {
   HeroSection,
   MarketingServicesGrid,
@@ -30,6 +30,7 @@ const TEAM_IMAGES: Record<string, string> = {
 export default async function MarketingLandingClient() {
   const t = await getTranslations('marketing.landing')
   const tNav = await getTranslations('nav.dropdown')
+  const tBreadcrumb = await getTranslations('nav')
 
   const services = SERVICES.map((s) => ({
     title: tNav(s.key),
@@ -69,6 +70,13 @@ export default async function MarketingLandingClient() {
 
       {/* Services grid */}
       <Section id="services">
+        {/* Breadcrumbs sit below the hero rather than above it. Every other
+            page puts them directly under the navbar, but this hero is a
+            full-bleed animated shader — a trail floated over it would be
+            unreadable and would break the immersive opening the design calls
+            for. This is still the first content row on the page and aligns
+            with the same content column. */}
+        <Breadcrumbs className="mb-8" items={[{ label: tBreadcrumb('marketing') }]} />
         <AnimateIn>
           <p className="overline text-[var(--division-text-muted)] mb-3">
             {t('services.overline')}

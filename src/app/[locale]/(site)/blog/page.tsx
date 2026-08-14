@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { generatePageMetadata } from '@/lib/metadata'
 import { getAllPosts } from '@/lib/blog'
-import { PageSchema } from '@/components/global'
+import { PageSchema, Breadcrumbs } from '@/components/global'
 import type { Locale } from '@/i18n/routing'
 import BlogListingClient from './BlogListingClient'
 
@@ -39,9 +39,11 @@ export default async function BlogPage({
         type="CollectionPage"
         name={tMeta('title')}
         description={tMeta('description')}
-        breadcrumbLabel={tNav('blog')}
       />
-      <BlogListingClient posts={posts} />
+      <BlogListingClient
+        posts={posts}
+        breadcrumbs={<Breadcrumbs items={[{ label: tNav('blog') }]} />}
+      />
     </>
   )
 }
