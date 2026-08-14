@@ -41,29 +41,34 @@ const AI_CRAWLERS = [
   'YouBot',
 ]
 
+// Disallow is a prefix match, so `/studio` already covers `/studio/anything`
+// — the trailing-slash duplicates that used to sit here were redundant.
 const DISALLOW = [
   '/api/',
   '/studio',
-  '/studio/',
   '/admin',
-  '/admin/',
   '/en/privacy',
   '/mk/privacy',
   '/en/thank-you',
   '/mk/thank-you',
 ]
 
+// Both crawler-facing text files. Listed explicitly in every Allow group:
+// they sit under a `Disallow`-free path already, but naming them makes the
+// intent unambiguous to crawlers that resolve the most specific rule first.
+const LLM_FILES = ['/llms.txt', '/llms-full.txt']
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
+        allow: ['/', ...LLM_FILES],
         disallow: DISALLOW,
       },
       ...AI_CRAWLERS.map((userAgent) => ({
         userAgent,
-        allow: ['/', '/llms.txt', '/llms-full.txt'],
+        allow: ['/', ...LLM_FILES],
         disallow: DISALLOW,
       })),
     ],

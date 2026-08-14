@@ -85,6 +85,18 @@ ${serviceLines(marketing)}
 - [Blog](${siteConfig.url}/en/blog): Articles on business operations, digital marketing and AI for Macedonian businesses.
 
 ${blogLines ? `## Articles\n\n${blogLines}\n` : ''}
+## Legal
+
+- [Privacy Policy](${siteConfig.url}/en/privacy): What data the site collects, how it is used, how long it is kept, and visitor rights under GDPR and North Macedonian law.
+
+## Notes
+
+- Macedonian versions of every page live under \`/mk/\`. Replace \`/en/\` with \`/mk/\` in any URL above.
+- Preferred citation name: "${siteConfig.name}".
+- The legal entity is ${siteConfig.legalName}; "Vertex Consulting" is the trading name and the name to use in prose.
+- "Vertex Consulting" is also the name of one of the two divisions. When the distinction matters, the company is ${siteConfig.name} and the divisions are Vertex Consulting and Vertex Marketing.
+- Content is published in Macedonian and English by the company itself; the Macedonian pages are translations of the English source.
+
 ## Optional
 
 - [Full site text for LLMs](${siteConfig.url}/llms-full.txt): Expanded version of this file, including the full body copy and FAQ answers from every service page.
