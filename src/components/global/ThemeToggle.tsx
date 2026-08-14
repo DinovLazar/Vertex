@@ -2,8 +2,8 @@
 
 import { AnimatePresence, motion } from 'motion/react'
 import { Moon, Sun } from 'lucide-react'
-import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
+import { useIsHydrated } from '@/lib/useMediaQuery'
 
 import { useTheme } from './ThemeProvider'
 import { Button } from '@/components/ui/button'
@@ -32,12 +32,11 @@ export default function ThemeToggle({
   iconSize = 16,
 }: ThemeToggleProps) {
   const { theme, toggleTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  // useSyncExternalStore, not useState+useEffect: getServerSnapshot supplies
+  // the value for the hydration render too, so the placeholder-to-icon swap
+  // still happens exactly once after mount, without the cascading render.
+  const mounted = useIsHydrated()
   const t = useTranslations('nav.themeToggle')
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   // Keep the outer <Button> className STABLE across the mount boundary so the
   // Button primitive's `transition-all` doesn't trigger a stuck opacity

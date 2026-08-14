@@ -53,13 +53,27 @@ export async function POST(req: NextRequest) {
     return new Response('Invalid pageUrl', { status: 400 })
   }
 
+  // The widget seeds the visible conversation with an assistant greeting, so
+  // the history it posts starts with `role: 'assistant'`. The Anthropic
+  // Messages API requires the FIRST message to be a user turn and 400s
+  // otherwise — which, because the throw happened inside the stream after
+  // headers were flushed, surfaced to the visitor as a generic chat error on
+  // every single send. Drop any leading assistant turns before we call out.
+  const normalized = [...messages]
+  while (normalized.length > 0 && normalized[0].role === 'assistant') {
+    normalized.shift()
+  }
+  if (normalized.length === 0) {
+    return new Response('No user message', { status: 400 })
+  }
+
   const systemPrompt = buildSystemPrompt({ pageUrl, locale })
 
   const encoder = new TextEncoder()
   const stream = new ReadableStream({
     async start(controller) {
       try {
-        for await (const chunk of streamAIResponse(messages, systemPrompt)) {
+        for await (const chunk of streamAIResponse(normalized, systemPrompt)) {
           controller.enqueue(encoder.encode(chunk))
         }
         controller.close()

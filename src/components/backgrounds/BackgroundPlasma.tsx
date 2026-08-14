@@ -1,8 +1,8 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { useEffect, useState } from 'react'
 import { useTheme } from '@/components/global'
+import { useShouldAnimate } from '@/lib/useMediaQuery'
 
 const Plasma = dynamic(() => import('./Plasma'), { ssr: false })
 
@@ -38,16 +38,12 @@ export default function BackgroundPlasma({
   mouseInteractive = true,
   className = '',
 }: BackgroundPlasmaProps) {
-  const [shouldAnimate, setShouldAnimate] = useState(false)
+  // Reduced-motion gate. useSyncExternalStore keeps the SSR and hydration
+  // renders identical (false => inert div, no shader module downloaded)
+  // without the cascading re-render a useState+useEffect pair causes.
+  const shouldAnimate = useShouldAnimate()
   const { theme } = useTheme()
 
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
-    setShouldAnimate(!mq.matches)
-    const handler = (e: MediaQueryListEvent) => setShouldAnimate(!e.matches)
-    mq.addEventListener('change', handler)
-    return () => mq.removeEventListener('change', handler)
-  }, [])
 
   const resolvedColor = color ?? (theme === 'light' ? PLASMA_COLOR_LIGHT : PLASMA_COLOR_DARK)
 

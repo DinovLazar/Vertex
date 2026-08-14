@@ -17,6 +17,10 @@ interface FormData {
 
 type FieldErrors = Partial<Record<'name' | 'email' | 'message', string>>
 
+/** Marks an error we authored and already translated, so the catch block can
+ *  tell it apart from a raw network rejection. */
+class SubmissionError extends Error {}
+
 // Formspree AJAX endpoint (e.g. https://formspree.io/f/xxxxxxx). Set in Vercel /
 // .env.local. NEXT_PUBLIC_ is required so the client bundle can read it. The
 // endpoint isn't a secret — it lives in the submitted HTML by design.
@@ -145,10 +149,20 @@ export default function ContactForm() {
       } catch {
         // Non-JSON error body — fall back to the generic message.
       }
-      throw new Error(message)
+      throw new SubmissionError(message)
     } catch (err) {
       setStatus('error')
-      setError(err instanceof Error ? err.message : t('genericError'))
+      // Only surface a message we authored. A rejected fetch (offline, DNS
+      // failure, CORS, Formspree unreachable) throws a TypeError whose
+      // `.message` is raw, untranslated and browser-specific — "Failed to
+      // fetch" / "Load failed" — which used to be rendered verbatim, hiding
+      // `genericError`, the one string that carries the fallback address.
+      if (err instanceof SubmissionError) {
+        setError(err.message)
+      } else {
+        console.error('[contact] submission failed:', err)
+        setError(t('genericError'))
+      }
     }
   }
 

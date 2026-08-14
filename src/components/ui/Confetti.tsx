@@ -28,16 +28,29 @@ export default function Confetti({ count = 18 }: { count?: number }) {
 
   const pieces = useMemo(() => {
     const HALF_CONE = (74 / 2) * (Math.PI / 180) // centered straight up
+    // Seeded PRNG (mulberry32) rather than Math.random(). The scatter is
+    // identical in character, but the memo becomes pure: React is free to
+    // discard a useMemo cache, and StrictMode already runs this twice — with
+    // Math.random() a dropped cache re-rolled every trajectory mid-flight and
+    // the burst visibly restarted. A fixed seed also keeps SSR and hydration
+    // in agreement.
+    // Pure hash of (piece index, channel) — no mutable cursor, so nothing is
+    // reassigned across renders and the value for any given piece is stable.
+    const noise = (i: number, channel: number) => {
+      let t = Math.imul((i + 1) ^ Math.imul(channel + 1, 0x9e3779b9), 0x85ebca6b)
+      t = Math.imul(t ^ (t >>> 13), 0xc2b2ae35)
+      return ((t ^ (t >>> 16)) >>> 0) / 4294967296
+    }
     return Array.from({ length: count }, (_, i) => {
-      const angle = (Math.random() * 2 - 1) * HALF_CONE
-      const v = 40 + Math.random() * 70 // 40–110px launch
+      const angle = (noise(i, 0) * 2 - 1) * HALF_CONE
+      const v = 40 + noise(i, 1) * 70 // 40–110px launch
       const ex = Math.sin(angle) * v
       const ey = -Math.cos(angle) * v // negative = up
-      const gravity = 60 + Math.random() * 40 // +60–100px
-      const rot = (Math.random() * 2 - 1) * 420 // ±420°
-      const size = 3 + Math.random() * 4 // 3–7px
+      const gravity = 60 + noise(i, 2) * 40 // +60–100px
+      const rot = (noise(i, 3) * 2 - 1) * 420 // ±420°
+      const size = 3 + noise(i, 4) * 4 // 3–7px
       const square = i % 2 === 0 // ~50% square / round
-      const dur = 0.9 * (0.7 + Math.random() * 0.5) // 900ms × 0.7–1.2
+      const dur = 0.9 * (0.7 + noise(i, 5) * 0.5) // 900ms × 0.7–1.2
       return { id: i, ex, ey, gravity, rot, size, square, dur, color: colors[i % 3] }
     })
   }, [count, colors])

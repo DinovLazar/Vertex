@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import { AnimatePresence, motion, type Variants } from 'motion/react'
 import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 import { BotIcon, CloseIcon, SendIcon } from './BotIcon'
 import { ChatMessage } from './ChatMessage'
@@ -293,12 +294,14 @@ export function ChatPanel({
         </div>
         <div className="mt-2 text-[11px] text-[var(--color-muted)] text-center">
           {t('footer.poweredBy')}
-          <a
+          {/* Locale-aware — a raw <a href="/contact"> dropped the /en|/mk
+              prefix, forcing a full reload plus a proxy redirect. */}
+          <Link
             href="/contact"
             className="underline hover:text-[var(--color-bright)] transition-colors"
           >
             {t('footer.contactLink')}
-          </a>
+          </Link>
           {t('footer.period')}
         </div>
       </div>

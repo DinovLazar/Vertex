@@ -37,9 +37,12 @@ export default function BackToTop() {
           whileHover={{ y: -3 }}
           whileTap={{ scale: 0.9 }}
           // z-40 sits above body content (z-auto) but below the navbar (z-50).
-          // Bottom offset: generous on mobile (content crowded near bottom),
-          // tighter on desktop (more viewport room).
-          className="fixed bottom-24 md:bottom-6 right-6 z-40"
+          // Bottom offset stays at 96px on EVERY breakpoint so this button
+          // clears the chat trigger, which is `fixed z-50 bottom-6 right-6` at
+          // 56x56. The old `md:bottom-6` put both at the same anchor, and
+          // because the trigger wins on z-index it swallowed every click —
+          // back-to-top was invisible and unusable on all desktop viewports.
+          className="fixed bottom-24 right-6 z-40"
         >
           <Button
             size="icon"

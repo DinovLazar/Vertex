@@ -53,11 +53,19 @@ export default function Navbar() {
     }
   })
 
-  // Close mobile menu + any open desktop dropdown on route change
-  useEffect(() => {
+  // Close mobile menu + any open desktop dropdown on route change.
+  //
+  // React's "adjusting state when a prop changes" pattern rather than an
+  // effect. An effect runs *after* paint, so on a route change the open
+  // overlay painted once over the new page before closing — a real, visible
+  // flash. Comparing during render lets React restart the render before
+  // committing anything to the DOM.
+  const [prevPathname, setPrevPathname] = useState(pathname)
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname)
     setMobileOpen(false)
     setActiveDropdown(null)
-  }, [pathname])
+  }
 
   // Lock body scroll + apply inert to <main>/<footer> while mobile menu is
   // open. The <header> stays interactive so the user can close via the X

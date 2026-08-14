@@ -3,7 +3,7 @@
 import { useFormatter, useLocale, useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { PortableText, type PortableTextComponents } from '@portabletext/react'
-import { Section, AnimateIn } from '@/components/global'
+import { Section, AnimateIn, JsonLd } from '@/components/global'
 import { BlogCard, CTABanner } from '@/components/sections'
 import type { BlogPost } from '@/lib/blog'
 import { ArrowLeft, Clock } from 'lucide-react'
@@ -86,11 +86,12 @@ export default function BlogPostClient({ post, related }: BlogPostClientProps) {
 
   return (
     <>
-      {/* Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
-      />
+      {/* Schema. Must go through <JsonLd>, which escapes `<` — this blob
+          embeds CMS-authored title/excerpt/tags, and the content generator
+          writes LLM-produced strings straight to Sanity over the HTTP API
+          without Studio validation. A `</script>` in any of them would
+          otherwise terminate the element early and inject raw markup. */}
+      <JsonLd data={blogSchema} />
 
       {/* Back link. Tighter top (was pt-16/md:pt-24 — ~96px desktop was too
           much over the navbar). `md:pb-0` actually zeroes desktop bottom

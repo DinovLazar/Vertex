@@ -1,7 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { useEffect, useState } from 'react'
+import { useShouldAnimate } from '@/lib/useMediaQuery'
 
 const GridMotion = dynamic(() => import('./GridMotion'), { ssr: false })
 
@@ -32,15 +32,11 @@ export default function BackgroundGrid({
   className = '',
   variant = 'panels',
 }: BackgroundGridProps) {
-  const [shouldAnimate, setShouldAnimate] = useState(false)
+  // Reduced-motion gate. useSyncExternalStore keeps the SSR and hydration
+  // renders identical (false => inert div, no shader module downloaded)
+  // without the cascading re-render a useState+useEffect pair causes.
+  const shouldAnimate = useShouldAnimate()
 
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
-    setShouldAnimate(!mq.matches)
-    const handler = (e: MediaQueryListEvent) => setShouldAnimate(!e.matches)
-    mq.addEventListener('change', handler)
-    return () => mq.removeEventListener('change', handler)
-  }, [])
 
   return (
     <div

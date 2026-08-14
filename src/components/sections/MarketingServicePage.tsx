@@ -110,7 +110,11 @@ export default async function MarketingServicePage({
 
       {/* Main content */}
       <Section className="pt-0 md:pt-0">
-        <AnimateIn>
+        {/* amount={0} is required — see the matching note in
+            ConsultingServicePage. A fractional IntersectionObserver threshold
+            is unreachable on an element this tall, which left the whole
+            article body permanently invisible on short viewports. */}
+        <AnimateIn amount={0}>
           <div className="prose-marketing max-w-3xl">
             {content.map((section, sectionIdx) => (
               <div key={sectionIdx}>

@@ -1,15 +1,23 @@
-import { getTranslations, getLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Navbar, Footer, JsonLd } from '@/components/global'
 import { buildSiteGraph } from '@/lib/schema'
 import type { Locale } from '@/i18n/routing'
 
 export default async function SiteLayout({
   children,
+  params,
 }: {
   children: React.ReactNode
+  params: Promise<{ locale: string }>
 }) {
+  // Without setRequestLocale, next-intl resolves the locale from the
+  // x-next-intl-locale request header — a dynamic API — which opted the whole
+  // (site) subtree out of static rendering and forced a full SSR render on
+  // every page view, despite generateStaticParams() existing one level up.
+  const locale = (await params).locale as Locale
+  setRequestLocale(locale)
+
   const tCommon = await getTranslations('common')
-  const locale = (await getLocale()) as Locale
 
   return (
     <div className="flex flex-col min-h-screen">

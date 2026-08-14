@@ -107,7 +107,13 @@ export default async function ConsultingServicePage({
 
       {/* Main content */}
       <Section className="pt-0 md:pt-0">
-        <AnimateIn>
+        {/* amount={0} is required, not cosmetic. AnimateIn forwards `amount`
+            straight to motion's viewport option, which becomes the raw
+            IntersectionObserver threshold. This wrapper holds the entire
+            article body, so on any viewport shorter than a fifth of it the
+            ratio can never reach the 0.2 default — the `visible` variant never
+            fires and the whole page body stays at opacity 0. */}
+        <AnimateIn amount={0}>
           <div className="prose-consulting max-w-3xl">
             {content.map((section, sectionIdx) => (
               <div key={sectionIdx}>

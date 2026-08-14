@@ -54,13 +54,13 @@ export default async function PrivacyPage({
           <strong className="text-[var(--division-text-secondary)] font-medium">
             Effective date:
           </strong>{' '}
-          [to be set when published]
+          14 August 2026
         </p>
         <p>
           <strong className="text-[var(--division-text-secondary)] font-medium">
             Last updated:
           </strong>{' '}
-          April 2026
+          14 August 2026
         </p>
       </div>
 
@@ -80,7 +80,7 @@ export default async function PrivacyPage({
       </p>
       <ul>
         <li>
-          <strong>Address:</strong> Str. Mladinska 43, Strumica, Macedonia
+          <strong>Address:</strong> Str. Mladinska 43, Strumica, 2400, North Macedonia
         </li>
         <li>
           <strong>Email:</strong> info@vertexconsulting.mk
@@ -241,7 +241,8 @@ export default async function PrivacyPage({
                 className="border px-4 py-3 align-top text-[var(--division-text-secondary)]"
                 style={{ borderColor: 'var(--division-border)' }}
               >
-                Hosts the website
+                Hosts the website and provides cookieless Web Analytics (page-view counts, no
+                personal identifiers)
               </td>
               <td
                 className="border px-4 py-3 align-top text-[var(--division-text-secondary)]"
@@ -404,23 +405,38 @@ export default async function PrivacyPage({
 
       <hr className="my-10 border-[var(--division-border)]" />
 
-      <h2>9. Cookies</h2>
-      <p>Cookies are small text files that websites store on your device. Our site uses:</p>
+      <h2>9. Cookies and similar technologies</h2>
+      <p>
+        Cookies are small text files that websites store on your device. This site is
+        deliberately light on them:
+      </p>
       <ul>
         <li>
-          <strong>Essential cookies</strong> — required for the website to function (for
-          example, remembering your language preference between English and Macedonian). These
-          do not need your consent.
+          <strong>Essential storage</strong> — we store your language choice (English or
+          Macedonian) and your light/dark theme preference. These are kept in your browser&rsquo;s
+          local storage rather than in cookies, they never leave your device, and they exist only
+          so the site remembers how you like to read it. These do not require consent.
         </li>
         <li>
-          <strong>Analytics cookies</strong> — if enabled, these help us understand how visitors
-          use the site in aggregate. We do not identify individual visitors. These only run if
-          you have consented.
+          <strong>Analytics</strong> — we use Vercel Web Analytics to count page views and see
+          which pages are read. It is a privacy-preserving, <strong>cookieless</strong> system:
+          it sets no cookie, stores no identifier on your device, does not follow you across
+          other websites, and does not build a profile of you. It runs on every visit and is not
+          tied to a consent choice, because it collects no personal data to consent to.
+        </li>
+        <li>
+          <strong>No advertising or tracking cookies.</strong> We run no ad networks, no
+          remarketing pixels, and no cross-site trackers of any kind.
         </li>
       </ul>
       <p>
-        You can clear cookies at any time through your browser settings. Disabling essential
-        cookies may break parts of the site.
+        Third parties whose content appears on the site may set their own cookies when you
+        interact with them — in particular the embedded Google Map on our Contact page. That is
+        governed by Google&rsquo;s privacy policy, not ours.
+      </p>
+      <p>
+        You can clear local storage and cookies at any time through your browser settings.
+        Clearing the essential storage simply resets the site to its defaults.
       </p>
 
       <hr className="my-10 border-[var(--division-border)]" />
@@ -465,7 +481,7 @@ export default async function PrivacyPage({
         <br />
         <strong>Phone:</strong> +389 70 214 033
         <br />
-        <strong>Mail:</strong> Vertex Consulting, Str. Mladinska 43, Strumica, Macedonia
+        <strong>Mail:</strong> Vertex Consulting, Str. Mladinska 43, Strumica, 2400, North Macedonia
       </p>
 
       <hr className="my-10 border-[var(--division-border)]" />
