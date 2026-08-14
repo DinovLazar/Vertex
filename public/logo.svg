@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512" role="img" aria-label="Vertex Consulting">
+  <title>Vertex Consulting</title>
+  <!-- Square brand mark on the site's base surface (#141414).
+       Source of truth for public/logo.png, the web manifest icons and the
+       Organization.logo node in src/lib/schema.ts. Kept as a flat square (no
+       rounded corners) because schema.org logo consumers and PWA installers
+       apply their own masking. The rounded-tile variant lives in
+       src/app/icon.svg. -->
+  <rect width="100" height="100" fill="#141414"/>
+  <path d="M20 24 L38 24 L50 54 L62 24 L80 24 L50 76 Z"
+        fill="#F5F5F5" stroke="#F5F5F5" stroke-width="6"
+        stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

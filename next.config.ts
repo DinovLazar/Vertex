@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['motion', 'lucide-react', 'gsap'],
   },
   images: {
+    // AVIF first, WebP as the fallback for browsers without it. Next picks
+    // per-request from the Accept header and falls back to the original
+    // format when neither is supported. The team PNGs and project
+    // screenshots are the heaviest assets on the site, so this is where the
+    // byte savings actually land.
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       { protocol: 'https', hostname: 'cdn.sanity.io' },
     ],

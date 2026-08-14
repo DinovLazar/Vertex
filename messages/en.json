@@ -879,7 +879,7 @@
     "webDesign": {
       "meta": {
         "title": "Web Design & Development in Macedonia",
-        "description": "Custom web design and development in Macedonia — fast, modern sites built from scratch on Next.js. Real builds, not template installs."
+        "description": "Custom web design and development in Macedonia — fast, modern sites built from scratch on Next.js. Real builds, not template installs, with SEO built in."
       },
       "hero": {
         "title": "Web Design & Development",
@@ -1119,7 +1119,7 @@
     "itInfrastructure": {
       "meta": {
         "title": "IT Infrastructure, Hosting & Email",
-        "description": "IT infrastructure for Macedonian businesses — hosting, business email, DNS, domains, backups and server security, set up and maintained."
+        "description": "IT infrastructure for Macedonian businesses — hosting, business email, DNS, domains, backups and server security, set up, monitored and kept running."
       },
       "hero": {
         "title": "IT Infrastructure",
@@ -1364,7 +1364,7 @@
   "about": {
     "meta": {
       "title": "About Us — Founded 2018 in Strumica",
-      "description": "Vertex Consulting is a Macedonian business consultancy founded in 2018 by Goran Dinov. Two divisions — Consulting and Marketing — for SMEs."
+      "description": "Vertex Consulting is a Macedonian business consultancy founded in 2018 by Goran Dinov. Two divisions — Consulting and Marketing — working with SMEs."
     },
     "hero": {
       "overline": "About Vertex Consulting",
@@ -1477,14 +1477,14 @@
   "privacy": {
     "meta": {
       "title": "Privacy Policy",
-      "description": "Privacy policy for Vertex Consulting. What data we collect, how we use it, and your rights under GDPR and North Macedonian law."
+      "description": "Privacy policy for Vertex Consulting. What data we collect, how we use it, how long we keep it, and your rights under GDPR and North Macedonian law."
     },
     "pendingTranslationNotice": "This privacy policy is currently available in English only. A Macedonian translation, reviewed by counsel, will be published before launch."
   },
   "thankYou": {
     "meta": {
       "title": "Thank You",
-      "description": "Thank you for contacting Vertex Consulting."
+      "description": "Thank you for contacting Vertex Consulting. We have your message and will reply within one business day, Monday to Friday, 09:00 to 17:00 (CET)."
     },
     "headline": "Thank you!",
     "subtitle": "We have received your message. Our team will be in touch within one business day.",
@@ -1498,7 +1498,7 @@
   "blog": {
     "meta": {
       "title": "Blog — Business, Marketing & AI Insights",
-      "description": "Insights on business consulting, digital marketing, and AI adoption for Macedonian businesses. Written by the Vertex Consulting team."
+      "description": "Insights on business consulting, digital marketing and AI adoption for Macedonian businesses. Written by the Vertex Consulting team in Strumica."
     },
     "listing": {
       "hero": {
@@ -1565,7 +1565,7 @@
   "lazar": {
     "meta": {
       "title": "Lazar Dinov — Portfolio",
-      "description": "Lazar Dinov, Head of Marketing at Vertex — websites, branding, social media, and SEO for businesses in Macedonia and beyond."
+      "description": "Lazar Dinov, Head of Marketing at Vertex — websites, branding, social media and SEO for businesses in Macedonia and beyond. Selected work and contact."
     },
     "hero": {
       "overline": "Portfolio",

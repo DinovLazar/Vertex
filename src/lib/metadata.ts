@@ -11,6 +11,32 @@ interface PageMetadataOptions {
 }
 
 /**
+ * Canonical + hreflang alternates for one page.
+ *
+ * `path` is locale-neutral (e.g. '/consulting/business-consulting', or ''
+ * for the homepage). The canonical is always self-referencing and absolute,
+ * including the locale prefix, and every locale is listed so search engines
+ * can emit matching hreflang tags. `x-default` points at English, which is
+ * the routing default locale.
+ *
+ * Exported so anything building metadata outside `generatePageMetadata`
+ * (a route handler, a one-off page) produces byte-identical alternates
+ * instead of hand-rolling the object.
+ */
+export function buildAlternates(locale: 'en' | 'mk', path: string) {
+  const languages: Record<string, string> = {}
+  routing.locales.forEach((l) => {
+    languages[l] = `${siteConfig.url}/${l}${path}`
+  })
+  languages['x-default'] = `${siteConfig.url}/${routing.defaultLocale}${path}`
+
+  return {
+    canonical: `${siteConfig.url}/${locale}${path}`,
+    languages,
+  }
+}
+
+/**
  * Generate consistent metadata for any page.
  *
  * `path` is locale-neutral (e.g. '/consulting/business-consulting').
@@ -25,12 +51,8 @@ export function generatePageMetadata({
   locale = 'en',
   noIndex = false,
 }: PageMetadataOptions): Metadata {
-  const canonicalUrl = `${siteConfig.url}/${locale}${path}`
-  const languages: Record<string, string> = {}
-  routing.locales.forEach((l) => {
-    languages[l] = `${siteConfig.url}/${l}${path}`
-  })
-  languages['x-default'] = `${siteConfig.url}/en${path}`
+  const alternates = buildAlternates(locale, path)
+  const canonicalUrl = alternates.canonical
 
   // The file-convention image at `src/app/opengraph-image.tsx` is auto-injected
   // for routes whose `openGraph` block isn't overridden. Since this helper sets
@@ -48,10 +70,7 @@ export function generatePageMetadata({
   return {
     title,
     description,
-    alternates: {
-      canonical: canonicalUrl,
-      languages,
-    },
+    alternates,
     openGraph: {
       title: `${title} | ${siteConfig.name}`,
       description,

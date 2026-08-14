@@ -51,7 +51,12 @@ export function buildSiteGraph(locale: Locale) {
   const bizId = `${siteConfig.url}/#localbusiness`
   const siteId = `${siteConfig.url}/#website`
   const goranId = `${siteConfig.url}/#goran`
-  const logo = `${siteConfig.url}/opengraph-image`
+  // Organization.logo wants the brand mark, not the social share card. This
+  // used to point at /opengraph-image — a 1200x630 landscape banner, which
+  // Google rejects for the logo slot (it expects a roughly square image).
+  // `image` keeps using the OG card, which is the correct asset for that slot.
+  const logo = `${siteConfig.url}/logo.png`
+  const shareImage = `${siteConfig.url}/opengraph-image`
 
   const postalAddress = {
     '@type': 'PostalAddress',
@@ -86,8 +91,8 @@ export function buildSiteGraph(locale: Locale) {
     legalName: siteConfig.legalName,
     alternateName: ['Vertex', 'Vertex Marketing', 'Вертекс Консалтинг'],
     url: siteConfig.url,
-    logo: { '@type': 'ImageObject', url: logo, width: 1200, height: 630 },
-    image: logo,
+    logo: { '@type': 'ImageObject', url: logo, width: 512, height: 512 },
+    image: shareImage,
     description: siteConfig.divisions.consulting.description,
     slogan: siteConfig.tagline,
     foundingDate: String(siteConfig.founded),
@@ -137,7 +142,7 @@ export function buildSiteGraph(locale: Locale) {
     name: siteConfig.name,
     parentOrganization: { '@id': orgId },
     url: siteConfig.url,
-    image: logo,
+    image: shareImage,
     description:
       'Business consulting and digital marketing agency in Strumica, North Macedonia. Two divisions: Vertex Consulting (business advisory, workflow restructuring, IT systems, AI consulting) and Vertex Marketing (web design, social media, IT infrastructure, AI-assisted development).',
     address: postalAddress,
