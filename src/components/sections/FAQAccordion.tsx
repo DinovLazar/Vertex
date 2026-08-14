@@ -1,7 +1,6 @@
 'use client'
 
 import { useId, useState } from 'react'
-import { useLocale } from 'next-intl'
 import { motion } from 'motion/react'
 import { ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -19,37 +18,17 @@ interface FAQAccordionProps {
 /**
  * Expandable FAQ list. Only one item is open at a time.
  *
- * Also emits inline <script type="application/ld+json"> with FAQPage schema
- * for AEO / rich-result eligibility — no separate component needed. `inLanguage`
- * tags the FAQ block for bilingual SEO so Google can distinguish the EN and
- * MK variants when indexing.
+ * Presentation only. The FAQPage JSON-LD that used to be emitted from here now
+ * comes from `buildFaqSchema` in `src/lib/schema.ts`, rendered by the server
+ * templates through <JsonLd>. That gives the node a real `@id`, escapes `<`
+ * properly, and keeps the structured data out of the client bundle.
  */
 export default function FAQAccordion({ items }: FAQAccordionProps) {
-  const locale = useLocale()
   const [openIndex, setOpenIndex] = useState<number | null>(0)
   const uniqueId = useId()
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    inLanguage: locale === 'mk' ? 'mk-MK' : 'en-US',
-    mainEntity: items.map((item) => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer,
-      },
-    })),
-  }
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       <div className="space-y-3">
         {items.map((item, index) => {
           const isOpen = openIndex === index

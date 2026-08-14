@@ -11,14 +11,39 @@ export const siteConfig = {
   address: {
     street: "Str. Mladinska 43",
     city: "Strumica",
-    country: "Macedonia",
+    postalCode: "2400",
+    // The country's formal name. It was "Macedonia" until 2026-08-14; the
+    // state has been North Macedonia since 2019 and the schema.org
+    // PostalAddress, the privacy policy and the visible footer must agree.
+    country: "North Macedonia",
+    /** ISO 3166-1 alpha-2, for schema.org `addressCountry`. */
+    countryCode: "MK",
   },
   contact: {
+    /** Display form — spaced for legibility. Never use this in an href. */
     phone: "+389 70 214 033",
+    /**
+     * Dial-safe form. A `tel:` URI must not contain spaces, so every
+     * tap-to-call link reads this rather than re-deriving it: the Contact page
+     * previously emitted `tel:+389 70 214 033` verbatim, which is invalid.
+     */
+    phoneHref: "tel:+38970214033",
     emailInfo: "info@vertexconsulting.mk",
     emailMarketing: "marketing@vertexconsulting.mk",
   },
+  /**
+   * Prose form, consumed by llms.txt, llms-full.txt and the chat system
+   * prompt. Kept in sync with `openingHours` below by hand — that structured
+   * form is the one the schema and the visible UI both read, so the two can
+   * never silently disagree about the actual times.
+   */
   hours: "Monday to Friday, 09:00 to 17:00",
+  openingHours: {
+    days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "17:00",
+    timeZone: "Europe/Skopje",
+  },
   social: {
     linkedin: "https://linkedin.com",
     instagram: "https://www.instagram.com/vertxsystems.mk",

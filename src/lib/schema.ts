@@ -18,10 +18,6 @@ import { routing, type Locale } from '@/i18n/routing'
  * consistent and a change to siteConfig propagates everywhere at once.
  */
 
-// Strumica town centre. Precise enough for local-pack relevance without
-// publishing a doorstep pin.
-const GEO = { latitude: 41.4375, longitude: 22.6431 } as const
-
 /** Filter out placeholder social links so we never publish a dead `sameAs`. */
 function sameAs(): string[] {
   return Object.values(siteConfig.social).filter(
@@ -61,8 +57,9 @@ export function buildSiteGraph(locale: Locale) {
     '@type': 'PostalAddress',
     streetAddress: siteConfig.address.street,
     addressLocality: siteConfig.address.city,
-    addressRegion: 'Strumica',
-    addressCountry: 'MK',
+    postalCode: siteConfig.address.postalCode,
+    addressRegion: siteConfig.address.city,
+    addressCountry: siteConfig.address.countryCode,
   }
 
   const goran = {
@@ -144,7 +141,12 @@ export function buildSiteGraph(locale: Locale) {
     description:
       'Business consulting and digital marketing agency in Strumica, North Macedonia. Two divisions: Vertex Consulting (business advisory, workflow restructuring, IT systems, AI consulting) and Vertex Marketing (web design, social media, IT infrastructure, AI-assisted development).',
     address: postalAddress,
-    geo: { '@type': 'GeoCoordinates', ...GEO },
+    // No `geo` node. The coordinates previously published here were an
+    // approximation of the town centre, not a surveyed position for this
+    // office — publishing invented coordinates as structured data is a claim
+    // we cannot stand behind. The PostalAddress is authoritative; Google
+    // geocodes it, and a verified Business Profile is the correct source of a
+    // map pin.
     telephone: siteConfig.contact.phone,
     email: siteConfig.contact.emailInfo,
     priceRange: '$$',
@@ -154,12 +156,15 @@ export function buildSiteGraph(locale: Locale) {
       { '@type': 'Country', name: 'North Macedonia' },
       { '@type': 'City', name: 'Strumica' },
     ],
+    // Read from siteConfig rather than hardcoded, so the hours shown in the
+    // footer and on the contact page cannot drift away from the hours we
+    // publish to search engines.
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '09:00',
-        closes: '17:00',
+        dayOfWeek: [...siteConfig.openingHours.days],
+        opens: siteConfig.openingHours.opens,
+        closes: siteConfig.openingHours.closes,
       },
     ],
     hasOfferCatalog: {
@@ -327,6 +332,44 @@ export function buildServiceSchema(args: {
       '@type': 'BusinessAudience',
       name: 'Small and medium-sized businesses',
     },
+  }
+}
+
+/**
+ * FAQPage node for a page that carries an FAQ block.
+ *
+ * Previously hand-rolled inside the FAQAccordion client component, which left
+ * it with no `@id` and no `url` — an unaddressable island that could not be
+ * referenced from the rest of the graph — and serialised it with a raw
+ * JSON.stringify that did not escape `<`. Building it here keeps every `@id`
+ * in one file (see this module's docblock) and lets the server templates emit
+ * it through <JsonLd>, which escapes correctly and keeps the blob out of the
+ * client bundle.
+ */
+export function buildFaqSchema(args: {
+  locale: Locale
+  /** Locale-neutral path of the page the FAQ lives on. */
+  path: string
+  items: Array<{ question: string; answer: string }>
+}) {
+  const url = abs(args.locale, args.path)
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${url}#faq`,
+    url,
+    inLanguage: langTag(args.locale),
+    isPartOf: { '@id': `${siteConfig.url}/#website` },
+    about: { '@id': `${url}#service` },
+    mainEntity: args.items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
   }
 }
 

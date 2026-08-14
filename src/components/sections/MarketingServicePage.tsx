@@ -3,7 +3,7 @@ import { Link } from '@/i18n/navigation'
 import { Section, AnimateIn, JsonLd } from '@/components/global'
 import { ProcessSteps, FAQAccordion, CTABanner } from '@/components/sections'
 import { renderInlineMarkdown } from '@/lib/renderInlineMarkdown'
-import { buildServiceSchema, buildBreadcrumbSchema } from '@/lib/schema'
+import { buildServiceSchema, buildBreadcrumbSchema, buildFaqSchema } from '@/lib/schema'
 import type { Locale } from '@/i18n/routing'
 import type {
   ContentSection,
@@ -92,6 +92,16 @@ export default async function MarketingServicePage({
           ],
         })}
       />
+      {/* FAQPage node — see the matching note in ConsultingServicePage. */}
+      {faqItems.length > 0 && (
+        <JsonLd
+          data={buildFaqSchema({
+            locale,
+            path: `/marketing/${slug}`,
+            items: faqItems,
+          })}
+        />
+      )}
 
       {/* Hero area */}
       <Section className="pt-12 md:pt-20 pb-12 md:pb-16">
