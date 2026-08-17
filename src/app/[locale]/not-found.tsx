@@ -1,41 +1,21 @@
-import { getTranslations } from 'next-intl/server'
-import { Link } from '@/i18n/navigation'
-import type { Locale } from '@/i18n/routing'
+import { NotFoundContent } from '@/components/sections'
 
-// Next 16 App Router doesn't pass `params` to top-level `not-found.tsx`. We
-// use the fallback English copy here because the active request may not
-// have a resolved locale (e.g. an unmatched `/<bad-slug>` at the root).
-// If a localized not-found is needed per-segment, add a `not-found.tsx`
-// at the segment level and pull the locale from its parent route segment.
-export default async function LocaleNotFound() {
-  const t = await getTranslations({ locale: 'en' as Locale, namespace: 'notFound' }).catch(() => null)
-  const title = t?.('title') ?? 'Page not found'
-  const description = t?.('description') ?? "The page you're looking for doesn't exist — or has moved."
-  const cta = t?.('cta') ?? 'Back to home'
+// Inner 404 fallback, one level above `(site)/not-found.tsx`.
+//
+// In practice the `(site)` boundary wins every request a visitor can actually
+// make, because every public route lives inside that group. This file stays as
+// the boundary for a `notFound()` raised between the locale layout and the
+// site layout — most concretely the `hasLocale()` guard in
+// `[locale]/layout.tsx`. It renders without Navbar or Footer, since neither
+// exists at this level.
+//
+// It previously hardcoded English copy with a comment explaining that no
+// locale was resolvable here. That is not so: `[locale]/layout.tsx` has
+// already called `setRequestLocale`, so the shared component's `getLocale()`
+// returns the right locale and a Macedonian request gets Macedonian copy.
+// Sharing NotFoundContent is also what keeps this fallback from drifting out
+// of sync with the real 404 again.
 
-  return (
-    <div className="min-h-[60vh] flex items-center justify-center px-4">
-      <div className="text-center max-w-md">
-        <p className="overline tabular-nums text-[var(--division-text-muted)] mb-3">
-          404
-        </p>
-        <h1 className="text-h1 text-[var(--division-text-primary)]">
-          {title}
-        </h1>
-        <p className="mt-4 text-body-lg text-[var(--division-text-secondary)]">
-          {description}
-        </p>
-        <Link
-          href="/"
-          className="mt-8 inline-flex items-center min-h-[44px] px-6 py-3 rounded-button font-heading text-small font-medium transition-[filter,transform] hover:brightness-110 active:scale-[0.98] focus-ring"
-          style={{
-            backgroundColor: 'var(--division-accent)',
-            color: 'var(--division-bg)',
-          }}
-        >
-          {cta}
-        </Link>
-      </div>
-    </div>
-  )
+export default function LocaleNotFound() {
+  return <NotFoundContent />
 }

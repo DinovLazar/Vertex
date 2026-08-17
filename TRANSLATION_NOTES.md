@@ -310,3 +310,25 @@ Added 2026-07-15 when the **IQ UP!** client (a free game-based cognitive-assessm
 - MK: "Ведра, разиграна двојазична веб-страница за алатка за когнитивна проценка кај деца, направена да ги води родителите од љубопитност до започнување на проценката со неколку допири." — mirrors the EN "A bright, playful bilingual site for a children's cognitive-assessment tool, built to take parents from curious to starting the assessment in a couple of taps." Points to confirm: "когнитивна проценка" ("cognitive assessment") — the live IQ UP! site frames it softly as "проценка на силните страни" ("strengths assessment"); Lazar may prefer that gentler framing over the more clinical "когнитивна". "со неколку допири" = "in a couple of taps".
 
 **Removed** at the same time: the `/lazar` "& more" placeholder card and its keys `lazar.work.moreTitle` ("и повеќе") + `lazar.work.moreSubtitle` ("Уште проекти се на пат.") — the IQ UP! card took that slot, so both keys were deleted from `messages/{en,mk}.json`.
+
+## 404 page (`notFound.*` — NotFoundContent)
+
+Added 2026-08-18 (Phase 18) when the 404 became a real, branded page instead of a locale-less English dead end. The three pre-existing keys (`title`, `description`, `cta`) are unchanged; everything below is new and **LLM-drafted, awaiting a native pass**. Latin-script conventions #19/#30 are respected throughout: `IT`, `AI`, `SEO` and brand names stay Latin inside otherwise-Cyrillic sentences.
+
+### NF-A. `notFound.suggestionsTitle` → "Обидете се со некоја од овие"
+- EN "Try one of these instead". Rendered as an overline above the four destination cards, so it is a structural label rather than prose. A terser alternative if it reads long in the uppercase treatment: "Можеби ова ве интересира" ("maybe this interests you") or simply "Корисни врски" ("useful links").
+
+### NF-B. `notFound.suggestions.{consulting,marketing,blog,contact}`
+- One-line blurbs under each destination. Deliberately condensed restatements of the service copy already reviewed elsewhere, not new claims: consulting → "Бизнис стратегија, реструктуирање на процеси, IT системи и AI консалтинг."; marketing → "Изработка на веб-страници, социјални мрежи, IT инфраструктура и развој со помош на AI."; blog → "Практични текстови за бизнис, технологија и раст."; contact → "Кажете ни што ви треба и ќе ви одговориме."
+- Points to confirm: **"реструктуирање на процеси"** ("restructuring of processes") is used here for EN "workflow restructuring" — check it against whatever wording the consulting pages settled on, since that page is the canonical source and these blurbs should echo it rather than introduce a variant. **"развој со помош на AI"** ("development with the help of AI") for "AI-assisted development" — a defensible shorter alternative is "AI-поддржан развој".
+- The card *labels* are not new strings: they reuse `nav.consulting` / `nav.marketing` / `nav.blog` / `nav.contact`, already reviewed.
+
+### NF-C. `notFound.helpTitle` / `helpBody` / `helpCta`
+- "Сѐ уште не ја наоѓате?" / "Ако сте дошле преку линк што требало да работи, кажете ни и ќе го поправиме." / "Пишете ни" (above a `mailto:` to `info@vertexconsulting.mk`).
+- `helpTitle` uses the feminine object pronoun **"ја"** agreeing with "страницата" (the page) from the heading above it — confirm that reads naturally without the noun repeated. `helpCta` "Пишете ни" ("write to us") was chosen over a literal "Испратете ни е-пошта" ("send us an email") for length, since it sits inline beside a mail icon.
+
+### NF-D. `notFound.meta.title` / `notFound.meta.description`
+- `meta.title` reuses the on-page "Страницата не е пронајдена"; `meta.description` is "Оваа страница не постои. Разгледајте ги нашите консалтинг и маркетинг услуги или контактирајте нѐ."
+- Worth knowing when reviewing: the MK `meta.*` pair reaches the **browser tab title after hydration**, not the served HTML — the served `<title>` on `/mk` is English for a technical reason recorded in `18_phase-18-404-page.md` (localizing it requires a locale read that 500s the prerendered blog route). Since a 404 is `noindex`, no search engine indexes either version, so this is a UI-polish item rather than an SEO one.
+
+Estimated review time: ~3 minutes.

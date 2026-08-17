@@ -40,20 +40,38 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
   // so the brief state mismatch is not user-visible.
   const [theme, setThemeState] = useState<Theme>('dark')
 
-  // Sync state to the attribute the inline script set (after hydration).
-  useEffect(() => {
-    const current = readAttribute()
-    if (current && current !== theme) {
-      setThemeState(current)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
   // Apply a theme: write the attribute + update state. Persistence is
   // handled separately by setTheme.
   const applyTheme = useCallback((next: Theme) => {
     document.documentElement.setAttribute('data-theme', next)
     setThemeState(next)
+  }, [])
+
+  // Sync state to the attribute the inline script set (after hydration).
+  //
+  // The attribute can also be missing entirely, and then this is a repair
+  // rather than a sync. The pre-hydration script lives in the <head> that
+  // `[locale]/layout.tsx` renders, and on a 404 React client-renders that
+  // subtree — scripts rendered by React are never executed — so a hard load
+  // of any not-found page arrives with no `data-theme` at all. CSS then falls
+  // back to the dark `:root`, and a visitor who had saved `light` got a dark
+  // 404. Reading localStorage here restores their choice; it matters now that
+  // the 404 page is themed with `var(--division-*)` instead of the hardcoded
+  // dark inline styles the old root-level 404 used.
+  useEffect(() => {
+    const current = readAttribute()
+    if (current) {
+      if (current !== theme) setThemeState(current)
+      return
+    }
+    let stored: string | null = null
+    try {
+      stored = localStorage.getItem(STORAGE_KEY)
+    } catch {
+      // localStorage may be unavailable (private mode, cookies blocked).
+    }
+    applyTheme(stored === 'light' ? 'light' : 'dark')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const setTheme = useCallback(

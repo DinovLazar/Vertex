@@ -1493,7 +1493,21 @@
   "notFound": {
     "title": "Page not found",
     "description": "The page you're looking for doesn't exist — or has moved.",
-    "cta": "Back to home"
+    "cta": "Back to home",
+    "meta": {
+      "title": "Page not found",
+      "description": "This page doesn't exist. Browse our consulting and marketing services, or get in touch."
+    },
+    "suggestionsTitle": "Try one of these instead",
+    "suggestions": {
+      "consulting": "Business strategy, workflow restructuring, IT systems and AI consulting.",
+      "marketing": "Website design, social media, IT infrastructure and AI-assisted development.",
+      "blog": "Practical notes on business, technology and growth.",
+      "contact": "Tell us what you need and we'll get back to you."
+    },
+    "helpTitle": "Still can't find it?",
+    "helpBody": "If a link brought you here that should have worked, tell us and we'll fix it.",
+    "helpCta": "Email us"
   },
   "blog": {
     "meta": {

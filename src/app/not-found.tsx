@@ -2,24 +2,33 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import './globals.css'
 
-// The site's ONLY live 404 boundary.
+// The locale-less 404 boundary.
 //
-// Verified against a production build: Next resolves every `notFound()` on
-// this site to THIS file — including ones thrown deep inside a locale route
-// such as `/en/blog/<bad-slug>`. `src/app/[locale]/not-found.tsx` is never
-// reached and is dead code today; see the audit findings log for the root
-// cause (the root layout renders no `<html>`, so the locale-level boundary
-// cannot be composed with its layout).
+// It answers the paths the proxy never rewrites into a locale — `/admin/*`,
+// `/studio/*` and asset-like URLs — plus anything that 404s above the
+// `[locale]` segment. Every *public* 404 is handled instead by
+// `src/app/[locale]/(site)/not-found.tsx`, which is localized and carries the
+// Navbar and Footer.
 //
-// Consequences that shape this file:
-//   * No `<html>`/`<body>` here. Next wraps a shell around this content when
-//     the root layout supplies none, and emitting our own would nest a second
-//     <html> inside it. The wrapper carries the doctype but NOT a `lang`
-//     attribute — a known open defect recorded in the findings log, whose real
-//     fix is to move the document shell into the root layout.
+// Supersedes the note this file used to carry, which claimed to be the site's
+// only live 404 boundary and `[locale]/not-found.tsx` confirmed dead code
+// (audit C-3/C-4). That was drawn from curled HTML, which shows a bare
+// `<html id="__next_error__">` shell for *any* 404 because Next streams the
+// body in through the RSC payload. Checked in a browser against a production
+// build, `/en/nonsense` and `/mk/nonsense` render the localized page with full
+// chrome; only the routes listed above reach this file.
+//
+// Constraints that still shape it, and that are real:
+//   * No `<html>`/`<body>` here. The root layout supplies no document shell,
+//     so Next wraps one around this content; emitting our own would nest a
+//     second <html> inside it. That wrapper carries a doctype but no `lang`
+//     attribute — still an open defect for these non-public routes, whose
+//     real fix is moving the shell into the root layout.
 //   * Locale-neutral English copy and a hardcoded `/en` CTA: this boundary
 //     renders outside NextIntlClientProvider, so there is no locale to read
 //     and the locale-aware `Link` from '@/i18n/navigation' is unavailable.
+//     Unlike the locale-level fallback, that reasoning does hold here — no
+//     `setRequestLocale` has run on these paths.
 //   * Inline colors rather than `var(--division-*)`: the theme tokens are
 //     applied to `body` by the locale layout, which is not in this tree.
 
