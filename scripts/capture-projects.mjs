@@ -11,10 +11,14 @@
  * to (see src/config/projects.ts + src/config/lazar.ts), so each screenshot
  * matches what a visitor sees when they click "View project".
  *
- * Filenames are fixed (northgate / sunset / daliborac / iqup) so no config
+ * Filenames are fixed (trajanov / sunset / daliborac / iqup / belasica) so no config
  * change is ever needed — re-run whenever a client site is redesigned:
  *
- *   node scripts/capture-projects.mjs
+ *   node scripts/capture-projects.mjs            # all of them
+ *   node scripts/capture-projects.mjs trajanov   # just one (or several)
+ *
+ * Pass one or more slugs to re-capture only those, so a single client's
+ * redesign doesn't mean re-hitting every other client's site.
  *
  * Requires Playwright's Chromium (installed on-demand, not a committed dep):
  *   npm install --no-save playwright && npx playwright install chromium
@@ -24,19 +28,39 @@ import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 
 const TARGETS = [
-  // northgate is now only used on /lazar (the homepage card is iqup); keep it
-  // captured so the /lazar "Selected work" grid stays fresh.
-  { slug: 'northgate', url: 'https://northgate.optimind000.com/en' },
+  // Trajanov replaced Northgate Dental in the project list on 2026-08-20
+  // (northgate.optimind000.com had gone NXDOMAIN). The card links to the bare
+  // apex, which 308s to www and language-negotiates the locale; the capture
+  // pins /en so the shot is deterministic instead of Accept-Language dependent.
+  { slug: 'trajanov', url: 'https://www.trajanovv.com/en' },
   // Sunset moved off Vercel to its own domain; the old *.vercel.app now 404s.
   { slug: 'sunset', url: 'https://sunsetservices.us' },
   // Dalibor moved off the vertexconsulting.mk subdomain to its own domain.
   { slug: 'daliborac', url: 'https://daliborplecic.com' },
   { slug: 'iqup', url: 'https://iqup.vertexconsulting.mk/' },
+  // MK-only, single static holding page. Re-capture after the archive's
+  // 30 August 2026 launch — today's shot is the "во изработка" page.
+  { slug: 'belasica', url: 'https://www.belasicahistory.mk/' },
 ];
 
 const OUT_DIR = path.join(process.cwd(), 'public', 'projects');
 
+/** Optional CLI slug filter — `node scripts/capture-projects.mjs trajanov`. */
+const only = process.argv.slice(2);
+const targets = only.length
+  ? TARGETS.filter((t) => only.includes(t.slug))
+  : TARGETS;
+
 async function main() {
+  const unknown = only.filter((s) => !TARGETS.some((t) => t.slug === s));
+  if (unknown.length) {
+    console.error(
+      `Unknown slug(s): ${unknown.join(', ')}\n` +
+        `Known: ${TARGETS.map((t) => t.slug).join(', ')}`,
+    );
+    process.exit(1);
+  }
+
   await mkdir(OUT_DIR, { recursive: true });
 
   const browser = await chromium.launch();
@@ -48,7 +72,7 @@ async function main() {
 
   const results = [];
 
-  for (const { slug, url } of TARGETS) {
+  for (const { slug, url } of targets) {
     const page = await context.newPage();
     try {
       console.log(`→ ${slug}: ${url}`);
@@ -103,7 +127,7 @@ async function main() {
     failed.forEach((f) => console.error(`  - ${f.slug}: ${f.error}`));
     process.exit(1);
   }
-  console.log('\nAll 3 screenshots captured.');
+  console.log(`\nAll ${results.length} screenshot(s) captured.`);
 }
 
 main();

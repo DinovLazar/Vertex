@@ -45,6 +45,7 @@ Bilingual (EN/MK) marketing site for **Vertex Consulting**, live at **https://ve
 - **Docs were written on Windows; this machine is macOS** (Apple Silicon, Node v26). Translate any Windows-specific advice (SWC win32 binary workaround, Segoe UI fallback notes, mk-MK Intl gaps) — it does not apply here. `.claude/settings.local.json` still carries dead Windows-path permission entries. `@types/node` is ^20 vs Node 26 installed; there is no `engines` field.
 - **Turbopack cache corruption:** "Failed to open SST file" in dev logs → clear `.next/dev/cache` (or `rm -rf .next`) and restart. Also required after editing `src/proxy.ts`.
 - Pending: `public/projects/daliborac.png` was captured while that site showed `[PLACEHOLDER]` content — re-capture when its real content ships (no code change needed).
+- Pending: `public/projects/trajanov.png` (added 2026-08-20, replacing `northgate.png`) is a clean hero shot, but trajanovv.com's catalog/product pages still show `[PLACEHOLDER]` product data — re-capture with `node scripts/capture-projects.mjs trajanov` once Vladimir enters the real products.
 
 ## Canonical docs
 `src/_project-state/README.md` (workflow rules + phase checklist) · `current-state.md` (full snapshot — extremely long lines, **grep it** rather than reading whole) · `file-map.md` (annotated per-file map) · numbered phase writeups `01_…17_`, `13a/b/c`, `phase-l1…l4` and `phase-l6` (there is no l5), `session-*.md` · root `D-15_Website_Design_Document.md` · `TRANSLATION_NOTES.md` · `.impeccable.md` (design context; its font/theme claims are stale).

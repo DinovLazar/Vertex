@@ -1413,9 +1413,13 @@
         "label": "Website",
         "description": "A personal author website with a calm, editorial feel that puts the writing front and centre."
       },
-      "northgate-dental": {
-        "label": "Website & SEO",
-        "description": "A clean, trustworthy website for a dental practice, built to bring in new patients and rank locally."
+      "trajanov": {
+        "label": "Website & Online Store",
+        "description": "A dark, editorial storefront for a one-designer clothing label from Strumica, built around limited drops — bilingual, with live stock counts and cash-on-delivery checkout."
+      },
+      "fk-belasica-archive": {
+        "label": "Digital Archive",
+        "description": "An unofficial digital archive of FK Belasica — seasons, legends, photographs and results gathered in one place. The launch page is live ahead of the archive's opening on 30 August 2026."
       }
     }
   },

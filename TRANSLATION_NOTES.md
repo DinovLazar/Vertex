@@ -496,3 +496,66 @@ same pass as body copy:
 The fourth post's alt („Мрежни кабли поврзани во сервер рек во канцеларија на мал бизнис")
 uses **„рек"** as a transliteration of "rack" — the Latin „rack" or the descriptive „сервер
 орман" are both defensible. **Worth a native-speaker call.**
+
+
+## Trajanov project card (`projects.items.trajanov` — /projects, /projects/[slug], /lazar)
+
+Added 2026-08-20 when **Trajanov** ([www.trajanovv.com](https://www.trajanovv.com)) replaced Northgate
+Dental in `src/config/projects.ts`. The client is a drop-based clothing label from Strumica run by one
+person, Vladimir Trajanov; the store is itself bilingual (MK default, EN at `/en`), so its own MK copy is
+the reference register here. The two removed keys (`projects.items.northgate-dental.label/desc`, reviewed
+under PR-A) are gone from both message files. **LLM-drafted, wants Lazar's native-speaker pass.**
+
+### PR-H. `projects.items.trajanov.label` → „Веб-страница и онлајн продавница"
+
+- EN "Website & Online Store". The first label in this set that is not a variant of „Веб-страница и SEO" —
+  the deliverable includes a catalog, cart and cash-on-delivery checkout, which the existing labels do not
+  convey. „онлајн продавница" is the standard MK phrase (and what the client's own site uses); „е-продавница"
+  is shorter but reads more bureaucratic.
+
+### PR-I. `projects.items.trajanov.description`
+
+- MK: „Темна, уредничка онлајн продавница за модна марка од Струмица со еден дизајнер, изградена околу
+  ограничени спуштања — двојазична, со приказ на преостанати парчиња и плаќање при достава."
+- **„спуштања" for "drops"** is borrowed from the client's own MK copy (their homepage title is
+  „Trajanov — следно спуштање"). It is not the term the MK streetwear scene would necessarily reach for —
+  the English „дроп" is common in that niche — but matching the client's own vocabulary wins over matching
+  the niche. **Flag if Lazar disagrees**; the two candidates are „спуштања" and „дропови".
+- „уредничка" for "editorial" reuses the register already approved for the Dalibor card („уреднички изглед").
+- „парчиња" ("pieces") over „производи" ("products") — again the client's own framing; they sell 3–5 pieces
+  per drop, and „производи" would flatten that into ordinary e-commerce.
+- „плаќање при достава" for "cash on delivery" is the phrase Macedonian couriers use; „наложено" /
+  „поштенско здолжување" are the postal-jargon variants and would read as officialese.
+- Brand name **„Trajanov" stays Latin** (convention #19), consistent with IQ UP!, Vertex and Sunset Services.
+
+## FK Belasica Archive project card (`projects.items.fk-belasica-archive`)
+
+Added 2026-08-20 alongside the Trajanov swap. The client site
+([www.belasicahistory.mk](https://www.belasicahistory.mk)) is **MK-only** — no locale routing, no EN
+version — so its own copy is the register to match, and the EN card copy is a translation *out of*
+Macedonian rather than the usual other way round. **LLM-drafted, wants Lazar's native-speaker pass.**
+
+### PR-J. `projects.items.fk-belasica-archive.label` → „Дигитална архива"
+
+- EN "Digital Archive". Taken straight from the client's own wording („неофицијална дигитална
+  архива"). Not „Веб-страница" — what is being delivered is an archive, and calling it a website
+  would undersell it once the seasons/photographs/results are in.
+
+### PR-K. `projects.items.fk-belasica-archive.description`
+
+- MK: „Неофицијална дигитална архива за ФК Беласица — сезони, легенди, фотографии и резултати собрани
+  на едно место. Најавната страница е во живо пред промоцијата на архивата на 30 август 2026."
+- The first sentence is deliberately close to the client's own line („сезони, легенди, фотографии и
+  резултати собрани на едно место") — their phrasing, already public, so it needs no invention.
+- „Неофицијална" ("unofficial") is **not** softened or dropped. The site says it about itself; the
+  archive is a fan project, not an FK Belasica club product, and implying otherwise in Vertex's
+  copy would be a claim about someone else's brand.
+- „Најавната страница" for "launch page" — a holding/teaser page. „Landing страница" is the common
+  agency loan but is Latin-script jargon; „почетна страница" would wrongly mean "home page".
+- The club name **„ФК Беласица" is Cyrillic in the MK copy** and **"FK Belasica" Latin in the EN**.
+  This is not the convention-#19 brand-name case: the club's own crest and site are Cyrillic, so MK
+  Cyrillic is the authentic form, while the project `name` in `src/config/projects.ts`
+  ("FK Belasica Archive") stays Latin because that field renders identically in both locales.
+- **Dated copy:** "30 August 2026" / „30 август 2026" goes stale the moment the archive is promoted.
+  Rewrite both strings then — see the pending list in
+  `session-trajanov-replaces-northgate_2026-08-20.md`.

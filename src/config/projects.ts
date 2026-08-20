@@ -104,17 +104,35 @@ export const projects: Project[] = [
     gallery: [],
   },
   {
-    slug: "northgate-dental",
-    name: "Northgate Dental",
+    // Replaced Northgate Dental in this slot on 2026-08-20. Northgate's host
+    // (northgate.optimind000.com) had gone NXDOMAIN, so that card sat here
+    // with no live link; Trajanov is live and takes the slot. The retired
+    // /projects/northgate-dental URL 308s to /projects — see the redirects()
+    // block in next.config.ts.
+    slug: "trajanov",
+    name: "Trajanov",
     division: "marketing",
-    image: "/projects/northgate.png",
-    // Was "https://northgate.optimind000.com/en". That host stopped resolving
-    // (NXDOMAIN as of 2026-08-20 — the apex optimind000.com still resolves, the
-    // `northgate` subdomain does not), so the link was dead. `null` keeps the
-    // project listed with its screenshot and case-study page but hides the
-    // "Visit live site" button and the "Live site" row, rather than shipping a
-    // broken outbound link. Put the working URL back here to restore both.
-    href: null,
+    image: "/projects/trajanov.png",
+    // The apex 308s to www and the root language-negotiates (MK by default,
+    // /en for English), so link the bare domain and let the visitor's browser
+    // pick. The screenshot is pinned to /en for a deterministic capture.
+    href: "https://www.trajanovv.com",
+    gallery: [],
+  },
+  {
+    // Added 2026-08-20. Deliberately LAST rather than first, even though it is
+    // the newest build: the live site is still the single "СТРАНИЦАТА Е ВО
+    // ИЗРАБОТКА" holding page until the archive is promoted on 30 Aug 2026,
+    // and leading the homepage / /marketing top-three with a coming-soon page
+    // would be a downgrade. Move this entry to the top of the array once the
+    // real archive ships (and re-capture the screenshot — see
+    // `node scripts/capture-projects.mjs belasica`).
+    slug: "fk-belasica-archive",
+    name: "FK Belasica Archive",
+    division: "marketing",
+    image: "/projects/belasica.png",
+    // MK-only site (no locale routing at all); the apex 308s to www.
+    href: "https://www.belasicahistory.mk",
     gallery: [],
   },
 ]

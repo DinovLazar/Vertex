@@ -45,6 +45,21 @@ const nextConfig: NextConfig = {
         destination: '/en',
         permanent: true,
       },
+      // --- Retired project pages ---
+      // Northgate Dental was published at /projects/northgate-dental and sat
+      // in sitemap.xml, so the URL is indexable; it was replaced by Trajanov
+      // on 2026-08-20 (see src/config/projects.ts). Send it to the grid
+      // instead of 404-ing, and keep the visitor's locale.
+      {
+        source: '/:locale(en|mk)/projects/northgate-dental',
+        destination: '/:locale/projects',
+        permanent: true,
+      },
+      {
+        source: '/projects/northgate-dental',
+        destination: '/en/projects',
+        permanent: true,
+      },
     ]
   },
 }
