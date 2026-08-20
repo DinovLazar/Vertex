@@ -17,6 +17,35 @@ interface GridMotionProps {
   variant?: 'text' | 'panels'
 }
 
+/* ---------------------------------------------------------------
+   Grid geometry.
+
+   The plate field is a fixed 4 x 7 lattice. Its box used to be a
+   plain `150vw x 150vh`, which meant every cell was a fraction of
+   the viewport: fine on a desktop (~260 x 288), but on a 375px
+   phone the seven columns had to share 562px, squashing each plate
+   into a 67px-wide sliver while its height stayed ~292px. The
+   panels read as vertical blinds instead of brushed metal sheets.
+
+   The box is now `max(150vw, MIN_GRID_W)` / `max(150vh, MIN_GRID_H)`,
+   where the minimums are the lattice at its reference desktop cell
+   size. Above ~1277 x 800 nothing changes — the viewport-relative
+   size still wins, so the desktop treatment is byte-identical. Below
+   it the box stops shrinking, the plates hold their size, and the
+   surplus simply overflows the hero's `overflow: hidden` frame:
+   a phone sees fewer, correctly-proportioned plates rather than the
+   whole lattice crushed to fit. Coverage is never at risk — at the
+   floor the rotated box still measures ~2165 x 1656.
+   --------------------------------------------------------------- */
+const ROWS = 4
+const COLS = 7
+const GAP_PX = 16
+/** Reference desktop cell, measured at a 1280 x 800 viewport. */
+const MIN_CELL_W = 260
+const MIN_CELL_H = 288
+const MIN_GRID_W = COLS * MIN_CELL_W + (COLS - 1) * GAP_PX // 1916
+const MIN_GRID_H = ROWS * MIN_CELL_H + (ROWS - 1) * GAP_PX // 1200
+
 export default function GridMotion({
   items = [],
   gradientColor = '#141414',
@@ -26,7 +55,7 @@ export default function GridMotion({
   const rowRefs = useRef<(HTMLDivElement | null)[]>([])
   const mouseXRef = useRef(typeof window !== 'undefined' ? window.innerWidth / 2 : 0)
 
-  const totalItems = 28
+  const totalItems = ROWS * COLS
   const defaultItems = Array.from({ length: totalItems }, (_, index) => `Item ${index + 1}`)
   const combinedItems = items.length > 0 ? items.slice(0, totalItems) : defaultItems
 
@@ -134,32 +163,32 @@ export default function GridMotion({
       >
         <div
           style={{
-            gap: '1rem',
+            gap: `${GAP_PX}px`,
             flex: 'none',
             position: 'relative',
-            width: '150vw',
-            height: '150vh',
+            width: `max(150vw, ${MIN_GRID_W}px)`,
+            height: `max(150vh, ${MIN_GRID_H}px)`,
             display: 'grid',
-            gridTemplateRows: 'repeat(4, 1fr)',
+            gridTemplateRows: `repeat(${ROWS}, 1fr)`,
             gridTemplateColumns: '100%',
             transform: 'rotate(-15deg)',
             transformOrigin: 'center center',
             zIndex: 2,
           }}
         >
-          {[...Array(4)].map((_, rowIndex) => (
+          {[...Array(ROWS)].map((_, rowIndex) => (
             <div
               key={rowIndex}
               ref={(el) => { rowRefs.current[rowIndex] = el }}
               style={{
                 display: 'grid',
-                gap: '1rem',
-                gridTemplateColumns: 'repeat(7, 1fr)',
+                gap: `${GAP_PX}px`,
+                gridTemplateColumns: `repeat(${COLS}, 1fr)`,
                 willChange: 'transform, filter',
               }}
             >
-              {[...Array(7)].map((_, itemIndex) => {
-                const content = combinedItems[rowIndex * 7 + itemIndex]
+              {[...Array(COLS)].map((_, itemIndex) => {
+                const content = combinedItems[rowIndex * COLS + itemIndex]
 
                 // Panels variant: empty brushed-silver tile. The text `items`
                 // array is ignored visually but still drives cell count.
