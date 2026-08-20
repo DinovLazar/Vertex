@@ -2,7 +2,7 @@
 session: Accessibility Remediation (WCAG 2.2 AA)
 date: 2026-08-20
 status: complete
-branch: a11y-remediation (NOT merged — PR open)
+branch: a11y-remediation → merged to main 2026-08-20 (PR #2, rebase merge, commit af33b7f)
 ---
 
 # Session — Accessibility Remediation (WCAG 2.2 AA)
@@ -12,10 +12,12 @@ A full WCAG 2.2 Level AA audit of all 47 public URLs (every page × `en`/`mk`, p
 404 boundary and `/admin/login`), remediation of everything found, and a plain-language
 report for the site owner at `docs/accessibility-report.md`.
 
-Unlike Sessions C and G (the two earlier a11y passes), this one worked on a **branch**
-rather than on `main`, because the request explicitly asked for a PR and because an
-unreviewed sweep of `globals.css` tokens should not auto-deploy to production. This is a
-deliberate one-off deviation from the "work directly on main" convention in `AGENTS.md`.
+Unlike Sessions C and G (the two earlier a11y passes), this one was staged on a **branch**
+and opened as PR #2, because the request explicitly asked for a PR and because an
+unreviewed sweep of `globals.css` tokens should not auto-deploy unreviewed. Goran then
+asked for it to be merged, so it went in the same day via a **rebase merge** (commit
+`af33b7f`), keeping the linear history the repo uses. Net effect on the repo convention:
+none — `main` is still the trunk and still auto-deploys.
 
 ## The headline finding — `.focus-ring` never painted anything
 
@@ -188,7 +190,9 @@ exists on this machine" note is now inaccurate for this checkout.
 - `docs/a11y-evidence/` — before/after PNGs for the focus ring, contact form, admin login.
 
 ## What the next session should know
-- **The PR is open and unmerged.** Nothing is on `main`; nothing has deployed.
+- **Merged and deployed.** PR #2 was rebase-merged into `main` as `af33b7f` on 2026-08-20
+  and Vercel auto-deployed it to vertexconsulting.mk. The branch `a11y-remediation` still
+  exists on the remote.
 - **Two open items need Goran's decision** (both in the report): whether to raise
   `--division-border` for card edges (a visual-design call, not a compliance one), and
   whether the hero animations need a visible pause control (2.2.2 strict reading).
