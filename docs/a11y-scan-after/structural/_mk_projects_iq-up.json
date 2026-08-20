@@ -1,0 +1,86 @@
+{
+  "url": "/mk/projects/iq-up",
+  "theme": "dark",
+  "desktop": {
+    "lang": "mk",
+    "title": "IQ UP! — Веб-страница и бренд | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "IQ UP!"
+    ],
+    "mainCount": 1,
+    "navCount": 3,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: IQ UP!",
+      "h2: Студија на случај",
+      "h2: НАКРАТКО",
+      "h2: Сакате нешто слично?",
+      "h2: Останете во тек",
+      "h3: КОНСАЛТИНГ",
+      "h3: МАРКЕТИНГ",
+      "h3: КОМПАНИЈА"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Прескокни до содржина"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 47,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+  },
+  "mobile320": {
+    "lang": "mk",
+    "title": "IQ UP! — Веб-страница и бренд | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "IQ UP!"
+    ],
+    "mainCount": 1,
+    "navCount": 3,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: IQ UP!",
+      "h2: Студија на случај",
+      "h2: НАКРАТКО",
+      "h2: Сакате нешто слично?",
+      "h2: Останете во тек",
+      "h3: КОНСАЛТИНГ",
+      "h3: МАРКЕТИНГ",
+      "h3: КОМПАНИЈА"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Прескокни до содржина"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 38,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clientWidth": 320
+  },
+  "textSpacing": {
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clipped": []
+  },
+  "zoom200": {
+    "horizontalScroll": false,
+    "scrollWidth": 640,
+    "clientWidth": 640
+  }
+}

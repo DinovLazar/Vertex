@@ -1,0 +1,114 @@
+{
+  "url": "/mk",
+  "theme": "dark",
+  "desktop": {
+    "lang": "mk",
+    "title": "Бизнис консалтинг и дигитален маркетинг | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Помагаме на бизнисите да растат попаметно."
+    ],
+    "mainCount": 1,
+    "navCount": 1,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Помагаме на бизнисите да растат попаметно.",
+      "h2: Две дивизии. Една мисија.",
+      "h3: Vertex Consulting",
+      "h3: Vertex Marketing",
+      "h2: Бизнис услуги од целиот спектар",
+      "h3: Бизнис консалтинг",
+      "h3: Преструктуирање на процеси",
+      "h3: IT и системи",
+      "h3: AI консалтинг",
+      "h3: Веб дизајн",
+      "h3: Социјални медиуми",
+      "h3: IT инфраструктура",
+      "h3: AI развој",
+      "h2: Неодамнешни проекти",
+      "h3: IQ UP!",
+      "h3: Sunset Services",
+      "h3: Dalibor Plečić — Author",
+      "h2: Подготвени сте да го развиете вашиот бизнис?",
+      "h2: Останете во тек",
+      "h3: КОНСАЛТИНГ",
+      "h3: МАРКЕТИНГ",
+      "h3: КОМПАНИЈА"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Прескокни до содржина"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 56,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+  },
+  "mobile320": {
+    "lang": "mk",
+    "title": "Бизнис консалтинг и дигитален маркетинг | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Помагаме на бизнисите да растат попаметно."
+    ],
+    "mainCount": 1,
+    "navCount": 1,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Помагаме на бизнисите да растат попаметно.",
+      "h2: Две дивизии. Една мисија.",
+      "h3: Vertex Consulting",
+      "h3: Vertex Marketing",
+      "h2: Бизнис услуги од целиот спектар",
+      "h3: Бизнис консалтинг",
+      "h3: Преструктуирање на процеси",
+      "h3: IT и системи",
+      "h3: AI консалтинг",
+      "h3: Веб дизајн",
+      "h3: Социјални медиуми",
+      "h3: IT инфраструктура",
+      "h3: AI развој",
+      "h2: Неодамнешни проекти",
+      "h3: IQ UP!",
+      "h3: Sunset Services",
+      "h3: Dalibor Plečić — Author",
+      "h2: Подготвени сте да го развиете вашиот бизнис?",
+      "h2: Останете во тек",
+      "h3: КОНСАЛТИНГ",
+      "h3: МАРКЕТИНГ",
+      "h3: КОМПАНИЈА"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Прескокни до содржина"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 47,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clientWidth": 320
+  },
+  "textSpacing": {
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clipped": []
+  },
+  "zoom200": {
+    "horizontalScroll": false,
+    "scrollWidth": 640,
+    "clientWidth": 640
+  }
+}

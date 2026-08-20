@@ -1,0 +1,107 @@
+{
+  "url": "/mk/blog/what-it-infrastructure-actually-means-for-a-10-person-business",
+  "theme": "dark",
+  "desktop": {
+    "lang": "mk",
+    "title": "Што навистина значи „IT инфраструктура\" за бизнис со десет луѓе | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Што навистина значи „IT инфраструктура\" за бизнис со десет л"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Што навистина значи „IT инфраструктура\" за бизнис ",
+      "h2: Инфраструктурата се шест работи, не сервер сала",
+      "h2: Дефектите се тивки, не драматични",
+      "h2: Е-мејлот обично е најслабата точка",
+      "h2: Преплаќањето и потплаќањето се иста грешка",
+      "h2: Како изгледа „добро\" кај десет луѓе",
+      "h2: Ревизија што можете сами да ја направите попладнев",
+      "h2: Тука влегуваме ние",
+      "h2: Поврзани објави",
+      "h3: Зошто вашата бизнис веб страница веројатно ве чини",
+      "h2: Подготвени сте да го развиете вашиот бизнис?",
+      "h2: Останете во тек",
+      "h3: КОНСАЛТИНГ",
+      "h3: МАРКЕТИНГ",
+      "h3: КОМПАНИЈА"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Прескокни до содржина"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 46,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+  },
+  "mobile320": {
+    "lang": "mk",
+    "title": "Што навистина значи „IT инфраструктура\" за бизнис со десет луѓе | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Што навистина значи „IT инфраструктура\" за бизнис со десет л"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Што навистина значи „IT инфраструктура\" за бизнис ",
+      "h2: Инфраструктурата се шест работи, не сервер сала",
+      "h2: Дефектите се тивки, не драматични",
+      "h2: Е-мејлот обично е најслабата точка",
+      "h2: Преплаќањето и потплаќањето се иста грешка",
+      "h2: Како изгледа „добро\" кај десет луѓе",
+      "h2: Ревизија што можете сами да ја направите попладнев",
+      "h2: Тука влегуваме ние",
+      "h2: Поврзани објави",
+      "h3: Зошто вашата бизнис веб страница веројатно ве чини",
+      "h2: Подготвени сте да го развиете вашиот бизнис?",
+      "h2: Останете во тек",
+      "h3: КОНСАЛТИНГ",
+      "h3: МАРКЕТИНГ",
+      "h3: КОМПАНИЈА"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Прескокни до содржина"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 37,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clientWidth": 320
+  },
+  "textSpacing": {
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clipped": [
+      {
+        "tag": "p",
+        "text": "Повеќето бизнис веб страници во Македони",
+        "scrollH": 168,
+        "clientH": 63
+      }
+    ]
+  },
+  "zoom200": {
+    "horizontalScroll": false,
+    "scrollWidth": 640,
+    "clientWidth": 640
+  }
+}

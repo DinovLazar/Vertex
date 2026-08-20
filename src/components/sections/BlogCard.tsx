@@ -15,9 +15,17 @@ interface BlogCardProps {
    *  card on the listing page so the LCP image preloads instead of going
    *  through the lazy queue. */
   eager?: boolean
+  /** Heading level for the card title. The card is reused in two places that
+   *  sit at different depths: the /blog listing renders cards directly under
+   *  the page <h1>, so they must be <h2>, while the related-posts strip on a
+   *  post page sits under its own "Related posts" <h2>, so <h3> is right
+   *  there. Hardcoding h3 made the listing skip from h1 straight to h3
+   *  (WCAG 1.3.1). Defaults to 3 — the related-posts case. */
+  headingLevel?: 2 | 3
 }
 
-export default function BlogCard({ post, eager = false }: BlogCardProps) {
+export default function BlogCard({ post, eager = false, headingLevel = 3 }: BlogCardProps) {
+  const Heading = (headingLevel === 2 ? 'h2' : 'h3') as 'h2' | 'h3'
   const t = useTranslations('sections.blog')
   const format = useFormatter()
   const locale = useLocale() as Locale
@@ -90,9 +98,9 @@ export default function BlogCard({ post, eager = false }: BlogCardProps) {
             </div>
 
             {/* Title */}
-            <h3 className="text-h3 text-[var(--division-text-primary)]">
+            <Heading className="text-h3 text-[var(--division-text-primary)]">
               {post.title}
-            </h3>
+            </Heading>
 
             {/* Excerpt */}
             <p className="mt-3 text-small text-[var(--division-text-muted)] line-clamp-3">

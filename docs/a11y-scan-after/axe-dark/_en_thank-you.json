@@ -1,0 +1,60 @@
+{
+  "url": "/en/thank-you",
+  "status": 200,
+  "theme": "dark",
+  "violations": [],
+  "incomplete": [
+    {
+      "id": "aria-valid-attr-value",
+      "impact": "critical",
+      "help": "ARIA attributes must conform to valid values",
+      "nodeCount": 3,
+      "nodes": [
+        {
+          "html": "<button type=\"button\" aria-haspopup=\"menu\" aria-expanded=\"false\" aria-controls=\"_R_75t6ivb_-menu-nav...\" aria-label=\"Toggle Consulting su...\" class=\"inline-flex items-ce...\" style=\"color:var(--division...\">",
+          "target": [
+            "button[aria-label=\"Toggle Consulting submenu\"]"
+          ]
+        },
+        {
+          "html": "<button type=\"button\" aria-haspopup=\"menu\" aria-expanded=\"false\" aria-controls=\"_R_75t6ivb_-menu-nav...\" aria-label=\"Toggle Marketing sub...\" class=\"inline-flex items-ce...\" style=\"color:var(--division...\">",
+          "target": [
+            "button[aria-controls=\"_R_75t6ivb_-menu-nav-marketing\"]"
+          ]
+        },
+        {
+          "html": "<button type=\"button\" aria-label=\"Open chat with Verte...\" aria-expanded=\"false\" aria-haspopup=\"dialog\" aria-controls=\"_R_26ivb_\" class=\"chat-trigger fixed z...\" style=\"opacity: 1; transfor...\">",
+          "target": [
+            ".chat-trigger"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "nodeCount": 8,
+      "nodes": [
+        {
+          "html": "<a class=\"inline-flex items-center min-h-[44px] md:min-h-0 md:py-2 pl-3 pr-1 text-sm font-medium focus-ring nav-link\" href=\"/en/consulting\">Consulting</a>",
+          "target": [
+            ".relative.flex > a[href$=\"consulting\"]"
+          ]
+        },
+        {
+          "html": "<a class=\"inline-flex items-center min-h-[44px] md:min-h-0 md:py-2 pl-3 pr-1 text-sm font-medium focus-ring nav-link\" href=\"/en/marketing\">Marketing</a>",
+          "target": [
+            "a[href$=\"marketing\"]"
+          ]
+        },
+        {
+          "html": "<a class=\"relative inline-flex items-center min-h-[44px] md:min-h-0 md:py-2 px-3 text-sm font-medium focus-ring nav-link\" href=\"/en/projects\">Work</a>",
+          "target": [
+            ".nav-link.px-3[href$=\"projects\"]"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "url": "/en/consulting",
+  "theme": "dark",
+  "desktop": {
+    "lang": "en",
+    "title": "Business Consulting Services in Macedonia | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Strategic clarity for growing businesses."
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Strategic clarity for growing businesses.",
+      "h2: Four ways we help businesses improve",
+      "h3: Business Consulting",
+      "h3: Workflow Restructuring",
+      "h3: IT & Systems",
+      "h3: AI Consulting",
+      "h2: Goran Dinov",
+      "h2: Let's talk about your business.",
+      "h2: Stay in the loop",
+      "h3: CONSULTING",
+      "h3: MARKETING",
+      "h3: COMPANY"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Skip to content"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 47,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+  },
+  "mobile320": {
+    "lang": "en",
+    "title": "Business Consulting Services in Macedonia | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Strategic clarity for growing businesses."
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Strategic clarity for growing businesses.",
+      "h2: Four ways we help businesses improve",
+      "h3: Business Consulting",
+      "h3: Workflow Restructuring",
+      "h3: IT & Systems",
+      "h3: AI Consulting",
+      "h2: Goran Dinov",
+      "h2: Let's talk about your business.",
+      "h2: Stay in the loop",
+      "h3: CONSULTING",
+      "h3: MARKETING",
+      "h3: COMPANY"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Skip to content"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 38,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clientWidth": 320
+  },
+  "textSpacing": {
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clipped": []
+  },
+  "zoom200": {
+    "horizontalScroll": false,
+    "scrollWidth": 640,
+    "clientWidth": 640
+  }
+}

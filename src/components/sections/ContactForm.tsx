@@ -1,6 +1,6 @@
 'use client'
 
-import { useId, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { AnimateIn } from '@/components/global'
 import { Button } from '@/components/ui/button'
@@ -49,6 +49,19 @@ export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [error, setError] = useState<string>('')
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({})
+  const successRef = useRef<HTMLDivElement>(null)
+
+  // On success the whole <form> unmounts and is replaced by the confirmation
+  // card. That destroys the element the user was focused on (the submit
+  // button), so focus silently falls back to <body> and a keyboard user is
+  // dumped at the top of the document with no idea the send worked. The card
+  // is also a status message (WCAG 4.1.3): role="status" alone is unreliable
+  // when the live region enters the DOM in the same commit as its text, so we
+  // move focus to the card as well. tabIndex={-1} makes it programmatically
+  // focusable without adding a tab stop.
+  useEffect(() => {
+    if (status === 'success') successRef.current?.focus()
+  }, [status])
 
   const nameErrorId = `${uniqueId}-name-error`
   const emailErrorId = `${uniqueId}-email-error`
@@ -169,7 +182,12 @@ export default function ContactForm() {
   if (status === 'success') {
     return (
       <AnimateIn>
-        <div className="rounded-card border border-[var(--division-border)] bg-[var(--division-card)] p-8 text-center elevation-1">
+        <div
+          ref={successRef}
+          tabIndex={-1}
+          role="status"
+          className="rounded-card border border-[var(--division-border)] bg-[var(--division-card)] p-8 text-center elevation-1 focus-ring"
+        >
           <div className="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center bg-[var(--division-accent)]/20">
             <Check size={28} className="text-[var(--division-accent)]" aria-hidden="true" />
           </div>
@@ -212,6 +230,7 @@ export default function ContactForm() {
           type="text"
           id={`${uniqueId}-name`}
           name="name"
+          autoComplete="name"
           value={formData.name}
           onChange={handleChange}
           required
@@ -240,6 +259,7 @@ export default function ContactForm() {
             type="email"
             id={`${uniqueId}-email`}
             name="email"
+            autoComplete="email"
             value={formData.email}
             onChange={handleChange}
             required
@@ -265,6 +285,7 @@ export default function ContactForm() {
             type="tel"
             id={`${uniqueId}-phone`}
             name="phone"
+            autoComplete="tel"
             value={formData.phone}
             onChange={handleChange}
             className="w-full px-4 py-3 rounded-button bg-[var(--division-surface)] border border-[var(--input-border)] text-[var(--division-text-primary)] placeholder:text-[var(--division-text-muted)] form-input-focus"

@@ -42,10 +42,26 @@ export default async function AdminLoginPage({
           autoFocus
           required
           autoComplete="current-password"
-          className="w-full px-4 py-3 rounded-lg bg-[var(--division-bg)] border border-[var(--division-border)] text-[var(--division-text-primary)] form-input-focus"
+          aria-invalid={sp.error ? true : undefined}
+          /* A wrong password server-redirects to ?error=1, so the message is
+             already in the DOM at first paint. role="alert" only announces
+             *changes* to a live region, so on a fresh document load it says
+             nothing — and the message sits after the input, where the
+             autofocused field never reaches it. Wiring it up with
+             aria-describedby means the error is read out as part of the
+             field that has focus on arrival (WCAG 3.3.1). */
+          aria-describedby={sp.error ? 'vertex-admin-password-error' : undefined}
+          /* --division-border is 1.78:1 on --division-bg in dark mode; the
+             field's only affordance has to clear 3:1 (WCAG 1.4.11), which is
+             what --input-border is for. */
+          className="w-full px-4 py-3 rounded-lg bg-[var(--division-bg)] border border-[var(--input-border)] text-[var(--division-text-primary)] form-input-focus"
         />
         {sp.error && (
-          <p className="mt-3 text-sm text-[var(--color-accent-error)]" role="alert">
+          <p
+            id="vertex-admin-password-error"
+            className="mt-3 text-sm text-[var(--form-error-text)]"
+            role="alert"
+          >
             Wrong password.
           </p>
         )}

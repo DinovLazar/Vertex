@@ -1,0 +1,108 @@
+{
+  "url": "/mk/marketing",
+  "theme": "dark",
+  "desktop": {
+    "lang": "mk",
+    "title": "Дигитален маркетинг во Македонија | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Креативно дигитално присуство што конвертира."
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Креативно дигитално присуство што конвертира.",
+      "h2: Четири начини на кои го развиваме вашето дигитално",
+      "h3: Веб дизајн",
+      "h3: Социјални медиуми",
+      "h3: IT инфраструктура",
+      "h3: AI развој",
+      "h2: Млади, смели и неуморни",
+      "h3: Lazar Dinov",
+      "h3: Petar Jakimov",
+      "h3: Andrej Jakimov",
+      "h2: Неодамнешни проекти",
+      "h3: IQ UP!",
+      "h3: Sunset Services",
+      "h3: Dalibor Plečić — Author",
+      "h2: Да изградиме нешто одлично.",
+      "h2: Останете во тек",
+      "h3: КОНСАЛТИНГ",
+      "h3: МАРКЕТИНГ",
+      "h3: КОМПАНИЈА"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Прескокни до содржина"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 52,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+  },
+  "mobile320": {
+    "lang": "mk",
+    "title": "Дигитален маркетинг во Македонија | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Креативно дигитално присуство што конвертира."
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Креативно дигитално присуство што конвертира.",
+      "h2: Четири начини на кои го развиваме вашето дигитално",
+      "h3: Веб дизајн",
+      "h3: Социјални медиуми",
+      "h3: IT инфраструктура",
+      "h3: AI развој",
+      "h2: Млади, смели и неуморни",
+      "h3: Lazar Dinov",
+      "h3: Petar Jakimov",
+      "h3: Andrej Jakimov",
+      "h2: Неодамнешни проекти",
+      "h3: IQ UP!",
+      "h3: Sunset Services",
+      "h3: Dalibor Plečić — Author",
+      "h2: Да изградиме нешто одлично.",
+      "h2: Останете во тек",
+      "h3: КОНСАЛТИНГ",
+      "h3: МАРКЕТИНГ",
+      "h3: КОМПАНИЈА"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Прескокни до содржина"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 43,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clientWidth": 320
+  },
+  "textSpacing": {
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clipped": []
+  },
+  "zoom200": {
+    "horizontalScroll": false,
+    "scrollWidth": 640,
+    "clientWidth": 640
+  }
+}

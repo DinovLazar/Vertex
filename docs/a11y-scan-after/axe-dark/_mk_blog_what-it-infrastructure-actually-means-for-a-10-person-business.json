@@ -1,0 +1,60 @@
+{
+  "url": "/mk/blog/what-it-infrastructure-actually-means-for-a-10-person-business",
+  "status": 200,
+  "theme": "dark",
+  "violations": [],
+  "incomplete": [
+    {
+      "id": "aria-valid-attr-value",
+      "impact": "critical",
+      "help": "ARIA attributes must conform to valid values",
+      "nodeCount": 3,
+      "nodes": [
+        {
+          "html": "<button type=\"button\" aria-haspopup=\"menu\" aria-expanded=\"false\" aria-controls=\"_r_0_-menu-nav-consu...\" aria-label=\"Отвори/затвори подме...\" class=\"inline-flex items-ce...\" style=\"color: var(--divisio...\">",
+          "target": [
+            "button[aria-controls=\"_r_0_-menu-nav-consulting\"]"
+          ]
+        },
+        {
+          "html": "<button type=\"button\" aria-haspopup=\"menu\" aria-expanded=\"false\" aria-controls=\"_r_0_-menu-nav-marke...\" aria-label=\"Отвори/затвори подме...\" class=\"inline-flex items-ce...\" style=\"color: var(--divisio...\">",
+          "target": [
+            "button[aria-controls=\"_r_0_-menu-nav-marketing\"]"
+          ]
+        },
+        {
+          "html": "<button type=\"button\" aria-label=\"Отвори разговор со V...\" aria-expanded=\"false\" aria-haspopup=\"dialog\" aria-controls=\"_r_4_\" class=\"chat-trigger fixed z...\" style=\"opacity: 1; transfor...\">",
+          "target": [
+            ".chat-trigger"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "nodeCount": 17,
+      "nodes": [
+        {
+          "html": "<a class=\"inline-flex items-center min-h-[44px] md:min-h-0 md:py-2 pl-3 pr-1 text-sm font-medium focus-ring nav-link\" href=\"/mk/consulting\">Консалтинг</a>",
+          "target": [
+            ".relative.flex > a[href$=\"consulting\"]"
+          ]
+        },
+        {
+          "html": "<a class=\"inline-flex items-center min-h-[44px] md:min-h-0 md:py-2 pl-3 pr-1 text-sm font-medium focus-ring nav-link\" href=\"/mk/marketing\">Маркетинг</a>",
+          "target": [
+            "a[href$=\"marketing\"]"
+          ]
+        },
+        {
+          "html": "<a class=\"relative inline-flex items-center min-h-[44px] md:min-h-0 md:py-2 px-3 text-sm font-medium focus-ring nav-link\" href=\"/mk/projects\">Проекти</a>",
+          "target": [
+            ".nav-link.px-3[href$=\"projects\"]"
+          ]
+        }
+      ]
+    }
+  ]
+}

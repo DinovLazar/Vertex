@@ -1,0 +1,284 @@
+[
+  {
+    "url": "/admin/login",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/about",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/blog",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/blog/what-it-infrastructure-actually-means-for-a-10-person-business",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/blog/why-your-business-website-is-probably-costing-you-customers",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/consulting",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/consulting/ai-consulting",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/consulting/business-consulting",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/consulting/it-systems",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/consulting/workflow-restructuring",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/contact",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/lazar",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/marketing",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/marketing/ai-development",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/marketing/it-infrastructure",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/marketing/social-media",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/marketing/web-design",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/privacy",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/projects",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/projects/fk-belasica-archive",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/projects/iq-up",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/thank-you",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/en/this-route-does-not-exist",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/about",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/blog",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/blog/what-it-infrastructure-actually-means-for-a-10-person-business",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/blog/why-your-business-website-is-probably-costing-you-customers",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/consulting",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/consulting/ai-consulting",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/consulting/business-consulting",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/consulting/it-systems",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/consulting/workflow-restructuring",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/contact",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/lazar",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/marketing",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/marketing/ai-development",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/marketing/it-infrastructure",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/marketing/social-media",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/marketing/web-design",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/privacy",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/projects",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/projects/fk-belasica-archive",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/projects/iq-up",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/thank-you",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  },
+  {
+    "url": "/mk/this-route-does-not-exist",
+    "errors": 0,
+    "warnings": 0,
+    "byCode": {}
+  }
+]

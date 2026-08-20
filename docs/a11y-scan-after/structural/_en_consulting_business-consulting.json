@@ -1,0 +1,106 @@
+{
+  "url": "/en/consulting/business-consulting",
+  "theme": "dark",
+  "desktop": {
+    "lang": "en",
+    "title": "Business Consulting in Strumica, Macedonia | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Business Consulting"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Business Consulting",
+      "h2: What business consulting actually means",
+      "h2: Who this is for",
+      "h2: How we work",
+      "h2: What you get",
+      "h2: Why local matters",
+      "h2: Our process",
+      "h3: Initial conversation",
+      "h3: Business assessment",
+      "h3: Strategy and action plan",
+      "h3: Implementation support",
+      "h2: Frequently asked questions",
+      "h2: Related services",
+      "h2: Ready to take the next step?",
+      "h2: Stay in the loop",
+      "h3: CONSULTING",
+      "h3: MARKETING",
+      "h3: COMPANY"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Skip to content"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 50,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+  },
+  "mobile320": {
+    "lang": "en",
+    "title": "Business Consulting in Strumica, Macedonia | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Business Consulting"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Business Consulting",
+      "h2: What business consulting actually means",
+      "h2: Who this is for",
+      "h2: How we work",
+      "h2: What you get",
+      "h2: Why local matters",
+      "h2: Our process",
+      "h3: Initial conversation",
+      "h3: Business assessment",
+      "h3: Strategy and action plan",
+      "h3: Implementation support",
+      "h2: Frequently asked questions",
+      "h2: Related services",
+      "h2: Ready to take the next step?",
+      "h2: Stay in the loop",
+      "h3: CONSULTING",
+      "h3: MARKETING",
+      "h3: COMPANY"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Skip to content"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 41,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clientWidth": 320
+  },
+  "textSpacing": {
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clipped": []
+  },
+  "zoom200": {
+    "horizontalScroll": false,
+    "scrollWidth": 640,
+    "clientWidth": 640
+  }
+}

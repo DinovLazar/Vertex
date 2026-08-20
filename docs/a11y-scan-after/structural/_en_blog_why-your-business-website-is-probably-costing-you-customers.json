@@ -1,0 +1,105 @@
+{
+  "url": "/en/blog/why-your-business-website-is-probably-costing-you-customers",
+  "theme": "dark",
+  "desktop": {
+    "lang": "en",
+    "title": "Why your business website is probably costing you customers | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Why your business website is probably costing you customers"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Why your business website is probably costing you ",
+      "h2: The mobile-first reality",
+      "h2: Speed is money",
+      "h2: SEO is a technology problem too",
+      "h2: The conversion problem",
+      "h2: What a modern rebuild delivers",
+      "h2: Getting started",
+      "h2: Related posts",
+      "h3: What \"IT infrastructure\" actually means for a 10-p",
+      "h2: Ready to grow your business?",
+      "h2: Stay in the loop",
+      "h3: CONSULTING",
+      "h3: MARKETING",
+      "h3: COMPANY"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Skip to content"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 45,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+  },
+  "mobile320": {
+    "lang": "en",
+    "title": "Why your business website is probably costing you customers | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Why your business website is probably costing you customers"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Why your business website is probably costing you ",
+      "h2: The mobile-first reality",
+      "h2: Speed is money",
+      "h2: SEO is a technology problem too",
+      "h2: The conversion problem",
+      "h2: What a modern rebuild delivers",
+      "h2: Getting started",
+      "h2: Related posts",
+      "h3: What \"IT infrastructure\" actually means for a 10-p",
+      "h2: Ready to grow your business?",
+      "h2: Stay in the loop",
+      "h3: CONSULTING",
+      "h3: MARKETING",
+      "h3: COMPANY"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Skip to content"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 36,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clientWidth": 320
+  },
+  "textSpacing": {
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clipped": [
+      {
+        "tag": "p",
+        "text": "You already have IT infrastructure — dom",
+        "scrollH": 189,
+        "clientH": 63
+      }
+    ]
+  },
+  "zoom200": {
+    "horizontalScroll": false,
+    "scrollWidth": 640,
+    "clientWidth": 640
+  }
+}

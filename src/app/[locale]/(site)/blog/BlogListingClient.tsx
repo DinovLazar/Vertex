@@ -101,7 +101,7 @@ export default function BlogListingClient({
           >
             {filteredPosts.map((post, index) => (
               <motion.div key={post.slug} variants={staggerItem}>
-                <BlogCard post={post} eager={index === 0} />
+                <BlogCard post={post} eager={index === 0} headingLevel={2} />
               </motion.div>
             ))}
           </motion.div>

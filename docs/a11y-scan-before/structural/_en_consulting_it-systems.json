@@ -1,0 +1,104 @@
+{
+  "url": "/en/consulting/it-systems",
+  "theme": "dark",
+  "desktop": {
+    "lang": "en",
+    "title": "IT & Systems Support for Businesses | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "IT & Systems Assistance"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: IT & Systems Assistance",
+      "h2: The problem with business technology",
+      "h2: What we help with",
+      "h2: Our approach to IT consulting",
+      "h2: When you need IT systems help",
+      "h2: Our process",
+      "h3: Technology audit",
+      "h3: Stack recommendation",
+      "h3: Setup and configuration",
+      "h3: Training and handover",
+      "h2: Frequently asked questions",
+      "h2: Related services",
+      "h2: Ready to take the next step?",
+      "h2: Stay in the loop",
+      "h3: CONSULTING",
+      "h3: MARKETING",
+      "h3: COMPANY"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Skip to content"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 49,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+  },
+  "mobile320": {
+    "lang": "en",
+    "title": "IT & Systems Support for Businesses | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "IT & Systems Assistance"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: IT & Systems Assistance",
+      "h2: The problem with business technology",
+      "h2: What we help with",
+      "h2: Our approach to IT consulting",
+      "h2: When you need IT systems help",
+      "h2: Our process",
+      "h3: Technology audit",
+      "h3: Stack recommendation",
+      "h3: Setup and configuration",
+      "h3: Training and handover",
+      "h2: Frequently asked questions",
+      "h2: Related services",
+      "h2: Ready to take the next step?",
+      "h2: Stay in the loop",
+      "h3: CONSULTING",
+      "h3: MARKETING",
+      "h3: COMPANY"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Skip to content"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 40,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clientWidth": 320
+  },
+  "textSpacing": {
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clipped": []
+  },
+  "zoom200": {
+    "horizontalScroll": false,
+    "scrollWidth": 640,
+    "clientWidth": 640
+  }
+}

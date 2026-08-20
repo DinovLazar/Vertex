@@ -1,0 +1,115 @@
+{
+  "url": "/mk/blog",
+  "theme": "dark",
+  "desktop": {
+    "lang": "mk",
+    "title": "Блог — бизнис, маркетинг и AI | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Увиди од теренот."
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Увиди од теренот.",
+      "h2: Што навистина значи „IT инфраструктура\" за бизнис ",
+      "h2: Практичен водич за AI алатки за мал бизнис во 2026",
+      "h2: Зошто вашата бизнис веб страница веројатно ве чини",
+      "h2: Пет знаци дека на вашиот бизнис му треба преуредув",
+      "h2: Подготвени сте да го развиете вашиот бизнис?",
+      "h2: Останете во тек",
+      "h3: КОНСАЛТИНГ",
+      "h3: МАРКЕТИНГ",
+      "h3: КОМПАНИЈА"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Прескокни до содржина"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 49,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+  },
+  "mobile320": {
+    "lang": "mk",
+    "title": "Блог — бизнис, маркетинг и AI | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Увиди од теренот."
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Увиди од теренот.",
+      "h2: Што навистина значи „IT инфраструктура\" за бизнис ",
+      "h2: Практичен водич за AI алатки за мал бизнис во 2026",
+      "h2: Зошто вашата бизнис веб страница веројатно ве чини",
+      "h2: Пет знаци дека на вашиот бизнис му треба преуредув",
+      "h2: Подготвени сте да го развиете вашиот бизнис?",
+      "h2: Останете во тек",
+      "h3: КОНСАЛТИНГ",
+      "h3: МАРКЕТИНГ",
+      "h3: КОМПАНИЈА"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Прескокни до содржина"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 40,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clientWidth": 320
+  },
+  "textSpacing": {
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clipped": [
+      {
+        "tag": "p",
+        "text": "Веќе имате IT инфраструктура — домен, DN",
+        "scrollH": 231,
+        "clientH": 63
+      },
+      {
+        "tag": "p",
+        "text": "Пробијте го AI шумот. Еве што навистина ",
+        "scrollH": 105,
+        "clientH": 63
+      },
+      {
+        "tag": "p",
+        "text": "Повеќето бизнис веб страници во Македони",
+        "scrollH": 168,
+        "clientH": 63
+      },
+      {
+        "tag": "p",
+        "text": "Ако вашиот тим е секогаш зафатен, но рез",
+        "scrollH": 147,
+        "clientH": 63
+      }
+    ]
+  },
+  "zoom200": {
+    "horizontalScroll": false,
+    "scrollWidth": 640,
+    "clientWidth": 640
+  }
+}

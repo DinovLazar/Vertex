@@ -1,0 +1,516 @@
+[
+  {
+    "url": "/en",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(12)"
+    ]
+  },
+  {
+    "url": "/en/about",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/en/blog",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(47)"
+    ]
+  },
+  {
+    "url": "/en/blog/why-your-business-website-is-probably-costing-you-customers",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(17)"
+    ]
+  },
+  {
+    "url": "/en/blog/what-it-infrastructure-actually-means-for-a-10-person-business",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(17)"
+    ]
+  },
+  {
+    "url": "/en/consulting",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(15)"
+    ]
+  },
+  {
+    "url": "/en/consulting/ai-consulting",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/en/consulting/business-consulting",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/en/consulting/it-systems",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/en/consulting/workflow-restructuring",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/en/contact",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(8)"
+    ]
+  },
+  {
+    "url": "/en/lazar",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(9)"
+    ]
+  },
+  {
+    "url": "/en/marketing",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(11)"
+    ]
+  },
+  {
+    "url": "/en/marketing/ai-development",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/en/marketing/it-infrastructure",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/en/marketing/social-media",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/en/marketing/web-design",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/en/privacy",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(8)"
+    ]
+  },
+  {
+    "url": "/en/projects",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(32)"
+    ]
+  },
+  {
+    "url": "/en/projects/iq-up",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(8)"
+    ]
+  },
+  {
+    "url": "/en/projects/fk-belasica-archive",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(8)"
+    ]
+  },
+  {
+    "url": "/en/thank-you",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(8)"
+    ]
+  },
+  {
+    "url": "/en/this-route-does-not-exist",
+    "status": 404,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(8)"
+    ]
+  },
+  {
+    "url": "/mk",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(12)"
+    ]
+  },
+  {
+    "url": "/mk/about",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/mk/blog",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(47)"
+    ]
+  },
+  {
+    "url": "/mk/blog/why-your-business-website-is-probably-costing-you-customers",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(17)"
+    ]
+  },
+  {
+    "url": "/mk/blog/what-it-infrastructure-actually-means-for-a-10-person-business",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(17)"
+    ]
+  },
+  {
+    "url": "/mk/consulting",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(15)"
+    ]
+  },
+  {
+    "url": "/mk/consulting/ai-consulting",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/mk/consulting/business-consulting",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/mk/consulting/it-systems",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/mk/consulting/workflow-restructuring",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/mk/contact",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(8)"
+    ]
+  },
+  {
+    "url": "/mk/lazar",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(9)"
+    ]
+  },
+  {
+    "url": "/mk/marketing",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(11)"
+    ]
+  },
+  {
+    "url": "/mk/marketing/ai-development",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/mk/marketing/it-infrastructure",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/mk/marketing/social-media",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/mk/marketing/web-design",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(7)"
+    ]
+  },
+  {
+    "url": "/mk/privacy",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(8)"
+    ]
+  },
+  {
+    "url": "/mk/projects",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(32)"
+    ]
+  },
+  {
+    "url": "/mk/projects/iq-up",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(8)"
+    ]
+  },
+  {
+    "url": "/mk/projects/fk-belasica-archive",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(8)"
+    ]
+  },
+  {
+    "url": "/mk/thank-you",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(8)"
+    ]
+  },
+  {
+    "url": "/mk/this-route-does-not-exist",
+    "status": 404,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": [
+      "aria-valid-attr-value(3)",
+      "color-contrast(8)"
+    ]
+  },
+  {
+    "url": "/admin/login",
+    "status": 200,
+    "violationRules": 0,
+    "violationNodes": 0,
+    "rules": [],
+    "incompleteRules": []
+  }
+]
