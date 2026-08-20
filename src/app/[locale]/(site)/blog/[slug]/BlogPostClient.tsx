@@ -2,6 +2,7 @@
 
 import { useFormatter, useLocale, useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
+import Image from 'next/image'
 import { PortableText, type PortableTextComponents } from '@portabletext/react'
 import { Section, AnimateIn, JsonLd } from '@/components/global'
 import { BlogCard, CTABanner } from '@/components/sections'
@@ -163,6 +164,32 @@ export default function BlogPostClient({
       {/* Content. `md:pt-0` strips desktop top padding so the prose flows
           continuously from the header above. */}
       <Section className="pt-0 md:pt-0">
+        {/* Featured image. Held to the same `max-w-3xl` measure as the header
+            and the prose so it reads as part of the article column rather than
+            a full-bleed banner, and to `aspect-video` so every post presents
+            the same shape regardless of what was uploaded — the assets range
+            from 3:2 to 4:3. `priority` because at this position it is the LCP
+            element on a post page. Alt falls back to the title: the field is
+            optional in the schema, and an empty alt on a content image is
+            worse than a slightly redundant one. */}
+        {post.featuredImage && (
+          <AnimateIn>
+            <figure className="max-w-3xl mb-10 md:mb-12">
+              <div className="relative aspect-video overflow-hidden rounded-[12px] border border-[var(--division-border)] bg-[var(--division-card)]">
+                <Image
+                  src={post.featuredImage.url}
+                  alt={post.featuredImage.alt?.[locale] ?? post.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  placeholder={post.featuredImage.lqip ? 'blur' : 'empty'}
+                  blurDataURL={post.featuredImage.lqip ?? undefined}
+                  priority
+                  className="object-cover"
+                />
+              </div>
+            </figure>
+          </AnimateIn>
+        )}
         <AnimateIn>
           <div className="prose-blog max-w-3xl">
             <PortableText value={post.body} components={portableTextComponents} />

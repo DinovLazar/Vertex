@@ -474,3 +474,25 @@ would make the sentence harder to act on, not easier. **Flag if Goran prefers �
   same as the tag set flagged in item 5 of the top-20 list.
 
 Estimated review time: ~10 minutes.
+
+### BL-F. Featured-image `alt` text on the three original posts (added 2026-08-20)
+
+Backfilled images (see `session-blog-it-infrastructure_2026-08-20.md` Part 2) brought three
+new MK strings with them. These live in **Sanity** (`featuredImage.alt.mk`), not in
+`messages/mk.json`. Alt text is read aloud by screen readers and indexed, so it is worth the
+same pass as body copy:
+
+- `post-workflow-overhaul` → „Kanban табла на ѕид од темна цигла, со ливчиња распоредени во
+  колони за секоја фаза од работата". **„Kanban" kept Latin** per convention #19 (same class
+  as Notion / Asana / Monday). „ливчиња" for "sticky notes" — the descriptive „самолепливи
+  ливчиња" is more precise but long for alt text.
+- `post-website-costing-customers` → „Лице што ја проверува истата веб страница на телефон и
+  на лаптоп еден до друг". „Лице" (neutral "a person") avoids gendering someone whose gender
+  is not the point; „Човек" would read more naturally but is masculine-default.
+- `post-ai-tools-2026` → „Работна маса со отворен лаптоп, печатени документи, тетратка и
+  телефон во текот на работна сесија". The trailing „во текот на работна сесија" is padding
+  carried over from the EN; it could be dropped entirely without losing meaning.
+
+The fourth post's alt („Мрежни кабли поврзани во сервер рек во канцеларија на мал бизнис")
+uses **„рек"** as a transliteration of "rack" — the Latin „rack" or the descriptive „сервер
+орман" are both defensible. **Worth a native-speaker call.**

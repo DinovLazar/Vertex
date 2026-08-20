@@ -30,11 +30,27 @@ export async function generateMetadata({
       noIndex: true,
     })
   }
+  // Social card = the post's own featured image, not the site-wide Vertex card.
+  // Sanity's CDN does the 1.91:1 crop for us, so the asset can stay whatever
+  // shape it was uploaded at: `crop=entropy` picks the busiest region rather
+  // than blindly centring, and `fm=jpg` avoids handing WebP to the older
+  // scrapers (LinkedIn, some chat clients) that still refuse to render it.
+  // Posts with no image fall through to the site-wide card as before.
+  const image = post.featuredImage
+    ? {
+        url: `${post.featuredImage.url}?w=1200&h=630&fit=crop&crop=entropy&fm=jpg&q=80`,
+        width: 1200,
+        height: 630,
+        alt: post.featuredImage.alt?.[locale] ?? post.title,
+      }
+    : null
+
   return generatePageMetadata({
     title: post.title,
     description: post.excerpt,
     path: `/blog/${post.slug}`,
     locale,
+    image,
   })
 }
 
