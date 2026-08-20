@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og'
+import { brandMarkDataUri } from '@/lib/brand-mark'
 
 export const alt = 'Vertex Consulting — We help businesses grow smarter.'
 export const size = { width: 1200, height: 630 }
@@ -63,23 +64,22 @@ export default async function Image() {
             zIndex: 1,
           }}
         >
-          <div
+          {/* The brand disc, drawn from the same vector as the favicon. It is
+              passed as an SVG data URI rather than inline markup because
+              satori rasterises <img> sources reliably and only partially
+              supports inline SVG children. The disc is #0E0E0E on a #141414
+              card, so a hairline ring separates it from the background — the
+              mark is otherwise near-invisible on its own brand colour. */}
+          <img
+            src={brandMarkDataUri({ plate: 'disc' })}
+            alt=""
+            width={72}
+            height={72}
             style={{
-              width: '56px',
-              height: '56px',
-              borderRadius: '14px',
-              background:
-                'linear-gradient(135deg, #F5F5F5 0%, #C9C9C9 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '32px',
-              fontWeight: 700,
-              color: '#141414',
+              borderRadius: '50%',
+              boxShadow: 'inset 0 0 0 1px rgba(245,245,245,0.12)',
             }}
-          >
-            V
-          </div>
+          />
           <span
             style={{
               fontSize: '30px',

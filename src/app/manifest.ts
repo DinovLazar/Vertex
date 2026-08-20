@@ -40,10 +40,15 @@ export default function manifest(): MetadataRoute.Manifest {
         purpose: 'any',
       },
       {
-        // Maskable variant reuses the same square: the mark sits well inside
-        // the 80% safe zone, so an installer cropping to a circle or squircle
-        // never clips it.
-        src: '/icon-512.png',
+        // Maskable needs its own file, not a reuse of the `any` icons. Those
+        // are the brand disc with transparent corners; Android applies its own
+        // silhouette to a maskable icon, and a disc inside a squircle — or
+        // worse, a disc whose transparent corners show the launcher wallpaper
+        // through the mask — reads as a mistake. This variant is the same
+        // wordmark on a full-bleed #0E0E0E plate. The wordmark's corners sit
+        // 372px from centre on the 1024 grid, inside the 409.6px safe-zone
+        // radius, so no crop can clip it.
+        src: '/icon-maskable-512.png',
         sizes: '512x512',
         type: 'image/png',
         purpose: 'maskable',
