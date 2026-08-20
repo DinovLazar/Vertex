@@ -20,9 +20,14 @@ const ACTIVATION_PAD = 80 // px beyond the button edge before the pull engages
  * responsive visibility on the wrapper (e.g. `hidden md:inline-flex`); it is
  * merged so a `hidden` override wins over the default `inline-flex`.
  *
- * Under reduced motion the listener never attaches and the squish is dropped,
- * so the button is a static element. `<MotionConfig reducedMotion="user">`
- * elsewhere can't cover the manual pointer math, hence the explicit guard.
+ * Under reduced motion the listener never attaches and the squish flattens to
+ * a no-op, so the button is a static element. `<MotionConfig
+ * reducedMotion="user">` elsewhere can't cover the manual pointer math, hence
+ * the explicit guard.
+ *
+ * The wrapper is decorative: the child it wraps (a `<Link>`, `<a>` or
+ * `<button>`) owns the role, the accessible name and the focus ring, so the
+ * span is held out of the tab order with `tabIndex={-1}`.
  */
 export default function MagneticButton({
   children,
@@ -74,8 +79,21 @@ export default function MagneticButton({
     <motion.span
       ref={ref}
       style={{ x: springX, y: springY }}
-      whileTap={prefersReduced ? undefined : { scale: SQUISH }}
+      // Squish by value, never by prop presence: motion derives
+      // `tabIndex={0}` at render time from the mere existence of `whileTap`
+      // (framer-motion's useHTMLProps). `prefersReduced` is null during SSR
+      // and the real preference on the client's first render, so toggling the
+      // prop off made server and client markup disagree on `tabindex` — a
+      // hydration mismatch on every reduced-motion visitor. `scale: 1` is a
+      // visual no-op, so the markup is now identical either way.
+      whileTap={{ scale: prefersReduced ? 1 : SQUISH }}
       transition={{ type: 'spring', stiffness: 400, damping: 22 }}
+      // Belt and braces for the above, and an accessibility fix in its own
+      // right: an explicit tabIndex stops motion injecting one (both at render
+      // and via the press gesture's `element.tabIndex = 0`), which otherwise
+      // left a nameless, roleless tab stop in front of every CTA that Enter
+      // could not activate. The child stays keyboard-reachable on its own.
+      tabIndex={-1}
       className={cn('inline-flex', className)}
     >
       {children}

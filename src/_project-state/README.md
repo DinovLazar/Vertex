@@ -51,6 +51,14 @@ This folder is the project's persistent memory. It exists so that every new Clau
 - [ ] Phase 16 — Performance Audit & Launch
 
 ## Ad-hoc sessions after Phase 18
+- **Session — MagneticButton hydration mismatch (2026-08-20)** —
+  `session-magnetic-button-hydration_2026-08-20.md`. Every dev page load logged a React
+  hydration error ("1 Issue" in the overlay) over a lone `tabindex="0"` on the MagneticButton
+  span. motion injects that attribute at render time from the *presence* of `whileTap`, which
+  the component gated on `useReducedMotion()` — `null` server-side, real preference on the
+  client — so SSR and client disagreed for every reduced-motion visitor. Squish is now
+  expressed by value and the decorative wrapper carries `tabIndex={-1}`, which also removes a
+  nameless second tab stop that had been sitting in front of every prime CTA.
 - **Session — Light-Mode Overhaul + Goran portrait + `/projects` (2026-08-20)** —
   `session-light-mode-projects_2026-08-20.md`. Light mode rebuilt around shadow-based
   elevation (Phase L1 had kept the *dark* model, which collapses on white); several
