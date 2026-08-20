@@ -1,0 +1,104 @@
+{
+  "url": "/en/marketing/web-design",
+  "theme": "dark",
+  "desktop": {
+    "lang": "en",
+    "title": "Web Design & Development in Macedonia | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Web Design & Development"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Web Design & Development",
+      "h2: What modern web design looks like",
+      "h2: Who needs a custom website",
+      "h2: Our approach to web development",
+      "h2: What is included",
+      "h2: Our process",
+      "h3: Strategy and planning",
+      "h3: Design and prototyping",
+      "h3: Development and testing",
+      "h3: Launch and support",
+      "h2: Frequently asked questions",
+      "h2: Related services",
+      "h2: Let's build something great.",
+      "h2: Stay in the loop",
+      "h3: CONSULTING",
+      "h3: MARKETING",
+      "h3: COMPANY"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Skip to content"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 50,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+  },
+  "mobile320": {
+    "lang": "en",
+    "title": "Web Design & Development in Macedonia | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Web Design & Development"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Web Design & Development",
+      "h2: What modern web design looks like",
+      "h2: Who needs a custom website",
+      "h2: Our approach to web development",
+      "h2: What is included",
+      "h2: Our process",
+      "h3: Strategy and planning",
+      "h3: Design and prototyping",
+      "h3: Development and testing",
+      "h3: Launch and support",
+      "h2: Frequently asked questions",
+      "h2: Related services",
+      "h2: Let's build something great.",
+      "h2: Stay in the loop",
+      "h3: CONSULTING",
+      "h3: MARKETING",
+      "h3: COMPANY"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Skip to content"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 41,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clientWidth": 320
+  },
+  "textSpacing": {
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clipped": []
+  },
+  "zoom200": {
+    "horizontalScroll": false,
+    "scrollWidth": 640,
+    "clientWidth": 640
+  }
+}

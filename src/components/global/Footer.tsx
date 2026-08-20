@@ -1,6 +1,6 @@
 'use client'
 
-import { useId, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { motion } from 'motion/react'
@@ -116,6 +116,16 @@ export default function Footer() {
   const [newsletterHoneypot, setNewsletterHoneypot] = useState('')
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [newsletterError, setNewsletterError] = useState('')
+  const newsletterSuccessRef = useRef<HTMLParagraphElement>(null)
+
+  // Subscribing swaps the input + submit button out for the confirmation
+  // line, which destroys the focused button and leaves focus on <body>.
+  // Errors already announce (role="alert"); success was the silent case —
+  // a screen-reader user got no confirmation at all (WCAG 4.1.3). Same
+  // treatment as the contact form: announce it AND land focus on it.
+  useEffect(() => {
+    if (newsletterStatus === 'success') newsletterSuccessRef.current?.focus()
+  }, [newsletterStatus])
 
   const socialLinks = [
     { labelKey: 'social.linkedin', href: siteConfig.social.linkedin, icon: LinkedinIcon },
@@ -203,7 +213,12 @@ export default function Footer() {
                 the subscribe region. Pure pointer-events-none overlay. */}
             {newsletterStatus === 'success' && <Confetti />}
             {newsletterStatus === 'success' ? (
-              <p className="text-small text-[var(--division-accent)] font-medium md:w-64">
+              <p
+                ref={newsletterSuccessRef}
+                tabIndex={-1}
+                role="status"
+                className="text-small text-[var(--division-accent)] font-medium md:w-64 focus-ring"
+              >
                 {t('newsletter.success')}
               </p>
             ) : (
@@ -226,6 +241,7 @@ export default function Footer() {
                   <input
                     type="email"
                     id={newsletterEmailId}
+                    autoComplete="email"
                     required
                     value={newsletterEmail}
                     onChange={(e) => {

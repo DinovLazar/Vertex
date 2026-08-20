@@ -1,0 +1,105 @@
+{
+  "url": "/mk/blog/why-your-business-website-is-probably-costing-you-customers",
+  "theme": "dark",
+  "desktop": {
+    "lang": "mk",
+    "title": "Зошто вашата бизнис веб страница веројатно ве чини клиенти | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Зошто вашата бизнис веб страница веројатно ве чини клиенти"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Зошто вашата бизнис веб страница веројатно ве чини",
+      "h2: Реалноста на mobile-first",
+      "h2: Брзината е пари",
+      "h2: SEO исто така е технолошки проблем",
+      "h2: Проблемот со конверзија",
+      "h2: Што носи модерна повторна изработка",
+      "h2: Како да започнете",
+      "h2: Поврзани објави",
+      "h3: Што навистина значи „IT инфраструктура\" за бизнис ",
+      "h2: Подготвени сте да го развиете вашиот бизнис?",
+      "h2: Останете во тек",
+      "h3: КОНСАЛТИНГ",
+      "h3: МАРКЕТИНГ",
+      "h3: КОМПАНИЈА"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Прескокни до содржина"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 45,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+  },
+  "mobile320": {
+    "lang": "mk",
+    "title": "Зошто вашата бизнис веб страница веројатно ве чини клиенти | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Зошто вашата бизнис веб страница веројатно ве чини клиенти"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Зошто вашата бизнис веб страница веројатно ве чини",
+      "h2: Реалноста на mobile-first",
+      "h2: Брзината е пари",
+      "h2: SEO исто така е технолошки проблем",
+      "h2: Проблемот со конверзија",
+      "h2: Што носи модерна повторна изработка",
+      "h2: Како да започнете",
+      "h2: Поврзани објави",
+      "h3: Што навистина значи „IT инфраструктура\" за бизнис ",
+      "h2: Подготвени сте да го развиете вашиот бизнис?",
+      "h2: Останете во тек",
+      "h3: КОНСАЛТИНГ",
+      "h3: МАРКЕТИНГ",
+      "h3: КОМПАНИЈА"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Прескокни до содржина"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 36,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clientWidth": 320
+  },
+  "textSpacing": {
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clipped": [
+      {
+        "tag": "p",
+        "text": "Веќе имате IT инфраструктура — домен, DN",
+        "scrollH": 231,
+        "clientH": 63
+      }
+    ]
+  },
+  "zoom200": {
+    "horizontalScroll": false,
+    "scrollWidth": 640,
+    "clientWidth": 640
+  }
+}

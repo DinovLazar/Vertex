@@ -1,0 +1,104 @@
+{
+  "url": "/mk/marketing/it-infrastructure",
+  "theme": "dark",
+  "desktop": {
+    "lang": "mk",
+    "title": "IT инфраструктура и хостинг | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "IT инфраструктура"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: IT инфраструктура",
+      "h2: Што значи IT инфраструктурата за вашиот бизнис",
+      "h2: Што поставуваме и управуваме",
+      "h2: Зошто на бизнисите им треба управувана инфраструкт",
+      "h2: Нашата филозофија за инфраструктура",
+      "h2: Нашиот процес",
+      "h3: Инфраструктурна ревизија",
+      "h3: Архитектонски дизајн",
+      "h3: Миграција и поставување",
+      "h3: Следење и одржување",
+      "h2: Често поставувани прашања",
+      "h2: Поврзани услуги",
+      "h2: Да изградиме нешто одлично.",
+      "h2: Останете во тек",
+      "h3: КОНСАЛТИНГ",
+      "h3: МАРКЕТИНГ",
+      "h3: КОМПАНИЈА"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Прескокни до содржина"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 49,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+  },
+  "mobile320": {
+    "lang": "mk",
+    "title": "IT инфраструктура и хостинг | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "IT инфраструктура"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: IT инфраструктура",
+      "h2: Што значи IT инфраструктурата за вашиот бизнис",
+      "h2: Што поставуваме и управуваме",
+      "h2: Зошто на бизнисите им треба управувана инфраструкт",
+      "h2: Нашата филозофија за инфраструктура",
+      "h2: Нашиот процес",
+      "h3: Инфраструктурна ревизија",
+      "h3: Архитектонски дизајн",
+      "h3: Миграција и поставување",
+      "h3: Следење и одржување",
+      "h2: Често поставувани прашања",
+      "h2: Поврзани услуги",
+      "h2: Да изградиме нешто одлично.",
+      "h2: Останете во тек",
+      "h3: КОНСАЛТИНГ",
+      "h3: МАРКЕТИНГ",
+      "h3: КОМПАНИЈА"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Прескокни до содржина"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 40,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clientWidth": 320
+  },
+  "textSpacing": {
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clipped": []
+  },
+  "zoom200": {
+    "horizontalScroll": false,
+    "scrollWidth": 640,
+    "clientWidth": 640
+  }
+}

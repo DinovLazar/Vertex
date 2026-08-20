@@ -1,0 +1,112 @@
+{
+  "url": "/mk/about",
+  "theme": "dark",
+  "desktop": {
+    "lang": "mk",
+    "title": "За нас — основани 2018 во Струмица | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Македонски консалтинг изграден на практични резултати."
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Македонски консалтинг изграден на практични резулт",
+      "h2: Нашите вредности",
+      "h3: Директно и искрено",
+      "h3: Практични резултати",
+      "h3: Работи брзо, остани острo",
+      "h3: Долгорочно размислување",
+      "h2: Четворица луѓе, две дивизии, една мисија",
+      "h3: Goran Dinov",
+      "h3: Lazar Dinov",
+      "h3: Petar Jakimov",
+      "h3: Andrej Jakimov",
+      "h2: Од 2018 до денес",
+      "h3: Основан Vertex Consulting",
+      "h3: Проширување во IT консалтинг",
+      "h3: Лансиран AI консалтинг",
+      "h3: Лансирана дивизијата Vertex Marketing",
+      "h2: Да изградиме нешто заедно.",
+      "h2: Останете во тек",
+      "h3: КОНСАЛТИНГ",
+      "h3: МАРКЕТИНГ",
+      "h3: КОМПАНИЈА"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Прескокни до содржина"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 42,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+  },
+  "mobile320": {
+    "lang": "mk",
+    "title": "За нас — основани 2018 во Струмица | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Македонски консалтинг изграден на практични резултати."
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Македонски консалтинг изграден на практични резулт",
+      "h2: Нашите вредности",
+      "h3: Директно и искрено",
+      "h3: Практични резултати",
+      "h3: Работи брзо, остани острo",
+      "h3: Долгорочно размислување",
+      "h2: Четворица луѓе, две дивизии, една мисија",
+      "h3: Goran Dinov",
+      "h3: Lazar Dinov",
+      "h3: Petar Jakimov",
+      "h3: Andrej Jakimov",
+      "h2: Од 2018 до денес",
+      "h3: Основан Vertex Consulting",
+      "h3: Проширување во IT консалтинг",
+      "h3: Лансиран AI консалтинг",
+      "h3: Лансирана дивизијата Vertex Marketing",
+      "h2: Да изградиме нешто заедно.",
+      "h2: Останете во тек",
+      "h3: КОНСАЛТИНГ",
+      "h3: МАРКЕТИНГ",
+      "h3: КОМПАНИЈА"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Прескокни до содржина"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 33,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clientWidth": 320
+  },
+  "textSpacing": {
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clipped": []
+  },
+  "zoom200": {
+    "horizontalScroll": false,
+    "scrollWidth": 640,
+    "clientWidth": 640
+  }
+}

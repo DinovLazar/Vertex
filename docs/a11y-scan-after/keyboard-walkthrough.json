@@ -1,0 +1,394 @@
+{
+  "/en": {
+    "totalStops": 30,
+    "firstStop": {
+      "tag": "a",
+      "text": "Skip to content",
+      "href": "#main-content",
+      "visibleRing": true,
+      "outline": "rgb(245, 245, 245) solid 2px",
+      "boxShadow": "none",
+      "inViewport": false,
+      "rectTop": -56,
+      "rectH": 36,
+      "coveredAtCentre": true
+    },
+    "skipLinkFirst": true,
+    "stopsWithoutVisibleFocus": [],
+    "stopsObscured": [
+      {
+        "tag": "a",
+        "text": "Skip to content"
+      }
+    ],
+    "order": [
+      "a \"Skip to content\"",
+      "a \"VERTEX\"",
+      "a \"Consulting\"",
+      "button \"Toggle Consulting submenu\"",
+      "a \"Marketing\"",
+      "button \"Toggle Marketing submenu\"",
+      "a \"Work\"",
+      "a \"About\"",
+      "a \"Blog\"",
+      "a \"Contact\"",
+      "button \"Switch to light mode\"",
+      "button \"MK\"",
+      "a \"Client Portal\"",
+      "a \"Get in Touch\"",
+      "a \"Explore Consulting\"",
+      "a \"Explore Marketing\"",
+      "a \"Vertex Consulting\n\nStrategic clarity for g\"",
+      "a \"Vertex Marketing\n\nCreative digital presenc\"",
+      "a \"CONSULTING\nBusiness Consulting\n\nIdentify a\"",
+      "a \"CONSULTING\nWorkflow Restructuring\n\nRedesig\"",
+      "a \"CONSULTING\nIT & Systems\n\nGet the right too\"",
+      "a \"CONSULTING\nAI Consulting\n\nIntegrate AI too\"",
+      "a \"MARKETING\nWeb Design\n\nModern websites that\"",
+      "a \"MARKETING\nSocial Media\n\nBuild a following \"",
+      "a \"MARKETING\nIT Infrastructure\n\nReliable host\"",
+      "a \"MARKETING\nAI Development\n\nCustom AI-powere\"",
+      "a \"MARKETING\nIQ UP!\n\nWebsite & Brand\n\nA brigh\"",
+      "a \"MARKETING\nSunset Services\n\nWebsite & SEO\n\n\"",
+      "a \"MARKETING\nDalibor Plečić — Author\n\nWebsite\"",
+      "a \"See all projects\""
+    ]
+  },
+  "/en/contact": {
+    "totalStops": 27,
+    "firstStop": {
+      "tag": "a",
+      "text": "Skip to content",
+      "href": "#main-content",
+      "visibleRing": true,
+      "outline": "rgb(245, 245, 245) solid 2px",
+      "boxShadow": "none",
+      "inViewport": false,
+      "rectTop": -56,
+      "rectH": 36,
+      "coveredAtCentre": true
+    },
+    "skipLinkFirst": true,
+    "stopsWithoutVisibleFocus": [],
+    "stopsObscured": [
+      {
+        "tag": "a",
+        "text": "Skip to content"
+      }
+    ],
+    "order": [
+      "a \"Skip to content\"",
+      "a \"VERTEX\"",
+      "a \"Consulting\"",
+      "button \"Toggle Consulting submenu\"",
+      "a \"Marketing\"",
+      "button \"Toggle Marketing submenu\"",
+      "a \"Work\"",
+      "a \"About\"",
+      "a \"Blog\"",
+      "a \"Contact\"",
+      "button \"Switch to light mode\"",
+      "button \"MK\"",
+      "a \"Client Portal\"",
+      "a \"Get in Touch\"",
+      "a \"Home\"",
+      "input#_R_2j9bsnp5t6ivb_-name \"Your name\"",
+      "input#_R_2j9bsnp5t6ivb_-email \"you@example.com\"",
+      "input#_R_2j9bsnp5t6ivb_-phone \"+389 ...\"",
+      "select#_R_2j9bsnp5t6ivb_-division \"Not sure yet\nVertex Consulting (business c\"",
+      "textarea#_R_2j9bsnp5t6ivb_-message \"Tell us a bit about your business and what\"",
+      "button \"Send Message\"",
+      "a \"Office\n\nStr. Mladinska 43, Strumica, North\"",
+      "a \"Phone\n\n+389 70 214 033\"",
+      "a \"Email\n\ninfo@vertexconsulting.mk\"",
+      "a \"info@vertexconsulting.mk\"",
+      "a \"marketing@vertexconsulting.mk\"",
+      "BODY(none) \"\""
+    ]
+  },
+  "/en/blog": {
+    "totalStops": 23,
+    "firstStop": {
+      "tag": "a",
+      "text": "Skip to content",
+      "href": "#main-content",
+      "visibleRing": true,
+      "outline": "rgb(245, 245, 245) solid 2px",
+      "boxShadow": "none",
+      "inViewport": false,
+      "rectTop": -56,
+      "rectH": 36,
+      "coveredAtCentre": true
+    },
+    "skipLinkFirst": true,
+    "stopsWithoutVisibleFocus": [],
+    "stopsObscured": [
+      {
+        "tag": "a",
+        "text": "Skip to content"
+      }
+    ],
+    "order": [
+      "a \"Skip to content\"",
+      "a \"VERTEX\"",
+      "a \"Consulting\"",
+      "button \"Toggle Consulting submenu\"",
+      "a \"Marketing\"",
+      "button \"Toggle Marketing submenu\"",
+      "a \"Work\"",
+      "a \"About\"",
+      "a \"Blog\"",
+      "a \"Contact\"",
+      "button \"Switch to light mode\"",
+      "button \"MK\"",
+      "a \"Client Portal\"",
+      "a \"Get in Touch\"",
+      "a \"Home\"",
+      "button \"All posts\"",
+      "button \"Consulting\"",
+      "button \"Marketing\"",
+      "button \"General\"",
+      "a \"MARKETING\n·\nAug 20, 2026\n·\n7 min read\nWhat\"",
+      "a \"GENERAL\n·\nApr 5, 2026\n·\n8 min read\nThe pra\"",
+      "a \"MARKETING\n·\nMar 22, 2026\n·\n7 min read\nWhy \"",
+      "a \"CONSULTING\n·\nMar 15, 2026\n·\n6 min read\nFiv\""
+    ]
+  },
+  "/en/consulting": {
+    "totalStops": 21,
+    "firstStop": {
+      "tag": "a",
+      "text": "Skip to content",
+      "href": "#main-content",
+      "visibleRing": true,
+      "outline": "rgb(245, 245, 245) solid 2px",
+      "boxShadow": "none",
+      "inViewport": false,
+      "rectTop": -56,
+      "rectH": 36,
+      "coveredAtCentre": true
+    },
+    "skipLinkFirst": true,
+    "stopsWithoutVisibleFocus": [],
+    "stopsObscured": [
+      {
+        "tag": "a",
+        "text": "Skip to content"
+      }
+    ],
+    "order": [
+      "a \"Skip to content\"",
+      "a \"VERTEX\"",
+      "a \"Consulting\"",
+      "button \"Toggle Consulting submenu\"",
+      "a \"Marketing\"",
+      "button \"Toggle Marketing submenu\"",
+      "a \"Work\"",
+      "a \"About\"",
+      "a \"Blog\"",
+      "a \"Contact\"",
+      "button \"Switch to light mode\"",
+      "button \"MK\"",
+      "a \"Client Portal\"",
+      "a \"Get in Touch\"",
+      "a \"Our Services\"",
+      "a \"Meet Goran\"",
+      "a \"Home\"",
+      "a \"Business Consulting\n\nIdentify and fix the \"",
+      "a \"Workflow Restructuring\n\nRedesign how your \"",
+      "a \"IT & Systems\n\nChoose and set up the right \"",
+      "a \"AI Consulting\n\nIntegrate AI tools that gen\""
+    ]
+  },
+  "/en/projects": {
+    "totalStops": 21,
+    "firstStop": {
+      "tag": "a",
+      "text": "Skip to content",
+      "href": "#main-content",
+      "visibleRing": true,
+      "outline": "rgb(245, 245, 245) solid 2px",
+      "boxShadow": "none",
+      "inViewport": false,
+      "rectTop": -56,
+      "rectH": 36,
+      "coveredAtCentre": true
+    },
+    "skipLinkFirst": true,
+    "stopsWithoutVisibleFocus": [],
+    "stopsObscured": [
+      {
+        "tag": "a",
+        "text": "Skip to content"
+      }
+    ],
+    "order": [
+      "a \"Skip to content\"",
+      "a \"VERTEX\"",
+      "a \"Consulting\"",
+      "button \"Toggle Consulting submenu\"",
+      "a \"Marketing\"",
+      "button \"Toggle Marketing submenu\"",
+      "a \"Work\"",
+      "a \"About\"",
+      "a \"Blog\"",
+      "a \"Contact\"",
+      "button \"Switch to light mode\"",
+      "button \"MK\"",
+      "a \"Client Portal\"",
+      "a \"Get in Touch\"",
+      "a \"Home\"",
+      "a \"MARKETING\nIQ UP!\n\nWebsite & Brand\n\nA brigh\"",
+      "a \"MARKETING\nSunset Services\n\nWebsite & SEO\n\n\"",
+      "a \"MARKETING\nDalibor Plečić — Author\n\nWebsite\"",
+      "a \"MARKETING\nTrajanov\n\nWebsite & Online Store\"",
+      "a \"MARKETING\nFK Belasica Archive\n\nDigital Arc\"",
+      "a \"Your project here\nTell us what you need bu\""
+    ]
+  },
+  "/en/about": {
+    "totalStops": 16,
+    "firstStop": {
+      "tag": "a",
+      "text": "Skip to content",
+      "href": "#main-content",
+      "visibleRing": true,
+      "outline": "rgb(245, 245, 245) solid 2px",
+      "boxShadow": "none",
+      "inViewport": false,
+      "rectTop": -56,
+      "rectH": 36,
+      "coveredAtCentre": true
+    },
+    "skipLinkFirst": true,
+    "stopsWithoutVisibleFocus": [],
+    "stopsObscured": [
+      {
+        "tag": "a",
+        "text": "Skip to content"
+      }
+    ],
+    "order": [
+      "a \"Skip to content\"",
+      "a \"VERTEX\"",
+      "a \"Consulting\"",
+      "button \"Toggle Consulting submenu\"",
+      "a \"Marketing\"",
+      "button \"Toggle Marketing submenu\"",
+      "a \"Work\"",
+      "a \"About\"",
+      "a \"Blog\"",
+      "a \"Contact\"",
+      "button \"Switch to light mode\"",
+      "button \"MK\"",
+      "a \"Client Portal\"",
+      "a \"Get in Touch\"",
+      "a \"Home\"",
+      "a \"MARKETING\nLazar Dinov\n\nHEAD OF MARKETING —\""
+    ]
+  },
+  "/mk": {
+    "totalStops": 30,
+    "firstStop": {
+      "tag": "a",
+      "text": "Прескокни до содржина",
+      "href": "#main-content",
+      "visibleRing": true,
+      "outline": "rgb(245, 245, 245) solid 2px",
+      "boxShadow": "none",
+      "inViewport": false,
+      "rectTop": -56,
+      "rectH": 36,
+      "coveredAtCentre": true
+    },
+    "skipLinkFirst": true,
+    "stopsWithoutVisibleFocus": [],
+    "stopsObscured": [
+      {
+        "tag": "a",
+        "text": "Прескокни до содржина"
+      }
+    ],
+    "order": [
+      "a \"Прескокни до содржина\"",
+      "a \"VERTEX\"",
+      "a \"Консалтинг\"",
+      "button \"Отвори/затвори подмени за Консалтинг\"",
+      "a \"Маркетинг\"",
+      "button \"Отвори/затвори подмени за Маркетинг\"",
+      "a \"Проекти\"",
+      "a \"За нас\"",
+      "a \"Блог\"",
+      "a \"Контакт\"",
+      "button \"Премини на светла тема\"",
+      "button \"EN\"",
+      "a \"Клиентски портал\"",
+      "a \"Контактирајте нѐ\"",
+      "a \"Истражи консалтинг\"",
+      "a \"Истражи маркетинг\"",
+      "a \"Vertex Consulting\n\nСтратешка јасност за ра\"",
+      "a \"Vertex Marketing\n\nКреативно дигитално прис\"",
+      "a \"КОНСАЛТИНГ\nБизнис консалтинг\n\nИдентификува\"",
+      "a \"КОНСАЛТИНГ\nПреструктуирање на процеси\n\nРед\"",
+      "a \"КОНСАЛТИНГ\nIT и системи\n\nПоставете ги вист\"",
+      "a \"КОНСАЛТИНГ\nAI консалтинг\n\nИнтегрирајте AI \"",
+      "a \"МАРКЕТИНГ\nВеб дизајн\n\nМодерни веб страници\"",
+      "a \"МАРКЕТИНГ\nСоцијални медиуми\n\nГрадете публи\"",
+      "a \"МАРКЕТИНГ\nIT инфраструктура\n\nСигурен хости\"",
+      "a \"МАРКЕТИНГ\nAI развој\n\nПрилагодени AI алатки\"",
+      "a \"МАРКЕТИНГ\nIQ UP!\n\nВеб-страница и бренд\n\nВе\"",
+      "a \"МАРКЕТИНГ\nSunset Services\n\nВеб-страница и \"",
+      "a \"МАРКЕТИНГ\nDalibor Plečić — Author\n\nВеб-стр\"",
+      "a \"Погледни ги сите проекти\""
+    ]
+  },
+  "/admin/login": {
+    "totalStops": 2,
+    "firstStop": {
+      "tag": "button",
+      "text": "Sign in",
+      "href": "",
+      "visibleRing": true,
+      "outline": "oklab(0.969545 0.000044167 0.0000193715 / 0.5) auto 1px",
+      "boxShadow": "none",
+      "inViewport": true,
+      "rectTop": 485,
+      "rectH": 48,
+      "coveredAtCentre": false
+    },
+    "skipLinkFirst": false,
+    "stopsWithoutVisibleFocus": [],
+    "stopsObscured": [],
+    "order": [
+      "button \"Sign in\"",
+      "BODY(none) \"\""
+    ]
+  },
+  "MOBILE MENU": {
+    "opened": {
+      "mainInert": true,
+      "footerInert": true,
+      "bodyOverflow": "hidden"
+    },
+    "focusEscapedToBackground": false,
+    "afterEscape": {
+      "menuGone": false,
+      "focusIsHamburger": true,
+      "activeTag": "button Open menu"
+    }
+  },
+  "CHAT PANEL": {
+    "found": true,
+    "opened": true,
+    "ariaExpanded": "true",
+    "ariaModal": "false",
+    "dialogLabel": "Vertex Assistant chat",
+    "liveRegion": true,
+    "focusInsideDialog": true,
+    "activeTag": "textarea",
+    "afterEscape": {
+      "dialogGone": true,
+      "triggerExpanded": "false"
+    }
+  }
+}

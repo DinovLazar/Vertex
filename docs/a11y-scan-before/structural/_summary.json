@@ -1,0 +1,179 @@
+[
+  {
+    "url": "/mk",
+    "flags": [],
+    "h1": 1,
+    "title": "Бизнис консалтинг и дигитален маркетинг | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/about",
+    "flags": [],
+    "h1": 1,
+    "title": "За нас — основани 2018 во Струмица | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/blog",
+    "flags": [
+      "SKIP:1",
+      "CLIP:4"
+    ],
+    "h1": 1,
+    "title": "Блог — бизнис, маркетинг и AI | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/blog/why-your-business-website-is-probably-costing-you-customers",
+    "flags": [
+      "CLIP:1"
+    ],
+    "h1": 1,
+    "title": "Зошто вашата бизнис веб страница веројатно ве чини клиенти | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/blog/what-it-infrastructure-actually-means-for-a-10-person-business",
+    "flags": [
+      "CLIP:1"
+    ],
+    "h1": 1,
+    "title": "Што навистина значи „IT инфраструктура\" за бизнис со десет луѓе | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/consulting",
+    "flags": [],
+    "h1": 1,
+    "title": "Консалтинг услуги во Македонија | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/consulting/ai-consulting",
+    "flags": [],
+    "h1": 1,
+    "title": "AI консалтинг за бизниси | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/consulting/business-consulting",
+    "flags": [],
+    "h1": 1,
+    "title": "Бизнис консалтинг во Струмица | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/consulting/it-systems",
+    "flags": [],
+    "h1": 1,
+    "title": "Поддршка за IT и системи | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/consulting/workflow-restructuring",
+    "flags": [],
+    "h1": 1,
+    "title": "Преструктуирање на процеси | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/contact",
+    "flags": [],
+    "h1": 1,
+    "title": "Контакт — Струмица, Македонија | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/lazar",
+    "flags": [],
+    "h1": 1,
+    "title": "Lazar Dinov — Портфолио | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/marketing",
+    "flags": [],
+    "h1": 1,
+    "title": "Дигитален маркетинг во Македонија | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/marketing/ai-development",
+    "flags": [],
+    "h1": 1,
+    "title": "AI развој и автоматизација | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/marketing/it-infrastructure",
+    "flags": [],
+    "h1": 1,
+    "title": "IT инфраструктура и хостинг | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/marketing/social-media",
+    "flags": [],
+    "h1": 1,
+    "title": "Управување со социјални медиуми | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/marketing/web-design",
+    "flags": [],
+    "h1": 1,
+    "title": "Веб дизајн и развој во Македонија | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/privacy",
+    "flags": [],
+    "h1": 1,
+    "title": "Политика за приватност | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/projects",
+    "flags": [],
+    "h1": 1,
+    "title": "Нашата работа | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/projects/iq-up",
+    "flags": [],
+    "h1": 1,
+    "title": "IQ UP! — Веб-страница и бренд | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/projects/fk-belasica-archive",
+    "flags": [],
+    "h1": 1,
+    "title": "FK Belasica Archive — Дигитална архива | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/thank-you",
+    "flags": [],
+    "h1": 1,
+    "title": "Благодариме | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/mk/this-route-does-not-exist",
+    "flags": [],
+    "h1": 1,
+    "title": "Страницата не е пронајдена | Vertex",
+    "lang": "mk"
+  },
+  {
+    "url": "/admin/login",
+    "flags": [
+      "NO-SKIPLINK-FIRST"
+    ],
+    "h1": 1,
+    "title": "Vertex Admin | Vertex",
+    "lang": "en"
+  }
+]

@@ -1,0 +1,112 @@
+{
+  "url": "/en/privacy",
+  "theme": "dark",
+  "desktop": {
+    "lang": "en",
+    "title": "Privacy Policy | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Privacy Policy — Vertex Consulting"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Privacy Policy — Vertex Consulting",
+      "h2: 1. Who we are",
+      "h2: 2. Information we collect",
+      "h3: 2.1 Information you give us directly",
+      "h3: 2.2 Information collected automatically",
+      "h3: 2.3 Cookies",
+      "h2: 3. How we use your information",
+      "h2: 4. Legal basis for processing",
+      "h2: 5. Who we share your information with",
+      "h2: 6. International data transfers",
+      "h2: 7. How long we keep your data",
+      "h2: 8. Your rights",
+      "h2: 9. Cookies and similar technologies",
+      "h2: 10. Children’s privacy",
+      "h2: 11. Security",
+      "h2: 12. Changes to this policy",
+      "h2: 13. Contact us",
+      "h2: Stay in the loop",
+      "h3: CONSULTING",
+      "h3: MARKETING",
+      "h3: COMPANY"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Skip to content"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 40,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+  },
+  "mobile320": {
+    "lang": "en",
+    "title": "Privacy Policy | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "Privacy Policy — Vertex Consulting"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: Privacy Policy — Vertex Consulting",
+      "h2: 1. Who we are",
+      "h2: 2. Information we collect",
+      "h3: 2.1 Information you give us directly",
+      "h3: 2.2 Information collected automatically",
+      "h3: 2.3 Cookies",
+      "h2: 3. How we use your information",
+      "h2: 4. Legal basis for processing",
+      "h2: 5. Who we share your information with",
+      "h2: 6. International data transfers",
+      "h2: 7. How long we keep your data",
+      "h2: 8. Your rights",
+      "h2: 9. Cookies and similar technologies",
+      "h2: 10. Children’s privacy",
+      "h2: 11. Security",
+      "h2: 12. Changes to this policy",
+      "h2: 13. Contact us",
+      "h2: Stay in the loop",
+      "h3: CONSULTING",
+      "h3: MARKETING",
+      "h3: COMPANY"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Skip to content"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 31,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clientWidth": 320
+  },
+  "textSpacing": {
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clipped": []
+  },
+  "zoom200": {
+    "horizontalScroll": false,
+    "scrollWidth": 640,
+    "clientWidth": 640
+  }
+}

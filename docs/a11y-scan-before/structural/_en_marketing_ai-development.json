@@ -1,0 +1,104 @@
+{
+  "url": "/en/marketing/ai-development",
+  "theme": "dark",
+  "desktop": {
+    "lang": "en",
+    "title": "AI-Assisted Development & Automation | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "AI Development"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: AI Development",
+      "h2: What AI development means in 2026",
+      "h2: What we build",
+      "h2: Vibe coding and AI-assisted development",
+      "h2: Who this is for",
+      "h2: Our process",
+      "h3: Use case discovery",
+      "h3: Rapid prototyping",
+      "h3: Production development",
+      "h3: Deployment and iteration",
+      "h2: Frequently asked questions",
+      "h2: Related services",
+      "h2: Let's build something great.",
+      "h2: Stay in the loop",
+      "h3: CONSULTING",
+      "h3: MARKETING",
+      "h3: COMPANY"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Skip to content"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 50,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+  },
+  "mobile320": {
+    "lang": "en",
+    "title": "AI-Assisted Development & Automation | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "AI Development"
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: AI Development",
+      "h2: What AI development means in 2026",
+      "h2: What we build",
+      "h2: Vibe coding and AI-assisted development",
+      "h2: Who this is for",
+      "h2: Our process",
+      "h3: Use case discovery",
+      "h3: Rapid prototyping",
+      "h3: Production development",
+      "h3: Deployment and iteration",
+      "h2: Frequently asked questions",
+      "h2: Related services",
+      "h2: Let's build something great.",
+      "h2: Stay in the loop",
+      "h3: CONSULTING",
+      "h3: MARKETING",
+      "h3: COMPANY"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Skip to content"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 41,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clientWidth": 320
+  },
+  "textSpacing": {
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clipped": []
+  },
+  "zoom200": {
+    "horizontalScroll": false,
+    "scrollWidth": 640,
+    "clientWidth": 640
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "url": "/en/about",
+  "theme": "dark",
+  "desktop": {
+    "lang": "en",
+    "title": "About Us — Founded 2018 in Strumica | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "A Macedonian consultancy built on practical results."
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: A Macedonian consultancy built on practical result",
+      "h2: Our values",
+      "h3: Direct and honest",
+      "h3: Practical results",
+      "h3: Move fast, stay sharp",
+      "h3: Long-term thinking",
+      "h2: Four people, two divisions, one mission",
+      "h3: Goran Dinov",
+      "h3: Lazar Dinov",
+      "h3: Petar Jakimov",
+      "h3: Andrej Jakimov",
+      "h2: From 2018 to today",
+      "h3: Vertex Consulting founded",
+      "h3: Expanded into IT consulting",
+      "h3: AI consulting launched",
+      "h3: Vertex Marketing division launched",
+      "h2: Let's build something together.",
+      "h2: Stay in the loop",
+      "h3: CONSULTING",
+      "h3: MARKETING",
+      "h3: COMPANY"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Skip to content"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 42,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+  },
+  "mobile320": {
+    "lang": "en",
+    "title": "About Us — Founded 2018 in Strumica | Vertex",
+    "h1Count": 1,
+    "h1Texts": [
+      "A Macedonian consultancy built on practical results."
+    ],
+    "mainCount": 1,
+    "navCount": 2,
+    "headerCount": 1,
+    "footerCount": 1,
+    "headingSkips": [],
+    "headingOutline": [
+      "h1: A Macedonian consultancy built on practical result",
+      "h2: Our values",
+      "h3: Direct and honest",
+      "h3: Practical results",
+      "h3: Move fast, stay sharp",
+      "h3: Long-term thinking",
+      "h2: Four people, two divisions, one mission",
+      "h3: Goran Dinov",
+      "h3: Lazar Dinov",
+      "h3: Petar Jakimov",
+      "h3: Andrej Jakimov",
+      "h2: From 2018 to today",
+      "h3: Vertex Consulting founded",
+      "h3: Expanded into IT consulting",
+      "h3: AI consulting launched",
+      "h3: Vertex Marketing division launched",
+      "h2: Let's build something together.",
+      "h2: Stay in the loop",
+      "h3: CONSULTING",
+      "h3: MARKETING",
+      "h3: COMPANY"
+    ],
+    "firstFocusable": {
+      "tag": "a",
+      "href": "#main-content",
+      "text": "Skip to content"
+    },
+    "skipLinkIsFirst": true,
+    "positiveTabindex": 0,
+    "focusableCount": 33,
+    "undersizedTargets": [],
+    "obscuredOnFocus": [],
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clientWidth": 320
+  },
+  "textSpacing": {
+    "horizontalScroll": false,
+    "scrollWidth": 320,
+    "clipped": []
+  },
+  "zoom200": {
+    "horizontalScroll": false,
+    "scrollWidth": 640,
+    "clientWidth": 640
+  }
+}
