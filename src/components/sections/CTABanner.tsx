@@ -31,10 +31,12 @@ export default function CTABanner({
   const resolvedButtonText = buttonText ?? t('defaultCta')
 
   return (
-    <section
-      className={cn('relative overflow-hidden', className)}
-      style={{ backgroundColor: 'var(--color-ink)' }}
-    >
+    // `.cta-banner` paints the band and re-points the --division-* tokens for
+    // this subtree. It used to set `backgroundColor: var(--color-ink)`, which
+    // resolves to #FFFFFF under light mode — a white band on a white page, so
+    // the site's closing CTA had no presence at all. Light mode now inverts to
+    // a near-black band; dark mode renders exactly as before.
+    <section className={cn('cta-banner relative overflow-hidden', className)}>
       <div className="relative z-10 max-w-4xl mx-auto px-6 py-20 md:py-28 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -68,12 +70,8 @@ export default function CTABanner({
               href={buttonHref}
               className={cn(
                 buttonVariants({ size: 'cta' }),
-                'cta-sheen text-base hover:brightness-110 hover:scale-[1.02] focus-ring'
+                'btn-accent cta-sheen text-base hover:scale-[1.02] focus-ring'
               )}
-              style={{
-                backgroundColor: 'var(--division-accent)',
-                color: 'var(--division-bg)',
-              }}
             >
               {resolvedButtonText}
             </Link>

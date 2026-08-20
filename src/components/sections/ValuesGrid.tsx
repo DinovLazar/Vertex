@@ -22,7 +22,7 @@ export default async function ValuesGrid() {
         return (
           <StaggerItem
             key={value.key}
-            className="p-6 rounded-card border border-[var(--division-border)] bg-[var(--division-card)]"
+            className="p-6 rounded-card border border-[var(--division-border)] bg-[var(--division-card)] elevation-1"
           >
             <div className="w-11 h-11 rounded-lg bg-[var(--division-accent)]/15 flex items-center justify-center mb-4">
               <Icon size={20} className="text-[var(--division-accent)]" />

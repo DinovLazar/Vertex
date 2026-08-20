@@ -34,6 +34,11 @@ yarn-error.log*
 .env*
 !.env.example
 !.env.local.example
+# `.env*` does NOT match a dot-less `env.local`, which is easy to create by
+# accident and which currently holds live Resend / Anthropic / Sanity tokens.
+# The repo is public, so match it explicitly.
+env.local
+env.*.local
 
 # vercel
 .vercel

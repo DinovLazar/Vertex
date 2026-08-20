@@ -10,6 +10,7 @@
     "home": "Home",
     "consulting": "Consulting",
     "marketing": "Marketing",
+    "projects": "Work",
     "about": "About",
     "blog": "Blog",
     "contact": "Contact",
@@ -60,6 +61,7 @@
     },
     "company": {
       "about": "About",
+      "projects": "Our work",
       "blog": "Blog",
       "contact": "Contact",
       "privacy": "Privacy Policy"
@@ -154,18 +156,6 @@
           "description": "Custom AI-powered tools built with the latest vibe coding and AI technologies."
         }
       }
-    },
-    "projects": {
-      "overline": "Our Work",
-      "heading": "Recent client projects",
-      "subheading": "Websites we designed, built, and continue to grow through SEO.",
-      "divisionLabel": "Marketing",
-      "serviceLabel": "Website & SEO management",
-      "viewProject": "View project",
-      "viewProjectAria": "Open {name} — opens in a new tab",
-      "comingSoon": "Coming soon",
-      "placeholder": "Screenshot coming soon",
-      "imageAlt": "{name} project screenshot"
     },
     "socialProof": {
       "stats": {
@@ -1361,6 +1351,74 @@
       }
     }
   },
+  "projects": {
+    "meta": {
+      "title": "Our Work",
+      "description": "Websites and brands Vertex designed, built and continues to grow — browse the projects and visit them live."
+    },
+    "hero": {
+      "overline": "Our Work",
+      "headline": "Projects we've built",
+      "subtitle": "Every site here was designed, built and launched by our team — and most of them we still look after month to month as they grow."
+    },
+    "showcase": {
+      "overline": "Our Work",
+      "heading": "Recent client projects",
+      "subheading": "Websites we designed, built, and continue to grow through SEO.",
+      "viewProject": "View project",
+      "viewProjectAria": "View the {name} project",
+      "imageAlt": "{name} project screenshot",
+      "placeholder": "Screenshot coming soon",
+      "seeAll": "See all projects",
+      "seeAllAria": "See every Vertex client project",
+      "countLabel": "{count, plural, =1 {# project} other {# projects}}"
+    },
+    "divisionLabels": {
+      "consulting": "Consulting",
+      "marketing": "Marketing"
+    },
+    "invite": {
+      "title": "Your project here",
+      "body": "Tell us what you need built and we'll come back with a plan.",
+      "cta": "Start a project"
+    },
+    "detail": {
+      "backToProjects": "All projects",
+      "visitSite": "Visit live site",
+      "visitSiteAria": "Open the live {name} website — opens in a new tab",
+      "atAGlance": "At a glance",
+      "divisionLabel": "Division",
+      "serviceLabel": "What we did",
+      "liveSiteLabel": "Live site",
+      "caseStudyHeading": "Case study",
+      "caseStudyNote": "Coming soon",
+      "caseStudyBody": "The full write-up for this project — the brief, the build and what it changed — is being put together and will land here. Until then, the live site is the best look at the work.",
+      "galleryHeading": "More screens",
+      "nextLabel": "Next project",
+      "prevLabel": "Previous project",
+      "ctaHeadline": "Want something like this?",
+      "ctaSubtext": "Tell us about your business and we will map out what your site needs to do.",
+      "ctaButton": "Start a project"
+    },
+    "items": {
+      "iq-up": {
+        "label": "Website & Brand",
+        "description": "A bright, playful bilingual site for a children's cognitive-assessment tool, built to take parents from curious to starting the assessment in a couple of taps."
+      },
+      "sunset-services": {
+        "label": "Website & SEO",
+        "description": "A sharp marketing site for a hardscaping and services company, focused on turning visits into quote requests."
+      },
+      "dalibor-plecic": {
+        "label": "Website",
+        "description": "A personal author website with a calm, editorial feel that puts the writing front and centre."
+      },
+      "northgate-dental": {
+        "label": "Website & SEO",
+        "description": "A clean, trustworthy website for a dental practice, built to bring in new patients and rank locally."
+      }
+    }
+  },
   "about": {
     "meta": {
       "title": "About Us — Founded 2018 in Strumica",
@@ -1639,25 +1697,7 @@
       "subheading": "A few of the websites and brands I've built for clients.",
       "viewProject": "View project",
       "viewProjectAria": "View the {name} project",
-      "imageAlt": "Screenshot of the {name} website",
-      "projects": {
-        "0": {
-          "label": "Website & SEO",
-          "desc": "A clean, trustworthy website for a dental practice, built to bring in new patients and rank locally."
-        },
-        "1": {
-          "label": "Website & SEO",
-          "desc": "A sharp marketing site for a hardscaping and services company, focused on turning visits into quote requests."
-        },
-        "2": {
-          "label": "Website",
-          "desc": "A personal author website with a calm, editorial feel that puts the writing front and centre."
-        },
-        "3": {
-          "label": "Website & Brand",
-          "desc": "A bright, playful bilingual site for a children's cognitive-assessment tool, built to take parents from curious to starting the assessment in a couple of taps."
-        }
-      }
+      "imageAlt": "Screenshot of the {name} website"
     },
     "contact": {
       "overline": "Let's talk",

@@ -38,7 +38,7 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
             <div
               key={item.question}
               className={cn(
-                'rounded-card border border-[var(--division-border)] bg-[var(--division-card)] overflow-hidden',
+                'rounded-card border border-[var(--division-border)] bg-[var(--division-card)] overflow-hidden elevation-1',
                 'transition-colors',
                 isOpen && 'border-[var(--division-text-muted)]'
               )}

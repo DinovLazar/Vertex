@@ -116,7 +116,7 @@ export default function ContactPageClient({
                     <p className="font-heading font-semibold text-[var(--division-text-primary)]">{t('info.consultingLabel')}</p>
                     <a
                       href={`mailto:${siteConfig.contact.emailInfo}`}
-                      className="text-[var(--division-text-secondary)] hover:text-[var(--division-accent)] transition-colors"
+                      className="inline-flex items-center min-h-[24px] text-[var(--division-text-secondary)] hover:text-[var(--division-accent)] transition-colors focus-ring rounded-sm"
                     >
                       {siteConfig.contact.emailInfo}
                     </a>
@@ -125,7 +125,7 @@ export default function ContactPageClient({
                     <p className="font-heading font-semibold text-[var(--division-text-primary)]">{t('info.marketingLabel')}</p>
                     <a
                       href={`mailto:${siteConfig.contact.emailMarketing}`}
-                      className="text-[var(--division-text-secondary)] hover:text-[var(--division-accent)] transition-colors"
+                      className="inline-flex items-center min-h-[24px] text-[var(--division-text-secondary)] hover:text-[var(--division-accent)] transition-colors focus-ring rounded-sm"
                     >
                       {siteConfig.contact.emailMarketing}
                     </a>

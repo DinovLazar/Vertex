@@ -48,9 +48,13 @@ export default function BackToTop() {
             size="icon"
             onClick={scrollToTop}
             className="h-11 w-11 rounded-full glass cursor-pointer"
+            /* Solid accent, not --division-accent-muted: that token is
+               #E5E7EB in light mode, which is 1.24:1 on the white page — a
+               floating arrow glyph with no button under it. Accent-on-bg is
+               19.6:1 in light and 17.4:1 in dark, so one value serves both. */
             style={{
-              backgroundColor: 'var(--division-accent-muted)',
-              color: 'var(--division-accent)',
+              backgroundColor: 'var(--division-accent)',
+              color: 'var(--division-bg)',
             }}
             aria-label={t('ariaLabel')}
           >

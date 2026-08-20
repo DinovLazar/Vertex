@@ -99,7 +99,7 @@ export default function GenerateClient({
           <div
             className={`p-3 mb-6 rounded-lg border text-sm ${
               tokenHealth.status === 'expired'
-                ? 'border-red-500/30 bg-red-500/10 text-red-300'
+                ? 'border-[var(--form-error-border)] bg-[var(--form-error-bg)] text-[var(--form-error-text)]'
                 : 'border-amber-500/30 bg-amber-500/10 text-amber-300'
             }`}
           >
@@ -168,7 +168,7 @@ export default function GenerateClient({
           <button
             onClick={handleRun}
             disabled={running || !pending[0]}
-            className="px-5 py-3 rounded-lg bg-[var(--division-accent)] text-[var(--division-bg)] font-medium hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="btn-accent px-5 py-3 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {running ? 'Running…' : 'Generate next post'}
           </button>
@@ -182,7 +182,7 @@ export default function GenerateClient({
                 key={i}
                 className={
                   log.level === 'error'
-                    ? 'text-red-400'
+                    ? 'text-[var(--form-error-text)]'
                     : log.level === 'warn'
                       ? 'text-amber-400'
                       : log.level === 'done'
@@ -240,7 +240,7 @@ function TopicSection({
               <span className="flex-1">{t.title}</span>
             </div>
             {showReason && t.failureReason && (
-              <div className="mt-1 text-xs text-red-400">{t.failureReason}</div>
+              <div className="mt-1 text-xs text-[var(--form-error-text)]">{t.failureReason}</div>
             )}
           </div>
         ))}

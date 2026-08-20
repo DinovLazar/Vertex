@@ -48,7 +48,13 @@ export default function BackgroundPlasma({
   const resolvedColor = color ?? (theme === 'light' ? PLASMA_COLOR_LIGHT : PLASMA_COLOR_DARK)
 
   return (
-    <div className={`absolute inset-0 z-0 overflow-hidden ${className}`}>
+    // --plasma-opacity mirrors BackgroundSilk's --silk-opacity: 1 in dark,
+    // damped in light so the shader's near-black output does not swamp the
+    // hero copy on the white page. See globals.css.
+    <div
+      className={`absolute inset-0 z-0 overflow-hidden ${className}`}
+      style={{ opacity: 'var(--plasma-opacity, 1)' }}
+    >
       {shouldAnimate ? (
         <Plasma
           color={resolvedColor}

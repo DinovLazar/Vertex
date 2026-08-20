@@ -52,7 +52,7 @@ export default async function ConsultingLandingClient() {
           className="absolute inset-0 z-[1] pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse 50% 40% at 50% 50%, var(--hero-scrim-center) 0%, var(--hero-scrim-mid) 40%, transparent 80%)',
+              'radial-gradient(ellipse var(--hero-scrim-rx) var(--hero-scrim-ry) at 50% 50%, var(--hero-scrim-center) 0%, var(--hero-scrim-mid) var(--hero-scrim-mid-pos), transparent var(--hero-scrim-end))',
           }}
         />
       </HeroSection>
@@ -87,6 +87,9 @@ export default async function ConsultingLandingClient() {
           role={t('leader.role')}
           bio={t('leader.bio')}
           overline={t('leader.overline')}
+          /* Same grayscale portrait the About-page team grid uses for Goran,
+             so the founder is recognisable from either entry point. */
+          image="/goran-bw.png"
         />
       </Section>
 

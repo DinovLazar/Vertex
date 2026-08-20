@@ -47,11 +47,7 @@ export default async function ThankYouPage({
         </p>
         <Link
           href="/"
-          className="mt-8 inline-flex items-center min-h-[44px] px-6 py-3 rounded-button font-heading text-small font-medium transition-[filter,transform] hover:brightness-110 active:scale-[0.98] focus-ring"
-          style={{
-            backgroundColor: 'var(--division-accent)',
-            color: 'var(--division-bg)',
-          }}
+          className="btn-accent mt-8 inline-flex items-center min-h-[44px] px-6 py-3 rounded-button font-heading text-small font-medium active:scale-[0.98] focus-ring"
         >
           {t('cta')}
         </Link>

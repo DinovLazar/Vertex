@@ -182,9 +182,12 @@ export default function Footer() {
       <div className="border-b border-[var(--division-border)] py-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h3 className="text-h3 text-[var(--division-text-primary)]">
+            {/* h2, not h3: the footer is a top-level landmark, and on short
+                pages (/thank-you, the 404) there is no h2 between the page <h1>
+                and this heading, so an h3 skipped a level. */}
+            <h2 className="text-h3 text-[var(--division-text-primary)]">
               {t('newsletter.headline')}
-            </h3>
+            </h2>
             <p className="mt-1 text-small text-[var(--division-text-secondary)]">
               {t('newsletter.subtext')}
             </p>
@@ -240,7 +243,7 @@ export default function Footer() {
                         ? newsletterErrorId
                         : undefined
                     }
-                    className="flex-1 md:w-64 px-4 py-2.5 rounded-button text-small bg-[var(--division-bg)] border border-[var(--division-border)] text-[var(--division-text-primary)] placeholder:text-[var(--division-text-muted)] form-input-focus disabled:opacity-60"
+                    className="flex-1 md:w-64 px-4 py-2.5 rounded-button text-small bg-[var(--division-bg)] border border-[var(--input-border)] text-[var(--division-text-primary)] placeholder:text-[var(--division-text-muted)] form-input-focus disabled:opacity-60"
                     aria-label={t('newsletter.emailAriaLabel')}
                   />
                   <MagneticButton>
@@ -248,11 +251,7 @@ export default function Footer() {
                       type="submit"
                       disabled={newsletterStatus === 'submitting'}
                       aria-busy={newsletterStatus === 'submitting'}
-                      className="cta-sheen h-auto px-5 py-2.5 rounded-button text-small font-heading font-medium hover:brightness-110"
-                      style={{
-                        backgroundColor: 'var(--division-accent)',
-                        color: 'var(--division-bg)',
-                      }}
+                      className="btn-accent cta-sheen h-auto px-5 py-2.5 rounded-button text-small font-heading font-medium"
                     >
                       {newsletterStatus === 'submitting' ? t('newsletter.submitting') : t('newsletter.submit')}
                     </Button>
@@ -262,7 +261,7 @@ export default function Footer() {
                   <p
                     id={newsletterErrorId}
                     role="alert"
-                    className="text-micro text-red-400"
+                    className="text-micro text-[var(--form-error-text)]"
                   >
                     {newsletterError}
                   </p>
@@ -305,21 +304,21 @@ export default function Footer() {
                 href={`https://maps.google.com/?q=${encodeURIComponent(fullAddress)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-2.5 text-small text-[var(--division-text-muted)] hover:text-[var(--division-text-primary)] transition-colors focus-ring"
+                className="flex items-start gap-2.5 min-h-[24px] py-0.5 text-small text-[var(--division-text-muted)] hover:text-[var(--division-text-primary)] transition-colors focus-ring"
               >
                 <MapPin size={14} className="mt-0.5 shrink-0" aria-hidden="true" />
                 <span>{fullAddress}</span>
               </a>
               <a
                 href={`tel:${siteConfig.contact.phone.replace(/\s+/g, '')}`}
-                className="flex items-center gap-2.5 text-small text-[var(--division-text-muted)] hover:text-[var(--division-text-primary)] transition-colors focus-ring"
+                className="flex items-center gap-2.5 min-h-[24px] py-0.5 text-small text-[var(--division-text-muted)] hover:text-[var(--division-text-primary)] transition-colors focus-ring"
               >
                 <Phone size={14} className="shrink-0" aria-hidden="true" />
                 <span className="tabular-nums">{siteConfig.contact.phone}</span>
               </a>
               <a
                 href={`mailto:${siteConfig.contact.emailInfo}`}
-                className="flex items-center gap-2.5 text-small text-[var(--division-text-muted)] hover:text-[var(--division-text-primary)] transition-colors focus-ring"
+                className="flex items-center gap-2.5 min-h-[24px] py-0.5 text-small text-[var(--division-text-muted)] hover:text-[var(--division-text-primary)] transition-colors focus-ring"
               >
                 <Mail size={14} className="shrink-0" aria-hidden="true" />
                 <span>{siteConfig.contact.emailInfo}</span>
@@ -327,11 +326,14 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Column 2: Consulting services */}
+          {/* Column 2: Consulting services.
+              Column headings are h3, one level under the footer's newsletter
+              h2 — they were h4, which skipped a level once the newsletter
+              heading moved from h3 to h2. */}
           <motion.div variants={columnVariants}>
-            <h4 className="overline text-[var(--division-text-primary)]">
+            <h3 className="overline text-[var(--division-text-primary)]">
               {t('columns.consulting')}
-            </h4>
+            </h3>
             <ul className="mt-4 space-y-2.5">
               {footerNavItems.consulting.map((item) => (
                 <li key={item.href}>
@@ -348,9 +350,9 @@ export default function Footer() {
 
           {/* Column 3: Marketing services */}
           <motion.div variants={columnVariants}>
-            <h4 className="overline text-[var(--division-text-primary)]">
+            <h3 className="overline text-[var(--division-text-primary)]">
               {t('columns.marketing')}
-            </h4>
+            </h3>
             <ul className="mt-4 space-y-2.5">
               {footerNavItems.marketing.map((item) => (
                 <li key={item.href}>
@@ -367,9 +369,9 @@ export default function Footer() {
 
           {/* Column 4: Company links */}
           <motion.div variants={columnVariants}>
-            <h4 className="overline text-[var(--division-text-primary)]">
+            <h3 className="overline text-[var(--division-text-primary)]">
               {t('columns.company')}
-            </h4>
+            </h3>
             <ul className="mt-4 space-y-2.5">
               {footerNavItems.company.map((item) => (
                 <li key={item.href}>

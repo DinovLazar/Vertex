@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 import { siteConfig } from '@/config/site'
 import { routing } from '@/i18n/routing'
 import { getAllPosts } from '@/lib/blog'
+import { projects } from '@/config/projects'
 
 /**
  * sitemap.xml
@@ -39,6 +40,7 @@ const STATIC_PATHS: PathEntry[] = [
   { path: '/marketing/social-media', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/marketing/it-infrastructure', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/marketing/ai-development', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/projects', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/contact', priority: 0.7, changeFrequency: 'yearly' },
   { path: '/about', priority: 0.6, changeFrequency: 'yearly' },
   { path: '/blog', priority: 0.6, changeFrequency: 'weekly' },
@@ -63,6 +65,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const all: Array<PathEntry & { lastModified: Date }> = [
     ...STATIC_PATHS.map((e) => ({ ...e, lastModified: buildTime })),
+    // One row per client project. Generated from the config so a new project
+    // is in the sitemap the moment it is added — there is no second list to
+    // remember to update.
+    ...projects.map((project) => ({
+      path: `/projects/${project.slug}`,
+      priority: 0.5,
+      changeFrequency: 'yearly' as const,
+      lastModified: buildTime,
+    })),
     ...posts.map((post) => ({
       path: `/blog/${post.slug}`,
       priority: 0.5,

@@ -1,6 +1,8 @@
 import { siteConfig } from '@/config/site'
 import { SERVICE_CATALOG } from '@/lib/schema'
 import { getAllPosts } from '@/lib/blog'
+import { projects } from '@/config/projects'
+import en from '../../../messages/en.json'
 
 /**
  * `/llms.txt` — the concise, machine-readable index of this site for large
@@ -38,6 +40,21 @@ export async function GET() {
         (s) => `- [${s.name}](${siteConfig.url}/en${s.path}): ${s.summary}`,
       )
       .join('\n')
+
+  // Per-project one-liners come from the English message file — the same
+  // strings the /projects pages render, so this can never describe a project
+  // differently from the site does.
+  const projectItems = (en as unknown as {
+    projects: { items: Record<string, { label: string; description: string }> }
+  }).projects.items
+
+  const projectLines = projects
+    .map((project) => {
+      const copy = projectItems[project.slug]
+      const live = project.href ? ` Live at ${project.href}.` : ''
+      return `- [${project.name}](${siteConfig.url}/en/projects/${project.slug}): ${copy?.label ?? 'Website'} — ${copy?.description ?? ''}${live}`
+    })
+    .join('\n')
 
   const blogLines = posts
     .slice(0, 20)
@@ -83,6 +100,11 @@ ${serviceLines(marketing)}
 - [Consulting division](${siteConfig.url}/en/consulting): Landing page for all four consulting services.
 - [Marketing division](${siteConfig.url}/en/marketing): Landing page for all four marketing services.
 - [Blog](${siteConfig.url}/en/blog): Articles on business operations, digital marketing and AI for Macedonian businesses.
+- [Our work](${siteConfig.url}/en/projects): Every client project Vertex has designed and built, each with its own page.
+
+## Client projects
+
+${projectLines}
 
 ${blogLines ? `## Articles\n\n${blogLines}\n` : ''}
 ## Legal

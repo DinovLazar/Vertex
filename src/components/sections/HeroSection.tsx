@@ -69,7 +69,10 @@ export default function HeroSection({
               const cls = cn(
                 'inline-flex items-center justify-center min-h-[44px] px-7 py-3.5 rounded-button font-heading text-small font-medium transition-all focus-ring',
                 btn.variant === 'primary'
-                  ? 'bg-[var(--division-accent)] text-[var(--division-bg)] hover:brightness-110 cta-sheen'
+                  // .btn-accent owns fill + foreground + a hover that works in
+                  // both themes (the old `hover:brightness-110` was a no-op on
+                  // light mode's near-black accent).
+                  ? 'btn-accent cta-sheen'
                   : 'border border-[var(--division-border)] text-[var(--division-text-primary)] hover:bg-[var(--nav-hover-bg)]'
               )
               // Internal routes must go through the locale-aware Link or they

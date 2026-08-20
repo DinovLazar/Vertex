@@ -1,6 +1,7 @@
 import { siteConfig } from '@/config/site'
 import { SERVICE_CATALOG } from '@/lib/schema'
 import { getAllPosts } from '@/lib/blog'
+import { projects } from '@/config/projects'
 import en from '../../../messages/en.json'
 
 /**
@@ -183,6 +184,23 @@ Vertex Marketing covers ${siteConfig.divisions.marketing.description.toLowerCase
     .map((s) => renderService('marketing', MSG_KEY[s.slug], s))
     .join('\n\n---\n\n')
 
+  // Client projects. The label/description strings are the same ones the
+  // /projects pages render (messages/en.json → projects.items.<slug>), so
+  // this section stays true to the site without a second copy to maintain.
+  const projectItems = (messages as unknown as {
+    projects: { items: Record<string, { label: string; description: string }> }
+  }).projects.items
+
+  const projectsBody = projects.length
+    ? `\n\n---\n\n# Client projects\n\n${projects
+        .map((project) => {
+          const copy = projectItems[project.slug]
+          const live = project.href ? `\nLive site: ${project.href}` : ''
+          return `## ${project.name}\n\nURL: ${siteConfig.url}/en/projects/${project.slug}\nWork: ${copy?.label ?? 'Website'}${live}\n\n${copy?.description ?? ''}`
+        })
+        .join('\n\n')}`
+    : ''
+
   const blogBody = posts.length
     ? `\n\n---\n\n# Articles\n\n${posts
         .map(
@@ -206,6 +224,7 @@ To reach ${siteConfig.name}: call ${siteConfig.contact.phone}, email ${siteConfi
     consultingBody,
     '\n\n---\n\n# Marketing services\n',
     marketingBody,
+    projectsBody,
     blogBody,
     footer,
   ].join('\n')

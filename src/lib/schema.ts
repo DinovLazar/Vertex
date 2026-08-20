@@ -431,3 +431,76 @@ export function buildWebPageSchema(args: {
     about: { '@id': `${siteConfig.url}/#organization` },
   }
 }
+
+/**
+ * `ItemList` for `/projects` — one `ListItem` per client project, each
+ * pointing at that project's own page. Google reads this as an ordered
+ * portfolio index rather than as a wall of unlabelled cards, and it gives the
+ * collection page something concrete to be "about".
+ *
+ * Emitted alongside the `CollectionPage` node <PageSchema> already produces,
+ * and linked to it through `mainEntity` on the page side / `isPartOf` here.
+ */
+export function buildProjectListSchema(args: {
+  locale: Locale
+  /** Ordered as displayed — newest first. */
+  items: Array<{ slug: string; name: string; description: string }>
+}) {
+  const url = abs(args.locale, '/projects')
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': `${url}#itemlist`,
+    url,
+    name: 'Client projects',
+    inLanguage: langTag(args.locale),
+    isPartOf: { '@id': `${siteConfig.url}/#website` },
+    numberOfItems: args.items.length,
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    itemListElement: args.items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      description: item.description,
+      url: abs(args.locale, `/projects/${item.slug}`),
+    })),
+  }
+}
+
+/**
+ * `CreativeWork` node for one client project's page.
+ *
+ * The work is the site we built, so the node describes *our deliverable*:
+ * Vertex is the `creator`, the client's live domain is listed under `sameAs`
+ * (not `url`, which is this page), and the screenshot is the `image`. Typed
+ * `CreativeWork` rather than `WebSite` deliberately — a `WebSite` node here
+ * would be a second, competing website entity next to `{url}/#website`.
+ */
+export function buildProjectSchema(args: {
+  locale: Locale
+  slug: string
+  name: string
+  description: string
+  /** Absolute or root-relative screenshot path, e.g. '/projects/iqup.png'. */
+  image?: string | null
+  /** The client's live site, when there is one. */
+  liveUrl?: string | null
+}) {
+  const url = abs(args.locale, `/projects/${args.slug}`)
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    '@id': `${url}#project`,
+    url,
+    name: args.name,
+    description: args.description,
+    inLanguage: langTag(args.locale),
+    isPartOf: { '@id': `${siteConfig.url}/#website` },
+    creator: { '@id': `${siteConfig.url}/#organization` },
+    provider: { '@id': `${siteConfig.url}/#localbusiness` },
+    ...(args.image
+      ? { image: `${siteConfig.url}${args.image}` }
+      : {}),
+    ...(args.liveUrl ? { sameAs: [args.liveUrl] } : {}),
+  }
+}

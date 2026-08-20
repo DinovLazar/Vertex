@@ -48,10 +48,16 @@ export default function DivisionSplit() {
               href={division.href}
               onMouseEnter={() => setHoveredDivision(division.id)}
               onMouseLeave={() => setHoveredDivision(null)}
-              className="group block relative overflow-hidden rounded-card p-8 lg:p-10 h-full transition-all duration-500 focus-ring"
+              className="group block relative overflow-hidden rounded-card p-8 lg:p-10 h-full transition-all duration-500 focus-ring elevation-interactive"
               style={{
+                // --division-card-hover, not --division-bg: under light mode
+                // both the card and the page ground are #FFFFFF, so hovering
+                // changed nothing at all. The dark value of the new token is
+                // the old --division-bg, so dark is unchanged.
                 backgroundColor:
-                  hoveredDivision === division.id ? 'var(--division-bg)' : 'var(--division-card)',
+                  hoveredDivision === division.id
+                    ? 'var(--division-card-hover)'
+                    : 'var(--division-card)',
                 borderWidth: '1px',
                 borderStyle: 'solid',
                 borderColor:

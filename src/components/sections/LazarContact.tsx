@@ -49,7 +49,14 @@ export default async function LazarContact() {
   ]
 
   return (
-    <section id="contact" className="w-full bg-[var(--division-text-primary)] text-[var(--division-bg)]">
+    // `[--focus-ring-color:...]` re-points the ring for the whole inverted
+    // subtree. `.focus-ring` otherwise draws in --division-accent, which on
+    // this band is exactly the background color — a 1:1 ring, i.e. no visible
+    // keyboard focus on the CTA or any of the three social buttons.
+    <section
+      id="contact"
+      className="w-full bg-[var(--division-text-primary)] text-[var(--division-bg)] [--focus-ring-color:var(--division-bg)]"
+    >
       <div className="mx-auto max-w-7xl px-6 py-24 text-center md:py-32">
         <AnimateIn>
           <span className="mb-10 inline-flex items-center gap-2 border-2 border-[var(--division-bg)] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--division-bg)]">
@@ -73,7 +80,12 @@ export default async function LazarContact() {
             </MagneticButton>
             <a
               href={`mailto:${email}`}
-              className="footer-link font-mono text-small uppercase tracking-[0.12em] text-[var(--division-bg)] opacity-80 transition-opacity hover:opacity-100"
+              /* NOT `.footer-link`: that class is declared unlayered precisely
+                 so it seizes `color` from Tailwind utilities, so it overrode the
+                 --division-bg intended here and left 2.6:1 text on this inverted
+                 band (in both themes). The underline below reproduces its look
+                 with currentColor instead. */
+              className="focus-ring inline-flex min-h-[24px] items-center font-mono text-small uppercase tracking-[0.12em] text-[var(--division-bg)] underline decoration-1 underline-offset-4 opacity-80 transition-opacity hover:opacity-100"
             >
               {email}
             </a>

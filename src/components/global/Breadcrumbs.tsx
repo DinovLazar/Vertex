@@ -93,7 +93,11 @@ export default async function Breadcrumbs({ items, className }: BreadcrumbsProps
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-[var(--division-text-secondary)] hover:text-[var(--division-text-primary)] transition-colors focus-ring rounded-sm"
+                    /* inline-flex + min-h-[24px] so the tap target clears the
+                       24x24 floor in WCAG 2.5.8 — a 20px-tall breadcrumb link
+                       is a nav control, not prose, so the inline-text exception
+                       does not apply. */
+                    className="inline-flex items-center min-h-[24px] text-[var(--division-text-secondary)] hover:text-[var(--division-text-primary)] transition-colors focus-ring rounded-sm"
                   >
                     {item.label}
                   </Link>

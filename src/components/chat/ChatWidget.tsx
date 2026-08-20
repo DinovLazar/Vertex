@@ -176,7 +176,8 @@ export function ChatWidget() {
           'flex h-14 w-14 items-center justify-center rounded-full',
           'bg-[var(--color-elevated)] border border-[var(--color-border)]',
           'text-[var(--color-bright)]',
-          'shadow-[0_8px_24px_-6px_rgba(0,0,0,0.5)]',
+          // See ChatPanel — shared elevation token, theme-aware.
+          'elevation-2',
           'hover:bg-[var(--color-bright)] hover:text-[var(--color-ink)]',
           'hover:border-[var(--color-bright)]',
           'transition-colors duration-200',

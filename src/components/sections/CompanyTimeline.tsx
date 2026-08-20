@@ -9,7 +9,7 @@ export default async function CompanyTimeline() {
   return (
     <StaggerContainer amount={0.2} className="relative">
       {/* Vertical timeline line */}
-      <div className="absolute left-[11px] sm:left-4 top-0 bottom-0 w-px bg-[var(--division-border)]" />
+      <div className="absolute left-[11px] sm:left-4 top-0 bottom-0 w-px bg-[var(--division-rule)]" />
 
       <div className="space-y-10">
         {MILESTONE_KEYS.map((key) => (

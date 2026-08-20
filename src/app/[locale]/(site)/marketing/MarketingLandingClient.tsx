@@ -6,6 +6,7 @@ import {
   HeroSection,
   MarketingServicesGrid,
   TeamShowcase,
+  ProjectsShowcase,
   CTABanner,
 } from '@/components/sections'
 
@@ -106,6 +107,11 @@ export default async function MarketingLandingClient() {
         </AnimateIn>
         <TeamShowcase members={members} />
       </Section>
+
+      {/* Our work — the same three most recent projects the homepage shows,
+          rendered by the same component so the two can never drift. Sits
+          after the team so the page reads people → proof → CTA. */}
+      <ProjectsShowcase limit={3} />
 
       {/* CTA */}
       <CTABanner

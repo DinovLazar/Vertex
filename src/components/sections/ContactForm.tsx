@@ -169,7 +169,7 @@ export default function ContactForm() {
   if (status === 'success') {
     return (
       <AnimateIn>
-        <div className="rounded-card border border-[var(--division-border)] bg-[var(--division-card)] p-8 text-center">
+        <div className="rounded-card border border-[var(--division-border)] bg-[var(--division-card)] p-8 text-center elevation-1">
           <div className="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center bg-[var(--division-accent)]/20">
             <Check size={28} className="text-[var(--division-accent)]" aria-hidden="true" />
           </div>
@@ -217,11 +217,11 @@ export default function ContactForm() {
           required
           aria-invalid={!!fieldErrors.name}
           aria-describedby={fieldErrors.name ? nameErrorId : undefined}
-          className="w-full px-4 py-3 rounded-button bg-[var(--division-surface)] border border-[var(--division-border)] text-[var(--division-text-primary)] placeholder:text-[var(--division-text-muted)] form-input-focus"
+          className="w-full px-4 py-3 rounded-button bg-[var(--division-surface)] border border-[var(--input-border)] text-[var(--division-text-primary)] placeholder:text-[var(--division-text-muted)] form-input-focus"
           placeholder={t('namePlaceholder')}
         />
         {fieldErrors.name && (
-          <p id={nameErrorId} role="alert" className="mt-2 text-micro text-red-400">
+          <p id={nameErrorId} role="alert" className="mt-2 text-micro text-[var(--form-error-text)]">
             {fieldErrors.name}
           </p>
         )}
@@ -245,11 +245,11 @@ export default function ContactForm() {
             required
             aria-invalid={!!fieldErrors.email}
             aria-describedby={fieldErrors.email ? emailErrorId : undefined}
-            className="w-full px-4 py-3 rounded-button bg-[var(--division-surface)] border border-[var(--division-border)] text-[var(--division-text-primary)] placeholder:text-[var(--division-text-muted)] form-input-focus"
+            className="w-full px-4 py-3 rounded-button bg-[var(--division-surface)] border border-[var(--input-border)] text-[var(--division-text-primary)] placeholder:text-[var(--division-text-muted)] form-input-focus"
             placeholder={t('emailPlaceholder')}
           />
           {fieldErrors.email && (
-            <p id={emailErrorId} role="alert" className="mt-2 text-micro text-red-400">
+            <p id={emailErrorId} role="alert" className="mt-2 text-micro text-[var(--form-error-text)]">
               {fieldErrors.email}
             </p>
           )}
@@ -267,7 +267,7 @@ export default function ContactForm() {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-button bg-[var(--division-surface)] border border-[var(--division-border)] text-[var(--division-text-primary)] placeholder:text-[var(--division-text-muted)] form-input-focus"
+            className="w-full px-4 py-3 rounded-button bg-[var(--division-surface)] border border-[var(--input-border)] text-[var(--division-text-primary)] placeholder:text-[var(--division-text-muted)] form-input-focus"
             placeholder={t('phonePlaceholder')}
           />
         </div>
@@ -286,7 +286,7 @@ export default function ContactForm() {
           name="division"
           value={formData.division}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-button bg-[var(--division-surface)] border border-[var(--division-border)] text-[var(--division-text-primary)] form-input-focus appearance-none"
+          className="w-full px-4 py-3 rounded-button bg-[var(--division-surface)] border border-[var(--input-border)] text-[var(--division-text-primary)] form-input-focus appearance-none"
           style={{
             backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236E6D7A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
             backgroundRepeat: 'no-repeat',
@@ -318,11 +318,11 @@ export default function ContactForm() {
           rows={5}
           aria-invalid={!!fieldErrors.message}
           aria-describedby={fieldErrors.message ? messageErrorId : undefined}
-          className="w-full px-4 py-3 rounded-button bg-[var(--division-surface)] border border-[var(--division-border)] text-[var(--division-text-primary)] placeholder:text-[var(--division-text-muted)] form-input-focus resize-none"
+          className="w-full px-4 py-3 rounded-button bg-[var(--division-surface)] border border-[var(--input-border)] text-[var(--division-text-primary)] placeholder:text-[var(--division-text-muted)] form-input-focus resize-none"
           placeholder={t('messagePlaceholder')}
         />
         {fieldErrors.message && (
-          <p id={messageErrorId} role="alert" className="mt-2 text-micro text-red-400">
+          <p id={messageErrorId} role="alert" className="mt-2 text-micro text-[var(--form-error-text)]">
             {fieldErrors.message}
           </p>
         )}
@@ -333,7 +333,7 @@ export default function ContactForm() {
         <div
           id={submitErrorId}
           role="alert"
-          className="text-small text-red-400 bg-red-500/10 border border-red-500/20 rounded-button px-4 py-3"
+          className="text-small text-[var(--form-error-text)] bg-[var(--form-error-bg)] border border-[var(--form-error-border)] rounded-button px-4 py-3"
         >
           {error}
         </div>
@@ -346,11 +346,7 @@ export default function ContactForm() {
         disabled={status === 'submitting'}
         aria-busy={status === 'submitting'}
         aria-describedby={error ? submitErrorId : undefined}
-        className="w-full md:w-auto hover:brightness-110"
-        style={{
-          backgroundColor: 'var(--division-accent)',
-          color: 'var(--division-bg)',
-        }}
+        className="btn-accent w-full md:w-auto"
       >
         {status === 'submitting' ? (
           <>

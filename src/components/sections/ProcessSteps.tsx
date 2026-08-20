@@ -28,7 +28,7 @@ export default function ProcessSteps({ steps }: ProcessStepsProps) {
         <StaggerItem
           key={step.title}
           as="li"
-          className="relative flex gap-5 p-6 rounded-card border border-[var(--division-border)] bg-[var(--division-card)]"
+          className="relative flex gap-5 p-6 rounded-card border border-[var(--division-border)] bg-[var(--division-card)] elevation-1"
         >
           <div className="flex-shrink-0">
             <div

@@ -42,8 +42,37 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
 
   // Apply a theme: write the attribute + update state. Persistence is
   // handled separately by setTheme.
+  //
+  // The `.theme-switching` class is not cosmetic — it works around a real
+  // Chrome bug. When a property that is listed in an element's `transition`
+  // changes because the custom property it reads through `var()` changed,
+  // Chrome leaves that property stuck at its OLD computed value, permanently.
+  // Measured on /contact: after toggling to dark the form inputs kept
+  // `background-color: #F1F4F9` and `border-color: #858E9C` (the light values)
+  // even though the same elements reported `--division-surface: #1C1C1C` and
+  // `--input-border: #404040`. The navbar CTA kept the light accent fill while
+  // its `color` — the one property NOT in its transition list — updated
+  // correctly. `<body>`, which transitions nothing, was always right, which is
+  // why the bug hid for so long: the page background flipped and the details
+  // did not.
+  //
+  // Suppressing transitions for the swap, forcing a synchronous style recalc
+  // while they are still suppressed, then releasing them two frames later
+  // makes every property land on its new value. Two frames rather than one so
+  // the recalc is guaranteed to have been committed, including inside the
+  // View-Transition path below where `setTheme` runs in the update callback.
   const applyTheme = useCallback((next: Theme) => {
-    document.documentElement.setAttribute('data-theme', next)
+    const root = document.documentElement
+    root.classList.add('theme-switching')
+    root.setAttribute('data-theme', next)
+    // Reading a computed style forces the recalc to happen NOW, while the
+    // suppression is still in effect. Two reads: the root owns the tokens,
+    // the body is the nearest thing to a whole-tree flush.
+    void getComputedStyle(root).backgroundColor
+    void getComputedStyle(document.body).backgroundColor
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => root.classList.remove('theme-switching'))
+    })
     setThemeState(next)
   }, [])
 

@@ -332,3 +332,92 @@ Added 2026-08-18 (Phase 18) when the 404 became a real, branded page instead of 
 - Worth knowing when reviewing: the MK `meta.*` pair reaches the **browser tab title after hydration**, not the served HTML — the served `<title>` on `/mk` is English for a technical reason recorded in `18_phase-18-404-page.md` (localizing it requires a locale read that 500s the prerendered blog route). Since a 404 is `noindex`, no search engine indexes either version, so this is a UI-polish item rather than an SEO one.
 
 Estimated review time: ~3 minutes.
+
+## Projects section (`projects.*` — /projects, /projects/[slug], the "Our Work" strips)
+
+Added 2026-08-20 with the new `/projects` pages. Everything in this namespace is
+**LLM-drafted and awaiting a native pass**, with two exceptions noted below. Latin-script
+conventions #19/#30 are respected: `SEO`, `AI`, `IT` and every brand name stay Latin inside
+otherwise-Cyrillic sentences.
+
+### PR-A. Recycled, already-reviewed strings (no new review needed)
+- `projects.showcase.{overline, heading, subheading, viewProject, imageAlt, placeholder}` are
+  the former `home.projects.*` values verbatim — reviewed when the homepage "Our Work"
+  section shipped (2026-06-02). The namespace moved because the component now renders on
+  three pages, not because the copy changed.
+- `projects.items.<slug>.{label, description}` are the former `lazar.work.projects.{0..3}`
+  values verbatim, re-keyed from array index to project slug. Reviewed 2026-07-15 (see the
+  IQ UP! section above, which still applies to `projects.items.iq-up`).
+- `projects.divisionLabels.{consulting, marketing}` = "Консалтинг" / "Маркетинг", matching
+  `sections.team.*Badge` and `home.servicesOverview.divisionLabels.*`.
+- One genuine edit inside a recycled string: `showcase.viewProjectAria` was
+  "Отвори {name} — се отвора во нов прозорец" ("open {name} — opens in a new window") and is
+  now "Погледни го проектот {name}", because the cards link to the project's own page on this
+  site rather than opening the client's site in a new tab. The "opens in a new window" phrasing
+  moved to `detail.visitSiteAria`, which is the link that actually does that.
+
+### PR-B. `nav.projects` → "Проекти" (EN "Work")
+- The two labels deliberately differ. EN "Work" is short enough for the header bar and matches
+  the long-standing "Our Work" section overline; a literal MK "Работа" reads as *labour* /
+  *a job* rather than *a body of work*, so the nav uses "Проекти" ("Projects"), which is also
+  what the URL says. **Point to confirm:** whether "Проекти" or "Портфолио" reads better as a
+  top-level nav item for a Macedonian business audience. `footer.company.projects` keeps the
+  fuller "Нашата работа" ("our work"), matching the section overline.
+
+### PR-C. `projects.hero.*`
+- overline "Нашата работа" (recycled), headline "Проекти што ги изградивме" ("projects that we
+  built"), subtitle "Секоја страница овде е дизајнирана, изградена и лансирана од нашиот тим —
+  а за повеќето и понатаму се грижиме од месец во месец, додека растат."
+- **Points to confirm:** "лансирана" ("launched") is a loan verb — "пуштена во употреба" is the
+  native alternative but is noticeably heavier. "се грижиме за" ("we take care of") for EN
+  "we look after" — check it does not read as *caretaking* in a janitorial sense; "ги
+  одржуваме" ("we maintain") is the safer, flatter option.
+
+### PR-D. `projects.showcase.countLabel` — the only ICU plural in the file
+- EN `{count, plural, =1 {# project} other {# projects}}`; MK
+  `{count, plural, one {# проект} other {# проекти}}`.
+- MK deliberately uses the CLDR category `one` rather than the exact-value match `=1`, because
+  Macedonian's `one` category also covers 21, 31, 41 … ("21 проект"), which an `=1` match would
+  wrongly send to the plural form. Worth a sanity check at 2 and at 21 if the list ever grows
+  that far.
+
+### PR-E. `projects.invite.*` — the "space for more" tile
+- "Вашиот проект овде" / "Кажете ни што треба да се изгради и ќе се вратиме со план." /
+  "Започнете проект".
+- Deliberately makes **no claim about capacity or timing** (the EN is the same) — nothing like
+  "we take on N builds a quarter", which would be an invented business fact.
+- **Point to confirm:** "ќе се вратиме со план" is a calque of "we'll come back with a plan";
+  "ќе ви предложиме план" ("we will propose a plan to you") is more idiomatic if the calque
+  reads oddly.
+
+### PR-F. `projects.detail.*`
+- Labels: "Сите проекти", "Посети ја страницата", "Накратко" ("at a glance"), "Дивизија",
+  "Што направивме", "Жива страница", "Студија на случај", "Наскоро", "Уште екрани",
+  "Следен проект", "Претходен проект".
+- **Points to confirm:** **"Студија на случај"** is the standard calque for "case study" and is
+  widely understood in MK business writing, but confirm it is the phrasing Goran would use with
+  clients rather than something like "Приказ на проектот" ("project showcase"). **"Жива
+  страница"** ("live page") for the live-site row — "Онлајн страница" or just the bare domain
+  are alternatives; the row's value is the hostname, so the label carries little weight.
+  **"Накратко"** ("briefly / in short") for "At a glance" — an accepted idiomatic swap, not a
+  literal translation.
+- `detail.caseStudyBody` is placeholder copy shown until a real write-up exists: "Целосниот
+  приказ за овој проект — брифот, изработката и што промени — е во подготовка и наскоро ќе биде
+  овде. Дотогаш, живата страница е најдобриот увид во работата." **"брифот"** is the English
+  "brief" as an industry loanword; if that reads too agency-jargon for the audience, "задачата"
+  ("the task") is the plain-language swap. This whole string disappears when the case studies
+  are written, so it is low-stakes.
+- `detail.cta*` reuses the CTA-banner register already reviewed elsewhere.
+
+### PR-G. `projects.meta.*`
+- title "Нашата работа"; description "Веб-страници и брендови што Vertex ги дизајнираше,
+  изгради и продолжува да ги развива — разгледајте ги проектите и посетете ги во живо."
+- "Vertex" stays Latin (convention #19). "посетете ги во живо" ("visit them live") — confirm
+  against the softer "погледнете ги во живо" ("view them live"), since one of the four projects
+  currently has no live link.
+
+**Removed** at the same time: `home.projects.*` (moved wholesale to `projects.showcase.*` +
+`projects.divisionLabels.*`) and `lazar.work.projects.{0..3}` (moved to the slug-keyed
+`projects.items.*`). No string was lost; both message files are at exact key parity.
+
+Estimated review time: ~5 minutes.

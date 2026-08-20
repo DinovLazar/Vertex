@@ -170,7 +170,12 @@ export default function BorderGlow({
   // either theme (dark-ish on a dark card, lighter on a light card —
   // the mesh ends up looking like a subtle metallic sheen in both).
   colors,
-  fillOpacity = 0.5,
+  // No static default: the light branch needs a much lower value now that the
+  // interior mesh fill composites with `normal` instead of `soft-light` (see
+  // --borderglow-fill-blend in globals.css). Because --fill-opacity is always
+  // written inline below, a CSS-side fallback could never fire — the default
+  // has to branch in JS, like `resolvedColors` above.
+  fillOpacity,
 }: BorderGlowProps) {
   const { theme } = useTheme()
   // Default glow color picked by theme. `0 0 85` = HSL(0, 0%, 85%) — the
@@ -185,6 +190,7 @@ export default function BorderGlow({
     (theme === 'light'
       ? ['#0A0B12', '#4B5563', '#9AA0AD']
       : ['#F5F5F5', '#C9C9C9', '#A3A3A3'])
+  const resolvedFillOpacity = fillOpacity ?? (theme === 'light' ? 0.1 : 0.5)
   const cardRef = useRef<HTMLDivElement>(null)
 
   const getCenterOfElement = useCallback(
@@ -319,7 +325,11 @@ export default function BorderGlow({
   // radiates less visibly than a bright glow on a dark card — same alpha
   // math but different subjective weight. Bump the intensity 1.4× in light
   // mode so the hover affordance reads similarly strong in both themes.
-  const effectiveIntensity = glowIntensity * (theme === 'light' ? 1.4 : 1.0)
+  // The 1.4x light-mode boost existed to compensate for a glow that
+  // `plus-lighter` was erasing entirely. With `normal` blending the glow
+  // renders at full strength, so the compensation would just make the light
+  // halo 40% heavier than the dark one it mirrors.
+  const effectiveIntensity = glowIntensity
   const glowVars = buildGlowVars(resolvedGlowColor, effectiveIntensity)
 
   // Custom CSS properties aren't part of React.CSSProperties, so we assemble
@@ -330,7 +340,7 @@ export default function BorderGlow({
     '--border-radius': `${borderRadius}px`,
     '--glow-padding': `${glowRadius}px`,
     '--cone-spread': coneSpread,
-    '--fill-opacity': fillOpacity,
+    '--fill-opacity': resolvedFillOpacity,
     ...glowVars,
     ...buildGradientVars(resolvedColors),
   } as CSSProperties

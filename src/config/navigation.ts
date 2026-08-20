@@ -29,6 +29,7 @@ export const mainNavItems: NavItem[] = [
       { labelKey: 'nav.dropdown.aiDevelopment', href: '/marketing/ai-development' },
     ],
   },
+  { labelKey: 'nav.projects', href: '/projects' },
   { labelKey: 'nav.about', href: '/about' },
   { labelKey: 'nav.blog', href: '/blog' },
   { labelKey: 'nav.contact', href: '/contact' },
@@ -49,6 +50,7 @@ export const footerNavItems = {
   ],
   company: [
     { labelKey: 'footer.company.about', href: '/about' },
+    { labelKey: 'footer.company.projects', href: '/projects' },
     { labelKey: 'footer.company.blog', href: '/blog' },
     { labelKey: 'footer.company.contact', href: '/contact' },
     { labelKey: 'footer.company.privacy', href: '/privacy' },

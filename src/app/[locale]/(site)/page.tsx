@@ -104,7 +104,9 @@ export default async function HomePage({
       </Section>
 
       {/* ===== SECTION 4: OUR WORK ===== */}
-      <ProjectsShowcase />
+      {/* The three most recent projects; the full grid lives at /projects,
+          which the component's own "See all projects" link points to. */}
+      <ProjectsShowcase limit={3} />
 
       {/* ===== SECTION 5: SOCIAL PROOF ===== */}
       <Section id="proof">

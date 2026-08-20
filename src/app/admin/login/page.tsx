@@ -51,7 +51,7 @@ export default async function AdminLoginPage({
         )}
         <button
           type="submit"
-          className="w-full mt-4 px-4 py-3 rounded-lg bg-[var(--division-accent)] text-[var(--division-bg)] font-medium hover:brightness-110 transition-all"
+          className="btn-accent w-full mt-4 px-4 py-3 rounded-lg font-medium"
         >
           Sign in
         </button>

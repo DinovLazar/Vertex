@@ -19,13 +19,17 @@
   grid-template-rows: 1fr;
   background: var(--card-bg, #120F17);
   overflow: visible;
-  box-shadow:
-    rgba(0, 0, 0, 0.1) 0px 1px 2px,
-    rgba(0, 0, 0, 0.1) 0px 2px 4px,
-    rgba(0, 0, 0, 0.1) 0px 4px 8px,
-    rgba(0, 0, 0, 0.1) 0px 8px 16px,
-    rgba(0, 0, 0, 0.1) 0px 16px 32px,
-    rgba(0, 0, 0, 0.1) 0px 32px 64px;
+  /* Tokenized in the Light Mode Overhaul session — see the
+     --borderglow-shadow block in globals.css. Dark keeps the original
+     six-layer rgba(0,0,0,0.1) stack byte-for-byte; light swaps in a real
+     elevation shadow, because a six-deep black haze on #FFFFFF reads as
+     dirt rather than as lift. */
+  box-shadow: var(--borderglow-shadow);
+  transition: box-shadow 0.25s ease-out;
+}
+
+.border-glow-card:hover {
+  box-shadow: var(--borderglow-shadow-hover);
 }
 
 .border-glow-card::before,
@@ -97,7 +101,7 @@
 
   mask-composite: subtract, add, add, add, add, add;
   opacity: calc(var(--fill-opacity, 0.5) * (var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
-  mix-blend-mode: soft-light;
+  mix-blend-mode: var(--borderglow-fill-blend, soft-light);
 }
 
 /* outer glow layer */
@@ -112,7 +116,8 @@
     );
 
   opacity: calc((var(--edge-proximity) - var(--edge-sensitivity)) / (100 - var(--edge-sensitivity)));
-  mix-blend-mode: plus-lighter;
+  /* Theme-swapped — see the --borderglow-blend token in globals.css. */
+  mix-blend-mode: var(--borderglow-blend, plus-lighter);
 }
 
 .border-glow-card > .edge-light::before {

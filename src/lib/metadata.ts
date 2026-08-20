@@ -8,6 +8,13 @@ interface PageMetadataOptions {
   path: string
   locale?: 'en' | 'mk'
   noIndex?: boolean
+  /**
+   * Root-relative path to a page-specific social card, e.g. a project
+   * screenshot at '/projects/iqup.png'. Overrides the site-wide OG card.
+   * Must be a real 1.91:1-ish landscape image — the project screenshots are
+   * 2560x1440, which crops cleanly in every social preview.
+   */
+  image?: { url: string; width: number; height: number; alt: string } | null
 }
 
 /**
@@ -50,6 +57,7 @@ export function generatePageMetadata({
   path,
   locale = 'en',
   noIndex = false,
+  image = null,
 }: PageMetadataOptions): Metadata {
   const alternates = buildAlternates(locale, path)
   const canonicalUrl = alternates.canonical
@@ -60,7 +68,7 @@ export function generatePageMetadata({
   // child object as a full replacement and drops the framework-added images.
   // We have to repeat the image reference here so every page using this helper
   // still surfaces a preview card. URLs are resolved against `metadataBase`.
-  const ogImage = {
+  const ogImage = image ?? {
     url: '/opengraph-image',
     width: 1200,
     height: 630,
@@ -84,7 +92,11 @@ export function generatePageMetadata({
       card: 'summary_large_image',
       title: `${title} | ${siteConfig.name}`,
       description,
-      images: [{ url: '/twitter-image', alt: ogImage.alt }],
+      images: [
+        image
+          ? { url: image.url, alt: image.alt }
+          : { url: '/twitter-image', alt: ogImage.alt },
+      ],
     },
     robots: noIndex
       ? { index: false, follow: false }

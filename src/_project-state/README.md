@@ -50,5 +50,19 @@ This folder is the project's persistent memory. It exists so that every new Clau
 - [x] Phase 15F — Blog Post Content + Final SEO Polish  *(all 3 blog posts fully MK; blog.ts locale-keyed; sitemap.xml + robots.txt + locale-aware 404; inLanguage on JSON-LD; Phase 15 overall complete)*
 - [ ] Phase 16 — Performance Audit & Launch
 
+## Ad-hoc sessions after Phase 18
+- **Session — Light-Mode Overhaul + Goran portrait + `/projects` (2026-08-20)** —
+  `session-light-mode-projects_2026-08-20.md`. Light mode rebuilt around shadow-based
+  elevation (Phase L1 had kept the *dark* model, which collapses on white); several
+  light-mode effects were not merely flat but mathematically inert (BorderGlow's
+  `plus-lighter` glow, `hover:brightness-110` on a near-black accent, a `--color-ink`
+  CTA band that resolves to `#FFFFFF`). Goran's portrait added to `/consulting`. New
+  `/projects` index + a page per project, with `src/config/projects.ts` promoted to the
+  single source of truth (sitemap, llms.txt, `/lazar` and the "Our Work" strips all derive
+  from it). Closed a set of cross-cutting bugs the audit surfaced: a horizontal scrollbar on
+  every page at every breakpoint, the navbar overflowing at `lg` in Macedonian,
+  `--division-text-muted` failing WCAG AA in **dark** mode, and a theme toggle that left
+  every transitioned property stuck at its previous value.
+
 ## Notes on actual vs. expected state
 When reading `current-state.md`, note that some items you might expect to be "placeholder" are actually implemented, and vice-versa. The Navbar and Footer are both fully built with division-aware theming, animations, and responsive layouts. The page shell (navbar + main + footer) is complete. As of Phase 11, all 16 content pages are live: homepage, `/about`, `/contact`, `/blog`, 3 mock blog post pages, 2 division landing pages, 8 division service pages, `/privacy`, and `/thank-you`. As of Phase 15A, every route is served under `/en/...` and `/mk/...` — the folder tree was moved from `src/app/(site)/` to `src/app/[locale]/(site)/`, next-intl is configured, and the language toggle works; translation *content* is still Phase 15B's job. Blog content comes from Sanity CMS (Phase 13A, 2026-04-24): the 3 original posts were migrated from the `src/lib/blog.ts` mock into Sanity documents, `src/lib/blog.ts` is now a thin async adapter over GROQ queries with the same function names, and `/studio` is the editing UI. As of Phase 13B (2026-04-26), Goran can also click "Generate next post" in `/admin/generate` to have Claude Opus 4.7 write a bilingual draft from a 20-item topic backlog (Pexels image auto-attached) — drafts land in Sanity for review and publish through the Studio. As of Phase 13C (2026-05-01), the same button optionally publishes to Facebook + Instagram and pings Goran's phone via Telegram, all in one click — the dashboard exposes 3 checkboxes (Publish, Post to Facebook, Post to Instagram) and renders a token-health banner when the long-lived Meta Page Access Token is approaching expiry. The contact form is wired to the real `/api/contact` route (Session B). Always trust the documentation over assumptions.

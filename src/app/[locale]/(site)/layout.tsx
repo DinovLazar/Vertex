@@ -30,10 +30,15 @@ export default async function SiteLayout({
       <a
         href="#main-content"
         className="fixed left-4 top-4 z-[60] -translate-y-[200%] focus-visible:translate-y-0 transition-transform px-4 py-2 rounded-button text-sm font-heading font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        /* outlineColor was --division-bg. With outline-offset:2px the ring is
+           drawn OUTSIDE the chip, on the page ground — which is exactly
+           --division-bg — so it rendered at 1:1 in both themes: a focus ring
+           that was never visible. --division-accent gives a halo that clears
+           ~19:1 against the page in either theme. */
         style={{
           backgroundColor: 'var(--division-accent)',
           color: 'var(--division-bg)',
-          outlineColor: 'var(--division-bg)',
+          outlineColor: 'var(--division-accent)',
         }}
       >
         {tCommon('skipToContent')}

@@ -1,3 +1,5 @@
+import { projects, type Project } from "./projects"
+
 // src/config/lazar.ts
 //
 // Configuration for Lazar's personal portfolio page (/lazar).
@@ -13,18 +15,21 @@ export const lazarSocials = {
 } as const
 
 // Curated list of projects shown in the "Selected work" section.
-// Screenshots + live URLs reuse the real assets already wired in
-// src/config/projects.ts. Per-project label + description are translated
-// in messages/*.json under `lazar.work.projects.{index}`.
-export interface LazarProject {
-  name: string
-  image: string | null
-  href: string | null
-}
+//
+// Derived from `src/config/projects.ts` rather than re-listing the same
+// clients: the two lists had already drifted apart once (the shared list was
+// missing Northgate Dental), and per-project copy now lives in one place —
+// `messages/{en,mk}.json` → `projects.items.<slug>`, keyed by slug.
+//
+// To feature only some projects here, list their slugs in `FEATURED_SLUGS`;
+// an empty array means "all of them, newest first".
+export type LazarProject = Project
 
-export const lazarProjects: LazarProject[] = [
-  { name: "Northgate Dental", image: "/projects/northgate.png", href: "https://northgate.optimind000.com/en" },
-  { name: "Sunset Services", image: "/projects/sunset.png", href: "https://sunsetservices.us" },
-  { name: "Dalibor Plečić — Author", image: "/projects/daliborac.png", href: "https://daliborplecic.com" },
-  { name: "IQ UP!", image: "/projects/iqup.png", href: "https://iqup.vertexconsulting.mk/" },
-]
+const FEATURED_SLUGS: string[] = []
+
+export const lazarProjects: LazarProject[] =
+  FEATURED_SLUGS.length === 0
+    ? projects
+    : (FEATURED_SLUGS.map((slug) =>
+        projects.find((p) => p.slug === slug),
+      ).filter(Boolean) as LazarProject[])

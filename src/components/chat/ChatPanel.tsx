@@ -128,7 +128,9 @@ export function ChatPanel({
       className={cn(
         'fixed z-50 flex flex-col overflow-hidden',
         'bg-[var(--color-surface)] border border-[var(--color-border)]',
-        'shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)]',
+        // Shared elevation token rather than a hard-coded black shadow: on a
+        // white page a 60%-black cast reads as grime, not as lift.
+        'elevation-3',
         // Mobile: full-screen with safe-area insets
         'top-0 right-0 bottom-0 left-0 rounded-none',
         // Desktop: floating panel anchored bottom-right above the trigger.

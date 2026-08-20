@@ -48,11 +48,7 @@ export default function NotFoundContent() {
         </p>
         <Link
           href="/"
-          className="mt-8 inline-flex items-center gap-2 min-h-[44px] px-6 py-3 rounded-button font-heading text-small font-medium transition-[filter,transform] hover:brightness-110 active:scale-[0.98] focus-ring"
-          style={{
-            backgroundColor: 'var(--division-accent)',
-            color: 'var(--division-bg)',
-          }}
+          className="btn-accent mt-8 inline-flex items-center gap-2 min-h-[44px] px-6 py-3 rounded-button font-heading text-small font-medium active:scale-[0.98] focus-ring"
         >
           {t('cta')}
           <ArrowRight className="size-4" aria-hidden="true" />

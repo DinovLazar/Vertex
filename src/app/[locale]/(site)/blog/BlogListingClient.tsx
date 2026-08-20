@@ -81,9 +81,11 @@ export default function BlogListingClient({
         {filteredPosts.length === 0 ? (
           <AnimateIn>
             <div className="text-center py-16 border border-dashed border-[var(--division-border)] rounded-card">
-              <h3 className="text-h3 text-[var(--division-text-secondary)]">
+              {/* h2: the page's only other heading is the <h1>, so an h3 here
+                  skipped a level whenever the filter matched nothing. */}
+              <h2 className="text-h3 text-[var(--division-text-secondary)]">
                 {t('empty.title')}
-              </h3>
+              </h2>
               <p className="mt-2 text-small text-[var(--division-text-muted)]">
                 {t('empty.subtitle')}
               </p>

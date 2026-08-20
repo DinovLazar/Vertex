@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 import { AnimateIn } from '@/components/global'
 
@@ -7,13 +8,30 @@ interface LeaderIntroProps {
   bio: string
   /** Optional overline — defaults to the shared `sections.leader.overline` translation. */
   overline?: string
+  /**
+   * Optional portrait under /public (e.g. '/goran-bw.png'). When omitted the
+   * avatar falls back to the derived initials, which is what every call site
+   * rendered before portraits existed.
+   */
+  image?: string
 }
 
 /**
- * Founder / leader introduction section with initials avatar + bio.
- * Used on division landing pages. Division-themed via CSS vars.
+ * Founder / leader introduction section with portrait (or initials) avatar
+ * plus bio. Used on division landing pages. Division-themed via CSS vars.
+ *
+ * The portrait treatment matches `TeamGrid` / `TeamShowcase` — a grayscale
+ * head-and-shoulders crop inside a ring — but at the larger 112/128px size
+ * this section already used for its initials disc, so adding a photo does not
+ * shift the surrounding layout.
  */
-export default async function LeaderIntro({ name, role, bio, overline }: LeaderIntroProps) {
+export default async function LeaderIntro({
+  name,
+  role,
+  bio,
+  overline,
+  image,
+}: LeaderIntroProps) {
   const t = await getTranslations('sections.leader')
   const resolvedOverline = overline ?? t('overline')
   const initials = name
@@ -26,19 +44,37 @@ export default async function LeaderIntro({ name, role, bio, overline }: LeaderI
   return (
     <AnimateIn amount={0.2} className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-start">
       <div className="flex-shrink-0">
-        <div
-          className="w-28 h-28 md:w-32 md:h-32 rounded-full flex items-center justify-center border border-[var(--division-border)]"
-          style={{
-            backgroundColor: 'var(--division-surface)',
-          }}
-        >
-          <span
-            className="font-heading text-3xl md:text-4xl font-semibold"
-            style={{ color: 'var(--division-text-primary)' }}
+        {image ? (
+          <div
+            className="relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-[var(--division-border)] elevation-1"
+            style={{ backgroundColor: 'var(--division-surface)' }}
           >
-            {initials}
-          </span>
-        </div>
+            <Image
+              src={image}
+              alt={name}
+              fill
+              sizes="(max-width: 768px) 112px, 128px"
+              /* Portraits are shot head-and-shoulders; anchoring the crop to
+                 the top keeps the face centred in the circle instead of
+                 cutting the forehead the way `object-center` does. */
+              className="object-cover object-top"
+            />
+          </div>
+        ) : (
+          <div
+            className="w-28 h-28 md:w-32 md:h-32 rounded-full flex items-center justify-center border border-[var(--division-border)]"
+            style={{
+              backgroundColor: 'var(--division-surface)',
+            }}
+          >
+            <span
+              className="font-heading text-3xl md:text-4xl font-semibold"
+              style={{ color: 'var(--division-text-primary)' }}
+            >
+              {initials}
+            </span>
+          </div>
+        )}
       </div>
 
       <div>

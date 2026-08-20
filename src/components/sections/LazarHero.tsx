@@ -69,7 +69,7 @@ export default function LazarHero() {
               <MagneticButton>
                 <a
                   href="#work"
-                  className="focus-ring cta-sheen inline-flex min-h-[44px] items-center justify-center rounded-none bg-[var(--division-accent)] px-8 py-3.5 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--division-bg)] transition-all hover:brightness-110"
+                  className="btn-accent focus-ring cta-sheen inline-flex min-h-[44px] items-center justify-center rounded-none px-8 py-3.5 font-mono text-[11px] font-medium uppercase tracking-[0.18em]"
                 >
                   {t('ctaPrimary')}
                 </a>

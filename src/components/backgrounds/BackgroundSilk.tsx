@@ -60,24 +60,41 @@ export default function BackgroundSilk({
   const resolvedColor = color ?? (theme === 'light' ? SILK_COLOR_LIGHT : SILK_COLOR_DARK)
 
   return (
-    <div
-      className={`absolute inset-0 z-0 overflow-hidden ${className}`}
-      style={{ opacity: 'var(--silk-opacity, 1)' }}
-    >
-      {shouldAnimate ? (
-        <Silk
-          color={resolvedColor}
-          speed={speed}
-          scale={scale}
-          noiseIntensity={noiseIntensity}
-          rotation={rotation}
-        />
-      ) : (
-        <div
-          className="w-full h-full"
-          style={{ backgroundColor: 'var(--division-bg)' }}
-        />
-      )}
-    </div>
+    <>
+      <div
+        className={`absolute inset-0 z-0 overflow-hidden ${className}`}
+        style={{ opacity: 'var(--silk-opacity, 1)' }}
+      >
+        {shouldAnimate ? (
+          <Silk
+            color={resolvedColor}
+            speed={speed}
+            scale={scale}
+            noiseIntensity={noiseIntensity}
+            rotation={rotation}
+          />
+        ) : (
+          <div
+            className="w-full h-full"
+            style={{ backgroundColor: 'var(--division-bg)' }}
+          />
+        )}
+      </div>
+
+      {/* Legibility scrim — mirrors the one the consulting hero draws over
+          GridMotion. A sibling of the canvas wrapper rather than a child, so
+          --silk-opacity does not also dim the scrim itself. z-[1] puts it
+          above the z-0 canvas and below HeroSection's z-10 content. Both
+          tokens are `transparent` in dark mode, so this paints nothing there.
+          See --silk-scrim-* in globals.css for the measurements. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse 85% 60% at 50% 52%, var(--silk-scrim-center) 0%, var(--silk-scrim-mid) 55%, transparent 95%)',
+        }}
+      />
+    </>
   )
 }
