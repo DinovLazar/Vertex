@@ -2,8 +2,26 @@ export const siteConfig = {
   name: "Vertex Consulting",
   legalName: "ВЕРТЕКС КОНСАЛТИНГ ДООЕЛ",
   tagline: "We help businesses grow smarter.",
+  /**
+   * Display form of the domain — brand copy, never a host for programmatic
+   * use. Anything that needs a real hostname derives it from `url` below
+   * (see `src/lib/indexnow.ts`), so the two can't drift apart.
+   */
   domain: "vertexconsulting.mk",
-  url: "https://vertexconsulting.mk",
+  /**
+   * The canonical base URL. Everything self-referential is built from it:
+   * `metadataBase`, canonical + hreflang alternates, sitemap.xml, robots.txt,
+   * every JSON-LD `@id` anchor, and both llms.txt routes. No trailing slash.
+   *
+   * `www`, not the apex: Vercel serves the site on www.vertexconsulting.mk and
+   * 308-redirects the apex to it. While this said `https://vertexconsulting.mk`
+   * every canonical tag, hreflang alternate and sitemap entry pointed at a URL
+   * that immediately redirects — a self-referencing canonical that isn't
+   * actually the delivered page. Search engines resolve that, but it wastes
+   * the signal. If the apex is ever made the serving host instead, change it
+   * back here and nowhere else.
+   */
+  url: "https://www.vertexconsulting.mk",
   // External client-portal login (separate app on its own subdomain).
   portalUrl: "https://portal.vertexconsulting.mk/login",
   owner: "Goran Dinov",

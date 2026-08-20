@@ -59,7 +59,11 @@ export async function submitToIndexNow(
       method: 'POST',
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
       body: JSON.stringify({
-        host: siteConfig.domain,
+        // Derived from siteConfig.url, not siteConfig.domain: IndexNow
+        // rejects a submission whose `host` does not match the host of the
+        // URLs in `urlList`, and `domain` is the display form (no `www`)
+        // while the URLs carry the canonical www host.
+        host: new URL(siteConfig.url).host,
         key,
         keyLocation: keyLocation(),
         urlList: unique.slice(0, 10_000),

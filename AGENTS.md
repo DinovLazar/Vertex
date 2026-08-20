@@ -38,7 +38,7 @@ Bilingual (EN/MK) marketing site for **Vertex Consulting**, live at **https://ve
 
 ## Hard constraints / Security
 - **The GitHub repo (DinovLazar/Vertex) is PUBLIC.** Never commit secrets or real tokens; only the two `*.example` env files are tracked, everything else `.env*` is gitignored.
-- `siteConfig.url` (`src/config/site.ts`) is the canonical base URL — `https://vertexconsulting.mk`, no trailing slash.
+- `siteConfig.url` (`src/config/site.ts`) is the canonical base URL — `https://www.vertexconsulting.mk`, **www**, no trailing slash. Vercel serves the site on `www` and 308s the apex to it; the config said the apex until 2026-08-20, which made every canonical tag, hreflang alternate and sitemap entry point at a redirect. `siteConfig.domain` stays bare (`vertexconsulting.mk`) — it is display copy, and anything needing a real hostname derives it from `url`.
 - In MK copy: brand names and "SEO" stay in **Latin script**. MK translations are LLM-drafted and await native-speaker review — log phrasing decisions in `TRANSLATION_NOTES.md`.
 
 ## Gotchas
