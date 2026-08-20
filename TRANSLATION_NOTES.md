@@ -421,3 +421,56 @@ otherwise-Cyrillic sentences.
 `projects.items.*`). No string was lost; both message files are at exact key parity.
 
 Estimated review time: ~5 minutes.
+
+---
+
+## Blog post — "IT инфраструктура" (Sanity `post-it-infrastructure-ten-person-business`, 2026-08-20)
+
+Fourth blog post, Lazar / Marketing division. Note this copy lives in **Sanity**, not in
+`messages/mk.json` — to change any of it, edit the post in `/studio` (or re-run
+`scripts/publish-post-it-infrastructure.ts` after editing the strings in the script).
+MK is LLM-drafted like the other three posts, so it joins the same native-speaker queue.
+
+### BL-A. Title → „Што навистина значи „IT инфраструктура" за бизнис со десет луѓе"
+- "IT" stays **Latin** with a Cyrillic noun ("IT инфраструктура"), matching the site's own
+  established form in `nav.dropdown.itInfrastructure` and `marketing.itInfrastructure.hero.title`
+  — and consistent with convention #19. The backlog topic title used the same form.
+- "10-person business" → "бизнис со десет луѓе" (spelled-out numeral) rather than "со 10 луѓе".
+  Reads better in prose; the EN title keeps the digit for the SEO/headline scan.
+
+### BL-B. Vocabulary aligned to the existing service page, not to my first instinct
+Four terms where the more literal choice was rejected in favour of what `messages/mk.json`
+already uses on `/mk/marketing/it-infrastructure`, so a reader moving between the post and
+the service page sees one vocabulary:
+- "email" → **„е-мејл"** (not „е-пошта"). Site-wide form. Cross-check with #20, where the
+  contact chip label was decided as „Е-мејл" too.
+- "domain" → **„домен / домени"** (not „домејн"). Site-wide form.
+- "backups" → **„резервни копии"** (not the colloquial „бекапи"). Site-wide form; the
+  colloquialism is more natural in speech but inconsistent with the service page.
+- "server room" → **„сервер сала"**. Alternative „серверска соба" is more standard; „сервер сала"
+  was chosen for rhythm in the opening sentence. **Worth a second opinion.**
+
+### BL-C. Latin-script terms left untranslated in the MK body
+Per convention #19: **DNS, SPF, DKIM, DMARC, VPS, IP, IT, Cloudflare, Gmail, Outlook,
+Vertex Marketing**. Also left Latin: **spam** and **junk** (in „spam папките" and „во junk") —
+both are what Macedonian users actually see in their own mail clients, so translating them
+would make the sentence harder to act on, not easier. **Flag if Goran prefers „непожелна пошта".**
+
+### BL-D. Register calls in the body
+- „Тргнете ја терминологијата настрана" for "Strip the terminology away" — imperative,
+  matches the direct second-person register used across the other MK posts.
+- „приходен проблем преоблечен во технички костум" for "a revenue problem wearing a technical
+  costume". The metaphor survives the translation intact, but it is the single most
+  "translated-sounding" line in the post. If one sentence gets reworked by a native speaker,
+  expect it to be this one.
+- „Ви треба досадно, документирано и со сопственик" for "You need boring, documented, and owned".
+  Deliberately clipped/adjectival. The natural MK expansion („Ви треба нешто досадно, добро
+  документирано и со јасен сопственик") is smoother but loses the punch.
+- „Тука влегуваме ние" for the closing "Where we come in" heading — idiomatic, confirmed
+  against the flatter „Каде влегуваме ние".
+
+### BL-E. Tags
+- MK tags: „IT инфраструктура", „хостинг", „е-мејл", „мал бизнис". Short and easy to retouch,
+  same as the tag set flagged in item 5 of the top-20 list.
+
+Estimated review time: ~10 minutes.
