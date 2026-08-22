@@ -608,3 +608,52 @@ The `/projects` grid and detail pages landed on `main` between the sweep being w
 - `"Неофицијална дигитална архива за ФК Беласица: сезони, легенди, фотографии и резултати собрани на едно место."`
 - `visitSiteAria` → `"Отвори ја живата веб-страница {name} (се отвора во нов прозорец)"`, matching the parenthetical the EN aria label now uses.
 The `/projects/[slug]` **meta title** is built in code as `` `${project.name}: ${label}` `` (was ` — `), so it changed for both locales at once.
+
+## Project case studies (`projects.items.*.caseStudy` — /projects/[slug], 2026-08-22)
+
+~1,500 words of new MK prose: five case studies, three sections each
+(**Задачата / Изградбата / Што се промени**). Drafted to match the existing MK
+voice on the site and, like the rest of `messages/mk.json`, still awaiting the
+native-speaker pass. The whole block is one review unit; roughly 20 minutes.
+
+The copy was written with em dashes and then swept dash-free in the same
+session, under the same rules as the 2026-08-22 pass (see the section above).
+36 MK rewrites. The ones worth a second opinion:
+
+### CS-A. Paired dashes that became parentheses
+Mostly appositive lists, where parentheses were the least intrusive fix:
+- `"…од Аурора, Илиноис (хардскејп, уредување дворови, хидроизолација, чистење снег и подземни инсталации), водена од семејството Вале…"`
+- `"Практичните факти (петнаесет минути, бесплатно, извештај по е-пошта) стојат веднаш до копчето…"`
+- `"И три јазика (англиски, македонски и српски), зашто неговите читатели не живеат во еден."`
+- `"…неговата работа веќе живее (Booksa, Versopolis, Partizanska knjiga), плус интервјуата."`
+- `"…сето тоа (сезони, легенди, фотографии, резултати) да се собере во еден неофицијален дигитален дом…"`
+- `"…телефонски потврдени нарачки (машинерија што обично им припаѓа на многу поголеми streetwear брендови), без наплата со картичка…"`
+- `"…наплата со картичка (шаблонот) беше токму погрешното решение."`
+- `"…го кажуваат сето ова гласно (кога може да се купи, како се плаќа, зошто парчињата се толку малку) наместо да го кријат во условите."`
+- `"…ја започнува со неколку допири (на својот јазик) и си заминува…"` — this one stacks two `и` clauses around the parenthetical; the English original has the same shape, but a native ear may prefer recasting.
+
+### CS-B. Dashes that became a colon (list or restatement)
+`"…на два јазика: македонски и српски."` · `"…родител ги поставува: колку трае…"` ·
+`"…сајтот на еден изведувач: посетата да ја претвори во барање за понуда."` ·
+`"…може да го провери: семеен бизнис од 2000 година…"` ·
+`"…модна марка од Струмица: еден дизајнер…"` ·
+`"…кога ќе пристигне курирот: без картички, без плаќање однапред."` ·
+`"Без трикови, без портфолио-театар: типографија наместена…"` ·
+`"Архивата сè уште се гради: се отвора на 30 август 2026."`
+
+### CS-C. Sentences split where both halves were independent
+- `"…а не закопано во ситни букви. Производ наменет за деца заслужува доверба…"`
+- `"…и граден прво за телефон. Самата проценка се прави на телефон или таблет…"`
+- `"…навистина се уште три. Нарачките се ограничени на две парчиња…"`
+- `"…целиот пат до понудата. Не преведена брошура."` — the fragment is deliberate emphasis, mirroring the EN. Confirm it does not read as an error in MK.
+
+### CS-D. One quotation restructured rather than repunctuated
+The Sunset write-up quoted the client's own button copy, `„Get a Free Estimate — 48-Hour Response”`, which carries a dash inside the quotation marks. Swapping the mark would have misquoted a live site, so the sentence now describes the CTA instead of quoting it whole:
+`"…копчето „Get a Free Estimate”, со ветен одговор во рок од 48 часа, се повторува од херо-секцијата до футерот…"`
+The EN copy took the same treatment. Check that `„со ветен одговор во рок од 48 часа”` is the natural phrasing for a service promise.
+
+### CS-E. Kept as-is
+- `„ ”` quotation marks throughout (`„што е ова?”`, `„Бунике”`, `„пред и потоа”`, `„уште 3”`, `„распродадено”`).
+- `'рбетот на локалната SEO-работа` keeps its apostrophe.
+- Latin script for brand names and `SEO`, per #19/#30: `Sunset Services`, `Next.js`, `Sanity CMS`, `Unilock`, `Google`, `YouTube`, `Booksa`, `Versopolis`, `Partizanska knjiga`, `streetwear`, `belasicahistory.mk`.
+- `Трајанов`, `Далибор Плечиќ`, `ФК Беласица`, `Аурора, Илиноис`, `ДуПејџ`, `Чикаго`, `Вале` are transliterated, matching how the existing project cards already handle them.

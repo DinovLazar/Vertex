@@ -104,24 +104,57 @@ teaching it `*em*` for one book title would be a shared-lib change for one word.
 Paragraphs still render *through* `renderInlineMarkdown`, so `**bold**` works in
 case-study copy if it is ever wanted; it is simply a no-op today.
 
-## ⚠️ Conflict with the em-dash sweep — flagged, not resolved
+## Em-dash sweep: conflict raised, then resolved
 
-**The commit immediately before this one (`14ea8aa`, 2026-08-22) removed every
-em dash from all site copy. This phase's copy reintroduces 89 of them into
-`messages/{en,mk}.json`** (40 EN + 49 MK) — every em dash now in either file is
-inside `projects.items.*.caseStudy`; nothing else regressed.
+The copy as supplied carried **89 em dashes** (40 EN + 49 MK) into files the
+previous commit (`14ea8aa`) had just swept to zero. Because the brief required
+verbatim insertion, the first commit (`c8c4716`) shipped them and flagged the
+conflict rather than silently rewriting client-approved copy.
 
-This was done deliberately: the phase brief states the copy is final and must be
-inserted verbatim, with only technical transformations permitted, which the
-sweep's rewrite rules are not. The two instructions genuinely conflict and the
-newer, more specific one won.
+Goran then asked for the dashes out, so a second pass rewrote all 89 under the
+**same rules the original sweep used** — not a blanket `s/—/,/`:
 
-**The site is no longer em-dash-free.** If the zero-dash rule is the standing
-policy, the case-study copy needs a rewrite pass under the sweep's own rules
-(colon / comma / full stop / parentheses / restructure — see
-`session-em-dash-sweep_2026-08-22.md`), which is a copy decision, not a code one.
-The regression guards on the two AI writers (`chatWidget.ts`,
-`contentGenerator/buildPrompt.ts`) are untouched and still hold.
+- **Colon** where the dash introduced a list or a restatement — *"a family
+  company in Aurora, Illinois: hardscape, landscaping…"*, *"на два јазика:
+  македонски и српски"*.
+- **Comma** for appositives and trailing qualifiers — *"a marketing campaign
+  for it, just not the usual kind"*, *"Парчињата излегуваат во спуштања, по
+  неколку дизајни одеднаш"*.
+- **Full stop** where both halves were independent clauses and a comma would
+  have spliced — *"…built for the phone first. The assessment itself runs on a
+  phone or tablet…"*, *"…навистина се уште три. Нарачките се ограничени на две
+  парчиња…"*.
+- **Parentheses** for the paired/parenthetical dashes — *"The practical facts
+  (fifteen minutes, free, report by email) sit right next to the button"*,
+  *"…(машинерија што обично им припаѓа на многу поголеми streetwear брендови)…"*.
+- **Restructured** where no mark fit — *"…gets the full site: every service,
+  every town, the quote flow. Not a translated brochure."*
+
+**One rewrite is not punctuation, it is a fact-preserving restructure.** The
+Sunset write-up quoted the client's own button copy, `"Get a Free Estimate —
+48-Hour Response"`, with the dash *inside the quotation marks*. Swapping the
+mark there would have misquoted a live site, so the sentence now describes the
+CTA instead of quoting it whole: *"a "Get a Free Estimate" button promising a
+48-hour response repeats from the hero to the footer"*. Same treatment in MK.
+**If that CTA text ever needs to be quoted verbatim again, this is the sentence
+to revisit.**
+
+Every rewrite was written by hand as an explicit old → new pair and applied with
+a script that asserted exactly one match each, so nothing was substituted
+blindly. MK decisions are logged in `TRANSLATION_NOTES.md` under
+*"Project case studies"* (CS-A…CS-E) for the native-speaker pass.
+
+### Where the site stands on em dashes now
+A sweep of all 46 public routes (23 paths × 2 locales, all HTTP 200) finds
+**42 rendering zero**. The four that do not are **both pre-existing and neither
+from this phase**:
+- `/en` + `/mk` — 1 each, the homepage pull-quote attribution mark drawn by
+  `SocialProof.tsx`. The deliberate keeper from the original sweep.
+- `/en/blog` + `/mk/blog` — 4 each, from Sanity blog-post excerpts. Live
+  production returns the same 4, confirming these predate this work. This is the
+  gap `session-em-dash-sweep_2026-08-22.md` logged as "not done, needs env this
+  machine does not have"; the untracked `scripts/strip-em-dashes.ts` was written
+  to close it and **has still not been run** (it needs `SANITY_API_WRITE_TOKEN`).
 
 ## Files changed
 | File | What |
@@ -131,6 +164,7 @@ The regression guards on the two AI writers (`chatWidget.ts`,
 | `src/types/index.ts` | New `ProjectCaseStudy` type, documented, placed after `ContentSection` which it reuses. |
 | `src/app/[locale]/(site)/projects/[slug]/page.tsx` | Reads + renders `caseStudy`; keeps the "Coming soon" branch as fallback; `AnimateIn amount={0}`; header doc comment rewritten (▼ SLOT 1 is gone, ▼ SLOT 2 / gallery remains). |
 | `src/app/globals.css` | `.prose-flush-top` modifier (3 lines + why-it-cannot-be-a-utility comment), placed just above the Session C accessibility block. |
+| `TRANSLATION_NOTES.md` | New "Project case studies" section (CS-A…CS-E) logging the 36 MK punctuation rewrites and what to double-check in the native pass. Added in the second pass. |
 
 No files added or deleted. `src/config/projects.ts` **not touched** — its
 "case study coming soon" header comment now describes the fallback rather than
@@ -160,6 +194,10 @@ the default, which is still accurate.
   of that edit.
 - **Encoding:** em dashes, `„ ”`, `ѝ` and `'рбетот` all render correctly; the
   only escaping in the served HTML is React's normal `&#x27;` / `&quot;`.
+- **Em-dash sweep of all 46 public routes** (23 paths × 2 locales), all HTTP
+  200: 42 render zero. The 4 that do not are the homepage attribution mark and
+  the Sanity blog excerpts, both pre-existing (production returns the same
+  counts). All 10 case-study pages: zero.
 - **Both themes:** light mode checked through the real theme toggle (not
   `prefers-color-scheme` — the site stores an explicit preference, so media
   emulation alone does not flip it). Status-note text measures **4.95:1** on its
