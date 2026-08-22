@@ -51,7 +51,9 @@ export default async function MarketingLandingClient() {
 
   return (
     <>
-      {/* Hero — grayscale plasma backdrop, no mouse interaction */}
+      {/* Hero — grayscale plasma backdrop, pre-rendered as a looping video
+          (the old live-shader props — speed 0.5, scale 1.3, opacity 0.35 —
+          are baked into the videos; see scripts/render-plasma-hero.mjs) */}
       <HeroSection
         headline={t('hero.headline')}
         subtitle={t('hero.subtitle')}
@@ -60,13 +62,7 @@ export default async function MarketingLandingClient() {
           { label: t('hero.ctaSecondary'), href: '#team', variant: 'outline' },
         ]}
       >
-        <BackgroundPlasma
-          speed={0.5}
-          direction="forward"
-          scale={1.3}
-          opacity={0.35}
-          mouseInteractive={false}
-        />
+        <BackgroundPlasma />
       </HeroSection>
 
       {/* Services grid */}

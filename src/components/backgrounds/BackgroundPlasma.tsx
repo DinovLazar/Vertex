@@ -1,73 +1,122 @@
 'use client'
 
-import dynamic from 'next/dynamic'
+import { useEffect, useRef } from 'react'
 import { useTheme } from '@/components/global'
 import { useShouldAnimate } from '@/lib/useMediaQuery'
 
-const Plasma = dynamic(() => import('./Plasma'), { ssr: false })
+/**
+ * Marketing-hero plasma backdrop — a pre-rendered looping video, not a live
+ * shader (Session — Plasma Video Hero, 2026-08-23).
+ *
+ * The original OGL/WebGL2 implementation raymarched 60 iterations per pixel
+ * per frame, which made the marketing page stutter and occasionally glitch,
+ * especially on phones. These videos are pixel-faithful offline renders of
+ * that exact shader with everything baked in: the page background
+ * (--division-bg), the shader's own alpha, and the light-mode
+ * --plasma-opacity damper. The loop is seamless (in-shader crossfade back to
+ * frame 0), so playback wraps invisibly.
+ *
+ * Regenerate with `node scripts/render-plasma-hero.mjs` if the palette or
+ * motion parameters ever change — the baked values are documented there.
+ */
+const SOURCES = {
+  dark: {
+    video: '/heroes/plasma-hero-dark.mp4',
+    poster: '/heroes/plasma-hero-dark.webp',
+  },
+  light: {
+    video: '/heroes/plasma-hero-light.mp4',
+    poster: '/heroes/plasma-hero-light.webp',
+  },
+} as const
 
 interface BackgroundPlasmaProps {
-  /** Override color explicitly. If omitted, the component uses theme-aware defaults. */
-  color?: string
-  speed?: number
-  direction?: 'forward' | 'reverse' | 'pingpong'
-  scale?: number
-  opacity?: number
-  mouseInteractive?: boolean
   className?: string
 }
 
-// Theme-aware default colors (Phase L3). Override via the `color` prop at the
-// call site if needed. Dark matches the pre-phase marketing-hero value
-// (#F5F5F5 bright-on-black flow); light flips to a mid-gray dark-on-white flow
-// that preserves the same opacity/scale aesthetic with inverted contrast.
-// NOTE: Plasma's internal effect deps include `color`, so a theme flip
-// tears down and rebuilds the OGL canvas (brief visual reset). Acceptable
-// for the marketing hero since theme flips are rare explicit user actions;
-// if a flash-free swap is required later, Plasma.tsx would need a split
-// between renderer-setup effect and uniform-update effect.
-const PLASMA_COLOR_DARK = '#F5F5F5'
-const PLASMA_COLOR_LIGHT = '#2A2D33'
-
-export default function BackgroundPlasma({
-  color,
-  speed = 0.6,
-  direction = 'forward',
-  scale = 1.1,
-  opacity = 0.7,
-  mouseInteractive = true,
-  className = '',
-}: BackgroundPlasmaProps) {
-  // Reduced-motion gate. useSyncExternalStore keeps the SSR and hydration
-  // renders identical (false => inert div, no shader module downloaded)
-  // without the cascading re-render a useState+useEffect pair causes.
+export default function BackgroundPlasma({ className = '' }: BackgroundPlasmaProps) {
+  // Reduced-motion visitors get the static first-frame poster — same
+  // composition, no motion, no video download.
   const shouldAnimate = useShouldAnimate()
   const { theme } = useTheme()
+  const videoRef = useRef<HTMLVideoElement>(null)
 
+  // Play/pause management, mirroring what the old shader's rAF gating did:
+  //   - play() after mount: React does not serialize `muted` into SSR markup
+  //     (long-standing react-dom quirk), so a browser evaluating the autoplay
+  //     attribute pre-hydration can refuse playback and never retry. Setting
+  //     the property first and calling play() covers that; the catch swallows
+  //     e.g. iOS Low Power Mode, where the poster remains.
+  //   - pause when the hero scrolls offscreen or the tab is hidden, resume on
+  //     re-entry — no point decoding video nobody can see. This also fixes
+  //     tabs opened in the background: the deferred autoplay is retried on
+  //     the first visibilitychange.
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+    video.muted = true
 
-  const resolvedColor = color ?? (theme === 'light' ? PLASMA_COLOR_LIGHT : PLASMA_COLOR_DARK)
+    let inView = true
+    let pageVisible = !document.hidden
+    const apply = () => {
+      if (inView && pageVisible) video.play().catch(() => {})
+      else video.pause()
+    }
+    apply()
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        inView = entry.isIntersecting
+        apply()
+      },
+      { threshold: 0 },
+    )
+    io.observe(video)
+
+    const onVis = () => {
+      pageVisible = !document.hidden
+      apply()
+    }
+    document.addEventListener('visibilitychange', onVis)
+
+    return () => {
+      io.disconnect()
+      document.removeEventListener('visibilitychange', onVis)
+    }
+  }, [theme, shouldAnimate])
+
+  const src = SOURCES[theme]
 
   return (
-    // --plasma-opacity mirrors BackgroundSilk's --silk-opacity: 1 in dark,
-    // damped in light so the shader's near-black output does not swamp the
-    // hero copy on the white page. See globals.css.
-    <div
-      className={`absolute inset-0 z-0 overflow-hidden ${className}`}
-      style={{ opacity: 'var(--plasma-opacity, 1)' }}
-    >
+    <div className={`absolute inset-0 z-0 overflow-hidden ${className}`}>
       {shouldAnimate ? (
-        <Plasma
-          color={resolvedColor}
-          speed={speed}
-          direction={direction}
-          scale={scale}
-          opacity={opacity}
-          mouseInteractive={mouseInteractive}
+        <video
+          // Remount on theme flip so the other theme's video loads fresh and
+          // autoplays instead of src-swapping a live element mid-play.
+          key={theme}
+          ref={videoRef}
+          className="w-full h-full object-cover"
+          src={src.video}
+          poster={src.poster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          disablePictureInPicture
+          aria-hidden="true"
+          tabIndex={-1}
         />
       ) : (
-        <div
-          className="w-full h-full"
-          style={{ backgroundColor: 'var(--division-bg)' }}
+        // Decorative full-bleed backdrop; next/image's optimizer pipeline
+        // buys nothing for a single already-tiny WebP and would add a
+        // layout wrapper.
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={src.poster}
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover"
         />
       )}
     </div>

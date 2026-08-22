@@ -38,8 +38,9 @@ export function useMediaQuery(query: string, serverFallback = false): boolean {
  * safe to run a shader background or a decorative animation.
  *
  * Defaults to `false` on the server and through hydration, so a reduced-motion
- * visitor never downloads three.js / ogl / gsap: the wrappers only reference
- * those `dynamic(..., { ssr: false })` modules inside the truthy branch.
+ * visitor never downloads three.js / gsap (or the plasma hero video): the
+ * wrappers only reference those `dynamic(..., { ssr: false })` modules — or
+ * the `<video>` element — inside the truthy branch.
  */
 export function useShouldAnimate(): boolean {
   return !useMediaQuery('(prefers-reduced-motion: reduce)', true)

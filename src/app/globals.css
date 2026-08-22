@@ -470,24 +470,9 @@ html[data-theme="light"] {
   --silk-scrim-mid: rgba(255, 255, 255, 0.62);
 }
 
-/* =========================================================
-   Plasma canvas opacity (Session — Light Mode Overhaul).
-   Phase L3 gave Plasma a theme-aware COLOR but never the
-   light-mode damper Silk got, so the marketing hero shader
-   painted at full strength onto white. Plasma computes its
-   alpha from the raw plasma field independently of the custom
-   color, so the bright regions that read as an additive glow
-   in dark mode paint near-black #2A2D33 on white instead.
-   Sampling the shader put the marketing hero subtitle under
-   4.5:1 across ~28% of the hero; 0.4 is the measured point
-   where the worst case clears (4.7:1). Dark resolves to 1.
-   ========================================================= */
-:root {
-  --plasma-opacity: 1;
-}
-html[data-theme="light"] {
-  --plasma-opacity: 0.4;
-}
+/* --plasma-opacity was retired in Session — Plasma Video Hero (2026-08-23):
+   the marketing hero's plasma is now a pre-rendered video with the light-mode
+   0.4 damper baked into the pixels (see scripts/render-plasma-hero.mjs). */
 
 /* =========================================================
    DivisionSplit hover border (Phase L6). Consumed by the
