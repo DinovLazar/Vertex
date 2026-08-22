@@ -12,6 +12,8 @@ import {
 } from '@/config/projects'
 import { Link } from '@/i18n/navigation'
 import { Section, AnimateIn, Breadcrumbs, JsonLd } from '@/components/global'
+import { renderInlineMarkdown } from '@/lib/renderInlineMarkdown'
+import type { ProjectCaseStudy } from '@/types'
 import { CTABanner } from '@/components/sections'
 import { routing, type Locale } from '@/i18n/routing'
 
@@ -21,10 +23,15 @@ import { routing, type Locale } from '@/i18n/routing'
  * Fully static: every locale × slug pair is prerendered from
  * `src/config/projects.ts`, so adding a project needs no route work.
  *
- * The case study itself is deliberately a placeholder for now — the page
- * ships the frame (hero, hero screenshot, at-a-glance facts, gallery slot,
- * prev/next, CTA) with a clearly-marked "coming soon" panel where the
- * write-up will go. The two slots to fill later are marked ▼ SLOT below.
+ * The case study is per-locale content read from
+ * `projects.items.<slug>.caseStudy` in messages/{en,mk}.json — a
+ * `ProjectCaseStudy` (three `ContentSection`s plus an optional `statusNote`),
+ * rendered through the same `.prose-marketing` shape the service pages use.
+ * A project with no `caseStudy` key falls back to the "coming soon" panel,
+ * which is why that branch is still here even though all five current
+ * projects have a write-up.
+ *
+ * The remaining slot to fill later is marked ▼ SLOT 2 (gallery) below.
  */
 
 export function generateStaticParams() {
@@ -90,6 +97,11 @@ export default async function ProjectDetailPage({
   const label = t(`items.${slug}.label`)
   const description = t(`items.${slug}.description`)
   const { prev, next } = getAdjacentProjects(slug)
+  // Per-locale write-up. `t.has` is what keeps the "coming soon" fallback
+  // alive for a project that is published before its case study is written.
+  const caseStudy = t.has(`items.${slug}.caseStudy`)
+    ? (t.raw(`items.${slug}.caseStudy`) as ProjectCaseStudy)
+    : null
   const gallery = project.gallery ?? []
 
   /** One row of the at-a-glance table. */
@@ -192,22 +204,52 @@ export default async function ProjectDetailPage({
       {/* ===== At a glance + case-study slot ===== */}
       <Section className="pt-0 md:pt-0 pb-16 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14 items-start">
-          {/* ▼ SLOT 1 — the case-study write-up goes here. Replace this panel
-               with the real sections (brief / approach / build / results).
-               Keep the `.prose-marketing` wrapper so long-form copy picks up
-               the site's reading styles automatically. */}
-          <AnimateIn>
-            <h2 className="text-h2 text-[var(--division-text-primary)]">
-              {t('detail.caseStudyHeading')}
-            </h2>
-            <div className="mt-5 rounded-card border border-dashed border-[var(--division-border)] bg-[var(--division-surface)] p-6 md:p-8">
-              <span className="inline-flex items-center rounded-pill border border-[var(--division-border)] px-3 py-1 overline text-[var(--division-text-muted)]">
-                {t('detail.caseStudyNote')}
-              </span>
-              <p className="mt-4 prose-marketing text-body text-[var(--division-text-secondary)]">
-                {t('detail.caseStudyBody')}
-              </p>
-            </div>
+          {/* ===== Case study =====
+               The section headings are the page's h2s (the h1 is the project
+               name, and the sidebar's "At a glance" is the other h2), so the
+               outline stays gap-free. The fallback panel below keeps its own
+               "Case study" h2 at the same level. */}
+          {/* amount={0} is required — same reason as the note in
+              MarketingServicePage: the default 0.2 IntersectionObserver
+              threshold is unreachable on an element this tall (a full case
+              study runs ~1200px against a 720px viewport), which leaves the
+              whole write-up permanently at opacity 0. */}
+          <AnimateIn amount={0}>
+            {caseStudy ? (
+              <>
+                {caseStudy.statusNote && (
+                  // Deliberately outside `.prose-marketing`: the unlayered
+                  // `.prose-marketing p` margin would beat the utility here.
+                  <p className="mb-8 rounded-card border border-[var(--division-border)] bg-[var(--division-surface)] px-4 py-3 text-small text-[var(--division-text-muted)]">
+                    {caseStudy.statusNote}
+                  </p>
+                )}
+                <div className="prose-marketing prose-flush-top">
+                  {caseStudy.sections.map((section, sectionIdx) => (
+                    <div key={sectionIdx}>
+                      <h2>{section.heading}</h2>
+                      {section.paragraphs.map((paragraph, pIdx) => (
+                        <p key={`p-${pIdx}`}>{renderInlineMarkdown(paragraph)}</p>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <>
+                <h2 className="text-h2 text-[var(--division-text-primary)]">
+                  {t('detail.caseStudyHeading')}
+                </h2>
+                <div className="mt-5 rounded-card border border-dashed border-[var(--division-border)] bg-[var(--division-surface)] p-6 md:p-8">
+                  <span className="inline-flex items-center rounded-pill border border-[var(--division-border)] px-3 py-1 overline text-[var(--division-text-muted)]">
+                    {t('detail.caseStudyNote')}
+                  </span>
+                  <p className="mt-4 prose-marketing text-body text-[var(--division-text-secondary)]">
+                    {t('detail.caseStudyBody')}
+                  </p>
+                </div>
+              </>
+            )}
           </AnimateIn>
 
           {/* At a glance */}

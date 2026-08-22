@@ -1299,6 +1299,18 @@ html[data-theme="light"] {
   margin-bottom: 0.625rem;
 }
 
+/* Drops the leading `margin-top` off a prose block's first heading, so the
+   block starts flush with whatever sits beside it. Needed on the project
+   case study, whose prose column is in a grid row next to the "At a glance"
+   card and would otherwise start 2.5rem lower than it. It has to live here
+   rather than as a Tailwind arbitrary variant because the `.prose-* h2` rules
+   above are unlayered and therefore beat anything in `@layer utilities`,
+   regardless of specificity. */
+.prose-flush-top > *:first-child > h2:first-child,
+.prose-flush-top > h2:first-child {
+  margin-top: 0;
+}
+
 /* =========================================================
    Accessibility utilities (Session C)
    ========================================================= */

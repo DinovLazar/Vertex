@@ -25,6 +25,25 @@ export type ContentSection = {
   paragraphsAfterBullets?: string[]
 }
 
+/**
+ * A project case study, stored per locale under
+ * `projects.items.<slug>.caseStudy` in `messages/{en,mk}.json` and read with
+ * `t.raw()` on `/projects/[slug]`.
+ *
+ * Reuses `ContentSection` so the write-up renders through the same
+ * heading + paragraphs shape the service pages already use. `statusNote` is
+ * a short line shown above the first section for a project whose write-up is
+ * knowingly incomplete (today: the FK Belasica archive, which opens
+ * 30 August 2026).
+ *
+ * The field is optional on a project: a project with no `caseStudy` key falls
+ * back to the "coming soon" panel on its detail page.
+ */
+export type ProjectCaseStudy = {
+  statusNote?: string
+  sections: ContentSection[]
+}
+
 export type ProcessStep = {
   title: string
   description: string

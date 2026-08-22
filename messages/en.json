@@ -1403,23 +1403,150 @@
     "items": {
       "iq-up": {
         "label": "Website & Brand",
-        "description": "A bright, playful bilingual site for a children's cognitive-assessment tool, built to take parents from curious to starting the assessment in a couple of taps."
+        "description": "A bright, playful bilingual site for a children's cognitive-assessment tool, built to take parents from curious to starting the assessment in a couple of taps.",
+        "caseStudy": {
+          "sections": [
+            {
+              "heading": "The brief",
+              "paragraphs": [
+                "IQ UP! is an education brand, and this project was a marketing campaign for it — just not the usual kind. Instead of a campaign that talks about the brand, the idea was to give parents something worth their while: a short, game-like cognitive assessment for children aged five to thirteen, free, that builds a profile of a child's strengths piece by piece, like a puzzle.",
+                "The people who decide whether that assessment happens are parents, usually on a phone, often with the child in the room. So the site had one job: take a parent from \"what is this?\" to starting the assessment in a couple of taps. That meant answering the questions every parent asks before they ask them — how long does it take (about fifteen minutes, on a phone or tablet), what does it cost (nothing), what do we get (a report by email, with the child's strengths and suggestions for growth). It also meant being honest about what it is: an educational, informational screening, not a clinical diagnostic. Trust is the whole game when the subject is someone's child.",
+                "And all of it had to work in two languages, Macedonian and Serbian."
+              ]
+            },
+            {
+              "heading": "The build",
+              "paragraphs": [
+                "We built a bright, playful site that looks the way the product feels — closer to a children's book than to a testing platform. Warm photography, generous type, and short, plain answers where a parent expects small print.",
+                "Everything on the page points at a single action: start the assessment. The practical facts — fifteen minutes, free, report by email — sit right next to the button, so a parent never has to go looking for the catch. The educational-screening framing is stated up front rather than buried, because a product for children earns attention by being straightforward about its limits.",
+                "The site is fully bilingual, with equal content in Macedonian and Serbian, and built for the phone first — the assessment itself runs on a phone or tablet, and the site meets parents where the product does."
+              ]
+            },
+            {
+              "heading": "What it changed",
+              "paragraphs": [
+                "IQ UP! got a campaign that gives before it asks. A parent who hears the brand's name lands on a page that explains the assessment in under a minute and starts it in a couple of taps — in their own language — and walks away with something real: a profile of their child's strengths. The product's honesty about what it is and isn't became the campaign's best argument, not a disclaimer."
+              ]
+            }
+          ]
+        }
       },
       "sunset-services": {
         "label": "Website & SEO",
-        "description": "A sharp marketing site for a hardscaping and services company, focused on turning visits into quote requests."
+        "description": "A sharp marketing site for a hardscaping and services company, focused on turning visits into quote requests.",
+        "caseStudy": {
+          "sections": [
+            {
+              "heading": "The brief",
+              "paragraphs": [
+                "Sunset Services is a family company in Aurora, Illinois — hardscape, landscaping, waterproofing, snow removal and underground utility work, run by the Valle family since 2000. The old website carried almost none of that: little traffic, next to no search presence, and a fraction of the operation on show.",
+                "The new site had to hold the whole thing: five service divisions, more than thirty distinct services, twenty-two towns across DuPage County and Chicagoland's western suburbs, and customers who speak English or Spanish. And it had to do the one thing a contractor's website is for — turn a visit into a quote request.",
+                "There was one more constraint, self-imposed: no invented ratings, no borrowed awards, no stock testimonials. In a market where every contractor's site shouts, everything this one claims had to be checkable."
+              ]
+            },
+            {
+              "heading": "The build",
+              "paragraphs": [
+                "A full build on Next.js with Sanity CMS behind it, so the company's own project photos and blog posts go live without a developer in the loop.",
+                "The service catalogue got its real shape: a page for each of the five divisions and every service under them, from paver patios to radon mitigation. Twenty-two service-area pages give each town its own doorway into the site — the backbone of the local SEO work. The projects gallery leads with before-and-after photographs, because in this trade the transformation is the pitch.",
+                "The quote path is everywhere: \"Get a Free Estimate — 48-Hour Response\" repeats from the hero to the footer, with the phone number one tap away for the customers who'd rather call. The credentials section lists only what a visitor can verify — family-run since 2000, Unilock Authorized Contractor, licensed and insured, a 4.8-star Google rating with the review count shown next to it.",
+                "The entire site runs in English and Spanish through a locked translation glossary, so a Spanish-speaking homeowner gets the full site — every service, every town, the quote flow — not a translated brochure."
+              ]
+            },
+            {
+              "heading": "What it changed",
+              "paragraphs": [
+                "A five-division company now has one accountable web presence instead of an old site working against it. Every service Sunset sells and every town it serves has a page that can rank, and every page ends at a quote request. The team updates its own projects and posts through the CMS, so the site grows with the work instead of behind it."
+              ]
+            }
+          ]
+        }
       },
       "dalibor-plecic": {
         "label": "Website",
-        "description": "A personal author website with a calm, editorial feel that puts the writing front and centre."
+        "description": "A personal author website with a calm, editorial feel that puts the writing front and centre.",
+        "caseStudy": {
+          "sections": [
+            {
+              "heading": "The brief",
+              "paragraphs": [
+                "Dalibor Plečić is a writer, literary critic and translator. His work was everywhere except one place of his own: reviews commissioned by literary portals, translations living on publishers' sites, interviews on YouTube, and a novel — Bunike (PNV Publications, 2022) — with a life of its own.",
+                "The brief was a personal site with a calm, editorial feel that puts the writing front and centre. No gimmicks, no portfolio theatrics — type set the way a critic would want it set. And three languages, English, Macedonian and Serbian, because his readers don't live in one."
+              ]
+            },
+            {
+              "heading": "The build",
+              "paragraphs": [
+                "An editorial layout that reads like a well-set page. Reviews are the site's first-class content: each one carries the book's cover, the author, genre tags and a proper summary — so the reviews section works as a growing, browsable archive of his criticism, not a list of links. Alongside it: a page for Bunike, a blog for longer essays, an about page, and a directory pointing to where his work already lives — Booksa, Versopolis, Partizanska knjiga — plus his interviews.",
+                "Behind it all sits Sanity CMS. A new review goes from draft to published without touching code — which matters, because the site's value compounds only if publishing stays effortless."
+              ]
+            },
+            {
+              "heading": "What it changed",
+              "paragraphs": [
+                "A critic's work usually scatters across the publications that commission it. Now there's a single address where all of it accumulates — and every new review makes the archive more worth visiting. Editors, publishers and readers who look him up find the writing itself, not a trail of profiles."
+              ]
+            }
+          ]
+        }
       },
       "trajanov": {
         "label": "Website & Online Store",
-        "description": "A dark, editorial storefront for a one-designer clothing label from Strumica, built around limited drops: bilingual, with live stock counts and cash-on-delivery checkout."
+        "description": "A dark, editorial storefront for a one-designer clothing label from Strumica, built around limited drops: bilingual, with live stock counts and cash-on-delivery checkout.",
+        "caseStudy": {
+          "sections": [
+            {
+              "heading": "The brief",
+              "paragraphs": [
+                "Trajanov is a clothing label from Strumica — one designer, a first-place finish at a design competition, and a way of selling that standard e-commerce refuses to understand. Pieces are released in drops — a handful of designs at a time, in genuinely limited numbers. Customers pay cash when the courier arrives — no cards, no prepayment. Delivery is within North Macedonia only.",
+                "An always-open store with an endless catalogue and card checkout — the template — was exactly wrong. The brief was to build the store the way the label actually operates."
+              ]
+            },
+            {
+              "heading": "The build",
+              "paragraphs": [
+                "A dark, editorial, bilingual (MK/EN) storefront that treats each piece as a piece, not a SKU.",
+                "The drop mechanic is built into the site's bones. A countdown on the homepage says when the next drop opens; between drops, everything can be browsed and nothing can be bought. Stock is counted on the server, not on the screen — when a piece shows \"3 left\", three are left — and orders are capped at two pieces, so drops aren't emptied by one buyer.",
+                "Checkout matches how the label's customers actually pay: cash on delivery. An order reserves the stock for 48 hours, the label confirms it by phone, and if the customer can't be reached the piece goes back on sale. The FAQ says all of this out loud — when you can buy, how you pay, why there are so few pieces — instead of hiding it in the terms."
+              ]
+            },
+            {
+              "heading": "What it changed",
+              "paragraphs": [
+                "The label sells the way it was designed to sell. Scarcity on the site is real scarcity: \"sold out\" is a fact kept on the server, not a marketing state. A one-person label from Strumica runs limited drops with reserved stock and phone-confirmed orders — machinery that usually belongs to much bigger streetwear brands — without taking card payments or breaking its own rules."
+              ]
+            }
+          ]
+        }
       },
       "fk-belasica-archive": {
         "label": "Digital Archive",
-        "description": "An unofficial digital archive of FK Belasica: seasons, legends, photographs and results gathered in one place. The launch page is live ahead of the archive's opening on 30 August 2026."
+        "description": "An unofficial digital archive of FK Belasica: seasons, legends, photographs and results gathered in one place. The launch page is live ahead of the archive's opening on 30 August 2026.",
+        "caseStudy": {
+          "statusNote": "The archive is still being built — it opens on 30 August 2026. This write-up covers the project so far.",
+          "sections": [
+            {
+              "heading": "The brief",
+              "paragraphs": [
+                "FK Belasica is Strumica's football club, and its history lives the way most club history lives: in boxes of photographs, in newspaper results columns, in the memories of the people who were in the stands. None of it in one place, and none of it getting easier to find with time.",
+                "The idea behind the archive is simple: gather it — seasons, legends, photographs, results — into one unofficial digital home, before more of it is lost. Not a fan forum, not a news site. An archive."
+              ]
+            },
+            {
+              "heading": "The build",
+              "paragraphs": [
+                "The archive is still being built. The launch page is live at belasicahistory.mk, announcing the opening on 30 August 2026 — and behind it the gathering continues: seasons, legends, photographs and results being brought into one place.",
+                "The full write-up of the build — and of what the archive holds — will land here once it opens."
+              ]
+            },
+            {
+              "heading": "What it changed",
+              "paragraphs": [
+                "To be written after the archive opens on 30 August 2026."
+              ]
+            }
+          ]
+        }
       }
     }
   },
