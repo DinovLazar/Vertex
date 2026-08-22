@@ -52,7 +52,7 @@ export default function GlobalNotFound() {
         </p>
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Page not found</h1>
         <p className="mt-4 text-base" style={{ color: '#A3A3A3' }}>
-          The page you&rsquo;re looking for doesn&rsquo;t exist — or has moved.
+          The page you&rsquo;re looking for doesn&rsquo;t exist, or has moved.
         </p>
         <Link
           href="/en"

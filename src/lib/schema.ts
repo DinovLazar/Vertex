@@ -225,7 +225,7 @@ export const SERVICE_CATALOG: ServiceEntry[] = [
     path: '/consulting/business-consulting',
     name: 'Business Consulting',
     summary:
-      'Hands-on business advisory for Macedonian companies — diagnosing operational problems, then fixing them alongside the team rather than delivering a report.',
+      'Hands-on business advisory for Macedonian companies: diagnosing operational problems, then fixing them alongside the team rather than delivering a report.',
     serviceType: 'Business consulting',
   },
   {
@@ -243,7 +243,7 @@ export const SERVICE_CATALOG: ServiceEntry[] = [
     path: '/consulting/it-systems',
     name: 'IT & Systems Assistance',
     summary:
-      'Choosing, connecting and maintaining the software a company runs on — CRM, accounting, file storage, internal tooling.',
+      'Choosing, connecting and maintaining the software a company runs on: CRM, accounting, file storage, internal tooling.',
     serviceType: 'IT consulting',
   },
   {
@@ -261,7 +261,7 @@ export const SERVICE_CATALOG: ServiceEntry[] = [
     path: '/marketing/web-design',
     name: 'Web Design & Development',
     summary:
-      'Custom-built, fast, modern websites for Macedonian businesses — real builds on Next.js, not template installs.',
+      'Custom-built, fast, modern websites for Macedonian businesses: real builds on Next.js, not template installs.',
     serviceType: 'Web design and development',
   },
   {
@@ -288,7 +288,7 @@ export const SERVICE_CATALOG: ServiceEntry[] = [
     path: '/marketing/ai-development',
     name: 'AI-Assisted Development',
     summary:
-      'Building custom software and internal tools with AI-assisted workflows — faster delivery at a price small businesses can actually reach.',
+      'Building custom software and internal tools with AI-assisted workflows, for faster delivery at a price small businesses can actually reach.',
     serviceType: 'Custom software development',
   },
 ]

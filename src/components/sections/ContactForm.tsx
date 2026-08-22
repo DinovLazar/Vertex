@@ -130,7 +130,7 @@ export default function ContactForm() {
       email: formData.email.trim(),
       'Interested in': DIVISION_LABELS[formData.division] ?? DIVISION_LABELS[''],
       message: formData.message.trim(),
-      _subject: `New contact form submission — ${formData.name.trim()}`,
+      _subject: `New contact form submission: ${formData.name.trim()}`,
       _gotcha: formData.website,
     }
     if (formData.phone.trim()) payload.phone = formData.phone.trim()

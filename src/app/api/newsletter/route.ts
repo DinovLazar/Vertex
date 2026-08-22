@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 560px; margin: 0 auto; padding: 24px; color: #1a1a1a;">
         <h1 style="font-size: 20px; font-weight: 600; margin: 0 0 16px;">Welcome to the Vertex newsletter</h1>
         <p style="font-size: 15px; line-height: 1.6; margin: 0 0 16px;">
-          Thanks for subscribing. Once a month you'll get insights on business strategy, operations, and digital marketing — written for business owners in Macedonia and beyond. No fluff, no spam, no sales pressure.
+          Thanks for subscribing. Once a month you'll get insights on business strategy, operations, and digital marketing, written for business owners in Macedonia and beyond. No fluff, no spam, no sales pressure.
         </p>
         <p style="font-size: 15px; line-height: 1.6; margin: 0 0 16px;">
           If the first issue doesn't land well, you can unsubscribe with one click from the bottom of any email.
@@ -64,7 +64,7 @@ export async function POST(req: NextRequest) {
       html: welcomeHtml,
       text: `Welcome to the Vertex newsletter.
 
-Thanks for subscribing. Once a month you'll get insights on business strategy, operations, and digital marketing — written for business owners in Macedonia and beyond. No fluff, no spam, no sales pressure.
+Thanks for subscribing. Once a month you'll get insights on business strategy, operations, and digital marketing, written for business owners in Macedonia and beyond. No fluff, no spam, no sales pressure.
 
 If the first issue doesn't land well, you can unsubscribe with one click from the bottom of any email.
 

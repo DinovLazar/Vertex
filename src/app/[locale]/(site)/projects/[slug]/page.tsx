@@ -56,7 +56,7 @@ export async function generateMetadata({
   const description = t(`items.${slug}.description`)
 
   return generatePageMetadata({
-    title: `${project.name} — ${label}`,
+    title: `${project.name}: ${label}`,
     description,
     path: `/projects/${slug}`,
     locale,

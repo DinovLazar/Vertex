@@ -82,7 +82,7 @@
     },
     "hero": {
       "headline": "We help businesses grow smarter.",
-      "subtitle": "Business consulting and digital marketing services in Strumica, Macedonia. Two divisions, one mission — your growth.",
+      "subtitle": "Business consulting and digital marketing services in Strumica, Macedonia. Two divisions, one mission: your growth.",
       "ctaPrimary": "Explore Consulting",
       "ctaSecondary": "Explore Marketing"
     },
@@ -117,7 +117,7 @@
     "servicesOverview": {
       "overline": "What We Do",
       "sectionHeadline": "Full-spectrum business services",
-      "sectionSubtext": "From strategic consulting to creative digital marketing — eight specialized services across two divisions.",
+      "sectionSubtext": "From strategic consulting to creative digital marketing: eight specialized services across two divisions.",
       "divisionLabels": {
         "consulting": "Consulting",
         "marketing": "Marketing"
@@ -133,7 +133,7 @@
         },
         "itSystems": {
           "title": "IT & Systems",
-          "description": "Get the right tools in place — from project management to data systems."
+          "description": "Get the right tools in place, from project management to data systems."
         },
         "aiConsulting": {
           "title": "AI Consulting",
@@ -181,8 +181,8 @@
         }
       },
       "quote": {
-        "text": "We don't just advise — we roll up our sleeves and work alongside you until the results are real.",
-        "attribution": "— Goran Dinov, Founder & Director"
+        "text": "We don't just advise. We roll up our sleeves and work alongside you until the results are real.",
+        "attribution": "Goran Dinov, Founder & Director"
       }
     },
     "ctaBanner": {
@@ -224,7 +224,7 @@
     "values": {
       "directAndHonest": {
         "title": "Direct and honest",
-        "description": "No jargon, no fluff, no overselling. We tell clients what they need to hear — even when it is uncomfortable."
+        "description": "No jargon, no fluff, no overselling. We tell clients what they need to hear, even when it is uncomfortable."
       },
       "practicalResults": {
         "title": "Practical results",
@@ -272,32 +272,32 @@
     "landing": {
       "hero": {
         "headline": "Strategic clarity for growing businesses.",
-        "subtitle": "We assess your business, find what's holding it back, and build a plan to fix it. No jargon, no fluff — just practical results.",
+        "subtitle": "We assess your business, find what's holding it back, and build a plan to fix it. No jargon, no fluff, just practical results.",
         "ctaPrimary": "Our Services",
         "ctaSecondary": "Meet Goran"
       },
       "services": {
         "overline": "Our Services",
         "sectionHeadline": "Four ways we help businesses improve",
-        "sectionSubtext": "Each service is tailored to your situation. No cookie-cutter packages — we work with what you actually need.",
+        "sectionSubtext": "Each service is tailored to your situation. No cookie-cutter packages. We work with what you actually need.",
         "businessConsulting": {
           "description": "Identify and fix the operational problems holding your business back."
         },
         "workflowRestructuring": {
-          "description": "Redesign how your team works — clearer roles, fewer bottlenecks, better results."
+          "description": "Redesign how your team works: clearer roles, fewer bottlenecks, better results."
         },
         "itSystems": {
           "description": "Choose and set up the right digital tools without the complexity."
         },
         "aiConsulting": {
-          "description": "Integrate AI tools that genuinely save time and money — no hype."
+          "description": "Integrate AI tools that genuinely save time and money. No hype."
         }
       },
       "leader": {
         "overline": "Meet the founder",
         "name": "Goran Dinov",
-        "role": "Owner & Director — Vertex Consulting",
-        "bio": "With over 8 years of experience working hands-on with Macedonian businesses, Goran brings a practical, no-nonsense approach to consulting. He's built Vertex Consulting on a simple principle: every business has fixable problems, and most of them are simpler than they look. He works directly with every client — no junior analysts, no delegation. When you hire Vertex Consulting, you get Goran."
+        "role": "Owner & Director, Vertex Consulting",
+        "bio": "With over 8 years of experience working hands-on with Macedonian businesses, Goran brings a practical, no-nonsense approach to consulting. He's built Vertex Consulting on a simple principle: every business has fixable problems, and most of them are simpler than they look. He works directly with every client: no junior analysts, no delegation. When you hire Vertex Consulting, you get Goran."
       },
       "ctaBanner": {
         "headline": "Let's talk about your business.",
@@ -319,7 +319,7 @@
     "businessConsulting": {
       "meta": {
         "title": "Business Consulting in Strumica, Macedonia",
-        "description": "Hands-on business consulting in Strumica, Macedonia. We find what is slowing your company down, then fix it with your team — not just a report."
+        "description": "Hands-on business consulting in Strumica, Macedonia. We find what is slowing your company down, then fix it with your team, not just a report."
       },
       "hero": {
         "title": "Business Consulting",
@@ -329,14 +329,14 @@
         {
           "heading": "What business consulting actually means",
           "paragraphs": [
-            "Business consulting is the process of bringing in an experienced outside perspective to examine how your company operates, identify what is not working, and design a concrete plan to fix it. At Vertex Consulting, we do this hands-on — not with generic frameworks, but by understanding your specific business, your market, and your team.",
+            "Business consulting is the process of bringing in an experienced outside perspective to examine how your company operates, identify what is not working, and design a concrete plan to fix it. At Vertex Consulting, we do this hands-on, not with generic frameworks, but by understanding your specific business, your market, and your team.",
             "Most small and mid-size businesses in Macedonia operate without a formal structure for decision-making, task delegation, or performance tracking. The owner handles everything, the team follows habits rather than systems, and growth stalls because nobody has time to step back and look at the big picture. That is exactly what we do."
           ]
         },
         {
           "heading": "Who this is for",
           "paragraphs": [
-            "Our business consulting service is designed for companies that are past the startup phase but stuck. You have revenue, you have clients, you have a team — but something is not working as well as it should. Common signs include:"
+            "Our business consulting service is designed for companies that are past the startup phase but stuck. You have revenue, you have clients, you have a team, but something is not working as well as it should. Common signs include:"
           ],
           "bullets": [
             {
@@ -346,7 +346,7 @@
               "description": "You as the owner are involved in every decision"
             },
             {
-              "description": "Processes are informal — things get done through habit, not systems"
+              "description": "Processes are informal: things get done through habit, not systems"
             },
             {
               "description": "Growth has stalled and you cannot figure out why"
@@ -362,7 +362,7 @@
         {
           "heading": "How we work",
           "paragraphs": [
-            "We start with a deep-dive conversation. Not a sales pitch — a real, honest discussion about where your business stands today. We ask uncomfortable questions because that is where the real answers are. From there, we map your current operations, identify the friction points, and build a step-by-step improvement plan that your team can actually follow.",
+            "We start with a deep-dive conversation. Not a sales pitch, but a real, honest discussion about where your business stands today. We ask uncomfortable questions because that is where the real answers are. From there, we map your current operations, identify the friction points, and build a step-by-step improvement plan that your team can actually follow.",
             "What makes Vertex Consulting different is that we do not hand you a report and walk away. Goran works alongside your team to implement changes, measure results, and adjust the plan as needed. We stay involved until the improvements stick."
           ]
         },
@@ -370,13 +370,13 @@
           "heading": "What you get",
           "paragraphs": [
             "Every engagement produces tangible deliverables: a written assessment of your current operations, a prioritized list of issues ranked by impact, and a detailed action plan with timelines and responsibilities. We also provide ongoing check-ins during the implementation period to make sure nothing falls through the cracks.",
-            "The goal is not to create dependency — it is to build your internal capacity so your business runs better whether we are there or not. Most clients see measurable improvements within 60 to 90 days of starting the process."
+            "The goal is not to create dependency. It is to build your internal capacity so your business runs better whether we are there or not. Most clients see measurable improvements within 60 to 90 days of starting the process."
           ]
         },
         {
           "heading": "Why local matters",
           "paragraphs": [
-            "Business consulting advice from global firms is often disconnected from the Macedonian reality. Employment laws are different, market dynamics are smaller, and business culture has its own rules. Having a consultant who operates in the same market, speaks the language, and understands local business relationships makes the advice practical — not theoretical.",
+            "Business consulting advice from global firms is often disconnected from the Macedonian reality. Employment laws are different, market dynamics are smaller, and business culture has its own rules. Having a consultant who operates in the same market, speaks the language, and understands local business relationships makes the advice practical, not theoretical.",
             "Vertex Consulting is based in Strumica and works primarily with Macedonian businesses. We understand the challenges of operating in this market because we face them ourselves every day."
           ]
         }
@@ -389,7 +389,7 @@
           },
           {
             "title": "Business assessment",
-            "description": "We spend time inside your operation — talking to your team, reviewing your processes, and mapping out how work actually flows versus how it should."
+            "description": "We spend time inside your operation, talking to your team, reviewing your processes, and mapping out how work actually flows versus how it should."
           },
           {
             "title": "Strategy and action plan",
@@ -413,15 +413,15 @@
           },
           {
             "question": "How much does business consulting cost?",
-            "answer": "Pricing depends on the scope and complexity of your project. Contact us for a proposal tailored to your specific situation — there is no standard package because every business is different."
+            "answer": "Pricing depends on the scope and complexity of your project. Contact us for a proposal tailored to your specific situation. There is no standard package because every business is different."
           },
           {
             "question": "What makes Vertex Consulting different from other consultants?",
-            "answer": "We do not hand you a report and disappear. Goran works directly with your team to implement changes and stays involved until results are real. We are local, practical, and focused on outcomes — not presentations."
+            "answer": "We do not hand you a report and disappear. Goran works directly with your team to implement changes and stays involved until results are real. We are local, practical, and focused on outcomes, not presentations."
           },
           {
             "question": "Do I need business consulting or can I figure it out myself?",
-            "answer": "You probably can — eventually. The value of consulting is speed and objectivity. An experienced outside perspective spots patterns that insiders miss, and a structured approach saves months of trial and error."
+            "answer": "You probably can, eventually. The value of consulting is speed and objectivity. An experienced outside perspective spots patterns that insiders miss, and a structured approach saves months of trial and error."
           }
         ]
       },
@@ -445,18 +445,18 @@
     "workflowRestructuring": {
       "meta": {
         "title": "Workflow Restructuring for Macedonian Teams",
-        "description": "Workflow restructuring for Macedonian businesses — task delegation, communication and project tracking rebuilt into systems that actually hold."
+        "description": "Workflow restructuring for Macedonian businesses: task delegation, communication and project tracking rebuilt into systems that actually hold."
       },
       "hero": {
         "title": "Workflow Restructuring",
-        "subtitle": "Workflow restructuring redesigns how your team works — eliminating wasted effort, clarifying responsibilities, and building systems that scale with your business."
+        "subtitle": "Workflow restructuring redesigns how your team works, eliminating wasted effort, clarifying responsibilities, and building systems that scale with your business."
       },
       "sections": [
         {
           "heading": "Why workflows break down",
           "paragraphs": [
-            "Workflow restructuring is the process of redesigning how work moves through your organization. Most companies do not have broken workflows — they have workflows that were never designed in the first place. Tasks get done through habit, tribal knowledge, and constant interruptions from the owner. That works when you have three people. It collapses when you have ten.",
-            "The symptoms are predictable: missed deadlines, repeated mistakes, unclear responsibilities, too many meetings, and a team that is always busy but never productive. If your business is stuck in this cycle, the problem is not your people — it is the system they are working within."
+            "Workflow restructuring is the process of redesigning how work moves through your organization. Most companies do not have broken workflows. They have workflows that were never designed in the first place. Tasks get done through habit, tribal knowledge, and constant interruptions from the owner. That works when you have three people. It collapses when you have ten.",
+            "The symptoms are predictable: missed deadlines, repeated mistakes, unclear responsibilities, too many meetings, and a team that is always busy but never productive. If your business is stuck in this cycle, the problem is not your people but the system they are working within."
           ]
         },
         {
@@ -466,26 +466,26 @@
           ],
           "bullets": [
             {
-              "description": "Task delegation — who does what, when, and how they know it is done"
+              "description": "Task delegation: who does what, when, and how they know it is done"
             },
             {
-              "description": "Communication flow — reducing unnecessary meetings and message chains"
+              "description": "Communication flow: reducing unnecessary meetings and message chains"
             },
             {
-              "description": "Project tracking — visible progress without micromanagement"
+              "description": "Project tracking: visible progress without micromanagement"
             },
             {
-              "description": "Approval processes — removing bottlenecks without losing control"
+              "description": "Approval processes: removing bottlenecks without losing control"
             },
             {
-              "description": "Client handoffs — smooth transitions between team members"
+              "description": "Client handoffs: smooth transitions between team members"
             }
           ]
         },
         {
           "heading": "The restructuring approach",
           "paragraphs": [
-            "We do not impose a template on your business. Every company has its own culture, its own constraints, and its own way of working. Our job is to keep what works, fix what does not, and introduce structure where it is missing. The result is a set of documented workflows that your team can follow consistently — without needing to ask the owner for direction on every decision.",
+            "We do not impose a template on your business. Every company has its own culture, its own constraints, and its own way of working. Our job is to keep what works, fix what does not, and introduce structure where it is missing. The result is a set of documented workflows that your team can follow consistently, without needing to ask the owner for direction on every decision.",
             "We typically implement changes using tools your team already has or tools that are free and simple to adopt. The goal is practical improvement, not a technology project. If a shared spreadsheet solves the problem better than enterprise software, we use the spreadsheet."
           ]
         },
@@ -493,7 +493,7 @@
           "heading": "Results you can measure",
           "paragraphs": [
             "Clients who complete workflow restructuring with us typically report a significant reduction in the time spent on coordination and status updates. Deadlines get met more consistently, responsibilities are clear, and the business owner gains back hours each week that were previously spent putting out fires.",
-            "The real measure of success is whether your business can operate smoothly when the owner is not in the room. If it can, the workflows are working. If it falls apart, there is more work to do — and we stay until it is done."
+            "The real measure of success is whether your business can operate smoothly when the owner is not in the room. If it can, the workflows are working. If it falls apart, there is more work to do, and we stay until it is done."
           ]
         }
       ],
@@ -501,7 +501,7 @@
         "steps": [
           {
             "title": "Process mapping",
-            "description": "We document every key workflow in your business — how things actually get done, not how they are supposed to. This reveals the real bottlenecks."
+            "description": "We document every key workflow in your business: how things actually get done, not how they are supposed to. This reveals the real bottlenecks."
           },
           {
             "title": "Gap analysis",
@@ -533,7 +533,7 @@
           },
           {
             "question": "What tools do you use for workflow management?",
-            "answer": "We recommend tools based on what fits your team and budget — usually simple platforms like Notion, Trello, Asana, or even well-structured spreadsheets. We never recommend expensive software unless it is genuinely needed."
+            "answer": "We recommend tools based on what fits your team and budget, usually simple platforms like Notion, Trello, Asana, or even well-structured spreadsheets. We never recommend expensive software unless it is genuinely needed."
           }
         ]
       },
@@ -567,48 +567,48 @@
         {
           "heading": "The problem with business technology",
           "paragraphs": [
-            "IT systems assistance is not about selling software — it is about making sure the technology your business uses actually serves your goals. Most small and mid-size businesses in Macedonia are in one of two situations: they use almost no digital tools and rely on manual processes, or they have adopted too many tools that nobody uses properly. Both scenarios cost time and money.",
+            "IT systems assistance is not about selling software. It is about making sure the technology your business uses actually serves your goals. Most small and mid-size businesses in Macedonia are in one of two situations: they use almost no digital tools and rely on manual processes, or they have adopted too many tools that nobody uses properly. Both scenarios cost time and money.",
             "The solution is not more technology. It is the right technology, configured correctly, with a team that knows how to use it. That is what this service delivers."
           ]
         },
         {
           "heading": "What we help with",
           "paragraphs": [
-            "We work across the full range of business IT needs — not as an IT department replacement, but as advisors who help you make better technology decisions and implement them cleanly."
+            "We work across the full range of business IT needs, not as an IT department replacement, but as advisors who help you make better technology decisions and implement them cleanly."
           ],
           "bullets": [
             {
-              "description": "Project management tools — choosing and configuring Notion, Asana, Monday, or similar platforms"
+              "description": "Project management tools: choosing and configuring Notion, Asana, Monday, or similar platforms"
             },
             {
-              "description": "Communication systems — setting up Slack, Teams, or structured email workflows"
+              "description": "Communication systems: setting up Slack, Teams, or structured email workflows"
             },
             {
-              "description": "Data and file management — organizing Google Workspace, Dropbox, or internal file structures"
+              "description": "Data and file management: organizing Google Workspace, Dropbox, or internal file structures"
             },
             {
-              "description": "CRM systems — helping sales teams track leads and client relationships"
+              "description": "CRM systems: helping sales teams track leads and client relationships"
             },
             {
-              "description": "Reporting dashboards — creating visibility into business performance"
+              "description": "Reporting dashboards: creating visibility into business performance"
             },
             {
-              "description": "Security basics — password management, access controls, backup systems"
+              "description": "Security basics: password management, access controls, backup systems"
             }
           ]
         },
         {
           "heading": "Our approach to IT consulting",
           "paragraphs": [
-            "We start by understanding what your team actually needs — not what looks impressive on a sales demo. We audit your current tools, identify gaps and overlaps, and recommend a simplified technology stack that covers everything without creating complexity.",
-            "Once we agree on the tools, we set them up, configure them for your specific use case, and train your team until they are comfortable. We do not leave until the tools are actually being used in daily work — not just installed."
+            "We start by understanding what your team actually needs, not what looks impressive on a sales demo. We audit your current tools, identify gaps and overlaps, and recommend a simplified technology stack that covers everything without creating complexity.",
+            "Once we agree on the tools, we set them up, configure them for your specific use case, and train your team until they are comfortable. We do not leave until the tools are actually being used in daily work, not just installed."
           ]
         },
         {
           "heading": "When you need IT systems help",
           "paragraphs": [
             "You should consider IT systems assistance if your team spends too much time searching for files, tracking tasks in their heads, or communicating through unstructured WhatsApp groups. If information lives in one person's head instead of a shared system, that is a risk to your business. If your processes depend on memory rather than tools, they will break as you grow.",
-            "We help businesses at all stages — from companies making their first move to digital tools to businesses consolidating a messy collection of unused subscriptions into a clean, functional stack."
+            "We help businesses at all stages, from companies making their first move to digital tools to businesses consolidating a messy collection of unused subscriptions into a clean, functional stack."
           ]
         }
       ],
@@ -616,11 +616,11 @@
         "steps": [
           {
             "title": "Technology audit",
-            "description": "We review every tool your business currently uses — what works, what is redundant, and what is missing. We also assess your team's comfort level with technology."
+            "description": "We review every tool your business currently uses: what works, what is redundant, and what is missing. We also assess your team's comfort level with technology."
           },
           {
             "title": "Stack recommendation",
-            "description": "We recommend a streamlined set of tools tailored to your needs and budget. No upselling — we prioritize free or affordable options that get the job done."
+            "description": "We recommend a streamlined set of tools tailored to your needs and budget. No upselling. We prioritize free or affordable options that get the job done."
           },
           {
             "title": "Setup and configuration",
@@ -644,11 +644,11 @@
           },
           {
             "question": "How much does IT systems consulting cost?",
-            "answer": "Pricing depends on the number of tools involved and the size of your team. Contact us for a customized quote — most small business setups are completed within a fixed-price engagement."
+            "answer": "Pricing depends on the number of tools involved and the size of your team. Contact us for a customized quote. Most small business setups are completed within a fixed-price engagement."
           },
           {
             "question": "We already have tools but nobody uses them. Can you help?",
-            "answer": "Absolutely — this is one of our most common requests. We audit what you have, simplify the stack, reconfigure tools for your actual needs, and retrain the team. Often the problem is setup, not the tools themselves."
+            "answer": "Absolutely. This is one of our most common requests. We audit what you have, simplify the stack, reconfigure tools for your actual needs, and retrain the team. Often the problem is setup, not the tools themselves."
           }
         ]
       },
@@ -676,13 +676,13 @@
       },
       "hero": {
         "title": "AI Consulting",
-        "subtitle": "AI consulting identifies where artificial intelligence tools can genuinely improve your business operations — then implements them practically, without disruption or unnecessary complexity."
+        "subtitle": "AI consulting identifies where artificial intelligence tools can genuinely improve your business operations, then implements them practically, without disruption or unnecessary complexity."
       },
       "sections": [
         {
           "heading": "AI for real businesses, not hype",
           "paragraphs": [
-            "AI consulting is not about chasing trends or implementing technology for its own sake. It is about finding specific, practical places in your business where AI tools can reduce manual work, improve decision-making, or save your team significant time. At Vertex Consulting, we focus exclusively on AI applications that deliver measurable value — not impressive demos that never get used.",
+            "AI consulting is not about chasing trends or implementing technology for its own sake. It is about finding specific, practical places in your business where AI tools can reduce manual work, improve decision-making, or save your team significant time. At Vertex Consulting, we focus exclusively on AI applications that deliver measurable value, not impressive demos that never get used.",
             "The AI landscape in 2026 is overwhelming. There are hundreds of tools, countless promises, and very little honest guidance about what actually works for a business like yours. We cut through that noise. We assess your operations, identify the highest-impact opportunities for AI integration, and implement the solutions ourselves."
           ]
         },
@@ -721,15 +721,15 @@
         {
           "heading": "Our AI consulting approach",
           "paragraphs": [
-            "We begin with an AI readiness assessment. This is not a technical audit — it is a business conversation. We look at what your team spends the most time on, where errors or delays occur, and which tasks are repetitive enough to benefit from automation. From there, we rank opportunities by impact and feasibility, then present a clear plan.",
+            "We begin with an AI readiness assessment. This is not a technical audit. It is a business conversation. We look at what your team spends the most time on, where errors or delays occur, and which tasks are repetitive enough to benefit from automation. From there, we rank opportunities by impact and feasibility, then present a clear plan.",
             "Implementation is always incremental. We start with one or two high-impact AI tools, integrate them into your existing workflow, and train your team until they are comfortable. Only after the first wave is working smoothly do we consider adding more. This approach minimizes risk and maximizes adoption."
           ]
         },
         {
           "heading": "Why businesses in Macedonia need AI consulting now",
           "paragraphs": [
-            "AI adoption in the Macedonian business market is still early. Companies that start integrating AI tools now will have a significant competitive advantage over those that wait. The tools are more accessible and affordable than ever — many are free or low-cost — but knowing which ones to use and how to set them up properly requires experience that most business owners do not have.",
-            "That is where we come in. We bridge the gap between what AI can do and what your business actually needs. No hype, no unnecessary complexity — just practical tools that work."
+            "AI adoption in the Macedonian business market is still early. Companies that start integrating AI tools now will have a significant competitive advantage over those that wait. The tools are more accessible and affordable than ever (many are free or low-cost), but knowing which ones to use and how to set them up properly requires experience that most business owners do not have.",
+            "That is where we come in. We bridge the gap between what AI can do and what your business actually needs. No hype, no unnecessary complexity, just practical tools that work."
           ]
         }
       ],
@@ -765,7 +765,7 @@
           },
           {
             "question": "How much does AI consulting cost?",
-            "answer": "Pricing depends on the scope of the assessment and the number of tools implemented. Contact us for a tailored proposal. Many AI tools themselves are free or low-cost — the investment is primarily in consulting time."
+            "answer": "Pricing depends on the scope of the assessment and the number of tools implemented. Contact us for a tailored proposal. Many AI tools themselves are free or low-cost. The investment is primarily in consulting time."
           },
           {
             "question": "Is AI going to replace my employees?",
@@ -803,22 +803,22 @@
     "landing": {
       "hero": {
         "headline": "Creative digital presence that converts.",
-        "subtitle": "Websites, social media, infrastructure, and AI — everything your brand needs to dominate online. Built by a team that moves fast and thinks bold.",
+        "subtitle": "Websites, social media, infrastructure, and AI: everything your brand needs to dominate online. Built by a team that moves fast and thinks bold.",
         "ctaPrimary": "Our Services",
         "ctaSecondary": "Meet the Team"
       },
       "services": {
         "overline": "Our Services",
         "sectionHeadline": "Four ways we grow your digital presence",
-        "sectionSubtext": "Every service is built around one goal — making your business impossible to ignore online.",
+        "sectionSubtext": "Every service is built around one goal: making your business impossible to ignore online.",
         "webDesign": {
-          "description": "Modern, fast websites that look incredible on every device and drive real business results. Not templates — custom builds."
+          "description": "Modern, fast websites that look incredible on every device and drive real business results. Custom builds, not templates."
         },
         "socialMedia": {
           "description": "Build a following that actually matters. Strategy, content creation, and management that turns attention into customers."
         },
         "itInfrastructure": {
-          "description": "Servers, hosting, email, domains — the reliable technical backbone your business needs to run without interruptions."
+          "description": "Servers, hosting, email, domains: the reliable technical backbone your business needs to run without interruptions."
         },
         "aiDevelopment": {
           "description": "Custom AI-powered tools and automations built with the latest vibe coding technologies. From chatbots to full applications."
@@ -832,7 +832,7 @@
           "lazar": {
             "name": "Lazar Dinov",
             "role": "Head of Marketing Division",
-            "bio": "Leads the Vertex Marketing division across web, design, and infrastructure — a full-stack developer who pairs hands-on AI engineering with a clear vision for the team.",
+            "bio": "Leads the Vertex Marketing division across web, design, and infrastructure. A full-stack developer who pairs hands-on AI engineering with a clear vision for the team.",
             "initials": "LD"
           },
           "petar": {
@@ -844,7 +844,7 @@
           "andrej": {
             "name": "Andrej Jakimov",
             "role": "IT Infrastructure",
-            "bio": "Systems architect who keeps everything running. From servers to email to security — the technical backbone behind the scenes.",
+            "bio": "Systems architect who keeps everything running. From servers to email to security, the technical backbone behind the scenes.",
             "initials": "AJ"
           }
         }
@@ -869,24 +869,24 @@
     "webDesign": {
       "meta": {
         "title": "Web Design & Development in Macedonia",
-        "description": "Custom web design and development in Macedonia — fast, modern sites built from scratch on Next.js. Real builds, not template installs, with SEO built in."
+        "description": "Custom web design and development in Macedonia: fast, modern sites built from scratch on Next.js. Real builds, not template installs, with SEO built in."
       },
       "hero": {
         "title": "Web Design & Development",
-        "subtitle": "Web design is more than making something look good — it is building a digital experience that earns trust, communicates clearly, and turns visitors into customers."
+        "subtitle": "Web design is more than making something look good. It is building a digital experience that earns trust, communicates clearly, and turns visitors into customers."
       },
       "sections": [
         {
           "heading": "What modern web design looks like",
           "paragraphs": [
-            "Web design in 2026 is not about picking a template and filling in text. The businesses that win online have websites that are fast, visually distinctive, mobile-first, and built to convert. At Vertex Marketing, we build every site from scratch using modern technologies — Next.js, React, Tailwind CSS — because templates limit what is possible and every business deserves something unique.",
-            "A great website does three things: it loads fast, it looks professional, and it guides visitors toward taking action. Whether that action is filling out a contact form, making a purchase, or calling your office — the design should make it obvious and easy. We obsess over these details because they are the difference between a site that sits idle and one that generates business."
+            "Web design in 2026 is not about picking a template and filling in text. The businesses that win online have websites that are fast, visually distinctive, mobile-first, and built to convert. At Vertex Marketing, we build every site from scratch using modern technologies (Next.js, React, Tailwind CSS) because templates limit what is possible and every business deserves something unique.",
+            "A great website does three things: it loads fast, it looks professional, and it guides visitors toward taking action. Whether that action is filling out a contact form, making a purchase, or calling your office, the design should make it obvious and easy. We obsess over these details because they are the difference between a site that sits idle and one that generates business."
           ]
         },
         {
           "heading": "Who needs a custom website",
           "paragraphs": [
-            "If your current website is more than three years old, does not work well on mobile, loads slowly, or simply does not represent the quality of your business — it is time for a rebuild. Common signs include:"
+            "If your current website is more than three years old, does not work well on mobile, loads slowly, or simply does not represent the quality of your business, it is time for a rebuild. Common signs include:"
           ],
           "bullets": [
             {
@@ -906,7 +906,7 @@
             }
           ],
           "paragraphsAfterBullets": [
-            "We work with small and mid-size Macedonian businesses that want a website reflecting the real quality of their work — not a generic page that looks like everyone else."
+            "We work with small and mid-size Macedonian businesses that want a website reflecting the real quality of their work, not a generic page that looks like everyone else."
           ]
         },
         {
@@ -998,8 +998,8 @@
         {
           "heading": "Why social media matters for your business",
           "paragraphs": [
-            "Social media management is the ongoing process of creating, publishing, and optimizing content across platforms like Instagram, Facebook, LinkedIn, and TikTok to build brand awareness and drive business results. For Macedonian businesses, social media is often the single most cost-effective marketing channel available — but only when it is done with strategy, consistency, and quality.",
-            "Most businesses try social media on their own, post inconsistently, get frustrated by slow growth, and eventually give up. The problem is rarely the platform — it is the lack of a coherent strategy and the inability to commit the time needed for consistency. That is where professional management makes the difference."
+            "Social media management is the ongoing process of creating, publishing, and optimizing content across platforms like Instagram, Facebook, LinkedIn, and TikTok to build brand awareness and drive business results. For Macedonian businesses, social media is often the single most cost-effective marketing channel available, but only when it is done with strategy, consistency, and quality.",
+            "Most businesses try social media on their own, post inconsistently, get frustrated by slow growth, and eventually give up. The problem is rarely the platform. It is the lack of a coherent strategy and the inability to commit the time needed for consistency. That is where professional management makes the difference."
           ]
         },
         {
@@ -1038,14 +1038,14 @@
           "heading": "Our content approach",
           "paragraphs": [
             "We do not post generic motivational quotes or stock photos. Every piece of content we create is designed for your specific audience and business goals. We focus on content that demonstrates your expertise, shows your work, and gives people a reason to follow and eventually buy from you.",
-            "Our process starts with understanding your business deeply enough to create content that feels authentic. We study your industry, your competitors, and what performs well in the Macedonian market specifically. Then we build a content calendar, create the assets, and publish consistently — typically 3 to 5 posts per week depending on the package."
+            "Our process starts with understanding your business deeply enough to create content that feels authentic. We study your industry, your competitors, and what performs well in the Macedonian market specifically. Then we build a content calendar, create the assets, and publish consistently, typically 3 to 5 posts per week depending on the package."
           ]
         },
         {
           "heading": "Results and expectations",
           "paragraphs": [
             "Social media is a long game. We are honest about that upfront. Meaningful growth takes 3 to 6 months of consistent effort. But within that time frame, businesses that commit to professional social media management see measurable improvements in brand recognition, website traffic, and inbound inquiries.",
-            "We provide monthly reports so you can see exactly what is working, what is not, and how we plan to adjust. No vanity metrics — we track engagement, reach, website clicks, and actual business leads generated from social content."
+            "We provide monthly reports so you can see exactly what is working, what is not, and how we plan to adjust. No vanity metrics. We track engagement, reach, website clicks, and actual business leads generated from social content."
           ]
         }
       ],
@@ -1057,11 +1057,11 @@
           },
           {
             "title": "Content creation",
-            "description": "We produce platform-specific content — graphics, video, copy — aligned with your brand. You approve everything before it goes live."
+            "description": "We produce platform-specific content (graphics, video, copy) aligned with your brand. You approve everything before it goes live."
           },
           {
             "title": "Publishing and engagement",
-            "description": "We post consistently on schedule and manage community interactions — comments, messages, and mentions — to keep your audience engaged."
+            "description": "We post consistently on schedule and manage community interactions (comments, messages, and mentions) to keep your audience engaged."
           },
           {
             "title": "Reporting and optimization",
@@ -1109,11 +1109,11 @@
     "itInfrastructure": {
       "meta": {
         "title": "IT Infrastructure, Hosting & Email",
-        "description": "IT infrastructure for Macedonian businesses — hosting, business email, DNS, domains, backups and server security, set up, monitored and kept running."
+        "description": "IT infrastructure for Macedonian businesses: hosting, business email, DNS, domains, backups and server security, set up, monitored and kept running."
       },
       "hero": {
         "title": "IT Infrastructure",
-        "subtitle": "IT infrastructure is the technical backbone of your business — servers, hosting, email, domains, and security. We build it, configure it, and keep it running so you never have to think about it."
+        "subtitle": "IT infrastructure is the technical backbone of your business: servers, hosting, email, domains, and security. We build it, configure it, and keep it running so you never have to think about it."
       },
       "sections": [
         {
@@ -1164,7 +1164,7 @@
           "heading": "Our infrastructure philosophy",
           "paragraphs": [
             "We believe in simple, reliable, and cost-effective infrastructure. We do not recommend expensive enterprise solutions for small businesses. We use open-source technologies where possible, keep configurations clean and documented, and build everything so that it can be maintained without vendor lock-in.",
-            "Every infrastructure project includes full documentation — if you ever want to move to a different provider or manage things yourself, you have everything you need. We build for your independence, not our recurring revenue."
+            "Every infrastructure project includes full documentation. If you ever want to move to a different provider or manage things yourself, you have everything you need. We build for your independence, not our recurring revenue."
           ]
         }
       ],
@@ -1184,7 +1184,7 @@
           },
           {
             "title": "Monitoring and maintenance",
-            "description": "We set up automated monitoring and provide ongoing maintenance — updates, backups, and quick response to any issues."
+            "description": "We set up automated monitoring and provide ongoing maintenance: updates, backups, and quick response to any issues."
           }
         ]
       },
@@ -1232,13 +1232,13 @@
       },
       "hero": {
         "title": "AI Development",
-        "subtitle": "AI development creates custom AI-powered tools, chatbots, automations, and applications that solve specific problems in your business — built fast using the latest vibe coding and AI technologies."
+        "subtitle": "AI development creates custom AI-powered tools, chatbots, automations, and applications that solve specific problems in your business, built fast using the latest vibe coding and AI technologies."
       },
       "sections": [
         {
           "heading": "What AI development means in 2026",
           "paragraphs": [
-            "AI development is no longer limited to large companies with massive budgets. The explosion of powerful AI models, APIs, and development tools means that small and mid-size businesses can now get custom AI solutions built quickly and affordably. At Vertex Marketing, we specialize in practical AI development — building tools that solve real business problems using the latest AI technologies.",
+            "AI development is no longer limited to large companies with massive budgets. The explosion of powerful AI models, APIs, and development tools means that small and mid-size businesses can now get custom AI solutions built quickly and affordably. At Vertex Marketing, we specialize in practical AI development, building tools that solve real business problems using the latest AI technologies.",
             "We work with large language models like Claude and GPT, automation platforms, custom chatbots, document processing systems, and AI-assisted development tools. Our approach is pragmatic: we identify the highest-impact use case for your business, build a solution quickly, and iterate based on real-world results."
           ]
         },
@@ -1277,15 +1277,15 @@
         {
           "heading": "Vibe coding and AI-assisted development",
           "paragraphs": [
-            "We use what the industry calls **vibe coding** — a development approach where AI tools assist in writing, reviewing, and optimizing code. This allows us to build applications significantly faster than traditional development while maintaining high quality. Our developers work alongside AI coding assistants to produce clean, well-structured code in a fraction of the time.",
-            "This approach means faster delivery, lower costs, and the ability to iterate quickly based on your feedback. We can build a working prototype in days, not weeks — and refine it into a production-ready tool within a few weeks."
+            "We use what the industry calls **vibe coding**, a development approach where AI tools assist in writing, reviewing, and optimizing code. This allows us to build applications significantly faster than traditional development while maintaining high quality. Our developers work alongside AI coding assistants to produce clean, well-structured code in a fraction of the time.",
+            "This approach means faster delivery, lower costs, and the ability to iterate quickly based on your feedback. We can build a working prototype in days, not weeks, and refine it into a production-ready tool within a few weeks."
           ]
         },
         {
           "heading": "Who this is for",
           "paragraphs": [
             "AI development is for any business that has repetitive tasks eating up employee time, customer communication that could be partially automated, data that is not being used effectively, or internal processes that need to be faster and more consistent. If your team is doing work that a well-configured AI tool could handle, you are leaving money on the table.",
-            "We work with businesses across industries — from retail companies wanting AI chatbots on their websites to professional services firms needing automated document processing. The common thread is a practical problem that AI can solve better, faster, or cheaper than manual work."
+            "We work with businesses across industries, from retail companies wanting AI chatbots on their websites to professional services firms needing automated document processing. The common thread is a practical problem that AI can solve better, faster, or cheaper than manual work."
           ]
         }
       ],
@@ -1325,7 +1325,7 @@
           },
           {
             "question": "Do I need technical knowledge to use AI tools you build?",
-            "answer": "No. Everything we build is designed for non-technical users. We create intuitive interfaces, write documentation, and train your team. If a tool is hard to use, it is our fault — not yours."
+            "answer": "No. Everything we build is designed for non-technical users. We create intuitive interfaces, write documentation, and train your team. If a tool is hard to use, it is our fault, not yours."
           },
           {
             "question": "Can AI tools integrate with my existing systems?",
@@ -1354,12 +1354,12 @@
   "projects": {
     "meta": {
       "title": "Our Work",
-      "description": "Websites and brands Vertex designed, built and continues to grow — browse the projects and visit them live."
+      "description": "Websites and brands Vertex designed, built and continues to grow. Browse the projects and visit them live."
     },
     "hero": {
       "overline": "Our Work",
       "headline": "Projects we've built",
-      "subtitle": "Every site here was designed, built and launched by our team — and most of them we still look after month to month as they grow."
+      "subtitle": "Every site here was designed, built and launched by our team, and most of them we still look after month to month as they grow."
     },
     "showcase": {
       "overline": "Our Work",
@@ -1385,14 +1385,14 @@
     "detail": {
       "backToProjects": "All projects",
       "visitSite": "Visit live site",
-      "visitSiteAria": "Open the live {name} website — opens in a new tab",
+      "visitSiteAria": "Open the live {name} website (opens in a new tab)",
       "atAGlance": "At a glance",
       "divisionLabel": "Division",
       "serviceLabel": "What we did",
       "liveSiteLabel": "Live site",
       "caseStudyHeading": "Case study",
       "caseStudyNote": "Coming soon",
-      "caseStudyBody": "The full write-up for this project — the brief, the build and what it changed — is being put together and will land here. Until then, the live site is the best look at the work.",
+      "caseStudyBody": "The full write-up for this project (the brief, the build and what it changed) is being put together and will land here. Until then, the live site is the best look at the work.",
       "galleryHeading": "More screens",
       "nextLabel": "Next project",
       "prevLabel": "Previous project",
@@ -1415,25 +1415,25 @@
       },
       "trajanov": {
         "label": "Website & Online Store",
-        "description": "A dark, editorial storefront for a one-designer clothing label from Strumica, built around limited drops — bilingual, with live stock counts and cash-on-delivery checkout."
+        "description": "A dark, editorial storefront for a one-designer clothing label from Strumica, built around limited drops: bilingual, with live stock counts and cash-on-delivery checkout."
       },
       "fk-belasica-archive": {
         "label": "Digital Archive",
-        "description": "An unofficial digital archive of FK Belasica — seasons, legends, photographs and results gathered in one place. The launch page is live ahead of the archive's opening on 30 August 2026."
+        "description": "An unofficial digital archive of FK Belasica: seasons, legends, photographs and results gathered in one place. The launch page is live ahead of the archive's opening on 30 August 2026."
       }
     }
   },
   "about": {
     "meta": {
-      "title": "About Us — Founded 2018 in Strumica",
-      "description": "Vertex Consulting is a Macedonian business consultancy founded in 2018 by Goran Dinov. Two divisions — Consulting and Marketing — working with SMEs."
+      "title": "About Us: Founded 2018 in Strumica",
+      "description": "Vertex Consulting is a Macedonian business consultancy founded in 2018 by Goran Dinov. Two divisions, Consulting and Marketing, working with SMEs."
     },
     "hero": {
       "overline": "About Vertex Consulting",
       "headline": "A Macedonian consultancy built on practical results.",
       "paragraphs": [
-        "Vertex Consulting was founded in 2018 in Strumica, Macedonia by Goran Dinov — with a simple philosophy: business consulting should produce real, measurable improvements, not impressive reports. Eight years and dozens of client engagements later, that principle still drives everything we do.",
-        "In 2026, we expanded into digital marketing with the launch of Vertex Marketing — a creative, tech-forward division led by Lazar, Petar, and Andrej. Together, the two divisions give our clients everything they need to grow: strategic clarity on the consulting side, and modern digital execution on the marketing side.",
+        "Vertex Consulting was founded in 2018 in Strumica, Macedonia by Goran Dinov, with a simple philosophy: business consulting should produce real, measurable improvements, not impressive reports. Eight years and dozens of client engagements later, that principle still drives everything we do.",
+        "In 2026, we expanded into digital marketing with the launch of Vertex Marketing, a creative, tech-forward division led by Lazar, Petar, and Andrej. Together, the two divisions give our clients everything they need to grow: strategic clarity on the consulting side, and modern digital execution on the marketing side.",
         "We work primarily with small and mid-size Macedonian businesses, with select foreign clients operating in or entering the local market. What binds us to every client is a commitment to honesty, practical outcomes, and long-term relationships."
       ]
     },
@@ -1444,29 +1444,29 @@
     "team": {
       "overline": "The Team",
       "sectionTitle": "Four people, two divisions, one mission",
-      "sectionSubtitle": "Our team is intentionally small. Every client works directly with the people doing the work — not account managers or junior staff.",
+      "sectionSubtitle": "Our team is intentionally small. Every client works directly with the people doing the work, not account managers or junior staff.",
       "members": {
         "goran": {
           "name": "Goran Dinov",
-          "role": "Owner & Director — Vertex Consulting",
+          "role": "Owner & Director, Vertex Consulting",
           "bio": "Founded Vertex Consulting in 2018. Over 8 years of hands-on business consulting experience with Macedonian companies. Leads all consulting engagements personally.",
           "initials": "GD"
         },
         "lazar": {
           "name": "Lazar Dinov",
-          "role": "Head of Marketing — Vertex Marketing",
+          "role": "Head of Marketing, Vertex Marketing",
           "bio": "Heads the Vertex Marketing division, driving strategy and execution across web, design, and IT. A full-stack developer specializing in AI-assisted development with Next.js and React.",
           "initials": "LD"
         },
         "petar": {
           "name": "Petar Jakimov",
-          "role": "Design & Social Media — Vertex Marketing",
+          "role": "Design & Social Media, Vertex Marketing",
           "bio": "Visual designer and social media strategist. Combines creative direction with data-driven insights to build brand presence that actually converts.",
           "initials": "PJ"
         },
         "andrej": {
           "name": "Andrej Jakimov",
-          "role": "IT Infrastructure — Vertex Marketing",
+          "role": "IT Infrastructure, Vertex Marketing",
           "bio": "Systems architect and infrastructure specialist. Handles servers, security, hosting, and all the technical foundations that keep client projects running.",
           "initials": "AJ"
         }
@@ -1484,13 +1484,13 @@
   },
   "contact": {
     "meta": {
-      "title": "Contact — Strumica, North Macedonia",
+      "title": "Contact: Strumica, North Macedonia",
       "description": "Contact Vertex Consulting in Strumica, Macedonia. Business consulting and digital marketing services. Phone +389 70 214 033. Located at Str. Mladinska 43."
     },
     "hero": {
       "overline": "Contact",
       "headline": "Let's talk about your business.",
-      "subtitle": "Tell us a bit about what you are working on and we'll get back to you within one business day. No sales pitch, no pressure — just a real conversation."
+      "subtitle": "Tell us a bit about what you are working on and we'll get back to you within one business day. No sales pitch, no pressure, just a real conversation."
     },
     "form": {
       "sectionTitle": "Send a message",
@@ -1508,7 +1508,7 @@
         "unsure": "Not sure yet",
         "consulting": "Vertex Consulting (business consulting)",
         "marketing": "Vertex Marketing (digital marketing)",
-        "both": "Both — I need help with both"
+        "both": "Both (I need help with both)"
       },
       "messageLabel": "Message *",
       "messagePlaceholder": "Tell us a bit about your business and what you're looking for.",
@@ -1554,7 +1554,7 @@
   },
   "notFound": {
     "title": "Page not found",
-    "description": "The page you're looking for doesn't exist — or has moved.",
+    "description": "The page you're looking for doesn't exist, or has moved.",
     "cta": "Back to home",
     "meta": {
       "title": "Page not found",
@@ -1573,7 +1573,7 @@
   },
   "blog": {
     "meta": {
-      "title": "Blog — Business, Marketing & AI Insights",
+      "title": "Blog: Business, Marketing & AI Insights",
       "description": "Insights on business consulting, digital marketing and AI adoption for Macedonian businesses. Written by the Vertex Consulting team in Strumica."
     },
     "listing": {
@@ -1612,8 +1612,8 @@
     },
     "greetings": {
       "shared": "Hi! I'm the Vertex Assistant. I can help you learn about our consulting and marketing services, or point you in the right direction. What brings you here today?",
-      "consulting": "Hello! I can tell you about our consulting services — business strategy, workflow restructuring, IT systems, or AI integration. What would you like to know?",
-      "marketing": "Hey! I can walk you through our marketing services — web design, social media, IT infrastructure, or AI-assisted development. What are you working on?",
+      "consulting": "Hello! I can tell you about our consulting services: business strategy, workflow restructuring, IT systems, or AI integration. What would you like to know?",
+      "marketing": "Hey! I can walk you through our marketing services: web design, social media, IT infrastructure, or AI-assisted development. What are you working on?",
       "blog": "Hi there! Happy to answer questions about this topic or anything else Vertex-related. What's on your mind?",
       "contact": "Hi! Thanks for stopping by. Got a quick question before filling out the form? Ask away."
     },
@@ -1640,14 +1640,14 @@
   },
   "lazar": {
     "meta": {
-      "title": "Lazar Dinov — Portfolio",
-      "description": "Lazar Dinov, Head of Marketing at Vertex — websites, branding, social media and SEO for businesses in Macedonia and beyond. Selected work and contact."
+      "title": "Lazar Dinov: Portfolio",
+      "description": "Lazar Dinov, Head of Marketing at Vertex: websites, branding, social media and SEO for businesses in Macedonia and beyond. Selected work and contact."
     },
     "hero": {
       "overline": "Portfolio",
       "name": "Lazar Dinov",
       "role": "Head of Marketing at Vertex",
-      "tagline": "I design websites and run digital marketing that actually move the needle — turning visitors into customers for the businesses I work with.",
+      "tagline": "I design websites and run digital marketing that actually move the needle, turning visitors into customers for the businesses I work with.",
       "ctaPrimary": "View my work",
       "ctaSecondary": "Get in touch"
     },
@@ -1655,8 +1655,8 @@
       "overline": "About",
       "heading": "A bit about me",
       "paragraphs": [
-        "I lead the marketing side of Vertex — the websites, the branding, the content, and the technical pieces that hold it all together. I started out building sites and learning what actually makes them work, and that hands-on habit never left. I'd rather ship something real and watch how people use it than hand over a deck and walk away.",
-        "What I care about is results you can see: a site that loads fast and converts, a brand that looks like it belongs, content that the right people actually find. I work with a small, sharp team at Vertex, and we treat every project like it's our own — because the businesses behind them are real, and so is what's riding on them."
+        "I lead the marketing side of Vertex: the websites, the branding, the content, and the technical pieces that hold it all together. I started out building sites and learning what actually makes them work, and that hands-on habit never left. I'd rather ship something real and watch how people use it than hand over a deck and walk away.",
+        "What I care about is results you can see: a site that loads fast and converts, a brand that looks like it belongs, content that the right people actually find. I work with a small, sharp team at Vertex, and we treat every project like it's our own, because the businesses behind them are real, and so is what's riding on them."
       ],
       "chips": [
         "Web design",
@@ -1687,7 +1687,7 @@
         },
         {
           "title": "AI-Assisted Marketing",
-          "desc": "Using AI to produce more, faster — without losing the human touch."
+          "desc": "Using AI to produce more, faster, without losing the human touch."
         },
         {
           "title": "Web Infrastructure",

@@ -2,7 +2,7 @@
 
 Strings flagged during the MK translation effort where the Macedonian phrasing is a judgment call and deserves Goran's eyeball before launch. Not an error log — these are working guesses, not bugs.
 
-Last updated: 2026-04-17 (Phase 15F — Phase 15 complete).
+Last updated: 2026-08-22 (em-dash sweep across all site copy) · prior: 2026-04-17 (Phase 15F — Phase 15 complete).
 
 ---
 
@@ -559,3 +559,52 @@ Macedonian rather than the usual other way round. **LLM-drafted, wants Lazar's n
 - **Dated copy:** "30 August 2026" / „30 август 2026" goes stale the moment the archive is promoted.
   Rewrite both strings then — see the pending list in
   `session-trajanov-replaces-northgate_2026-08-20.md`.
+
+## Em-dash sweep (2026-08-22) — MK punctuation rewrites
+
+The site-wide em-dash removal touched **121 MK strings**. None of them changed meaning; all that changed is the punctuation that joins the two halves of a sentence. Still LLM-drafted, so the joins are worth a skim during the native pass — Macedonian tolerates the dash-as-connector more readily than English does, and a native ear may prefer it back in one or two places.
+
+Patterns used, in rough order of frequency:
+- **Colon** where the dash introduced a list or a restatement: `"Две дивизии, една мисија: вашиот раст."`, `"Делегирање задачи: кој прави што, кога и како знае дека е готово"`, `"IT инфраструктура за македонски бизниси: хостинг, деловен е-мејл, DNS…"`.
+- **Comma** for appositives and trailing qualifiers: `"…го решаваме заедно со вашиот тим, не само извештај."`
+- **Full stop** between two independent clauses: `"Повеќето компании немаат расипани процеси. Имаат процеси што никогаш не биле дизајнирани…"`
+- **Parentheses** for the paired dashes: `"…модерни технологии (Next.js, React, Tailwind CSS) бидејќи шаблоните…"`, `"…интеракциите во заедницата (коментари, пораки и спомнувања) за да ја задржиме публиката ангажирана."`
+
+**Four rewrites go beyond punctuation and want a real look:**
+
+### ED-A. `туку` inserted where the dash was carrying the contrast
+- `"Не само што советуваме — ги засукуваме ракавите…"` → `"Не само што советуваме, туку ги засукуваме ракавите…"`
+- `"Не продажно претставување — вистински, искрен разговор…"` → `"Не продажно претставување, туку вистински, искрен разговор…"`
+- The dash was doing the work of "туку"; spelling it out is more explicit but slightly heavier. If it reads laboured, the alternative is to split into two sentences.
+
+### ED-B. Dash-as-copula removed (the original was grammatically thin)
+- `"Ова не е техничка ревизија — е бизнис разговор."` → `"Ова не е техничка ревизија, туку бизнис разговор."`
+- `"Проблемот ретко е платформата — е недостатокот на кохерентна стратегија…"` → `"Проблемот ретко е платформата, туку недостатокот на кохерентна стратегија…"`
+- `"Веб дизајнот е повеќе од правење нешто да изгледа добро — е градење дигитално искуство…"` → `"…да изгледа добро. Тоа е градење дигитално искуство…"` (subject pronoun added, since a bare `е` cannot open a sentence).
+- The old bare `е` after a dash was a calque on the English "it is". These three are the clearest improvements in the sweep, but confirm the register.
+
+### ED-C. Sentence rebuilt where no mark fit
+- `"…проблемот не се луѓето — системот во кој работат е тој што не чини."` → `"…проблемот не се луѓето, туку системот во кој работат."` The trailing "е тој што не чини" became redundant once "туку" carried the contrast; the sentence is shorter now. Check that nothing of the original emphasis is missed.
+- `"Промени наметнати од горе — пропаѓаат. Промени градени со тимот — успеваат."` → dashes simply dropped: `"Промени наметнати од горе пропаѓаат. Промени градени со тимот успеваат."` The dash was a rhetorical pause. Losing it flattens the rhythm a little; a native speaker may want `"Промените наметнати од горе пропаѓаат."` with the definite article instead.
+- `"Без шаблони — прилагодени изработки."` → `"Прилагодени изработки, без шаблони."` (order flipped so the positive leads).
+
+### ED-D. Roles, meta titles and one form option
+- Team/author roles lost the dash: `"Сопственик и директор, Vertex Consulting"`, `"Раководител на маркетинг, Vertex Marketing"`, `"Дизајн и социјални медиуми, Vertex Marketing"`, `"IT инфраструктура, Vertex Marketing"`. This supersedes the mixed-script role examples in item 18 of the TOP 20 list above, which still quote the dash form. Latin brand names are unchanged (#19/#30 respected throughout).
+- Meta titles took a colon so the `%s | Vertex` template still reads: `"За нас: основани 2018 во Струмица"`, `"Контакт: Струмица, Македонија"`, `"Блог: бизнис, маркетинг и AI"`, `"Lazar Dinov: Портфолио"`.
+- Contact-form division option `"И двете — ми треба помош со двете"` → `"И двете (ми треба помош со двете)"`, matching its siblings `"Vertex Consulting (бизнис консалтинг)"`.
+- The homepage pull-quote attribution is now the bare `"Горан Динов, основач и директор"`; the `—` in front of it is drawn by `SocialProof.tsx`, which previously produced a doubled `— —`.
+
+### ED-E. Generator sign-off line changed
+- The Instagram caption sign-off the content generator is instructed to emit verbatim is now `"Повеќе на vertexconsulting.mk, линкот е во био."` (was `"… mk — линкот е во био."`). It lives in `src/lib/contentGenerator/buildPrompt.ts` and `toolSchema.ts`, and appears on every auto-published Instagram post, so it is worth a native check even though it never renders on the site itself.
+
+Estimated review time: ~5 minutes.
+
+### ED-F. Strings added by the `/projects` section (swept in the same pass)
+The `/projects` grid and detail pages landed on `main` between the sweep being written and merged, bringing six more MK dashes. Same rules applied:
+- `"…продолжува да ги развива. Разгледајте ги проектите и посетете ги во живо."` (was a dash; split into two sentences).
+- `"…лансирана од нашиот тим, а за повеќето и понатаму се грижиме од месец во месец, додека растат."`
+- `"Целосниот приказ за овој проект (брифот, изработката и што промени) е во подготовка…"` — paired dashes became parentheses.
+- `"…изградена околу ограничени спуштања: двојазична, со приказ на преостанати парчиња и плаќање при достава."`
+- `"Неофицијална дигитална архива за ФК Беласица: сезони, легенди, фотографии и резултати собрани на едно место."`
+- `visitSiteAria` → `"Отвори ја живата веб-страница {name} (се отвора во нов прозорец)"`, matching the parenthetical the EN aria label now uses.
+The `/projects/[slug]` **meta title** is built in code as `` `${project.name}: ${label}` `` (was ` — `), so it changed for both locales at once.

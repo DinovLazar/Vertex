@@ -11,7 +11,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Vertex Consulting — We help businesses grow smarter',
+    default: 'Vertex Consulting: We help businesses grow smarter',
     // Deliberately '| Vertex', not '| Vertex Consulting'. Google truncates a
     // result title around 60 characters, and the longer suffix ate the room
     // page titles need for the location keywords that win local searches
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     alternateLocale: 'mk_MK',
     url: siteConfig.url,
     siteName: 'Vertex Consulting',
-    title: 'Vertex Consulting — We help businesses grow smarter',
+    title: 'Vertex Consulting: We help businesses grow smarter',
     description:
       'Business consulting and digital marketing services in Strumica, Macedonia.',
   },

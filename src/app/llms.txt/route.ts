@@ -52,7 +52,7 @@ export async function GET() {
     .map((project) => {
       const copy = projectItems[project.slug]
       const live = project.href ? ` Live at ${project.href}.` : ''
-      return `- [${project.name}](${siteConfig.url}/en/projects/${project.slug}): ${copy?.label ?? 'Website'} — ${copy?.description ?? ''}${live}`
+      return `- [${project.name}](${siteConfig.url}/en/projects/${project.slug}): ${copy?.label ?? 'Website'}: ${copy?.description ?? ''}${live}`
     })
     .join('\n')
 

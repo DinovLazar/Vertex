@@ -55,7 +55,7 @@ export default async function PrivacyPage({
       )}
 
       <h1 className="text-h1 text-[var(--division-text-primary)] mb-6">
-        Privacy Policy — Vertex Consulting
+        Privacy Policy: Vertex Consulting
       </h1>
 
       <div className="space-y-1 text-small text-[var(--division-text-muted)] mb-6">
@@ -76,7 +76,7 @@ export default async function PrivacyPage({
       <p>
         This policy explains what personal information Vertex Consulting collects when you visit
         our website or contact us, why we collect it, how we use it, and what rights you have
-        over it. We aim to be clear and straightforward — no legal tricks.
+        over it. We aim to be clear and straightforward, with no legal tricks.
       </p>
 
       <hr className="my-10 border-[var(--division-border)]" />
@@ -158,7 +158,7 @@ export default async function PrivacyPage({
           email, or phone, we use your information to reply and follow up on your request.
         </li>
         <li>
-          <strong>To send you our newsletter</strong> — but only if you have subscribed. You can
+          <strong>To send you our newsletter,</strong> but only if you have subscribed. You can
           unsubscribe at any time using the link in every newsletter we send.
         </li>
         <li>
@@ -188,21 +188,21 @@ export default async function PrivacyPage({
       </p>
       <ul>
         <li>
-          <strong>Consent</strong> — for newsletter subscriptions and non-essential cookies. You
+          <strong>Consent:</strong> for newsletter subscriptions and non-essential cookies. You
           give consent by ticking a box, submitting a form, or clicking &ldquo;Accept.&rdquo;
           You can withdraw consent at any time.
         </li>
         <li>
-          <strong>Legitimate interest</strong> — for responding to your inquiries, maintaining
+          <strong>Legitimate interest:</strong> for responding to your inquiries, maintaining
           the website, and preventing abuse. We have a genuine business interest and we have
           considered your rights.
         </li>
         <li>
-          <strong>Contract</strong> — if you become a client, to deliver the services we have
+          <strong>Contract:</strong> if you become a client, to deliver the services we have
           agreed to.
         </li>
         <li>
-          <strong>Legal obligation</strong> — for accounting, tax, and regulatory records we are
+          <strong>Legal obligation:</strong> for accounting, tax, and regulatory records we are
           required to keep.
         </li>
       </ul>
@@ -330,8 +330,8 @@ export default async function PrivacyPage({
         (see Section 6).
       </p>
       <p>
-        We may also share your information when required by law — for example, in response to a
-        court order — or to protect the rights, safety, or property of Vertex Consulting, our
+        We may also share your information when required by law, for example in response to a
+        court order, or to protect the rights, safety, or property of Vertex Consulting, our
         clients, or others.
       </p>
 
@@ -340,7 +340,7 @@ export default async function PrivacyPage({
       <h2>6. International data transfers</h2>
       <p>
         Some of our service providers are based outside of North Macedonia and the European
-        Economic Area — primarily in the United States. When your data is transferred to these
+        Economic Area, primarily in the United States. When your data is transferred to these
         countries, we rely on safeguards that meet GDPR standards, including{' '}
         <strong>Standard Contractual Clauses</strong> approved by the European Commission.
       </p>
@@ -360,7 +360,7 @@ export default async function PrivacyPage({
         </li>
         <li>
           <strong>Client records:</strong> kept for as long as our legal, accounting, and tax
-          obligations require — typically 5 to 10 years after the end of our contract under
+          obligations require, typically 5 to 10 years after the end of our contract under
           Macedonian law.
         </li>
         <li>
@@ -379,30 +379,30 @@ export default async function PrivacyPage({
       </p>
       <ul>
         <li>
-          <strong>Access</strong> — ask us what personal data we hold about you and get a copy.
+          <strong>Access:</strong> ask us what personal data we hold about you and get a copy.
         </li>
         <li>
-          <strong>Correct</strong> — ask us to fix information that is inaccurate or incomplete.
+          <strong>Correct:</strong> ask us to fix information that is inaccurate or incomplete.
         </li>
         <li>
-          <strong>Delete</strong> — ask us to delete your personal data (&ldquo;right to be
+          <strong>Delete:</strong> ask us to delete your personal data (&ldquo;right to be
           forgotten&rdquo;), subject to any legal obligations we have to keep certain records.
         </li>
         <li>
-          <strong>Restrict or object</strong> — ask us to pause or stop processing your data for
+          <strong>Restrict or object:</strong> ask us to pause or stop processing your data for
           certain purposes (for example, marketing).
         </li>
         <li>
-          <strong>Portability</strong> — receive your data in a machine-readable format and
+          <strong>Portability:</strong> receive your data in a machine-readable format and
           transfer it to another provider.
         </li>
         <li>
-          <strong>Withdraw consent</strong> — for anything you previously agreed to (for
+          <strong>Withdraw consent:</strong> for anything you previously agreed to (for
           example, newsletter). Withdrawing consent does not affect processing that already
           happened.
         </li>
         <li>
-          <strong>Complain</strong> — to the Agency for Personal Data Protection of North
+          <strong>Complain:</strong> to the Agency for Personal Data Protection of North
           Macedonia (Агенција за заштита на личните податоци) or your local EU supervisory
           authority if you believe we have mishandled your data.
         </li>
@@ -421,13 +421,13 @@ export default async function PrivacyPage({
       </p>
       <ul>
         <li>
-          <strong>Essential storage</strong> — we store your language choice (English or
+          <strong>Essential storage:</strong> we store your language choice (English or
           Macedonian) and your light/dark theme preference. These are kept in your browser&rsquo;s
           local storage rather than in cookies, they never leave your device, and they exist only
           so the site remembers how you like to read it. These do not require consent.
         </li>
         <li>
-          <strong>Analytics</strong> — we use Vercel Web Analytics to count page views and see
+          <strong>Analytics:</strong> we use Vercel Web Analytics to count page views and see
           which pages are read. It is a privacy-preserving, <strong>cookieless</strong> system:
           it sets no cookie, stores no identifier on your device, does not follow you across
           other websites, and does not build a profile of you. It runs on every visit and is not
@@ -440,7 +440,7 @@ export default async function PrivacyPage({
       </ul>
       <p>
         Third parties whose content appears on the site may set their own cookies when you
-        interact with them — in particular the embedded Google Map on our Contact page. That is
+        interact with them, in particular the embedded Google Map on our Contact page. That is
         governed by Google&rsquo;s privacy policy, not ours.
       </p>
       <p>
@@ -475,7 +475,7 @@ export default async function PrivacyPage({
 
       <h2>12. Changes to this policy</h2>
       <p>
-        We may update this policy from time to time — for example, if we start using a new
+        We may update this policy from time to time, for example if we start using a new
         service provider or if the law changes. When we do, we will update the &ldquo;Last
         updated&rdquo; date at the top. For significant changes, we will notify users by email
         or a prominent notice on the website.

@@ -22,8 +22,8 @@ COMPANY OVERVIEW
 - Tagline: "${siteConfig.tagline}"
 
 TWO DIVISIONS
-1. Vertex Consulting (Core) — Led by ${siteConfig.owner}. Services: business consulting, workflow restructuring, IT & systems assistance, AI consulting & tool integration.
-2. Vertex Marketing — Team: ${siteConfig.divisions.marketing.team.join(', ')}. Services: website design & development, social media management, IT infrastructure, AI-assisted development.
+1. Vertex Consulting (Core): Led by ${siteConfig.owner}. Services: business consulting, workflow restructuring, IT & systems assistance, AI consulting & tool integration.
+2. Vertex Marketing: Team: ${siteConfig.divisions.marketing.team.join(', ')}. Services: website design & development, social media management, IT infrastructure, AI-assisted development.
 
 CONTACT
 - Phone: ${siteConfig.contact.phone}
@@ -44,6 +44,7 @@ BEHAVIOR RULES
 6. Do not claim to have access to files, internal systems, client lists, or any data beyond what's in this prompt.
 7. Be friendly but professional. Match the tone of a trusted advisor, not a salesperson.
 8. Do not use emojis unless the visitor uses them first, and even then, sparingly.
+9. Never use em dashes (—). Use a comma, a colon, or a separate sentence instead. This applies in both English and Macedonian.
 `.trim()
 
 interface BuildPromptArgs {
@@ -90,7 +91,7 @@ The visitor is on the homepage or a shared page. Help them understand the two di
 function languageInstruction(locale: ChatLocale): string {
   if (locale === 'mk') {
     return `LANGUAGE
-Respond in Macedonian (македонски). Use Cyrillic script. Use natural, professional Macedonian — not overly formal, not slang. If the visitor writes in English, continue to reply in Macedonian unless they explicitly ask you to switch.`
+Respond in Macedonian (македонски). Use Cyrillic script. Use natural, professional Macedonian, not overly formal and not slang. If the visitor writes in English, continue to reply in Macedonian unless they explicitly ask you to switch.`
   }
   return `LANGUAGE
 Respond in English. Use clear, professional English. If the visitor writes in Macedonian, continue to reply in English unless they explicitly ask you to switch.`

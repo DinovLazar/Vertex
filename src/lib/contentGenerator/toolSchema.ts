@@ -41,7 +41,7 @@ export const toolSchema = {
       body: {
         type: 'object',
         description:
-          'Full post body as Portable Text blocks in both languages. 500-800 words each (tight — keep it focused). Use h2 for section headings, normal for paragraphs, bullet lists where appropriate. Include 1-2 internal links to the target service page if one is provided.',
+          'Full post body as Portable Text blocks in both languages. 500-800 words each (tight, keep it focused). Use h2 for section headings, normal for paragraphs, bullet lists where appropriate. Include 1-2 internal links to the target service page if one is provided.',
         properties: {
           en: {
             type: 'array',
@@ -103,7 +103,7 @@ export const toolSchema = {
         description:
           'An Instagram caption in Macedonian (Cyrillic). 2-4 short paragraphs of value-forward content ' +
           '(NOT a direct restatement of the blog excerpt), followed by the line ' +
-          '"Повеќе на vertexconsulting.mk — линкот е во био.", followed by an empty line, ' +
+          '"Повеќе на vertexconsulting.mk, линкот е во био.", followed by an empty line, ' +
           'then 5-10 relevant hashtags on one line separated by spaces. ' +
           'Include at least one Macedonian hashtag (e.g. #македонскибизнис, #скопје, #струмица). ' +
           'Max 1 emoji total, ideally zero. Total length 400-1500 chars.',

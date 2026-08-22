@@ -97,7 +97,7 @@ export const projects: Project[] = [
   },
   {
     slug: "dalibor-plecic",
-    name: "Dalibor Plečić — Author",
+    name: "Dalibor Plečić, Author",
     division: "marketing",
     image: "/projects/daliborac.png",
     href: "https://daliborplecic.com",

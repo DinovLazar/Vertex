@@ -23,7 +23,7 @@ export const revalidate = 86_400 // 24h
 // message JSON is the source of truth and this route only formats it.
 /**
  * A bullet is either a plain string or a `{ term, description }` pair — the
- * page templates render the latter as "**Term** — description". Both shapes
+ * page templates render the latter as "**Term:** description". Both shapes
  * appear in `messages/*.json`, so both are handled here.
  */
 type Bullet = string | { term?: string; description?: string }
@@ -103,7 +103,7 @@ function renderService(
       steps
         .map(
           (s, i) =>
-            `${i + 1}. ${s.title ?? ''}${s.description ? ` — ${stripMd(s.description)}` : ''}`,
+            `${i + 1}. ${s.title ?? ''}${s.description ? `: ${stripMd(s.description)}` : ''}`,
         )
         .join('\n'),
     )
@@ -142,7 +142,7 @@ export async function GET() {
     // Blog source unavailable — serve the rest.
   }
 
-  const header = `# ${siteConfig.name} — full site content
+  const header = `# ${siteConfig.name}: full site content
 
 > ${siteConfig.tagline} Two-division business consulting and digital marketing company in ${siteConfig.address.city}, North Macedonia. Founded ${siteConfig.founded} by ${siteConfig.owner}.
 

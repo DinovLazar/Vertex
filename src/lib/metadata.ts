@@ -72,7 +72,7 @@ export function generatePageMetadata({
     url: '/opengraph-image',
     width: 1200,
     height: 630,
-    alt: 'Vertex Consulting — We help businesses grow smarter.',
+    alt: 'Vertex Consulting: We help businesses grow smarter.',
   }
 
   return {

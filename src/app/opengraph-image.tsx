@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 import { brandMarkDataUri } from '@/lib/brand-mark'
 
-export const alt = 'Vertex Consulting — We help businesses grow smarter.'
+export const alt = 'Vertex Consulting: We help businesses grow smarter.'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -125,7 +125,7 @@ export default async function Image() {
               maxWidth: '900px',
             }}
           >
-            Business consulting &amp; digital marketing — from Strumica, Macedonia.
+            Business consulting &amp; digital marketing, from Strumica, Macedonia.
           </div>
         </div>
 

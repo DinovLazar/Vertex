@@ -135,7 +135,7 @@ export default async function MarketingServicePage({
                       <li key={`b-${bIdx}`}>
                         {bullet.term ? (
                           <>
-                            <strong>{bullet.term}</strong> — {bullet.description}
+                            <strong>{bullet.term}:</strong> {bullet.description}
                           </>
                         ) : (
                           bullet.description
