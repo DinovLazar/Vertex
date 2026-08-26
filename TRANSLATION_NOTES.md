@@ -657,3 +657,44 @@ The EN copy took the same treatment. Check that `„со ветен одгово
 - `'рбетот на локалната SEO-работа` keeps its apostrophe.
 - Latin script for brand names and `SEO`, per #19/#30: `Sunset Services`, `Next.js`, `Sanity CMS`, `Unilock`, `Google`, `YouTube`, `Booksa`, `Versopolis`, `Partizanska knjiga`, `streetwear`, `belasicahistory.mk`.
 - `Трајанов`, `Далибор Плечиќ`, `ФК Беласица`, `Аурора, Илиноис`, `ДуПејџ`, `Чикаго`, `Вале` are transliterated, matching how the existing project cards already handle them.
+`projects.items.fk-belasica-archive.caseStudy` carries a `statusNote` in both locales plus a dated
+`build` paragraph and a placeholder `changed` line. All of it is rewritten when the archive opens —
+see the follow-up in `src/_project-state/19_phase-19-project-case-studies.md`.
+
+## Blog post — „Google мапите" (Sanity `post-google-maps-visibility-small-business`, 2026-08-26)
+
+Fifth blog post, Lazar / Marketing division. Copy lives in **Sanity** (same as the fourth
+post) — edit in `/studio` or via `scripts/publish-post-google-maps-visibility.ts`.
+MK is LLM-drafted and joins the same native-speaker queue.
+
+### GM-A. Title → „Зошто вашиот бизнис не се појавува на Google мапите — и како да го поправите"
+- "Google Maps" → **„Google мапите"** — brand Latin, common noun Cyrillic + definite
+  article, mirroring the established "IT инфраструктура" pattern. The lowercase
+  „мапите" follows colloquial usage; a native speaker may prefer capitalised
+  „Google Мапи" as a semi-proper name. **Flag for review.**
+- EN title uses the curly apostrophe ("doesn't") matching the fourth post's style.
+
+### GM-B. Latin-script terms left untranslated
+Per convention #19: **Google, Google Business Profile, Facebook, SEO, WhatsApp, Viber,
+SMS**. Also „инбокс" (transliterated) once in the verification section.
+
+### GM-C. Vocabulary decisions
+- „локален пакет" for "local pack" — quoted on first use with a plain-language gloss;
+  no settled MK term exists. **Worth a second opinion** — alternative is to leave
+  "local pack" Latin entirely.
+- „препораки" for "reviews" — chosen over „критики" (used for dalibor-plecic literary
+  reviews) and „рецензии" (product reviews); here it is customer recommendations,
+  which is what „препорака" means in everyday MK commercial speech.
+- „игличките" for map pins — colloquial but unambiguous; „маркерите" was rejected as
+  reading like browser tabs.
+- „преземен профил" for "claimed profile" — „преземање" in the business sense of taking
+  over control, not downloading; context disambiguates.
+- Category example uses „Механичар за возила" vs „Автосервис" to show specificity
+  without importing an EN example.
+
+### GM-D. Featured-image alt (lives in Sanity)
+EN: "Smartphone held over a cafe table showing a map application with location pins"
+→ MK: „Смартфон над кафеана маса со апликација за мапи и локации означени на неа".
+„кафеана" chosen over „кафе" (the venue, not the drink); both defensible.
+
+Estimated review time: ~8 minutes.
