@@ -159,21 +159,21 @@ function makeBlock(text: string, style: string, idx: number, listItem?: 'bullet'
 
 const bodyEn = `Somebody in your town picks up their phone right now and types what you sell into Google. If your business has a shop front, a workshop, or visits clients at their premises, Google shows them a map with three businesses on it. Yours is not one of them. A competitor gets the call.
 
-That map — the one with the pins and the star ratings — is called the local pack, and for shops, salons, trades, mechanics, dentists, restaurants and service companies it sends more real customers than any Facebook post ever will. Getting into it is free. So why are thousands of Macedonian businesses missing from it?
+That map, the one with the pins and the star ratings, is called the local pack, and for shops, salons, trades, mechanics, dentists, restaurants and service companies it sends more real customers than any Facebook post ever will. Getting into it is free. So why are thousands of Macedonian businesses missing from it?
 
 The most common answer I see on audits: nobody ever claimed the listing. Here is how to check whether that is you, and everything that comes after it.
 
 ## Your Facebook page is not on Google Maps
 
-Most small businesses here did their "online presence" years ago as a single task: create a Facebook page, post occasionally, done. That page does useful work — but when someone searches Google for what you sell, Facebook pages rank poorly, and they never appear on the map at all.
+Most small businesses here did their "online presence" years ago as a single task: create a Facebook page, post occasionally, done. That page does useful work, but when someone searches Google for what you sell, Facebook pages rank poorly, and they never appear on the map at all.
 
-Google's map runs on a separate thing entirely: the **Google Business Profile**. It is free, it takes about twenty minutes to set up, and it is what decides whether you exist when somebody nearby searches. The businesses sitting in those three map spots are not paying for placement and mostly are not SEO experts — they claimed a profile, filled it in completely, and collected reviews while everyone else stayed invisible.
+Google's map runs on a separate thing entirely: the **Google Business Profile**. That is free too, it takes about twenty minutes to set up, and it is what decides whether you exist when somebody nearby searches. The businesses sitting in those three map spots are not paying for placement and mostly are not SEO experts: they claimed a profile, filled it in completely, and collected reviews while everyone else stayed invisible.
 
 ## Step one: find out if you are already listed
 
 Before anything else, search your exact business name plus your town on Google. Two outcomes:
 
-- **A listing exists but you never made it.** Google auto-creates rough listings from public data, phone directories, customer photos. Someone may have added you years ago. It shows your old hours, an unclaimed badge, maybe a photo a customer took of the closed shutters. This is the most common situation — the fix is to claim the existing profile rather than create a new one, which keeps whatever reviews it already has.
+- **A listing exists but you never made it.** Google auto-creates rough listings from public data, phone directories, customer photos. Someone may have added you years ago. It shows your old hours, an unclaimed badge, maybe a photo a customer took of the closed shutters. This is the most common situation, and the fix is to claim the existing profile rather than create a new one, which keeps whatever reviews it already has.
 - **Nothing appears at all.** You genuinely do not exist on Google Maps. Go to business.google.com/add and add your business.
 
 Either way you end up in the same place: a profile you control, waiting to be verified.
@@ -182,64 +182,64 @@ Either way you end up in the same place: a profile you control, waiting to be ve
 
 Google will not show a profile until it confirms you actually run the business. Depending on your category, verification is a video recording of your workplace (signage, equipment, proof you trade there), a code by SMS or email, or rarely a postcard. In 2026 the video method is the default for most categories, and it trips people up:
 
-- Film continuously — do not cut or edit the recording.
+- Film continuously; do not cut or edit the recording.
 - Show the street entrance or sign with your exact business name as written on the profile.
-- Show the inside: counter, tools, office — evidence the business operates there.
+- Show the inside: counter, tools, office, anything that evidences the business operates there.
 - Match the name exactly. If the profile says "Auto servis Marko", the sign should read that too, not "Marko" or a different spelling.
 
-Verification usually clears in a few days. An unverified profile shows nothing anywhere — this single step is where most of the missing businesses are stuck.
+Verification usually clears in a few days. An unverified profile shows nothing anywhere. This single step is where most of the missing businesses are stuck.
 
 ## What fills the profile once you are in
 
-A claimed-but-empty profile ranks below a complete one. Work through all of it — none of it costs money:
+A claimed-but-empty profile ranks below a complete one. Work through all of it; none of it costs money:
 
 - **Primary category**, chosen as specifically as Google allows. "Механичар за возила" beats "Автосервис" beats nothing. Add secondary categories for the other things you do.
-- **Hours**, including holiday hours — the number-one frustration customers report is driving to a closed business.
+- **Hours**, including holiday hours: the number-one frustration customers report is driving to a closed business.
 - **Services or products** list with prices or price ranges where possible.
 - **Photos**: exterior so people recognise the place, interior, team, work in progress. Profiles with photos collect substantially more calls and direction requests.
 - **Description**: 750 characters, plain language, what you do and where.
-- **Messaging or WhatsApp link** — in Macedonia half the enquiries arrive by Viber or WhatsApp anyway; make it possible.
+- **Messaging or WhatsApp link**: in Macedonia half the enquiries arrive by Viber or WhatsApp anyway, so make it possible.
 
 ## Reviews decide who gets the call
 
-Between two similar profiles, the one with recent reviews wins — customers read them, and Google's local ranking counts them. Yet most Macedonian businesses have zero, not because customers refuse, but because nobody asks.
+Between two similar profiles, the one with recent reviews wins: customers read them, and Google's local ranking counts them. Yet most Macedonian businesses have zero, not because customers refuse, but because nobody asks.
 
-The working method is unglamorous: after a satisfied job, send a message — "thank you, if you have two minutes, a Google review helps us a lot" — with your direct review link (you can generate it in the profile dashboard). Ask every time, not once. Ten honest reviews beat fifty bought ones, and buying them risks removal plus a penalty. And reply to every review, good or bad; replies are visible to every future customer who reads the page.
+The working method is unglamorous: after a satisfied job, send a message with your direct review link (you can generate it in the profile dashboard) that says "thank you, if you have two minutes, a Google review helps us a lot" (you can generate it in the profile dashboard). Ask every time, not once. Ten honest reviews beat fifty bought ones, and buying them risks removal plus a penalty. And reply to every review, good or bad; replies are visible to every future customer who reads the page.
 
 ## The weekly routine that keeps you in the top three
 
-Ranking in the map's three spots is not a one-time setup — it favours profiles that stay alive. After the initial work above, the maintenance is roughly fifteen minutes a week:
+Ranking in the map's three spots is not a one-time setup, it favours profiles that stay alive. After the initial work above, the maintenance is roughly fifteen minutes a week:
 
 - Post one update: a finished job, an offer, a seasonal note.
 - Upload a photo or two from real work.
 - Reply to new reviews and answer questions.
 - Check the dashboard's performance numbers monthly: calls, direction requests, which searches found you.
 
-That is the whole system. Claim, verify, fill completely, collect reviews, stay active. No agency gatekeeping it, no monthly fee required — which raises the fair question of what we charge for.
+That is the whole system. Claim, verify, fill completely, collect reviews, stay active. No agency gatekeeping it, no monthly fee required, which raises the fair question of what we charge for.
 
 ## Where we come in
 
-Honest version: a business with one location, some patience, and an afternoon can do everything above alone, and we say so. What we get hired for is the layer around the profile — the website it links to being fast and correct, the name-address-phone data matching across directories, the review wording responses, the photos that present the work properly, and the paid campaigns that sit on top of organic visibility when a result is needed this month rather than in three.
+Honest version: a business with one location, some patience, and an afternoon can do everything above alone, and we say so. What we get hired for is the layer around the profile: the website it links to being fast and correct, the name-address-phone data matching across directories, the review wording responses, the photos that present the work properly, and the paid campaigns that sit on top of organic visibility when a result is needed this month rather than in three.
 
-If you checked your name on the map today and found nothing — or a stale, unclaimed listing with old photos — our [social media & local visibility](/marketing/social-media) work starts exactly there. And if the deeper issue is that the business cannot sustain any channel because jobs, quotes and follow-ups live in one person's head, that is a conversation for [business consulting](/consulting/business-consulting).`
+If you checked your name on the map today and found nothing (or a stale, unclaimed listing with old photos), our [social media & local visibility](/marketing/social-media) work starts exactly there. And if the deeper issue is that the business cannot sustain any channel because jobs, quotes and follow-ups live in one person's head, that is a conversation for [business consulting](/consulting/business-consulting).`
 
 const bodyMk = `Некој во вашиот град токму сега го крева телефонот и пишува во Google што продавате. Ако бизнисот има локал, работилница или одите кај клиентите, Google му покажува мапа со три бизниси на неа. Вашиот не е ниеден од нив. Повикот го добива конкурентот.
 
-Таа мапа — со игличките и ѕвездите — се вика „локален пакет“ и за дуќани, салони, занаетчии, механичари, стоматолози, ресторани и услужни фирми носи повеќе реални клиенти од која било Facebook објава. Влегувањето во неа е бесплатно. Зошто тогаш илјадници македонски бизниси ја немаат?
+Таа мапа со игличките и ѕвездите се вика „локален пакет“ и за дуќани, салони, занаетчии, механичари, стоматолози, ресторани и услужни фирми носи повеќе реални клиенти од која било Facebook објава. Влегувањето во неа е бесплатно. Зошто тогаш илјадници македонски бизниси ја немаат?
 
-Најчестиот одговор што го гледам на ревизии: никој никогаш не го презел профилот. Еве како да проверите дали тоа сте вие — и сè што следи потоа.
+Најчестиот одговор што го гледам на ревизии: никој никогаш не го презел профилот. Еве како да проверите дали тоа сте вие, и сè што следи потоа.
 
 ## Вашата Facebook страница не е на Google мапите
 
-Повеќето мали бизниси тука своето „онлајн присуство“ го направија пред години како една задача: креирај Facebook страница, објавуваш повремено, готово. Таа страница прави корисна работа — но кога некој во Google бара она што вие го продавате, Facebook страниците се рангирани слабо и на мапата воопшто не се појавуваат.
+Повеќето мали бизниси тука своето „онлајн присуство“ го направија пред години како една задача: креирај Facebook страница, објавуваш повремено, готово. Таа страница прави корисна работа, но кога некој во Google бара она што вие го продавате, Facebook страниците се рангирани слабо и на мапата воопшто не се појавуваат.
 
-Мапата на Google работи на сосема друга работа: **Google Business Profile**. Бесплатен е, поставувањето трае околу дваесет минути и тој одлучува дали постоите кога некој во соседството бара вашата услуга. Бизнисите во трите места на мапата не плаќаат за позиција и најчесто не се SEO експерти — презеле профил, го пополниле до крај и собирале препораки додека останатите биле невидливи.
+Мапата на Google работи на сосема друга работа: **Google Business Profile**. И тој е бесплатен, поставувањето трае околу дваесет минути и тој одлучува дали постоите кога некој во соседството бара вашата услуга. Бизнисите во трите места на мапата не плаќаат за позиција и најчесто не се SEO експерти: презеле профил, го пополниле до крај и собирале препораки додека останатите биле невидливи.
 
 ## Чекор прв: дознајте дали веќе сте евидентирани
 
 Пред сè друго, побарајте ги точното име на бизнисот и градот во Google. Два исхода:
 
-- **Профилот постои, но вие никогаш не сте го направиле.** Google сам создава груби профили од јавни податоци, телефонски именици, фотографии на клиенти. Некои можеби ве додале пред години. Покажува стари работни часови, ознака дека не е преземен, можеби фотографија што клиент ја снимил со затворена клупа. Ова е најчестата ситуација — решението е да го преземете постоечкиот профил наместо да создавате нов, за да ги задржите препораките што веќе ги има.
+- **Профилот постои, но вие никогаш не сте го направиле.** Google сам создава груби профили од јавни податоци, телефонски именици, фотографии на клиенти. Некои можеби ве додале пред години. Покажува стари работни часови, ознака дека не е преземен, можеби фотографија што клиент ја снимил со затворена клупа. Ова е најчестата ситуација: решението е да го преземете постоечкиот профил наместо да создавате нов, за да ги задржите препораките што веќе ги има.
 - **Воопшто ништо не се појавува.** Навистина не постоите на Google мапите. Одете на business.google.com/add и додајте го бизнисот.
 
 И во двата случаи завршувате на истото место: профил што вие го контролирате и чека верификација.
@@ -248,55 +248,55 @@ const bodyMk = `Некој во вашиот град токму сега го �
 
 Google нема да прикаже профил додека не потврди дека навистина вие го водите бизнисот. Според категоријата, верификацијата е видео снимка на просторот (натпис, опрема, доказ дека таму работите), код по SMS или е-мејл, или ретко разгледница. Во 2026 видеото е стандард за повеќето категории и токму таму се заплеткуваат:
 
-- Снимајте непрекинато — без сечење и монтирање.
+- Снимајте непрекинато, без сечење и монтирање.
 - Покажете го влезот од улица или натписот со точното име на бизнисот како што е напишано во профилот.
-- Покажете ја внатрешноста: пулт, алати, канцеларија — доказ дека таму работи бизнисот.
+- Покажете ја внатрешноста: пулт, алати, канцеларија, било што докажува дека таму работи бизнисот.
 - Името нека е идентично. Ако профилот вели „Авто сервис Марко“, и натписот треба така да стои, не само „Марко“ или друг правопис.
 
-Верификацијата обично поминува за неколку дена. Непреземениот профил не се прикажува никаде — овој еден чекор е местото каде повеќето недостасуващи бизниси стојат заглавени.
+Верификацијата обично поминува за неколку дена. Непреземениот профил не се прикажува никаде. Овој еден чекор е местото каде повеќето недостасуващи бизниси стојат заглавени.
 
 ## Што се пополнува откако ќе влезете
 
-Преземен, но празен профил рангира под пополнетиот. Поминете низ сè — ништо не чини пари:
+Преземен, но празен профил рангира под пополнетиот. Поминете низ сè; ништо не чини пари:
 
 - **Примарна категорија**, избрана колку што е можно поспецифично. „Механичар за возила“ е подобро од „Автосервис“, а празно поле е најлошо. Додајте споредни категории за другите работи што ги работите.
-- **Работни часови**, вклучително и празнични — број еден фрустрација што ја пријавуваат клиентите е возење до затворено место.
+- **Работни часови**, вклучително и празнични: број еден фрустрација што ја пријавуваат клиентите е возење до затворено место.
 - **Услуги или производи** со цени или ценовни распони каде што може.
 - **Фотографии**: надворешност за луѓето да го препознаат местото, внатрешност, екипата, работење во тек. Профилите со фотографии собираат значително повеќе повици и барања за насока.
 - **Опис**: 750 знаци, прост јазик, што работите и каде.
-- **Пораки или WhatsApp линк** — во Македонија половина барања и онака пристигнуваат преку Viber или WhatsApp; овозможете го тоа.
+- **Пораки или WhatsApp линк**: во Македонија половина барања и онака пристигнуваат преку Viber или WhatsApp, овозможете го тоа.
 
 ## Препораките одлучуваат кој го добива повикот
 
-Кај два слични профили, оној со свежи препораки победува — клиентите ги читаат, а Google ги брои во локалното рангирање. Сепак повеќето македонски бизниси имаат нула, не затоа што клиентите одбиваат, туку затоа што никој не побарува.
+Кај два слични профили, оној со свежи препораки победува: клиентите ги читаат, а Google ги брои во локалното рангирање. Сепак повеќето македонски бизниси имаат нула, не затоа што клиентите одбиваат, туку затоа што никој не побарува.
 
-Методот што работи е досаден: по завршен задоволувачки налог, испратете порака — „ви благодарам, ако имате две минути, Google препорака многу би ни помогнала“ — со директниот линк за препорака (генерира се во контролната табла на профилот). Барајте секојпат, не еднаш. Десет искрени препораки вредат повеќе педесет купени, а купените ризикуваат бришење и казна. И одговарајте на секоја препорака, добра или лоша — одговорите ги гледа секој иден клиент што ќе ја отвори страницата.
+Методот што работи е досаден: по завршен задоволувачки налог, испратете порака со директниот линк за препорака (генерира се во контролната табла на профилот) во која стои „ви благодарам, ако имате две минути, Google препорака многу би ни помогнала“. Барајте секојпат, не еднаш. Десет искрени препораки вредат повеќе од педесет купени, а купените ризикуваат бришење и казна. И одговарајте на секоја препорака, добра или лоша. Одговорите ги гледа секој иден клиент што ќе ја отвори страницата.
 
 ## Неделната рутина што ве држи во топ три
 
-Рангирањето во трите места на мапата не е еднаш-за-секогаш поставка — претпочита профили што остануваат живи. По почетната работа погоре, одржувањето е околу петнаесет минути неделно:
+Рангирањето во трите места на мапата не е еднаш-за-секогаш поставка, таа претпочита профили што остануваат живи. По почетната работа погоре, одржувањето е околу петнаесет минути неделно:
 
 - Објавете една новости: завршена работа, акција, сезонска забелешка.
 - Подигнете една-две фотографија од вистинско работење.
 - Одговорете на новите препораки и прашања.
 - Месечно проверувајте ги бројките во контролната табла: повици, барања за насока, со кои пребарувања ве нашле.
 
-Тоа е целиот систем. Преземи, верификувај, пополни до крај, собирај препораки, остани активен. Без агентска гарда и без месечна такса — што оправдано поставува прашањето за што наплатуваме ние.
+Тоа е целиот систем. Преземи, верификувај, пополни до крај, собирај препораки, остани активен. Без агентска гарда и без месечна такса, што оправдано поставува прашањето за што наплатуваме ние.
 
 ## Тука влегуваме ние
 
-Честна верзија: бизнис со една локација, малку трпение и едно попладне може сè погоре да го направи сам, и тоа го кажуваме. За тоа што нè ангажираат е слојот околу профилот — веб страницата на која профилот води да е брза и исправна, податоците име-адреса-телефон да се совпаѓаат насекаде, формулациите на одговорите на препораките, фотографиите што го претставуваат работењето како што треба, и платените кампањи што седат врз органската видливост кога резултатот треба овој месец, а не за три.
+Честна верзија: бизнис со една локација, малку трпение и едно попладне може сè погоре да го направи сам, и тоа го кажуваме. За тоа што нè ангажираат е слојот околу профилот: веб страницата на која профилот води да е брза и исправна, податоците име-адреса-телефон да се совпаѓаат насекаде, формулациите на одговорите на препораките, фотографиите што го претставуваат работењето како што треба, и платените кампањи што седат врз органската видливост кога резултатот треба овој месец, а не за три.
 
-Ако денес го побаравте името на мапата и најдовте ништо — или стар, непреземен профил со стари фотографии — нашата работа за [социјални мрежи и локална видливост](/marketing/social-media) почнува точно оттаму. А ако подлабокиот проблем е дека бизнисот не може да одржи ниеден канал бидејќи налогите, понудите и следењето живеат во главата на еден човек — тоа е разговор за [деловно консалтинг](/consulting/business-consulting).`
+Ако денес го побаравте името на мапата и најдовте ништо (или стар, непреземен профил со стари фотографии), нашата работа за [социјални мрежи и локална видливост](/marketing/social-media) почнува точно оттаму. А ако подлабокиот проблем е дека бизнисот не може да одржи ниеден канал бидејќи налогите, понудите и следењето живеат во главата на еден човек, тоа е разговор за [деловно консалтинг](/consulting/business-consulting).`
 
-const titleEn = "Why your business doesn't show up on Google Maps — and how to fix it"
-const titleMk = 'Зошто вашиот бизнис не се појавува на Google мапите — и како да го поправите'
+const titleEn = "Why your business doesn't show up on Google Maps (and how to fix it)"
+const titleMk = 'Зошто вашиот бизнис не се појавува на Google мапите (и како да го поправите)'
 
 const excerptEn =
-  "When someone nearby searches what you sell, Google shows three businesses on the map. Most Macedonian SMEs aren't there — usually because nobody claimed the free listing. How to claim, verify and run the profile that decides who gets the call."
+  "When someone nearby searches what you sell, Google shows three businesses on the map. Most Macedonian SMEs aren't there, usually because nobody claimed the free listing. How to claim, verify and run the profile that decides who gets the call."
 
 const excerptMk =
-  'Кога некој во соседството бара она што вие го продавате, Google прикажува три бизниси на мапата. Повеќето македонски мали фирми ги нема — најчесто затоа што никој не го презел бесплатниот профил. Како да го преземете, верификувате и одржувате.'
+  'Кога некој во соседството бара она што вие го продавате, Google прикажува три бизниси на мапата. Повеќето македонски мали фирми ги нема, најчесто затоа што никој не го презел бесплатниот профил. Како да го преземете, верификувате и одржувате.'
 
 const imageAltEn = 'Smartphone held over a cafe table showing a map application with location pins'
 const imageAltMk = 'Смартфон над кафеана маса со апликација за мапи и локации означени на неа'

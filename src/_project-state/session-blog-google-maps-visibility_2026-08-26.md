@@ -119,3 +119,49 @@ MK date renders in English on the listing (known ICU gap, `TRANSLATION_NOTES.md`
 Content-only change: live the moment Sanity was written — nothing here requires a
 Vercel deploy. The script + docs are committed on `main`; the push also carries the
 pre-existing unpushed `da249fd` (case studies), flagged to Lazar before pushing.
+
+---
+
+# Part 2 — Em-dash sweep across all published posts (Lazar directive, same day)
+
+Mid-session directive: "remove all em dashes from all blog posts". This closes the gap
+`14ea8aa` ("copy: remove em dashes from all site text") explicitly flagged as out of
+reach on the machine it was made from: *"Not covered: published blog posts in Sanity."*
+`buildPrompt.ts` already carries the standing rule for future generated posts; this
+sweep cleans the existing corpus.
+
+## What ran
+
+`scripts/dedash-published-posts.ts`: 66 hand-written replacements across the four
+earlier published posts (the fifth, this session's Maps post, was de-dashed in its
+source before re-publishing). Every replacement was authored per instance following
+the `14ea8aa` rewrite rules (colon where the dash introduced a list/restatement,
+comma for appositives, semicolon/full stop between independent clauses, parentheses
+for paired dashes), never blanket-substituted. Replacements are applied per-span so
+bold/link marks survive; the script counts every match before writing and aborts if
+any rule matches zero or 2+ times.
+
+Gotchas hit along the way (worth knowing for future copy sweeps):
+- 10 of the initial rules crossed Portable Text span boundaries (e.g. bold term +
+  rest-of-bullet live in separate spans, dash leading the second span). Rules were
+  rewritten against the actual span contents.
+- Bullet definitions would have rendered `Term : definition` without the leading
+  space folded into the replacement.
+
+The April-era `status: 'draft'` post (`JarLstVcRzJ90n7wDU4dFf`, "Four Signs Your
+Business Needs a Workflow Audit", never public) still carries its 18 dashes,
+deliberately untouched.
+
+## Verification
+
+- Sanity read-back: all 5 published `blogPost` docs contain zero em dashes
+  (title/excerpt/body, both locales). Only the unpublished draft has any.
+- All 5 posts × en/mk render **0 em dashes** in served HTML after the Vercel edge
+  cache caught up (~1 min; `x-vercel-cache: HIT` briefly served stale copies even
+  after `/api/revalidate`, because these routes are static-prerendered, not ISR-tagged).
+- Blog tag flush re-sent (`{"ok":true}`).
+
+## Not done
+
+- The draft's dashes stay until that post is actually prepared for publication.
+- No social posting pipeline triggered.
