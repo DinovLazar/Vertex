@@ -1,6 +1,6 @@
 # File Map — Vertex Consulting
 
-Last updated: 2026-08-26 (Session — new blog post, Google Maps visibility)
+Last updated: 2026-08-26 (Session — new blog post, consulting vs. marketing)
 
 ## Root
 | File | Description |
@@ -18,6 +18,7 @@ Last updated: 2026-08-26 (Session — new blog post, Google Maps visibility)
 | `components.json` | shadcn config — `base-nova` style, `neutral` base, lucide icons |
 | `.gitignore` | Standard ignores + env + tsbuildinfo |
 | `README.md` | Default Next.js bootstrap README |
+| `scripts/publish-post-consulting-vs-marketing.ts` | Idempotent publisher for the bilingual consulting-vs-marketing post; validates, uploads/reuses a Pexels image, writes Sanity, closes its backlog topic, and revalidates production |
 | `D-15_Website_Design_Document.md` | Full product/design spec for the Vertex site |
 | `.env.example` | Placeholders for the 4 Resend env vars (Session B — 2026-04-17) + the Phase 12 chat var (`ANTHROPIC_AUTH_TOKEN`) + 5 Phase 13A vars (`NEXT_PUBLIC_SANITY_*` × 2, `SANITY_API_READ_TOKEN`, `SANITY_API_WRITE_TOKEN`, `REVALIDATE_SECRET`) + **4 Phase 13B vars (2026-04-26): `VERTEX_PEXELS_API_KEY`, `VERTEX_ADMIN_PASSWORD`, `ANTHROPIC_API_KEY` (real key for the generator), `NEXT_PUBLIC_SITE_URL`**. The two `VERTEX_*` names are intentionally namespaced after a 13B debugging session found that the shell session shadowed unprefixed names like `ADMIN_PASSWORD`. No real values — safe to commit. |
 | `.env.local` | **Gitignored.** Local dev values for everything in `.env.example`. Phase 13A added the 4 Sanity tokens + `REVALIDATE_SECRET`. **Phase 13B (2026-04-26) added `VERTEX_PEXELS_API_KEY`, `VERTEX_ADMIN_PASSWORD`, `ANTHROPIC_API_KEY` (real `sk-ant-api03-...`), `NEXT_PUBLIC_SITE_URL`.** Kept `ANTHROPIC_AUTH_TOKEN` as-is for the Phase 12 chat widget (the comment above it now warns not to reuse it for the generator — OAuth tokens 401 on direct Messages API calls). All values must also live in Vercel env vars (Production / Preview / Development). Never commit. |

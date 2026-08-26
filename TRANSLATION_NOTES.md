@@ -2,7 +2,16 @@
 
 Strings flagged during the MK translation effort where the Macedonian phrasing is a judgment call and deserves Goran's eyeball before launch. Not an error log — these are working guesses, not bugs.
 
-Last updated: 2026-08-22 (em-dash sweep across all site copy) · prior: 2026-04-17 (Phase 15F — Phase 15 complete).
+Last updated: 2026-08-26 (consulting-vs-marketing blog post) · prior: 2026-08-22 (em-dash sweep across all site copy) · prior: 2026-04-17 (Phase 15F — Phase 15 complete).
+
+---
+
+## Blog post: consulting vs. marketing (2026-08-26)
+
+- **Customer question:** „Дали ни треба маркетинг или консултант?“ is rendered as a direct, natural question in the opening rather than a literal business-process translation.
+- **Consulting:** `деловен консалтинг` is used in the tags and CTA, while `консалтинг` is retained in flowing prose where the service category is already clear.
+- **Marketing:** `маркетинг` stays Latin-script as the established service name; `локално SEO` keeps the existing Latin `SEO` convention.
+- The body is LLM-drafted Macedonian and joins the native-speaker review queue. The source and published body contain no em dashes.
 
 ---
 
