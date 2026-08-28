@@ -2,7 +2,7 @@
 
 Strings flagged during the MK translation effort where the Macedonian phrasing is a judgment call and deserves Goran's eyeball before launch. Not an error log — these are working guesses, not bugs.
 
-Last updated: 2026-08-26 (consulting-vs-marketing blog post) · prior: 2026-08-22 (em-dash sweep across all site copy) · prior: 2026-04-17 (Phase 15F — Phase 15 complete).
+Last updated: 2026-08-29 (accounting software upgrade blog post) · prior: 2026-08-26 (consulting-vs-marketing blog post) · prior: 2026-08-22 (em-dash sweep across all site copy) · prior: 2026-04-17 (Phase 15F — Phase 15 complete).
 
 ---
 
@@ -705,5 +705,20 @@ SMS**. Also „инбокс" (transliterated) once in the verification section.
 EN: "Smartphone held over a cafe table showing a map application with location pins"
 → MK: „Смартфон над кафеана маса со апликација за мапи и локации означени на неа".
 „кафеана" chosen over „кафе" (the venue, not the drink); both defensible.
+
+Estimated review time: ~8 minutes.
+
+---
+
+## Blog post: accounting software upgrade (2026-08-29)
+
+Sixth published blog post, Goran / Consulting. The source lives in Sanity through `scripts/publish-post-upgrade-accounting-software.ts`; the MK body is LLM-drafted and joins the native-speaker review queue.
+
+- **Title and core term:** `сметководствен софтвер` is used consistently for "accounting software". It is more specific than `финансиски софтвер` and matches the accountant-facing context of the article.
+- **Bottleneck:** `тесно грло` translates "bottleneck" in the title of the final section and the decision framing. It is familiar in Macedonian business speech; `пречка` is the plainer alternative if a native review finds it too technical.
+- **Invoice workflow:** `процес на фактурирање`, `фактура`, `уплата`, `извози` and `пристап само за читање` are deliberate practical terms. `извози` means software exports for the accountant, not physical exports.
+- **E-faktura:** the post uses the official `Е-фактура` spelling and links to the Ministry of Finance announcement from 5 January 2026. It says only that implementation was announced and that the Ministry described a reduction in paper-heavy processes. It makes no assertion about compulsory adoption, dates, or a product's legal eligibility; readers are directed to their accountant for business-specific obligations.
+- **Consulting links:** `поддршка за IT и системи` exactly matches the service-page hero convention, while `преструктуирање на процеси` exactly matches the locked consulting service name.
+- The published EN and MK copy contains no em dashes.
 
 Estimated review time: ~8 minutes.
