@@ -64,7 +64,7 @@ export const siteConfig = {
   },
   social: {
     linkedin: "https://linkedin.com",
-    instagram: "https://www.instagram.com/vertxsystems.mk",
+    instagram: "https://www.instagram.com/vertexconsulting.mk",
     facebook: "https://www.facebook.com/share/1CEaD21Asq/",
   },
   divisions: {
