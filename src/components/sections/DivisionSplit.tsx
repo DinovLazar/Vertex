@@ -18,9 +18,10 @@ import { useDivisionTransition } from '@/components/global/DivisionTransition'
    Everything the cards used to say in text — title, subtitle,
    description, service chips, "Explore …" — is gone. What is left is
    a soft-focus screenshot of the page each card links to (captured by
-   `scripts/capture-division-shots.mjs`, `npm run shots`), one word,
-   and an arrow that only appears on hover. The removed wording
-   survives verbatim as an `sr-only` sentence so crawlers and screen
+   `scripts/capture-division-shots.mjs`, `npm run shots`), one word, the
+   division's tagline under it, and an arrow that only appears on hover.
+   The wording that is still not visible — the full division name and the
+   old CTA — survives as an `sr-only` sentence so crawlers and screen
    readers keep the meaning.
 
    Hover is pure CSS on `group-hover` — no Motion — so it costs
@@ -51,12 +52,14 @@ function DivisionCard({
   href,
   src,
   label,
+  subLabel,
   srText,
 }: {
   cardKey: DivisionKey
   href: string
   src: string
   label: string
+  subLabel: string
   srText: string
 }) {
   const { start } = useDivisionTransition()
@@ -115,15 +118,23 @@ function DivisionCard({
         height={1000}
         loading="lazy"
         decoding="async"
-        className="absolute inset-0 h-full w-full scale-[1.08] object-cover blur-[3px] brightness-[0.6] transition-[transform,filter] duration-700 ease-out group-hover:scale-[1.14] group-hover:blur-[1.5px] group-hover:brightness-[0.72]"
+        className="absolute inset-0 h-full w-full scale-[1.12] object-cover blur-[6px] brightness-[0.6] transition-[transform,filter] duration-700 ease-out group-hover:scale-[1.18] group-hover:blur-[3px] group-hover:brightness-[0.72]"
       />
       {/* Scrim — the label has to clear AA against a photographic backdrop. */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#141414]/30 via-[#141414]/45 to-[#141414]/80" />
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-        <span className="font-heading text-[clamp(1.75rem,4.5vw,4rem)] font-bold tracking-tight text-[#F5F5F5] drop-shadow-[0_2px_24px_rgba(0,0,0,0.55)]">
-          {label}
-        </span>
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center">
+        <div className="flex flex-col items-center gap-2">
+          <span className="font-heading text-[clamp(1.75rem,4.5vw,4rem)] font-bold tracking-tight text-[#F5F5F5] drop-shadow-[0_2px_24px_rgba(0,0,0,0.55)]">
+            {label}
+          </span>
+          {/* Sub-header: the division's existing tagline, no new copy. It is
+              visible text now, so it is NOT repeated in the sr-only sentence
+              below — otherwise a screen reader would announce it twice. */}
+          <span className="max-w-[34ch] text-balance font-body text-[clamp(0.8125rem,1.15vw,1.0625rem)] leading-snug text-[#C9C9C9] drop-shadow-[0_1px_14px_rgba(0,0,0,0.65)]">
+            {subLabel}
+          </span>
+        </div>
         <span
           aria-hidden
           className="translate-y-1 text-2xl leading-none text-[#C9C9C9] opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100"
@@ -156,7 +167,8 @@ export default function DivisionSplit() {
             href={card.href}
             src={card.src}
             label={t(`${card.key}.cardLabel`)}
-            srText={`${t(`${card.key}.title`)} — ${t(`${card.key}.subtitle`)}. ${t(`${card.key}.cta`)}.`}
+            subLabel={t(`${card.key}.subtitle`)}
+            srText={`${t(`${card.key}.title`)}. ${t(`${card.key}.cta`)}.`}
           />
         ))}
       </div>

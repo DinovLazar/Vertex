@@ -14,8 +14,8 @@ subtitle, a paragraph of description, four service chips, and an "Explore …" a
 row — roughly 45 words of copy per card, none of it read. It is now the strongest
 visual moment on the page: two oversized panels that run off both edges of the
 screen, each showing a soft-focus screenshot of the division it links to with a
-single word on top, and a click that opens that panel out to fill the whole screen
-before the page lands. **Less to read, more to feel.**
+single word and its tagline on top, and a click that opens that panel out to fill
+the whole screen before the page lands. **Less to read, more to feel.**
 
 The section's own eyebrow / heading / sub-copy are untouched — they live one level
 up in `[locale]/(site)/page.tsx` and were explicitly out of scope.
@@ -39,21 +39,27 @@ so no scroll container is created, the same reasoning as the `html` rule already
 
 ### Card contents
 
-Every piece of visible text and every chip came out. What remains:
+Every heading, description and chip came out; the tagline came back on review as a
+sub-header. What remains:
 
-- the blurred screenshot (`object-cover`, `blur-[3px]`, `brightness-[0.6]`, `scale-1.08`
+- the blurred screenshot (`object-cover`, `blur-[6px]`, `brightness-[0.6]`, `scale-1.12`
   so the blur never feathers to a transparent edge),
 - a three-stop `#141414` gradient scrim for legibility,
 - one centred word in `font-heading` — `Consulting` / `Marketing`, localized,
-- a thin `→` under it that fades in on hover only,
-- an `sr-only` sentence carrying the removed headline + tagline + CTA wording, so
-  crawlers and screen readers keep the meaning that was removed visually.
+- a sub-header under it in `font-body` — the division's existing
+  `home.divisionSplit.<key>.subtitle` tagline, `text-balance`, `max-w-[34ch]`, `#C9C9C9`,
+- a thin `→` under that, which fades in on hover only,
+- an `sr-only` sentence carrying the wording that is still not visible — the full
+  division name (`title`) and the old CTA — so crawlers and screen readers keep the
+  meaning. The tagline is **not** repeated there now that it is visible, or a screen
+  reader would announce it twice.
 
 Verified: `innerText` of a card with the `sr-only` node removed is exactly
-`"Consulting\n→"` / `"Marketing\n→"`; zero `<h*>` elements, zero `<svg>`.
+`"Consulting\nStrategic clarity for growing businesses\n→"`; the `sr-only` string
+shares no phrase with the visible text; zero `<h*>` elements, zero `<svg>`.
 
-Hover is pure CSS on `group-hover` — blur `3px → 1.5px`, brightness `0.6 → 0.72`,
-scale `1.08 → 1.14`, arrow `opacity 0 → 1`. No Motion, so it costs nothing on a page
+Hover is pure CSS on `group-hover` — blur `6px → 3px`, brightness `0.6 → 0.72`,
+scale `1.12 → 1.18`, arrow `opacity 0 → 1`. No Motion, so it costs nothing on a page
 that already runs a WebGL hero.
 
 ### The click transition
@@ -103,10 +109,10 @@ overlay mounts **3ms** after the click, is fully removed **1196ms** after it.
 ### Modified
 | File | What |
 |---|---|
-| `src/components/sections/DivisionSplit.tsx` | Rewritten. Still a default export taking no props, so `sections/index.ts` and `page.tsx` are unchanged. |
+| `src/components/sections/DivisionSplit.tsx` | Rewritten. Still a default export taking no props, so `sections/index.ts` and `page.tsx` are unchanged. Revised 2026-08-29 (see **Revision** below): blur `3px` → `6px`, scale `1.08` → `1.12`, plus a sub-header. |
 | `src/app/[locale]/layout.tsx` | `<DivisionTransitionProvider>` mounted inside `<DivisionProvider>` (and so inside `MotionWrapper`'s `MotionConfig reducedMotion="user"`), wrapping `ScrollProgress` / `children` / `BackToTop` / `ChatWidget`. Nesting of everything else unchanged. |
 | `src/components/global/index.ts` | Barrel exports `DivisionTransitionProvider` (default), `useDivisionTransition`, `DivisionTransitionPayload`. |
-| `messages/en.json`, `messages/mk.json` | **Two new keys per locale, nothing deleted:** `home.divisionSplit.{consulting,marketing}.cardLabel`. MK uses `Консалтинг` / `Маркетинг`, matching `nav.consulting` / `nav.marketing` verbatim so the card word and the navbar item read identically. The existing `title` / `subtitle` / `description` / `services` / `cta` keys all stay — `title` / `subtitle` / `cta` now feed the `sr-only` sentence, and the others are still used elsewhere. |
+| `messages/en.json`, `messages/mk.json` | **Two new keys per locale, nothing deleted:** `home.divisionSplit.{consulting,marketing}.cardLabel`. MK uses `Консалтинг` / `Маркетинг`, matching `nav.consulting` / `nav.marketing` verbatim so the card word and the navbar item read identically. The existing `title` / `subtitle` / `description` / `services` / `cta` keys all stay: `subtitle` is the visible card sub-header, `title` + `cta` feed the `sr-only` sentence, and `description` / `services` are still used elsewhere. |
 | `package.json` | `"shots": "node scripts/capture-division-shots.mjs"`; `playwright` + `sharp` added to `devDependencies`. |
 
 `src/app/globals.css` was **not** touched: the `scrollWidth <= innerWidth + 1` check
@@ -266,7 +272,44 @@ score is already inside tolerance.
   cards are deliberately dark-scrimmed panels with white type, this reads as art
   direction rather than a bug, and capturing light variants would double the assets
   for a surface that is blurred to 3px. Revisit only if light mode becomes the default.
-- **The captured hero headlines stay faintly legible through the 3px blur**, so
-  "Strategic clarity for growing businesses" ghosts behind the word "Consulting".
-  The blur/brightness/scrim values are the ones the phase spec pinned. If this ever
-  reads as muddy rather than layered, raising the blur to ~6px is the one-token fix.
+- **On hover the background sharpens to 3px, and the consulting card's own hero
+  headline is nearly the same sentence as its sub-header** ("Strategic clarity for
+  growing businesses" is both), so for that one card the phrase briefly reads twice.
+  It is transient and only on pointer hover. If it grates, the fixes are either a
+  higher hover blur (`group-hover:blur-[4px]`) or different sub-header copy — the
+  sub-header currently reuses `subtitle`, so changing it means editing two JSON keys
+  per locale rather than touching the component.
+
+## Revision — 2026-08-29, after first review
+
+Two changes on top of the original phase spec, both requested directly:
+
+1. **Base blur `3px` → `6px`** (hover `1.5px` → `3px`, keeping the "eases to about
+   half" relationship). At 3px the captured hero headlines stayed legible and
+   competed with the card label — "Strategic clarity for growing businesses" ghosted
+   behind the word "Consulting". At 6px the backdrop reads as shape and light rather
+   than as text. **`scale-[1.08]` was raised to `scale-[1.12]` at the same time**
+   (hover `1.14` → `1.18`, same `+0.06` delta): the scale exists purely as the
+   anti-feathering margin, and a 6px blur feathers further than a 3px one. On the
+   375px card, 1.08 left only ~16px of overhang per side, which is inside the range
+   a 6px blur samples. Verified empirically rather than assumed — sampled raw pixel
+   luminance 3px vs 28px in from the card's right and top edges at both 1440 and 375:
+   the deltas swing both positive and negative and stay small (max 12/255), i.e.
+   ordinary image content, not a transparent feather.
+2. **A sub-header under the word.** It reuses the existing
+   `home.divisionSplit.<key>.subtitle` — already written, already translated, and
+   literally the division's tagline — so **no new translation keys were added** and
+   there is no new copy to review. `text-balance` was added because without it the
+   two-line wrap orphaned badly ("Strategic clarity for growing / businesses"); it
+   now breaks as "Strategic clarity for / growing businesses" in EN and
+   "Стратешка јасност / за растечки бизниси" in MK.
+
+Because the tagline is now visible, it was removed from the `sr-only` sentence,
+which is now just `"{title}. {cta}."` — otherwise a screen reader would read it
+twice. The card's accessible name stays compact.
+
+Re-verified after the change: `tsc`, `lint`, `build` all clean; the full harness
+re-run at 41/42, the single failure being the now-obsolete assertion that a card
+shows "label + arrow only" — which the sub-header intentionally changes. Everything
+else (overflow at all six widths, both edge clips, Enter, ⌘-click, reduced motion,
+browser back, MK labels and routes, scroll-lock teardown) still passes.
