@@ -3,6 +3,11 @@ export { default as StaggerContainer } from './StaggerContainer'
 export { default as StaggerItem } from './StaggerItem'
 export { default as MotionWrapper } from './MotionWrapper'
 export { default as DivisionProvider } from './DivisionProvider'
+export {
+  default as DivisionTransitionProvider,
+  useDivisionTransition,
+  type DivisionTransitionPayload,
+} from './DivisionTransition'
 export { default as ScrollProgress } from './ScrollProgress'
 export { default as BackToTop } from './BackToTop'
 export { default as Section } from './Section'

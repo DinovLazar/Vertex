@@ -6,6 +6,7 @@ import { routing, type Locale } from '@/i18n/routing'
 import {
   MotionWrapper,
   DivisionProvider,
+  DivisionTransitionProvider,
   ScrollProgress,
   BackToTop,
   ThemeProvider,
@@ -84,10 +85,12 @@ export default async function LocaleLayout({
           <NextIntlClientProvider messages={messages} locale={locale}>
             <MotionWrapper>
               <DivisionProvider>
-                <ScrollProgress />
-                {children}
-                <BackToTop />
-                <ChatWidget />
+                <DivisionTransitionProvider>
+                  <ScrollProgress />
+                  {children}
+                  <BackToTop />
+                  <ChatWidget />
+                </DivisionTransitionProvider>
               </DivisionProvider>
             </MotionWrapper>
           </NextIntlClientProvider>
