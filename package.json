@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "shots": "node scripts/capture-division-shots.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.89.0",
@@ -40,6 +41,8 @@
     "dotenv": "^17.4.2",
     "eslint": "^9",
     "eslint-config-next": "16.2.3",
+    "playwright": "^1.62.1",
+    "sharp": "^0.35.4",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
     "typescript": "^5"
