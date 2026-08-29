@@ -90,6 +90,7 @@
       "sectionHeadline": "Two divisions. One mission.",
       "sectionSubtext": "Whether you need to restructure your operations or build a powerful digital presence, we have the team to make it happen.",
       "consulting": {
+        "cardLabel": "Consulting",
         "title": "Vertex Consulting",
         "subtitle": "Strategic clarity for growing businesses",
         "description": "Outsourced business services, workflow restructuring, IT systems assistance, and AI consulting. Led by Goran Dinov with over 8 years of hands-on experience.",
@@ -102,6 +103,7 @@
         "cta": "Explore Consulting"
       },
       "marketing": {
+        "cardLabel": "Marketing",
         "title": "Vertex Marketing",
         "subtitle": "Creative digital presence that converts",
         "description": "Website creation, social media management, IT infrastructure, and AI-assisted development. A young, bold team pushing creative boundaries.",
