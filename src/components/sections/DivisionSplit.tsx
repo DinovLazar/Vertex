@@ -48,6 +48,7 @@ const CARDS: { key: DivisionKey; href: string; src: string }[] = [
 ]
 
 function DivisionCard({
+  index,
   cardKey,
   href,
   src,
@@ -55,6 +56,7 @@ function DivisionCard({
   subLabel,
   srText,
 }: {
+  index: string
   cardKey: DivisionKey
   href: string
   src: string
@@ -105,7 +107,7 @@ function DivisionCard({
       href={href}
       onClick={handleClick}
       data-division-card={cardKey}
-      className="group relative block aspect-[16/11] overflow-hidden rounded-2xl outline-none ring-1 ring-white/10 transition-shadow duration-500 focus-visible:ring-2 focus-visible:ring-[#F5F5F5]/70 md:aspect-[16/10] md:rounded-3xl"
+      className="group relative block aspect-[16/11] overflow-hidden rounded-2xl bg-[#141414] outline-none ring-1 ring-white/10 transition-shadow duration-500 focus-visible:ring-2 focus-visible:ring-[#F5F5F5]/70 md:aspect-[16/10] md:rounded-3xl"
     >
       {/* A plain <img>, not next/image: this file is a hand-tuned 1600px WebP
           that is already at its display size, and the optimizer's wrapper
@@ -118,26 +120,36 @@ function DivisionCard({
         height={1000}
         loading="lazy"
         decoding="async"
-        className="absolute inset-0 h-full w-full scale-[1.12] object-cover blur-[6px] brightness-[0.6] transition-[transform,filter] duration-700 ease-out group-hover:scale-[1.18] group-hover:blur-[3px] group-hover:brightness-[0.72]"
+        className="absolute inset-0 h-full w-full scale-[1.12] object-cover blur-[6px] brightness-[0.52] transition-[transform,filter] duration-700 ease-out group-hover:scale-[1.18] group-hover:blur-[3px] group-hover:brightness-[0.68]"
       />
       {/* Scrim — the label has to clear AA against a photographic backdrop. */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#141414]/30 via-[#141414]/45 to-[#141414]/80" />
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(20,20,20,0.84)_0%,rgba(20,20,20,0.38)_48%,rgba(20,20,20,0.9)_100%)]" />
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center">
-        <div className="flex flex-col items-center gap-2">
-          <span className="font-heading text-[clamp(1.75rem,4.5vw,4rem)] font-bold tracking-tight text-[#F5F5F5] drop-shadow-[0_2px_24px_rgba(0,0,0,0.55)]">
+      <div
+        className={`absolute inset-x-6 top-6 flex items-center justify-between text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-[#F5F5F5]/70 md:inset-x-8 md:top-8 ${cardKey === 'consulting' ? 'md:pl-[6vw]' : 'md:pr-[6vw]'}`}
+      >
+        <span className="tabular-nums">{index}</span>
+        <span className="h-px flex-1 bg-white/20 mx-4" aria-hidden />
+        <span>Vertex</span>
+      </div>
+
+      <div
+        className={`absolute inset-x-6 bottom-6 flex items-end justify-between gap-4 md:inset-x-8 md:bottom-8 ${cardKey === 'consulting' ? 'md:pl-[6vw]' : 'md:pr-[6vw]'}`}
+      >
+        <div className="max-w-[34ch]">
+          <span className="mb-3 block text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-[#C9C9C9]">
+            {cardKey}
+          </span>
+          <span className="block font-heading text-[clamp(2.25rem,4.5vw,4.5rem)] font-bold leading-[0.92] tracking-[-0.055em] text-[#F5F5F5] drop-shadow-[0_2px_24px_rgba(0,0,0,0.55)]">
             {label}
           </span>
-          {/* Sub-header: the division's existing tagline, no new copy. It is
-              visible text now, so it is NOT repeated in the sr-only sentence
-              below — otherwise a screen reader would announce it twice. */}
-          <span className="max-w-[34ch] text-balance font-body text-[clamp(0.8125rem,1.15vw,1.0625rem)] leading-snug text-[#C9C9C9] drop-shadow-[0_1px_14px_rgba(0,0,0,0.65)]">
+          <span className="mt-4 block max-w-[28ch] text-balance font-body text-[clamp(0.8125rem,1.15vw,1.0625rem)] leading-snug text-[#D7D7D7] drop-shadow-[0_1px_14px_rgba(0,0,0,0.65)]">
             {subLabel}
           </span>
         </div>
         <span
           aria-hidden
-          className="translate-y-1 text-2xl leading-none text-[#C9C9C9] opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100"
+          className="mb-1 grid size-11 shrink-0 place-items-center rounded-full border border-white/30 text-xl leading-none text-[#F5F5F5] transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:border-white group-hover:bg-white group-hover:text-[#141414]"
         >
           &rarr;
         </span>
@@ -163,6 +175,7 @@ export default function DivisionSplit() {
         {CARDS.map((card) => (
           <DivisionCard
             key={card.key}
+            index={card.key === 'consulting' ? '01' : '02'}
             cardKey={card.key}
             href={card.href}
             src={card.src}

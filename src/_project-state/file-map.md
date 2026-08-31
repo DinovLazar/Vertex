@@ -1,6 +1,10 @@
 # File Map — Vertex Consulting
 
-Last updated: 2026-08-29 (Session L: Phase 18 — full-bleed division cards + expand-to-fullscreen transition)
+Last updated: 2026-08-31 (Session — homepage divisions editorial redesign; released, on `main`)
+
+> **2026-08-31 — homepage divisions editorial redesign:** `src/app/[locale]/(site)/page.tsx` now composes the division header as a numbered editorial grid, and `src/components/sections/DivisionSplit.tsx` places edge-safe card metadata at the top with the localized practice label, title, tagline and persistent arrow CTA at the lower edge. Full session record: `session-homepage-divisions-editorial_2026-08-31.md`.
+
+Prior: 2026-08-29 (Session L: Phase 18 — full-bleed division cards + expand-to-fullscreen transition)
 
 ## Root
 | File | Description |

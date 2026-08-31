@@ -59,3 +59,6 @@ next-env.d.ts
 .lighthouse-retry/
 .lh-run.sh
 .perf-compare.js
+
+# local review captures (screenshots for visual approval, regenerable)
+.artifacts/

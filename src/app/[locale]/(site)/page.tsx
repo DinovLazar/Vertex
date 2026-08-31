@@ -73,13 +73,20 @@ export default async function HomePage({
       {/* ===== SECTION 2: DIVISION SPLIT ===== */}
       <Section id="divisions">
         <AnimateIn>
-          <div className="text-center mb-12">
-            <h2 className="text-h2 text-[var(--division-text-primary)]">
-              {t('divisionSplit.sectionHeadline')}
-            </h2>
-            <p className="mt-3 text-body text-[var(--division-text-secondary)] max-w-2xl mx-auto">
-              {t('divisionSplit.sectionSubtext')}
+          <div className="mb-10 grid gap-6 border-y border-[var(--division-border)] py-6 md:mb-12 md:grid-cols-12 md:items-end md:gap-8 md:py-8">
+            <p className="overline flex items-center gap-3 text-[var(--division-text-muted)] md:col-span-3">
+              <span className="tabular-nums">01 / 02</span>
+              <span className="h-px w-10 bg-current/50" aria-hidden />
+              <span>Vertex</span>
             </p>
+            <div className="md:col-span-8 md:col-start-5">
+              <h2 className="max-w-2xl text-h2 text-[var(--division-text-primary)]">
+                {t('divisionSplit.sectionHeadline')}
+              </h2>
+              <p className="mt-3 max-w-xl text-body text-[var(--division-text-secondary)]">
+                {t('divisionSplit.sectionSubtext')}
+              </p>
+            </div>
           </div>
         </AnimateIn>
         <DivisionSplit />
