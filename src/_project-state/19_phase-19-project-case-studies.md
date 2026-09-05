@@ -1,5 +1,11 @@
 # Phase 19 — Project case studies (2026-08-22)
 
+> **Superseded for FK Belasica (2026-09-05).** The archive was presented on 30 August 2026, so the
+> deliberately incomplete parts this phase shipped for `fk-belasica-archive` are gone: the
+> `statusNote` key is deleted in both locales, and all three sections are rewritten for a live
+> archive. Everything else in this document still describes what is. See
+> `session-belasica-archive-live_2026-09-05.md`.
+
 Replaces the "Coming soon" case-study placeholder on all five `/projects/<slug>`
 detail pages with the finished bilingual write-ups. This closes the last big
 content gap in the Work section.

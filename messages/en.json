@@ -1523,28 +1523,29 @@
       },
       "fk-belasica-archive": {
         "label": "Digital Archive",
-        "description": "An unofficial digital archive of FK Belasica: seasons, legends, photographs and results gathered in one place. The launch page is live ahead of the archive's opening on 30 August 2026.",
+        "description": "An unofficial digital archive of FK Belasica: seasons, legends, photographs and results gathered in one place. Live since August 2026, with 96 seasons, 249 players and club figures and more than 1,100 photographs.",
         "caseStudy": {
-          "statusNote": "The archive is still being built: it opens on 30 August 2026. This write-up covers the project so far.",
           "sections": [
             {
               "heading": "The brief",
               "paragraphs": [
-                "FK Belasica is Strumica's football club, and its history lives the way most club history lives: in boxes of photographs, in newspaper results columns, in the memories of the people who were in the stands. None of it in one place, and none of it getting easier to find with time.",
-                "The idea behind the archive is simple: gather it (seasons, legends, photographs, results) into one unofficial digital home, before more of it is lost. Not a fan forum, not a news site. An archive."
+                "FK Belasica is Strumica's football club, founded in 1922, and its history lives the way most club history lives: in boxes of photographs, in newspaper results columns, in the memories of the people who were in the stands. None of it in one place, and none of it getting easier to find with time.",
+                "Ace Stojanov had spent years gathering it: seasons, line-ups, results, photographs, the research behind his book on the club. The brief was to give that work a permanent home online, an unofficial archive rather than a fan forum or a news site, and one he could keep adding to himself."
               ]
             },
             {
               "heading": "The build",
               "paragraphs": [
-                "The archive is still being built. The launch page is live at belasicahistory.mk, announcing the opening on 30 August 2026, and behind it the gathering continues: seasons, legends, photographs and results being brought into one place.",
-                "The full write-up of the build, and of what the archive holds, will land here once it opens."
+                "The archive is organised the way club history is actually remembered: by season and by person. 96 season entries run from the club's first years in the 1920s through to 2025/26, each with its final table, its line-up and the notes that season left behind. 249 players, coaches and club figures have entries of their own, ranked by appearances. 30 club records collect the titles, the cup runs and the individual bests in one place.",
+                "More than 1,100 photographs sit alongside the text, and the whole archive is in Macedonian, because that is the language the material was written in and the language the people it is for will read it in.",
+                "Behind it sits Sanity CMS. New seasons, newly identified names and newly found photographs go in without touching code, which is the point: an archive is only ever finished in the sense that it is never finished."
               ]
             },
             {
               "heading": "What it changed",
               "paragraphs": [
-                "To be written after the archive opens on 30 August 2026."
+                "On 30 August 2026 Ace Stojanov presented the archive to the club's president, to former and current Belasica players and to invited guests.",
+                "A hundred years of the club now has one address. A supporter looking for a season from the 1960s, a family looking for a grandfather in a line-up photograph, a journalist checking a record: all of it in one place, and still growing. What was in boxes and in people's memories is now somewhere it can be found."
               ]
             }
           ]

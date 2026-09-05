@@ -80,6 +80,21 @@ export interface Project {
  */
 export const projects: Project[] = [
   {
+    // Added 2026-08-20 as the LAST entry (its live site was still a holding
+    // page) and moved to the top on 2026-09-05: the archive was presented on
+    // 30 Aug 2026, belasicahistory.mk now serves the real thing, and the
+    // documented NEWEST FIRST rule applies normally again. The screenshot was
+    // re-captured at the same time, so the homepage / /marketing top three
+    // lead with the archive itself rather than a coming-soon page.
+    slug: "fk-belasica-archive",
+    name: "FK Belasica Archive",
+    division: "marketing",
+    image: "/projects/belasica.png",
+    // MK-only site (no locale routing at all); the apex 308s to www.
+    href: "https://www.belasicahistory.mk",
+    gallery: [],
+  },
+  {
     slug: "iq-up",
     name: "IQ UP!",
     division: "marketing",
@@ -117,22 +132,6 @@ export const projects: Project[] = [
     // /en for English), so link the bare domain and let the visitor's browser
     // pick. The screenshot is pinned to /en for a deterministic capture.
     href: "https://www.trajanovv.com",
-    gallery: [],
-  },
-  {
-    // Added 2026-08-20. Deliberately LAST rather than first, even though it is
-    // the newest build: the live site is still the single "СТРАНИЦАТА Е ВО
-    // ИЗРАБОТКА" holding page until the archive is promoted on 30 Aug 2026,
-    // and leading the homepage / /marketing top-three with a coming-soon page
-    // would be a downgrade. Move this entry to the top of the array once the
-    // real archive ships (and re-capture the screenshot — see
-    // `node scripts/capture-projects.mjs belasica`).
-    slug: "fk-belasica-archive",
-    name: "FK Belasica Archive",
-    division: "marketing",
-    image: "/projects/belasica.png",
-    // MK-only site (no locale routing at all); the apex 308s to www.
-    href: "https://www.belasicahistory.mk",
     gallery: [],
   },
 ]

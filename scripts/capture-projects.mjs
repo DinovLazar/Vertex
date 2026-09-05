@@ -38,8 +38,9 @@ const TARGETS = [
   // Dalibor moved off the vertexconsulting.mk subdomain to its own domain.
   { slug: 'daliborac', url: 'https://daliborplecic.com' },
   { slug: 'iqup', url: 'https://iqup.vertexconsulting.mk/' },
-  // MK-only, single static holding page. Re-capture after the archive's
-  // 30 August 2026 launch — today's shot is the "во изработка" page.
+  // MK-only (no locale routing). Re-captured 2026-09-05, after the archive
+  // was presented on 30 August 2026; the earlier shot was the "во изработка"
+  // holding page.
   { slug: 'belasica', url: 'https://www.belasicahistory.mk/' },
 ];
 

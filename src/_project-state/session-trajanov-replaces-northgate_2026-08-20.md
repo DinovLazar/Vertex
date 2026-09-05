@@ -134,8 +134,9 @@ documented rather than silent.
 
 ## Pending (Part 2)
 
-- **On 30 August 2026, do all three together:** move `fk-belasica-archive` to the top of `projects`,
+- ~~**On 30 August 2026, do all three together:** move `fk-belasica-archive` to the top of `projects`,
   re-capture (`node scripts/capture-projects.mjs belasica`), and rewrite both card descriptions —
-  they name the launch date and go stale on it.
+  they name the launch date and go stale on it.~~ **DONE 2026-09-05**, all three plus the case-study
+  rewrite and the `statusNote` deletion. See `session-belasica-archive-live_2026-09-05.md`.
 - MK copy is LLM-drafted; wants Lazar's pass. „Неофицијална" must survive that pass — the archive is
   a fan project, not a club product.

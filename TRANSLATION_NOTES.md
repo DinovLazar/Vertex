@@ -565,9 +565,9 @@ Macedonian rather than the usual other way round. **LLM-drafted, wants Lazar's n
   This is not the convention-#19 brand-name case: the club's own crest and site are Cyrillic, so MK
   Cyrillic is the authentic form, while the project `name` in `src/config/projects.ts`
   ("FK Belasica Archive") stays Latin because that field renders identically in both locales.
-- **Dated copy:** "30 August 2026" / „30 август 2026" goes stale the moment the archive is promoted.
-  Rewrite both strings then — see the pending list in
-  `session-trajanov-replaces-northgate_2026-08-20.md`.
+- **Dated copy: superseded 2026-09-05.** The launch-date sentence in both descriptions was replaced
+  when the archive opened. See §PR-L below for the copy that stands today; PR-J and the rest of PR-K
+  still describe the decisions that carried over.
 
 ## Em-dash sweep (2026-08-22) — MK punctuation rewrites
 
@@ -666,9 +666,50 @@ The EN copy took the same treatment. Check that `„со ветен одгово
 - `'рбетот на локалната SEO-работа` keeps its apostrophe.
 - Latin script for brand names and `SEO`, per #19/#30: `Sunset Services`, `Next.js`, `Sanity CMS`, `Unilock`, `Google`, `YouTube`, `Booksa`, `Versopolis`, `Partizanska knjiga`, `streetwear`, `belasicahistory.mk`.
 - `Трајанов`, `Далибор Плечиќ`, `ФК Беласица`, `Аурора, Илиноис`, `ДуПејџ`, `Чикаго`, `Вале` are transliterated, matching how the existing project cards already handle them.
-`projects.items.fk-belasica-archive.caseStudy` carries a `statusNote` in both locales plus a dated
-`build` paragraph and a placeholder `changed` line. All of it is rewritten when the archive opens —
-see the follow-up in `src/_project-state/19_phase-19-project-case-studies.md`.
+`projects.items.fk-belasica-archive.caseStudy` carried a `statusNote` in both locales plus a dated
+`build` paragraph and a placeholder `changed` line. All three were rewritten on 2026-09-05 when the
+archive opened, and the `statusNote` key was removed. See §PR-L.
+
+## FK Belasica Archive, rewritten for the live archive (`projects.items.fk-belasica-archive`, 2026-09-05)
+
+The archive was presented on **30 August 2026** and www.belasicahistory.mk now serves the real site
+rather than the „СТРАНИЦАТА Е ВО ИЗРАБОТКА" holding page. The card description and all three
+case-study sections were rewritten; the optional `statusNote` key was **deleted** in both locales
+(the note existed only because the archive was not yet open, and the page renders it conditionally).
+Still LLM-drafted MK, still wants the native pass, and the club site remains the register to match.
+
+### PR-L. What changed in the copy
+
+- **Descriptions.** First sentence unchanged in substance („сезони, легенди, фотографии и резултати
+  собрани на едно место", the client's own line). The launch-date clause was replaced with the
+  archive's actual size: 96 сезони, 249 играчи и клупски работници, над 1.100 фотографии.
+- **Numbers are counted, not estimated.** They come from the archive's own content: 96 `season`
+  documents (decades 1920 through 2020, „Беласица 1922-1926" to „Сезона 2025/26"), 249 `person`
+  documents, 1.117 `photo` documents (written as „над 1.100"), 30 `clubRecord` documents. Re-count
+  before quoting them again; the archive keeps growing, which is the point the copy makes.
+- **Thousands separator.** MK uses the full stop (`1.100`), EN the comma (`1,100`).
+- **„Неофицијална" survives**, per the original PR-K decision. Nothing in the new copy implies the
+  archive is a club product.
+- **`Аце Стојанов` is transliterated in MK, `Ace Stojanov` Latin in EN**, matching how `Трајанов`
+  and `Далибор Плечиќ` are already handled. He is named as the person whose research the archive
+  is built from and who presented it, which is what his own „За нас" page says; the copy makes no
+  claim about the club endorsing it.
+- **`Sanity CMS` stays Latin** (convention #19), as in the Dalibor Plečić write-up.
+- **„клупски работници"** for "club figures" (people who are neither players nor coaches). „Клупски
+  личности" was rejected as reading like celebrities; „функционери" as officialese. **Worth a
+  second opinion.**
+- **„записи за сезони"** for "season entries" rather than „сезони" alone, because several entries
+  cover a span („Беласица 1922-1926") rather than a single season.
+- **Tense.** Every "will" in the old copy is gone: „се гради" → past/present of a live site, and the
+  placeholder „Ќе биде напишано по отворањето" is replaced by the presentation and what the archive
+  changed.
+- No em dashes in either locale, per the 2026-08-22 sweep.
+
+### PR-M. One fact to confirm
+
+The presentation date in both locales is **30 August 2026**, the date the holding page announced.
+If the event actually fell on another day, it appears once per locale, in the first paragraph of
+„Што се промени" / "What it changed".
 
 ## Blog post — „Google мапите" (Sanity `post-google-maps-visibility-small-business`, 2026-08-26)
 
